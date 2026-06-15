@@ -1,0 +1,5 @@
+# elan1 — robots
+User-agent: *
+Allow: /
+
+Sitemap: https://elan1.in/sitemap.xml

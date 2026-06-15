@@ -1,0 +1,370 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1720 3188" font-family="'JetBrains Mono', ui-monospace, monospace">
+<defs>
+<style>/*<![CDATA[*/@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@400;500;600&display=swap");.disp{font-family:"Bricolage Grotesque","JetBrains Mono",sans-serif;}.body{font-family:"Outfit","JetBrains Mono",sans-serif;}.mono{font-family:"JetBrains Mono",ui-monospace,monospace;}/*]]>*/</style>
+<pattern id="grid" width="44" height="44" patternUnits="userSpaceOnUse"><path d="M44 0H0V44" fill="none" stroke="#1b2030" stroke-width="1"/></pattern>
+<radialGradient id="glowClay" cx="50%" cy="0%" r="80%"><stop offset="0%" stop-color="#df8c64" stop-opacity="0.20"/><stop offset="100%" stop-color="#0b0c12" stop-opacity="0"/></radialGradient>
+<linearGradient id="titleGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#df8c64"/><stop offset="55%" stop-color="#e3b25c"/><stop offset="100%" stop-color="#5ad1c0"/></linearGradient>
+<linearGradient id="g_clay" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#df8c64"/><stop offset="100%" stop-color="#df8c64" stop-opacity="0.35"/></linearGradient>
+<linearGradient id="g_clayd" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#b9603f"/><stop offset="100%" stop-color="#b9603f" stop-opacity="0.35"/></linearGradient>
+<linearGradient id="g_cyan" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#5ad1c0"/><stop offset="100%" stop-color="#5ad1c0" stop-opacity="0.35"/></linearGradient>
+<linearGradient id="g_gold" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#e3b25c"/><stop offset="100%" stop-color="#e3b25c" stop-opacity="0.35"/></linearGradient>
+<linearGradient id="g_violet" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#a394ff"/><stop offset="100%" stop-color="#a394ff" stop-opacity="0.35"/></linearGradient>
+<linearGradient id="g_green" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#7fd58f"/><stop offset="100%" stop-color="#7fd58f" stop-opacity="0.35"/></linearGradient>
+<linearGradient id="g_rose" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#e87f86"/><stop offset="100%" stop-color="#e87f86" stop-opacity="0.35"/></linearGradient>
+</defs>
+<rect width="1720" height="3188" fill="#0b0c12"/>
+<rect width="1720" height="3188" fill="url(#grid)" opacity="0.6"/>
+<rect width="1720" height="620" fill="url(#glowClay)"/>
+<rect x="30" y="30" width="1660" height="3128" rx="22" fill="none" stroke="#262b3c" stroke-width="1.5"/>
+<circle cx="30" cy="30" r="4" fill="#df8c64"/>
+<circle cx="1690" cy="30" r="4" fill="#df8c64"/>
+<circle cx="30" cy="3158" r="4" fill="#df8c64"/>
+<circle cx="1690" cy="3158" r="4" fill="#df8c64"/>
+<text x="132" y="96" class="mono" font-size="15" letter-spacing="6" fill="#df8c64">THE COMPLETE ARCHITECTURE OF CLAUDE — ANTHROPIC</text>
+<text x="130" y="176" class="disp" font-size="92" font-weight="800" fill="url(#titleGrad)" letter-spacing="-2">CLAUDE&#160;360&#176;</text>
+<text x="132" y="214" class="body" font-size="20" fill="#cfd3e0">End-to-end systems map — models, surfaces, capabilities &amp; the extensibility ecosystem.</text>
+<rect x="132" y="232" width="291" height="32" rx="16" fill="#13161f" stroke="#df8c64" stroke-opacity="0.5"/>
+<circle cx="150" cy="248" r="4" fill="#df8c64"/>
+<text x="163" y="252.5" class="mono" font-size="12.5" fill="#aeb4c4"><tspan fill="#df8c64">FLAGSHIP</tspan>  Claude Opus 4.8</text>
+<rect x="439" y="232" width="302" height="32" rx="16" fill="#13161f" stroke="#5ad1c0" stroke-opacity="0.5"/>
+<circle cx="457" cy="248" r="4" fill="#5ad1c0"/>
+<text x="470" y="252.5" class="mono" font-size="12.5" fill="#aeb4c4"><tspan fill="#5ad1c0">KNOWLEDGE CUTOFF</tspan>  Jan 2026</text>
+<rect x="757" y="232" width="250" height="32" rx="16" fill="#13161f" stroke="#e3b25c" stroke-opacity="0.5"/>
+<circle cx="775" cy="248" r="4" fill="#e3b25c"/>
+<text x="788" y="252.5" class="mono" font-size="12.5" fill="#aeb4c4"><tspan fill="#e3b25c">MAP UPDATED</tspan>  Jun 2026</text>
+<rect x="1022" y="232" width="291" height="32" rx="16" fill="#13161f" stroke="#a394ff" stroke-opacity="0.5"/>
+<circle cx="1040" cy="248" r="4" fill="#a394ff"/>
+<text x="1053" y="252.5" class="mono" font-size="12.5" fill="#aeb4c4"><tspan fill="#a394ff">CONTEXT</tspan>  1,000,000 tokens</text>
+<text x="132" y="288" class="mono" font-size="13" letter-spacing="4" fill="#7d8493">THE SIGNAL FLOW — HOW IT ALL CONNECTS</text>
+<rect x="132" y="336" width="227" height="46" rx="10" fill="#12151e" stroke="#e87f86" stroke-opacity="0.7"/>
+<rect x="132" y="336" width="5" height="46" rx="2.5" fill="#e87f86"/>
+<text x="246" y="365" text-anchor="middle" class="mono" font-size="14" font-weight="700" fill="#e8eaf2">YOU</text>
+<path d="M363 359 L376 359" stroke="#df8c64" stroke-width="2"/>
+<path d="M372 355 L377 359 L372 363" fill="none" stroke="#df8c64" stroke-width="2"/>
+<rect x="381" y="336" width="227" height="46" rx="10" fill="#12151e" stroke="#5ad1c0" stroke-opacity="0.7"/>
+<rect x="381" y="336" width="5" height="46" rx="2.5" fill="#5ad1c0"/>
+<text x="495" y="365" text-anchor="middle" class="mono" font-size="14" font-weight="700" fill="#e8eaf2">SURFACE</text>
+<path d="M613 359 L626 359" stroke="#df8c64" stroke-width="2"/>
+<path d="M622 355 L627 359 L622 363" fill="none" stroke="#df8c64" stroke-width="2"/>
+<rect x="631" y="336" width="227" height="46" rx="10" fill="#12151e" stroke="#df8c64" stroke-opacity="0.7"/>
+<rect x="631" y="336" width="5" height="46" rx="2.5" fill="#df8c64"/>
+<text x="744" y="365" text-anchor="middle" class="mono" font-size="14" font-weight="700" fill="#e8eaf2">OPUS 4.8 CORE</text>
+<path d="M862 359 L875 359" stroke="#df8c64" stroke-width="2"/>
+<path d="M871 355 L876 359 L871 363" fill="none" stroke="#df8c64" stroke-width="2"/>
+<rect x="880" y="336" width="227" height="46" rx="10" fill="#12151e" stroke="#e3b25c" stroke-opacity="0.7"/>
+<rect x="880" y="336" width="5" height="46" rx="2.5" fill="#e3b25c"/>
+<text x="994" y="365" text-anchor="middle" class="mono" font-size="14" font-weight="700" fill="#e8eaf2">CAPABILITIES</text>
+<path d="M1111 359 L1124 359" stroke="#df8c64" stroke-width="2"/>
+<path d="M1120 355 L1125 359 L1120 363" fill="none" stroke="#df8c64" stroke-width="2"/>
+<rect x="1129" y="336" width="227" height="46" rx="10" fill="#12151e" stroke="#a394ff" stroke-opacity="0.7"/>
+<rect x="1129" y="336" width="5" height="46" rx="2.5" fill="#a394ff"/>
+<text x="1243" y="365" text-anchor="middle" class="mono" font-size="11" font-weight="700" fill="#e8eaf2">SKILLS · CONNECTORS · PLUGINS</text>
+<path d="M1361 359 L1374 359" stroke="#df8c64" stroke-width="2"/>
+<path d="M1370 355 L1375 359 L1370 363" fill="none" stroke="#df8c64" stroke-width="2"/>
+<rect x="1379" y="336" width="227" height="46" rx="10" fill="#12151e" stroke="#7fd58f" stroke-opacity="0.7"/>
+<rect x="1379" y="336" width="5" height="46" rx="2.5" fill="#7fd58f"/>
+<text x="1492" y="365" text-anchor="middle" class="mono" font-size="11" font-weight="700" fill="#e8eaf2">ARTIFACTS &amp; FILES</text>
+<rect x="132" y="412" width="1496" height="46" rx="10" fill="#10131c" stroke="#222738"/>
+<rect x="132" y="412" width="6" height="46" rx="3" fill="#df8c64"/>
+<text x="156" y="442" class="disp" font-size="22" font-weight="800" fill="#df8c64">01</text>
+<text x="200" y="442" class="disp" font-size="22" font-weight="700" fill="#f1f2f7">THE INTELLIGENCE CORE</text>
+<text x="1620" y="442" text-anchor="end" class="body" font-size="14.5" fill="#8b91a3">The models — Claude&#x27;s reasoning brain</text>
+<rect x="132" y="478" width="481" height="168" rx="13" fill="#13161f" stroke="#262b3c" stroke-width="1"/>
+<rect x="132" y="478" width="481" height="4" rx="2" fill="url(#g_clay)"/>
+<circle cx="155" cy="507" r="5" fill="#df8c64"/>
+<text x="170" y="513" class="disp" font-size="16.5" font-weight="700" fill="#f2f3f8">Claude Opus 4.8  ★ flagship</text>
+<text x="153" y="532" class="body" font-size="13.5" fill="#c4c9d6">Frontier flagship · released May 28, 2026.</text>
+<text x="153" y="552" class="body" font-size="13.5" fill="#c4c9d6">1,000,000-token context · 128K max output.</text>
+<text x="153" y="571" class="body" font-size="13.5" fill="#c4c9d6">Adaptive (extended) thinking built in.</text>
+<text x="153" y="590" class="body" font-size="13.5" fill="#c4c9d6">~4× less likely to let code flaws pass.</text>
+<text x="153" y="610" class="body" font-size="13.5" fill="#c4c9d6">Strongest at agentic coding &amp; knowledge work.</text>
+<rect x="639" y="478" width="481" height="168" rx="13" fill="#13161f" stroke="#262b3c" stroke-width="1"/>
+<rect x="639" y="478" width="481" height="4" rx="2" fill="url(#g_clayd)"/>
+<circle cx="662" cy="507" r="5" fill="#b9603f"/>
+<text x="677" y="513" class="disp" font-size="16.5" font-weight="700" fill="#f2f3f8">Opus 4.7 / Opus 4.6</text>
+<text x="660" y="532" class="body" font-size="13.5" fill="#c4c9d6">Prior frontier versions, still selectable.</text>
+<text x="660" y="552" class="body" font-size="13.5" fill="#c4c9d6">Opus 4.6 powers Claude Code Security scanning.</text>
+<text x="660" y="571" class="body" font-size="13.5" fill="#c4c9d6">Each step gains coding + reasoning accuracy.</text>
+<rect x="1146" y="478" width="481" height="168" rx="13" fill="#13161f" stroke="#262b3c" stroke-width="1"/>
+<rect x="1146" y="478" width="481" height="4" rx="2" fill="url(#g_cyan)"/>
+<circle cx="1169" cy="507" r="5" fill="#5ad1c0"/>
+<text x="1184" y="513" class="disp" font-size="16.5" font-weight="700" fill="#f2f3f8">Claude Sonnet 4.6</text>
+<text x="1167" y="532" class="body" font-size="13.5" fill="#c4c9d6">Balanced workhorse · Feb 17, 2026.</text>
+<text x="1167" y="552" class="body" font-size="13.5" fill="#c4c9d6">Fast and highly capable — common default.</text>
+<text x="1167" y="571" class="body" font-size="13.5" fill="#c4c9d6">1M context via extended-context setting.</text>
+<rect x="132" y="667.5" width="481" height="128" rx="13" fill="#13161f" stroke="#262b3c" stroke-width="1"/>
+<rect x="132" y="667.5" width="481" height="4" rx="2" fill="url(#g_gold)"/>
+<circle cx="155" cy="696.5" r="5" fill="#e3b25c"/>
+<text x="170" y="702.5" class="disp" font-size="16.5" font-weight="700" fill="#f2f3f8">Claude Haiku 4.5</text>
+<text x="153" y="722" class="body" font-size="13.5" fill="#c4c9d6">Fastest, lowest-cost tier (Oct 2025).</text>
+<text x="153" y="741" class="body" font-size="13.5" fill="#c4c9d6">Built for high-volume, low-latency tasks.</text>
+<text x="153" y="760" class="body" font-size="13.5" fill="#c4c9d6">Great for cheap automation &amp; sub-agents.</text>
+<rect x="639" y="667.5" width="481" height="128" rx="13" fill="#13161f" stroke="#262b3c" stroke-width="1"/>
+<rect x="639" y="667.5" width="481" height="4" rx="2" fill="url(#g_violet)"/>
+<circle cx="662" cy="696.5" r="5" fill="#a394ff"/>
+<text x="677" y="702.5" class="disp" font-size="16.5" font-weight="700" fill="#f2f3f8">Claude Mythos Preview</text>
+<text x="660" y="722" class="body" font-size="13.5" fill="#c4c9d6">Most advanced model — Project Glasswing.</text>
+<text x="660" y="741" class="body" font-size="13.5" fill="#c4c9d6">Gated for cyber-safety; trusted orgs only.</text>
+<text x="660" y="760" class="body" font-size="13.5" fill="#c4c9d6">Mythos-class promised to all &#x27;coming weeks&#x27;.</text>
+<rect x="1146" y="667.5" width="481" height="128" rx="13" fill="#13161f" stroke="#262b3c" stroke-width="1"/>
+<rect x="1146" y="667.5" width="481" height="4" rx="2" fill="url(#g_rose)"/>
+<circle cx="1169" cy="696.5" r="5" fill="#e87f86"/>
+<text x="1184" y="702.5" class="disp" font-size="16.5" font-weight="700" fill="#f2f3f8">Reasoning controls</text>
+<text x="1167" y="722" class="body" font-size="13.5" fill="#c4c9d6">Adaptive / extended thinking on demand.</text>
+<text x="1167" y="741" class="body" font-size="13.5" fill="#c4c9d6">Effort control: trade quality ⇄ speed &amp; cost.</text>
+<text x="1167" y="760" class="body" font-size="13.5" fill="#c4c9d6">Fast mode: ~2.5× speed, now far cheaper.</text>
+<rect x="132" y="826.0" width="1496" height="46" rx="10" fill="#10131c" stroke="#222738"/>
+<rect x="132" y="826.0" width="6" height="46" rx="3" fill="#5ad1c0"/>
+<text x="156" y="856.0" class="disp" font-size="22" font-weight="800" fill="#5ad1c0">02</text>
+<text x="200" y="856.0" class="disp" font-size="22" font-weight="700" fill="#f1f2f7">ACCESS SURFACES</text>
+<text x="1620" y="856.0" text-anchor="end" class="body" font-size="14.5" fill="#8b91a3">Every place you actually use Claude</text>
+<rect x="132" y="892.0" width="481" height="128" rx="13" fill="#13161f" stroke="#262b3c" stroke-width="1"/>
+<rect x="132" y="892.0" width="481" height="4" rx="2" fill="url(#g_cyan)"/>
+<circle cx="155" cy="921.0" r="5" fill="#5ad1c0"/>
+<text x="170" y="927.0" class="disp" font-size="14.5" font-weight="700" fill="#f2f3f8">claude.ai  ·  Web / Mobile / Desktop</text>
+<text x="153" y="946" class="body" font-size="13.5" fill="#c4c9d6">The chat workspace you&#x27;re in right now.</text>
+<text x="153" y="966" class="body" font-size="13.5" fill="#c4c9d6">Hosts Artifacts, Projects, Memory, Search,</text>
+<text x="153" y="985" class="body" font-size="13.5" fill="#c4c9d6">Settings — the consumer &#x27;front door&#x27;.</text>
+<rect x="639" y="892.0" width="481" height="128" rx="13" fill="#13161f" stroke="#262b3c" stroke-width="1"/>
+<rect x="639" y="892.0" width="481" height="4" rx="2" fill="url(#g_clay)"/>
+<circle cx="662" cy="921.0" r="5" fill="#df8c64"/>
+<text x="677" y="927.0" class="disp" font-size="16.5" font-weight="700" fill="#f2f3f8">Claude API &amp; Platform</text>
+<text x="660" y="946" class="body" font-size="13.5" fill="#c4c9d6">Build apps on Claude programmatically.</text>
+<text x="660" y="966" class="body" font-size="13.5" fill="#c4c9d6">Tool use / function calling, batch, streaming.</text>
+<text x="660" y="985" class="body" font-size="13.5" fill="#c4c9d6">Mid-conversation system messages (4.8).</text>
+<rect x="1146" y="892.0" width="481" height="128" rx="13" fill="#13161f" stroke="#262b3c" stroke-width="1"/>
+<rect x="1146" y="892.0" width="481" height="4" rx="2" fill="url(#g_green)"/>
+<circle cx="1169" cy="921.0" r="5" fill="#7fd58f"/>
+<text x="1184" y="927.0" class="disp" font-size="16.5" font-weight="700" fill="#f2f3f8">Claude Code</text>
+<text x="1167" y="946" class="body" font-size="13.5" fill="#c4c9d6">Agentic coding in terminal / desktop / mobile.</text>
+<text x="1167" y="966" class="body" font-size="13.5" fill="#c4c9d6">Dynamic Workflows: 100s of parallel sub-agents.</text>
+<text x="1167" y="985" class="body" font-size="13.5" fill="#c4c9d6">Agent view + codebase-scale migrations.</text>
+<rect x="132" y="1042.5" width="481" height="128" rx="13" fill="#13161f" stroke="#262b3c" stroke-width="1"/>
+<rect x="132" y="1042.5" width="481" height="4" rx="2" fill="url(#g_violet)"/>
+<circle cx="155" cy="1071.5" r="5" fill="#a394ff"/>
+<text x="170" y="1077.5" class="disp" font-size="16.5" font-weight="700" fill="#f2f3f8">Claude Cowork</text>
+<text x="153" y="1096" class="body" font-size="13.5" fill="#c4c9d6">Agentic knowledge-work desktop app.</text>
+<text x="153" y="1116" class="body" font-size="13.5" fill="#c4c9d6">File/folder based — reads, edits, creates files.</text>
+<text x="153" y="1136" class="body" font-size="13.5" fill="#c4c9d6">Sub-agents + Live Artifacts (GA Apr 2026).</text>
+<rect x="639" y="1042.5" width="481" height="128" rx="13" fill="#13161f" stroke="#262b3c" stroke-width="1"/>
+<rect x="639" y="1042.5" width="481" height="4" rx="2" fill="url(#g_gold)"/>
+<circle cx="662" cy="1071.5" r="5" fill="#e3b25c"/>
+<text x="677" y="1077.5" class="disp" font-size="16.5" font-weight="700" fill="#f2f3f8">Claude in Chrome</text>
+<text x="660" y="1096" class="body" font-size="13.5" fill="#c4c9d6">Browsing agent — navigates, fills forms,</text>
+<text x="660" y="1116" class="body" font-size="13.5" fill="#c4c9d6">runs multi-step web tasks for you (beta).</text>
+<rect x="1146" y="1042.5" width="481" height="128" rx="13" fill="#13161f" stroke="#262b3c" stroke-width="1"/>
+<rect x="1146" y="1042.5" width="481" height="4" rx="2" fill="url(#g_rose)"/>
+<circle cx="1169" cy="1071.5" r="5" fill="#e87f86"/>
+<text x="1184" y="1077.5" class="disp" font-size="16.5" font-weight="700" fill="#f2f3f8">Claude in Excel / PowerPoint</text>
+<text x="1167" y="1096" class="body" font-size="13.5" fill="#c4c9d6">Spreadsheet &amp; slides agents.</text>
+<text x="1167" y="1116" class="body" font-size="13.5" fill="#c4c9d6">Cross-app: analyze in Excel → build a deck</text>
+<text x="1167" y="1136" class="body" font-size="13.5" fill="#c4c9d6">without restarting the task.</text>
+<rect x="132" y="1193.0" width="481" height="109" rx="13" fill="#13161f" stroke="#262b3c" stroke-width="1"/>
+<rect x="132" y="1193.0" width="481" height="4" rx="2" fill="url(#g_cyan)"/>
+<circle cx="155" cy="1222.0" r="5" fill="#5ad1c0"/>
+<text x="170" y="1228.0" class="disp" font-size="16.5" font-weight="700" fill="#f2f3f8">Claude Design</text>
+<text x="153" y="1247" class="body" font-size="13.5" fill="#c4c9d6">A canvas with real design tools that Claude</text>
+<text x="153" y="1266" class="body" font-size="13.5" fill="#c4c9d6">builds on and iterates via chat.</text>
+<rect x="639" y="1193.0" width="481" height="109" rx="13" fill="#13161f" stroke="#262b3c" stroke-width="1"/>
+<rect x="639" y="1193.0" width="481" height="4" rx="2" fill="url(#g_clay)"/>
+<circle cx="662" cy="1222.0" r="5" fill="#df8c64"/>
+<text x="677" y="1228.0" class="disp" font-size="16.5" font-weight="700" fill="#f2f3f8">Mobile  +  Dispatch</text>
+<text x="660" y="1247" class="body" font-size="13.5" fill="#c4c9d6">Send tasks from your phone; Claude acts on</text>
+<text x="660" y="1266" class="body" font-size="13.5" fill="#c4c9d6">your desktop apps remotely.</text>
+<rect x="132" y="1332.0" width="1496" height="46" rx="10" fill="#10131c" stroke="#222738"/>
+<rect x="132" y="1332.0" width="6" height="46" rx="3" fill="#e3b25c"/>
+<text x="156" y="1362.0" class="disp" font-size="22" font-weight="800" fill="#e3b25c">03</text>
+<text x="200" y="1362.0" class="disp" font-size="22" font-weight="700" fill="#f1f2f7">CORE CAPABILITIES</text>
+<text x="1620" y="1362.0" text-anchor="end" class="body" font-size="14.5" fill="#8b91a3">What Claude does inside a conversation</text>
+<rect x="132" y="1398.0" width="481" height="148" rx="13" fill="#13161f" stroke="#262b3c" stroke-width="1"/>
+<rect x="132" y="1398.0" width="481" height="4" rx="2" fill="url(#g_gold)"/>
+<circle cx="155" cy="1427.0" r="5" fill="#e3b25c"/>
+<text x="170" y="1433.0" class="disp" font-size="16.5" font-weight="700" fill="#f2f3f8">Chat / Conversation</text>
+<text x="153" y="1452" class="body" font-size="13.5" fill="#c4c9d6">The core loop: multi-turn reasoning over</text>
+<text x="153" y="1472" class="body" font-size="13.5" fill="#c4c9d6">long context, with per-task effort control.</text>
+<rect x="639" y="1398.0" width="481" height="148" rx="13" fill="#13161f" stroke="#262b3c" stroke-width="1"/>
+<rect x="639" y="1398.0" width="481" height="4" rx="2" fill="url(#g_clay)"/>
+<circle cx="662" cy="1427.0" r="5" fill="#df8c64"/>
+<text x="677" y="1433.0" class="disp" font-size="16.5" font-weight="700" fill="#f2f3f8">Artifacts</text>
+<text x="660" y="1452" class="body" font-size="13.5" fill="#c4c9d6">Live, runnable side-panel outputs:</text>
+<text x="660" y="1472" class="body" font-size="13.5" fill="#c4c9d6">React · HTML · SVG · docs · interactive tools.</text>
+<text x="660" y="1491" class="body" font-size="13.5" fill="#c4c9d6">Persistent storage, direct Claude API calls,</text>
+<text x="660" y="1510" class="body" font-size="13.5" fill="#c4c9d6">and MCP connections to external services.</text>
+<rect x="1146" y="1398.0" width="481" height="148" rx="13" fill="#13161f" stroke="#262b3c" stroke-width="1"/>
+<rect x="1146" y="1398.0" width="481" height="4" rx="2" fill="url(#g_cyan)"/>
+<circle cx="1169" cy="1427.0" r="5" fill="#5ad1c0"/>
+<text x="1184" y="1433.0" class="disp" font-size="16.5" font-weight="700" fill="#f2f3f8">Web Search</text>
+<text x="1167" y="1452" class="body" font-size="13.5" fill="#c4c9d6">Toggle for live info beyond the Jan-2026</text>
+<text x="1167" y="1472" class="body" font-size="13.5" fill="#c4c9d6">knowledge cutoff, with cited sources.</text>
+<rect x="132" y="1568.0" width="481" height="128" rx="13" fill="#13161f" stroke="#262b3c" stroke-width="1"/>
+<rect x="132" y="1568.0" width="481" height="4" rx="2" fill="url(#g_violet)"/>
+<circle cx="155" cy="1597.0" r="5" fill="#a394ff"/>
+<text x="170" y="1603.0" class="disp" font-size="16.5" font-weight="700" fill="#f2f3f8">Research  (Deep Research)</text>
+<text x="153" y="1622" class="body" font-size="13.5" fill="#c4c9d6">Agentic multi-search + source reading →</text>
+<text x="153" y="1642" class="body" font-size="13.5" fill="#c4c9d6">a structured, cited report.</text>
+<text x="153" y="1661" class="body" font-size="13.5" fill="#c4c9d6">Spans web, Google Workspace &amp; connectors.</text>
+<rect x="639" y="1568.0" width="481" height="128" rx="13" fill="#13161f" stroke="#262b3c" stroke-width="1"/>
+<rect x="639" y="1568.0" width="481" height="4" rx="2" fill="url(#g_green)"/>
+<circle cx="662" cy="1597.0" r="5" fill="#7fd58f"/>
+<text x="677" y="1603.0" class="disp" font-size="16.5" font-weight="700" fill="#f2f3f8">Add Files &amp; Photos</text>
+<text x="660" y="1622" class="body" font-size="13.5" fill="#c4c9d6">Upload PDFs, docs, spreadsheets, images.</text>
+<text x="660" y="1642" class="body" font-size="13.5" fill="#c4c9d6">Vision + document intelligence: extract,</text>
+<text x="660" y="1661" class="body" font-size="13.5" fill="#c4c9d6">summarize, analyze, transform.</text>
+<rect x="1146" y="1568.0" width="481" height="128" rx="13" fill="#13161f" stroke="#262b3c" stroke-width="1"/>
+<rect x="1146" y="1568.0" width="481" height="4" rx="2" fill="url(#g_rose)"/>
+<circle cx="1169" cy="1597.0" r="5" fill="#e87f86"/>
+<text x="1184" y="1603.0" class="disp" font-size="16.5" font-weight="700" fill="#f2f3f8">Memory</text>
+<text x="1167" y="1622" class="body" font-size="13.5" fill="#c4c9d6">Persistent recall across chats — name,</text>
+<text x="1167" y="1642" class="body" font-size="13.5" fill="#c4c9d6">preferences, project context.</text>
+<text x="1167" y="1661" class="body" font-size="13.5" fill="#c4c9d6">View / edit / export · per-project · all tiers.</text>
+<rect x="132" y="1718.5" width="481" height="109" rx="13" fill="#13161f" stroke="#262b3c" stroke-width="1"/>
+<rect x="132" y="1718.5" width="481" height="4" rx="2" fill="url(#g_gold)"/>
+<circle cx="155" cy="1747.5" r="5" fill="#e3b25c"/>
+<text x="170" y="1753.5" class="disp" font-size="16.5" font-weight="700" fill="#f2f3f8">Search &amp; reference past chats</text>
+<text x="153" y="1772" class="body" font-size="13.5" fill="#c4c9d6">Pull context from your conversation history</text>
+<text x="153" y="1792" class="body" font-size="13.5" fill="#c4c9d6">into a brand-new chat.</text>
+<rect x="639" y="1718.5" width="481" height="109" rx="13" fill="#13161f" stroke="#262b3c" stroke-width="1"/>
+<rect x="639" y="1718.5" width="481" height="4" rx="2" fill="url(#g_cyan)"/>
+<circle cx="662" cy="1747.5" r="5" fill="#5ad1c0"/>
+<text x="677" y="1753.5" class="disp" font-size="16.5" font-weight="700" fill="#f2f3f8">Code Execution &amp; File Creation</text>
+<text x="660" y="1772" class="body" font-size="13.5" fill="#c4c9d6">Runs code in a sandbox and produces</text>
+<text x="660" y="1792" class="body" font-size="13.5" fill="#c4c9d6">.docx / .pptx / .xlsx / .pdf downloads.</text>
+<rect x="132" y="1857.5" width="1496" height="46" rx="10" fill="#10131c" stroke="#222738"/>
+<rect x="132" y="1857.5" width="6" height="46" rx="3" fill="#a394ff"/>
+<text x="156" y="1887.5" class="disp" font-size="22" font-weight="800" fill="#a394ff">04</text>
+<text x="200" y="1887.5" class="disp" font-size="22" font-weight="700" fill="#f1f2f7">THE EXTENSIBILITY ECOSYSTEM</text>
+<text x="1620" y="1887.5" text-anchor="end" class="body" font-size="14.5" fill="#8b91a3">Turn a generalist into your specialist</text>
+<rect x="132" y="1923.5" width="481" height="148" rx="13" fill="#13161f" stroke="#262b3c" stroke-width="1"/>
+<rect x="132" y="1923.5" width="481" height="4" rx="2" fill="url(#g_violet)"/>
+<circle cx="155" cy="1952.5" r="5" fill="#a394ff"/>
+<text x="170" y="1958.5" class="disp" font-size="16.5" font-weight="700" fill="#f2f3f8">Skills</text>
+<text x="153" y="1978" class="body" font-size="13.5" fill="#c4c9d6">A single markdown file teaching Claude ONE</text>
+<text x="153" y="1997" class="body" font-size="13.5" fill="#c4c9d6">task or playbook. Fires automatically on</text>
+<text x="153" y="2016" class="body" font-size="13.5" fill="#c4c9d6">relevant context. The building blocks.</text>
+<rect x="639" y="1923.5" width="481" height="148" rx="13" fill="#13161f" stroke="#262b3c" stroke-width="1"/>
+<rect x="639" y="1923.5" width="481" height="4" rx="2" fill="url(#g_cyan)"/>
+<circle cx="662" cy="1952.5" r="5" fill="#5ad1c0"/>
+<text x="677" y="1958.5" class="disp" font-size="16.5" font-weight="700" fill="#f2f3f8">Connectors  (MCP)</text>
+<text x="660" y="1978" class="body" font-size="13.5" fill="#c4c9d6">Live links to your apps &amp; data: Gmail,</text>
+<text x="660" y="1997" class="body" font-size="13.5" fill="#c4c9d6">Calendar, Drive, Slack, Notion, Stripe,</text>
+<text x="660" y="2016" class="body" font-size="13.5" fill="#c4c9d6">Microsoft 365 + thousands more.</text>
+<text x="660" y="2036" class="body" font-size="13.5" fill="#c4c9d6">Real data instead of copy-paste.</text>
+<rect x="1146" y="1923.5" width="481" height="148" rx="13" fill="#13161f" stroke="#262b3c" stroke-width="1"/>
+<rect x="1146" y="1923.5" width="481" height="4" rx="2" fill="url(#g_clay)"/>
+<circle cx="1169" cy="1952.5" r="5" fill="#df8c64"/>
+<text x="1184" y="1958.5" class="disp" font-size="16.5" font-weight="700" fill="#f2f3f8">Plugins</text>
+<text x="1167" y="1978" class="body" font-size="13.5" fill="#c4c9d6">Installable bundles = Skills + Connectors +</text>
+<text x="1167" y="1997" class="body" font-size="13.5" fill="#c4c9d6">slash commands + sub-agents for one job</text>
+<text x="1167" y="2016" class="body" font-size="13.5" fill="#c4c9d6">(legal, sales, finance, marketing, data).</text>
+<text x="1167" y="2036" class="body" font-size="13.5" fill="#c4c9d6">Marketplace open since Feb 2026.</text>
+<rect x="132" y="2093.5" width="481" height="109" rx="13" fill="#13161f" stroke="#262b3c" stroke-width="1"/>
+<rect x="132" y="2093.5" width="481" height="4" rx="2" fill="url(#g_green)"/>
+<circle cx="155" cy="2122.5" r="5" fill="#7fd58f"/>
+<text x="170" y="2128.5" class="disp" font-size="16.5" font-weight="700" fill="#f2f3f8">Sub-agents</text>
+<text x="153" y="2148" class="body" font-size="13.5" fill="#c4c9d6">Parallel specialist workers Claude spawns</text>
+<text x="153" y="2167" class="body" font-size="13.5" fill="#c4c9d6">to split a big job. Core to Dynamic Workflows.</text>
+<rect x="639" y="2093.5" width="481" height="109" rx="13" fill="#13161f" stroke="#262b3c" stroke-width="1"/>
+<rect x="639" y="2093.5" width="481" height="4" rx="2" fill="url(#g_gold)"/>
+<circle cx="662" cy="2122.5" r="5" fill="#e3b25c"/>
+<text x="677" y="2128.5" class="disp" font-size="16.5" font-weight="700" fill="#f2f3f8">Slash commands</text>
+<text x="660" y="2148" class="body" font-size="13.5" fill="#c4c9d6">Reusable shortcuts like /draft-campaign,</text>
+<text x="660" y="2167" class="body" font-size="13.5" fill="#c4c9d6">packaged inside plugins.</text>
+<rect x="1146" y="2093.5" width="481" height="109" rx="13" fill="#13161f" stroke="#262b3c" stroke-width="1"/>
+<rect x="1146" y="2093.5" width="481" height="4" rx="2" fill="url(#g_rose)"/>
+<circle cx="1169" cy="2122.5" r="5" fill="#e87f86"/>
+<text x="1184" y="2128.5" class="disp" font-size="16.5" font-weight="700" fill="#f2f3f8">MCP — the protocol</text>
+<text x="1167" y="2148" class="body" font-size="13.5" fill="#c4c9d6">Open standard (Nov 2024) powering connectors.</text>
+<text x="1167" y="2167" class="body" font-size="13.5" fill="#c4c9d6">Local + remote servers · one-click install.</text>
+<rect x="132" y="2232.5" width="1496" height="46" rx="10" fill="#10131c" stroke="#222738"/>
+<rect x="132" y="2232.5" width="6" height="46" rx="3" fill="#7fd58f"/>
+<text x="156" y="2262.5" class="disp" font-size="22" font-weight="800" fill="#7fd58f">05</text>
+<text x="200" y="2262.5" class="disp" font-size="22" font-weight="700" fill="#f1f2f7">CUSTOMIZE &amp; SETTINGS</text>
+<text x="1620" y="2262.5" text-anchor="end" class="body" font-size="14.5" fill="#8b91a3">Tune Claude to you</text>
+<rect x="132" y="2298.5" width="481" height="128" rx="13" fill="#13161f" stroke="#262b3c" stroke-width="1"/>
+<rect x="132" y="2298.5" width="481" height="4" rx="2" fill="url(#g_green)"/>
+<circle cx="155" cy="2327.5" r="5" fill="#7fd58f"/>
+<text x="170" y="2333.5" class="disp" font-size="16.5" font-weight="700" fill="#f2f3f8">Projects</text>
+<text x="153" y="2352" class="body" font-size="13.5" fill="#c4c9d6">Dedicated workspaces: upload reference docs,</text>
+<text x="153" y="2372" class="body" font-size="13.5" fill="#c4c9d6">set instructions, scoped memory.</text>
+<text x="153" y="2392" class="body" font-size="13.5" fill="#c4c9d6">Context carries across every chat inside.</text>
+<rect x="639" y="2298.5" width="481" height="128" rx="13" fill="#13161f" stroke="#262b3c" stroke-width="1"/>
+<rect x="639" y="2298.5" width="481" height="4" rx="2" fill="url(#g_clay)"/>
+<circle cx="662" cy="2327.5" r="5" fill="#df8c64"/>
+<text x="677" y="2333.5" class="disp" font-size="16.5" font-weight="700" fill="#f2f3f8">Styles</text>
+<text x="660" y="2352" class="body" font-size="13.5" fill="#c4c9d6">Saved writing-style profiles — formal, casual,</text>
+<text x="660" y="2372" class="body" font-size="13.5" fill="#c4c9d6">brand voice. Switch per task.</text>
+<rect x="1146" y="2298.5" width="481" height="128" rx="13" fill="#13161f" stroke="#262b3c" stroke-width="1"/>
+<rect x="1146" y="2298.5" width="481" height="4" rx="2" fill="url(#g_cyan)"/>
+<circle cx="1169" cy="2327.5" r="5" fill="#5ad1c0"/>
+<text x="1184" y="2333.5" class="disp" font-size="16.5" font-weight="700" fill="#f2f3f8">User Preferences</text>
+<text x="1167" y="2352" class="body" font-size="13.5" fill="#c4c9d6">Standing tone / format / feature preferences</text>
+<text x="1167" y="2372" class="body" font-size="13.5" fill="#c4c9d6">applied automatically to every chat.</text>
+<rect x="132" y="2449.0" width="481" height="128" rx="13" fill="#13161f" stroke="#262b3c" stroke-width="1"/>
+<rect x="132" y="2449.0" width="481" height="4" rx="2" fill="url(#g_gold)"/>
+<circle cx="155" cy="2478.0" r="5" fill="#e3b25c"/>
+<text x="170" y="2484.0" class="disp" font-size="16.5" font-weight="700" fill="#f2f3f8">Settings toggles</text>
+<text x="153" y="2503" class="body" font-size="13.5" fill="#c4c9d6">Web search · Research · Code Execution &amp; File</text>
+<text x="153" y="2522" class="body" font-size="13.5" fill="#c4c9d6">Creation · Artifacts · Past-chat search ·</text>
+<text x="153" y="2542" class="body" font-size="13.5" fill="#c4c9d6">Memory generation · Incognito.</text>
+<rect x="639" y="2449.0" width="481" height="128" rx="13" fill="#13161f" stroke="#262b3c" stroke-width="1"/>
+<rect x="639" y="2449.0" width="481" height="4" rx="2" fill="url(#g_violet)"/>
+<circle cx="662" cy="2478.0" r="5" fill="#a394ff"/>
+<text x="677" y="2484.0" class="disp" font-size="16.5" font-weight="700" fill="#f2f3f8">Effort &amp; model picker</text>
+<text x="660" y="2503" class="body" font-size="13.5" fill="#c4c9d6">Pick the model and how hard Claude works —</text>
+<text x="660" y="2522" class="body" font-size="13.5" fill="#c4c9d6">switchable mid-conversation.</text>
+<rect x="1146" y="2449.0" width="481" height="128" rx="13" fill="#13161f" stroke="#262b3c" stroke-width="1"/>
+<rect x="1146" y="2449.0" width="481" height="4" rx="2" fill="url(#g_rose)"/>
+<circle cx="1169" cy="2478.0" r="5" fill="#e87f86"/>
+<text x="1184" y="2484.0" class="disp" font-size="16.5" font-weight="700" fill="#f2f3f8">Privacy &amp; data controls</text>
+<text x="1167" y="2503" class="body" font-size="13.5" fill="#c4c9d6">View / edit / export / delete memories;</text>
+<text x="1167" y="2522" class="body" font-size="13.5" fill="#c4c9d6">Incognito chats; explicit folder grants in Cowork.</text>
+<rect x="132" y="2607.5" width="1496" height="46" rx="10" fill="#10131c" stroke="#222738"/>
+<rect x="132" y="2607.5" width="6" height="46" rx="3" fill="#df8c64"/>
+<text x="156" y="2637.5" class="disp" font-size="22" font-weight="800" fill="#df8c64">06</text>
+<text x="200" y="2637.5" class="disp" font-size="22" font-weight="700" fill="#f1f2f7">LATEST · TRENDS · UPCOMING</text>
+<text x="1620" y="2637.5" text-anchor="end" class="body" font-size="14.5" fill="#8b91a3">The cutting edge as of June 2026</text>
+<rect x="132" y="2673.5" width="481" height="148" rx="13" fill="#13161f" stroke="#262b3c" stroke-width="1"/>
+<rect x="132" y="2673.5" width="481" height="4" rx="2" fill="url(#g_clay)"/>
+<circle cx="155" cy="2702.5" r="5" fill="#df8c64"/>
+<text x="170" y="2708.5" class="disp" font-size="16.5" font-weight="700" fill="#f2f3f8">Opus 4.8 launch — May 28, 2026</text>
+<text x="153" y="2728" class="body" font-size="13.5" fill="#c4c9d6">Dynamic Workflows (research preview),</text>
+<text x="153" y="2747" class="body" font-size="13.5" fill="#c4c9d6">user effort control, cheaper Fast mode,</text>
+<text x="153" y="2766" class="body" font-size="13.5" fill="#c4c9d6">mid-conversation system messages,</text>
+<text x="153" y="2786" class="body" font-size="13.5" fill="#c4c9d6">sharper honesty about its own progress.</text>
+<rect x="639" y="2673.5" width="481" height="148" rx="13" fill="#13161f" stroke="#262b3c" stroke-width="1"/>
+<rect x="639" y="2673.5" width="481" height="4" rx="2" fill="url(#g_violet)"/>
+<circle cx="662" cy="2702.5" r="5" fill="#a394ff"/>
+<text x="677" y="2708.5" class="disp" font-size="16.5" font-weight="700" fill="#f2f3f8">Mythos-class for everyone</text>
+<text x="660" y="2728" class="body" font-size="13.5" fill="#c4c9d6">Anthropic signals Mythos-class models will</text>
+<text x="660" y="2747" class="body" font-size="13.5" fill="#c4c9d6">reach all customers &#x27;in the coming weeks&#x27;,</text>
+<text x="660" y="2766" class="body" font-size="13.5" fill="#c4c9d6">beyond the gated Project Glasswing preview.</text>
+<rect x="1146" y="2673.5" width="481" height="148" rx="13" fill="#13161f" stroke="#262b3c" stroke-width="1"/>
+<rect x="1146" y="2673.5" width="481" height="4" rx="2" fill="url(#g_cyan)"/>
+<circle cx="1169" cy="2702.5" r="5" fill="#5ad1c0"/>
+<text x="1184" y="2708.5" class="disp" font-size="16.5" font-weight="700" fill="#f2f3f8">Live Artifacts (Cowork)</text>
+<text x="1167" y="2728" class="body" font-size="13.5" fill="#c4c9d6">Dashboards that refresh from your connected</text>
+<text x="1167" y="2747" class="body" font-size="13.5" fill="#c4c9d6">sources on demand — reports without a sprint.</text>
+<rect x="132" y="2843.5" width="481" height="128" rx="13" fill="#13161f" stroke="#262b3c" stroke-width="1"/>
+<rect x="132" y="2843.5" width="481" height="4" rx="2" fill="url(#g_green)"/>
+<circle cx="155" cy="2872.5" r="5" fill="#7fd58f"/>
+<text x="170" y="2878.5" class="disp" font-size="16.5" font-weight="700" fill="#f2f3f8">Scheduled &amp; automated tasks</text>
+<text x="153" y="2898" class="body" font-size="13.5" fill="#c4c9d6">Set Claude to run recurring jobs on a</text>
+<text x="153" y="2917" class="body" font-size="13.5" fill="#c4c9d6">schedule — one of the most-requested features.</text>
+<rect x="639" y="2843.5" width="481" height="128" rx="13" fill="#13161f" stroke="#262b3c" stroke-width="1"/>
+<rect x="639" y="2843.5" width="481" height="4" rx="2" fill="url(#g_gold)"/>
+<circle cx="662" cy="2872.5" r="5" fill="#e3b25c"/>
+<text x="677" y="2878.5" class="disp" font-size="16.5" font-weight="700" fill="#f2f3f8">Plugin-marketplace boom</text>
+<text x="660" y="2898" class="body" font-size="13.5" fill="#c4c9d6">Fastest-growing part of the ecosystem.</text>
+<text x="660" y="2917" class="body" font-size="13.5" fill="#c4c9d6">Vertical depth (legal, finance, marketing)</text>
+<text x="660" y="2936" class="body" font-size="13.5" fill="#c4c9d6">over generic &#x27;write anything&#x27; chat.</text>
+<rect x="1146" y="2843.5" width="481" height="128" rx="13" fill="#13161f" stroke="#262b3c" stroke-width="1"/>
+<rect x="1146" y="2843.5" width="481" height="4" rx="2" fill="url(#g_rose)"/>
+<circle cx="1169" cy="2872.5" r="5" fill="#e87f86"/>
+<text x="1184" y="2878.5" class="disp" font-size="16.5" font-weight="700" fill="#f2f3f8">Claude Code at scale</text>
+<text x="1167" y="2898" class="body" font-size="13.5" fill="#c4c9d6">Codebase-wide migrations end-to-end;</text>
+<text x="1167" y="2917" class="body" font-size="13.5" fill="#c4c9d6">agent-authored commits climbing fast;</text>
+<text x="1167" y="2936" class="body" font-size="13.5" fill="#c4c9d6">Code Security vuln scanning (preview).</text>
+<rect x="132" y="3008.0" width="1496" height="62" rx="12" fill="#0f1219" stroke="#df8c64" stroke-opacity="0.4"/>
+<text x="154" y="3035.0" class="mono" font-size="13.5" letter-spacing="2" fill="#df8c64">THE MENTAL MODEL</text>
+<text x="154" y="3056.0" class="body" font-size="15" fill="#cfd3e0">You reach Claude through a <tspan fill="#5ad1c0">surface</tspan> &#8594; the <tspan fill="#df8c64">model</tspan> reasons &#8594; <tspan fill="#e3b25c">capabilities</tspan> + <tspan fill="#a394ff">Skills / Connectors / Plugins</tspan> do the work &#8594; results land as <tspan fill="#7fd58f">Artifacts &amp; files</tspan>, all <tspan fill="#e87f86">tuned by you</tspan>.</text>
+</svg>

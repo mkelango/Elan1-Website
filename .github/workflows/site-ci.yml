@@ -1,0 +1,33 @@
+name: site-ci
+
+# WS0.5 — build + SEO checks + Lighthouse perf/a11y/SEO budgets for the elan1 marketing site.
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build-and-audit:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: elan1-website
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: elan1-website/package-lock.json
+
+      - name: Install
+        run: npm ci
+
+      - name: Typecheck + build (regenerates sitemap via prebuild)
+        run: npm run build
+
+      - name: SEO assertions (robots, sitemap, meta, OG, JSON-LD)
+        run: npm run check:seo
+
+      - name: Lighthouse budgets (performance / accessibility / SEO)
+        run: npx --yes @lhci/cli@0.14.x autorun
