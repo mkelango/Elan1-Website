@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  @apply bg-paper text-ink font-sans antialiased;
+  font-feature-settings: "ss01", "cv01";
+}
+
+::selection {
+  background: #df8c64;
+  color: #0a1320;
+}
+
+/* — Reusable design-system classes — */
+@layer components {
+  .shell {
+    @apply mx-auto w-full max-w-shell px-6 sm:px-8;
+  }
+
+  .kicker {
+    @apply inline-flex items-center gap-2 font-mono text-[11px] font-medium uppercase tracking-kicker text-clayDeep;
+  }
+  .kicker-light {
+    @apply inline-flex items-center gap-2 font-mono text-[11px] font-medium uppercase tracking-kicker text-clay/90;
+  }
+
+  .display {
+    @apply font-display font-bold leading-[1.04] tracking-[-0.015em];
+  }
+
+  .lede {
+    @apply text-lg leading-relaxed text-slate sm:text-xl;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-clay/60;
+  }
+  .btn-primary {
+    @apply btn bg-ink text-paper hover:bg-clayDeep hover:shadow-glow;
+  }
+  .btn-accent {
+    @apply btn bg-clay text-ink hover:bg-clayDeep hover:text-paper;
+  }
+  .btn-ghost {
+    @apply btn border border-line bg-transparent text-ink hover:border-ink/40 hover:bg-ink/[.03];
+  }
+  .btn-ghost-dark {
+    @apply btn border border-white/20 bg-transparent text-paper hover:border-white/50 hover:bg-white/5;
+  }
+
+  .card {
+    @apply rounded-card border border-line bg-surface p-6 shadow-card transition-all duration-300;
+  }
+  .card-hover {
+    @apply hover:-translate-y-1 hover:border-ink/15 hover:shadow-lift;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-line bg-mist/60 px-3 py-1 font-mono text-xs font-medium text-slate;
+  }
+
+  .hairline {
+    @apply border-line;
+  }
+
+  .link-underline {
+    @apply relative inline-flex items-center gap-1 font-medium text-ink transition-colors hover:text-clayDeep;
+  }
+}
+
+/* Dotted blueprint backgrounds */
+.bg-grid-paper {
+  background-image: radial-gradient(rgba(11, 18, 32, 0.05) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+.bg-grid-obsidian {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+/* Hide scrollbar on horizontal scroll rows */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Fade edges for marquee rows */
+.fade-x {
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+}
