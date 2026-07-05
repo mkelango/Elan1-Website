@@ -118,20 +118,20 @@ export const NAV: NavItem[] = [
         heading: "By industry",
         links: [
           { label: "health1", href: "/solutions/health1", desc: "Healthcare & life sciences", accent: "#3fae6b" },
-          { label: "bank1", href: "/solutions/bank1", desc: "Banking & capital markets", accent: "#df8c64" },
-          { label: "insure1", href: "/solutions/insure1", desc: "Insurance", accent: "#22b8c4" },
           { label: "retail1", href: "/solutions/retail1", desc: "Retail & e-commerce", accent: "#d39a3a" },
-          { label: "telco1", href: "/solutions/telco1", desc: "Telecommunications", accent: "#7c6cf0" },
+          { label: "manufacture1", href: "/solutions/manufacture1", desc: "Manufacturing", accent: "#22b8c4" },
+          { label: "realestate1", href: "/solutions/realestate1", desc: "Real estate & construction", accent: "#d39a3a" },
+          { label: "edu1", href: "/solutions/edu1", desc: "Education", accent: "#3fae6b" },
         ],
       },
       {
         heading: " ",
         links: [
-          { label: "gov1", href: "/solutions/gov1", desc: "Public sector", accent: "#e0656d" },
-          { label: "manufacture1", href: "/solutions/manufacture1", desc: "Manufacturing", accent: "#22b8c4" },
-          { label: "realestate1", href: "/solutions/realestate1", desc: "Real estate & construction", accent: "#d39a3a" },
-          { label: "edu1", href: "/solutions/edu1", desc: "Education", accent: "#3fae6b" },
+          { label: "telco1", href: "/solutions/telco1", desc: "Telecommunications", accent: "#7c6cf0" },
           { label: "energy1", href: "/solutions/energy1", desc: "Energy & utilities", accent: "#b9603f" },
+          { label: "bank1", href: "/solutions/bank1", desc: "Banking & capital markets · by inquiry", accent: "#df8c64" },
+          { label: "insure1", href: "/solutions/insure1", desc: "Insurance · by inquiry", accent: "#22b8c4" },
+          { label: "gov1", href: "/solutions/gov1", desc: "Public sector · by inquiry", accent: "#e0656d" },
         ],
       },
       {

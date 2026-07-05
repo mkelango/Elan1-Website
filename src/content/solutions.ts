@@ -42,6 +42,7 @@ export const solutions: Solution[] = [
 
   {
     slug: "bank1",
+    focus: "parked",
     layer: "solution",
     name: "bank1",
     industry: "Banking & capital markets",
@@ -77,6 +78,7 @@ export const solutions: Solution[] = [
 
   {
     slug: "insure1",
+    focus: "parked",
     layer: "solution",
     name: "insure1",
     industry: "Insurance",
@@ -182,6 +184,7 @@ export const solutions: Solution[] = [
 
   {
     slug: "gov1",
+    focus: "parked",
     layer: "solution",
     name: "gov1",
     industry: "Public sector",
@@ -352,5 +355,18 @@ export const solutions: Solution[] = [
     },
   },
 ];
+
+/**
+ * FY1 GTM-focus ordering, not a product ranking — every solution here is equally built and certified.
+ * "Active" verticals (7: health1 · retail1 · manufacture1 · realestate1 · edu1 · telco1 · energy1) get
+ * featured placement because that's where outbound effort goes this year. "Parked" verticals (bank1 ·
+ * insure1 · gov1) stay live at their own URL, indexed, and fully described — just shown second, since a
+ * regulatory-intensity or public-sector procurement motion doesn't fit our promoter-led sales cycle yet.
+ * Never used to hide, noindex, or delete a route — see the `focus` field's doc comment in types.ts.
+ */
+export const activeSolutions = solutions.filter((s) => s.focus !== "parked");
+export const parkedSolutions = solutions.filter((s) => s.focus === "parked");
+/** Active first, parked last — the ordering every listing surface (nav, footer, homepage, index) should use. */
+export const solutionsByFocus = [...activeSolutions, ...parkedSolutions];
 
 export default solutions;

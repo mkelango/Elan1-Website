@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { products } from "../content/products";
-import { solutions } from "../content/solutions";
+import { solutionsByFocus } from "../content/solutions";
 import { services } from "../content/services";
 import { Icon } from "./primitives";
 
@@ -20,10 +20,10 @@ export function LayerExplorer() {
 
   const items =
     tab === "services"
-      ? services.map((s) => ({ slug: s.slug, name: s.name, sub: s.tagline, href: `/services/${s.slug}`, accent: s.accent }))
+      ? services.map((s) => ({ slug: s.slug, name: s.name, sub: s.tagline, href: `/services/${s.slug}`, accent: s.accent, parked: false }))
       : tab === "products"
-      ? products.map((p) => ({ slug: p.slug, name: p.name, sub: p.businessFunction, href: `/products/${p.slug}`, accent: p.accent }))
-      : solutions.map((s) => ({ slug: s.slug, name: s.name, sub: s.industry, href: `/solutions/${s.slug}`, accent: s.accent }));
+      ? products.map((p) => ({ slug: p.slug, name: p.name, sub: p.businessFunction, href: `/products/${p.slug}`, accent: p.accent, parked: false }))
+      : solutionsByFocus.map((s) => ({ slug: s.slug, name: s.name, sub: s.industry, href: `/solutions/${s.slug}`, accent: s.accent, parked: s.focus === "parked" }));
 
   return (
     <div className="rounded-card border border-line bg-surface p-4 shadow-card sm:p-6">
@@ -72,7 +72,10 @@ export function LayerExplorer() {
                 <span className="h-2 w-2 rounded-full" style={{ background: it.accent }} />
                 <Icon.Arrow className="h-3.5 w-3.5 text-muted opacity-0 transition-opacity group-hover:opacity-100" />
               </span>
-              <span className="mt-3 block font-mono text-sm font-semibold text-ink">{it.name}</span>
+              <span className="mt-3 flex items-center gap-1.5 font-mono text-sm font-semibold text-ink">
+                {it.name}
+                {it.parked && <span className="rounded-full bg-mist px-1.5 py-0.5 text-[8px] font-semibold text-slate">by inquiry</span>}
+              </span>
               <span className="mt-1 block text-xs leading-snug text-slate">{it.sub}</span>
             </Link>
           ))}

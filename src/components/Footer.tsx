@@ -3,6 +3,11 @@ import { Link } from "react-router-dom";
 import { Logo } from "./Logo";
 import { REGIONS, SOCIALS } from "../content/site";
 import { RegionSwitcher } from "./RegionSwitcher";
+import { solutionsByFocus } from "../content/solutions";
+
+// Solutions links are DERIVED from solutionsByFocus (active-7 first, parked-3 last) rather than
+// hardcoded, so this list can never drift out of sync with the FY1 GTM-focus ordering.
+const solutionLinks = solutionsByFocus.map((s) => ({ label: s.slug, href: `/solutions/${s.slug}` }));
 
 const cols: { heading: string; links: { label: string; href: string }[] }[] = [
   {
@@ -26,16 +31,7 @@ const cols: { heading: string; links: { label: string; href: string }[] }[] = [
     links: [
       { label: "All industries", href: "/solutions" },
       { label: "By initiative", href: "/solutions/initiatives" },
-      { label: "health1", href: "/solutions/health1" },
-      { label: "bank1", href: "/solutions/bank1" },
-      { label: "insure1", href: "/solutions/insure1" },
-      { label: "retail1", href: "/solutions/retail1" },
-      { label: "telco1", href: "/solutions/telco1" },
-      { label: "gov1", href: "/solutions/gov1" },
-      { label: "manufacture1", href: "/solutions/manufacture1" },
-      { label: "realestate1", href: "/solutions/realestate1" },
-      { label: "edu1", href: "/solutions/edu1" },
-      { label: "energy1", href: "/solutions/energy1" },
+      ...solutionLinks,
     ],
   },
   {

@@ -74,6 +74,14 @@ export interface Solution {
   pricingNote: string;
   seo: SEO;
   accent: string;
+  /**
+   * GTM-focus, not product scope: "active" verticals get featured placement and are where outbound
+   * effort goes this year; "parked" verticals (bank1/insure1/gov1 — regulatory-intensity or
+   * public-sector procurement doesn't fit a promoter-led motion yet) are still fully built, still
+   * live at their own URL, still indexed — just shown in a secondary group. Defaults to "active"
+   * when omitted so existing entries don't need touching.
+   */
+  focus?: "active" | "parked";
 }
 
 /** Service pillars — how elan1 delivers. */

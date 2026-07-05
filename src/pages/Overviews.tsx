@@ -5,7 +5,7 @@ import { PageHero, Section } from "../components/blocks";
 import { SectionHead, Reveal, Icon, Kicker } from "../components/primitives";
 import { CTASection } from "../components/CTASection";
 import { products } from "../content/products";
-import { solutions } from "../content/solutions";
+import { solutionsByFocus } from "../content/solutions";
 import { services } from "../content/services";
 import { BrandImage, AbstractHero } from "../components/BrandImage";
 import { solutionImage, serviceImage } from "../content/images";
@@ -126,9 +126,11 @@ export function SolutionsOverview() {
       />
       <Section tone="paper" >
         <div id="industries" />
-        <SectionHead kicker="By industry" title="Ten industries. Ten governance signatures." lede="From clinical sign-off in health1 to model-risk governance in bank1 — each vertical leads with the trust its regulator expects." />
+        <SectionHead kicker="By industry" title="Ten industries. Ten governance signatures." lede="From clinical sign-off in health1 to model-risk governance in bank1 — each vertical leads with the trust its regulator expects. The seven below are this year's active rollout; three more are fully certified and available by inquiry." />
         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {solutions.map((s, i) => (
+          {/* solutionsByFocus orders active-7 first, parked-3 (bank1/insure1/gov1) last — a GTM-focus
+              ordering only; every card below is equally built, composed, and certified. */}
+          {solutionsByFocus.map((s, i) => (
             <Reveal key={s.slug} delay={(i % 3) * 0.05}>
               <Link
                 to={`/solutions/${s.slug}`}
@@ -148,7 +150,10 @@ export function SolutionsOverview() {
                   }
                 />
                 <div className="flex flex-1 flex-col p-6">
-                  <p className="font-mono text-[11px] uppercase tracking-wide text-muted">{s.industry}</p>
+                  <p className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-wide text-muted">
+                    {s.industry}
+                    {s.focus === "parked" && <span className="rounded-full bg-mist px-1.5 py-0.5 text-[9px] font-semibold text-slate">by inquiry</span>}
+                  </p>
                   <p className="mt-2 font-display text-base font-bold leading-snug text-ink">{s.tagline}</p>
                   <span className="mt-auto pt-4 inline-flex items-center gap-1.5 text-sm font-medium text-clayDeep opacity-0 transition-opacity group-hover:opacity-100">
                     Explore <Icon.Arrow className="h-4 w-4" />

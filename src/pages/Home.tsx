@@ -10,7 +10,7 @@ import { LayerExplorer } from "../components/LayerExplorer";
 import { BrandImage } from "../components/BrandImage";
 import { pageImage } from "../content/images";
 import { products } from "../content/products";
-import { solutions } from "../content/solutions";
+import { solutions, activeSolutions, parkedSolutions } from "../content/solutions";
 import { services } from "../content/services";
 import { SHIFT, METHOD, FLYWHEEL, WHY_WIN, VS_LEGACY, REGIONS } from "../content/site";
 
@@ -239,7 +239,9 @@ function SolutionsRow() {
         <Reveal delay={0.1}><Link to="/solutions" className="btn-ghost shrink-0">Find your industry <Icon.Arrow className="h-4 w-4" /></Link></Reveal>
       </div>
       <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
-        {solutions.map((s, i) => (
+        {/* FY1 GTM focus: the 7 active verticals are featured; the 3 parked ones (bank1/insure1/gov1 —
+            still fully built & certified, just not this year's outbound focus) are one click away. */}
+        {activeSolutions.map((s, i) => (
           <Reveal key={s.slug} delay={(i % 5) * 0.04}>
             <Link to={`/solutions/${s.slug}`} className="group block h-full rounded-card border border-line bg-surface p-5 transition-all hover:-translate-y-1 hover:shadow-card">
               <span className="h-2 w-2 rounded-full" style={{ background: s.accent, display: "block" }} />
@@ -248,6 +250,12 @@ function SolutionsRow() {
             </Link>
           </Reveal>
         ))}
+        <Reveal delay={activeSolutions.length % 5 * 0.04}>
+          <Link to="/solutions" className="group flex h-full flex-col justify-center rounded-card border border-dashed border-line bg-mist/60 p-5 text-center transition-all hover:-translate-y-1 hover:shadow-card">
+            <p className="font-mono text-sm font-semibold text-ink">+{parkedSolutions.length} more</p>
+            <p className="mt-1 text-xs leading-snug text-slate">Certified &amp; available by inquiry — {parkedSolutions.map((s) => s.name).join(", ")}</p>
+          </Link>
+        </Reveal>
       </div>
     </Section>
   );
