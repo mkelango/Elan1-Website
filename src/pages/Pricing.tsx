@@ -6,6 +6,7 @@ import { SectionHead, Reveal, Icon } from "../components/primitives";
 import { CTASection } from "../components/CTASection";
 import { VsBuildersBand } from "../components/VsBuildersBand";
 import { BANDS } from "../content/bands";
+import { PLAN_SHAPES, METERED, INCLUDED_VS_EXTRA, PRICE_FLOOR, CURRENCY } from "../content/plans";
 
 const steps = [
   { tag: "Step 1 · lowest risk", name: "Discovery Sprint", body: "A fixed-scope sprint that maps your highest-value opportunity and ships a working proof. Fully credited toward your Launchpad.", accent: "#df8c64", cta: "Start here" },
