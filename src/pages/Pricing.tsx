@@ -55,6 +55,84 @@ export default function Pricing() {
           ))}
         </div>
       </Section>
+      <Section tone="mist">
+        <SectionHead
+          kicker="What a subscription includes"
+          title="What you get, and what's measured."
+          lede="Three things a buyer should be able to read off a pricing page: which apps you unlock, what usage is counted, and whether the model bill is inside the plan or beside it."
+        />
+        <div className="mt-12 grid gap-4 md:grid-cols-3">
+          {PLAN_SHAPES.map((p, i) => (
+            <Reveal key={p.id} delay={i * 0.07}>
+              <div className="flex h-full flex-col rounded-card border border-line bg-surface p-7 shadow-card">
+                <span className="font-mono text-[11px] uppercase tracking-kicker text-muted">
+                  {p.apps.length === 1 ? "1 app" : `${p.apps.length} apps`}
+                </span>
+                <h3 className="mt-2 font-display text-2xl font-bold text-ink">{p.name}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-slate">{p.who}</p>
+                <ul className="mt-5 flex flex-wrap gap-1.5">
+                  {p.apps.map((a) => (
+                    <li key={a} className="rounded-full border border-line px-2.5 py-1 font-mono text-[11px] text-slate">
+                      {a}
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-6 font-mono text-xs text-muted">
+                  {PRICE_FLOOR && p.id === "growth"
+                    ? `from ${CURRENCY.symbol}${PRICE_FLOOR.amountInr.toLocaleString("en-IN")}/${PRICE_FLOOR.period}`
+                    : "talk to us"}
+                </p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+
+        <div className="mt-10 grid gap-4 md:grid-cols-2">
+          <Reveal>
+            <div className="h-full rounded-card border border-line bg-surface p-7 shadow-card">
+              <h3 className="font-display text-lg font-bold text-ink">What's measured</h3>
+              <p className="mt-2 text-sm text-slate">Three dimensions. Nothing else is counted.</p>
+              <dl className="mt-5 space-y-4">
+                {METERED.map((m) => (
+                  <div key={m.metric}>
+                    <dt className="font-mono text-[12px] uppercase tracking-kicker text-clayDeep">{m.metric}</dt>
+                    <dd className="mt-1 text-sm leading-relaxed text-slate">{m.what}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          </Reveal>
+          <Reveal delay={0.07}>
+            <div className="h-full rounded-card border border-line bg-surface p-7 shadow-card">
+              <h3 className="font-display text-lg font-bold text-ink">Inside the plan, or beside it</h3>
+              <p className="mt-2 text-sm text-slate">
+                Model tokens are metered <em>inside</em> your plan against an included allowance — not billed
+                separately on top of a per-run price.
+              </p>
+              <ul className="mt-5 space-y-2.5">
+                {INCLUDED_VS_EXTRA.map((r) => (
+                  <li key={r.item} className="flex gap-2.5 text-sm leading-relaxed">
+                    <span aria-hidden className={r.included ? "text-clayDeep" : "text-muted"}>
+                      {r.included ? "✓" : "+"}
+                    </span>
+                    <span className={r.included ? "text-slate" : "text-muted"}>
+                      {r.item}
+                      {r.note ? <span className="font-mono text-xs"> — {r.note}</span> : null}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </Reveal>
+        </div>
+
+        {/* The honest limit, on the page rather than only in the source. A pricing page that overstates
+            what it can compute is the same defect as a guard that overstates what it measures. */}
+        <p className="mt-6 font-mono text-xs text-muted">
+          We meter model usage, not your infrastructure — if you self-host, compute is billed by your cloud.
+          Plan rates are set per agreement; nothing on this page is a quote.
+        </p>
+      </Section>
       <Section tone="paper">
         <SectionHead kicker="By company size" title="Pick your band." lede="Size-appropriate offering mix, pricing posture, and an illustrative ROI estimate — choose where you are." align="center" />
         <div className="mx-auto mt-10 grid max-w-5xl gap-4 md:grid-cols-3">
