@@ -15,6 +15,8 @@
 // sheet would be a fabricated claim on a public page. So: structure is published, figures are not,
 // until a real number is set in PRICE_FLOOR below.
 
+import { categorizedAppSlugs } from "./categories";
+
 /** A plan's real entitlement — mirrors `PlanCommercials.entitlements`, core/elan1_core/commerce.py:38. */
 export type PlanShape = {
   id: "growth" | "scaleup" | "enterprise";
