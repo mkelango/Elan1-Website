@@ -2,6 +2,8 @@
 import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { Reveal, Icon, Kicker } from "./primitives";
+import { products } from "../content/products";
+import { services } from "../content/services";
 
 /** Inner-page hero with a tinted accent wash and blueprint grid. */
 export function PageHero({
