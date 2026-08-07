@@ -156,13 +156,16 @@ export function Section({
   );
 }
 
+// DERIVED from the typed content, not hardcoded — the previous inline literal omitted goal1, which
+// would have routed a `composedOf: ["goal1"]` pill to /solutions/goal1 and 404'd.
+const PRODUCT_SLUGS = new Set(products.map((p) => p.slug));
+const SERVICE_SLUGS = new Set(services.map((s) => s.slug));
+
 /** Composed-of pills linking to the offerings a solution/service connects to. */
 export function ComposedOf({ slugs }: { slugs: string[] }) {
   const route = (slug: string) => {
-    const products = ["sales1", "service1", "finance1", "supply1", "people1", "market1", "insight1", "project1", "commerce1", "enterprise1"];
-    const services = ["strategy1", "agent1", "assure1", "academy1", "run1", "agency1"];
-    if (products.includes(slug)) return `/products/${slug}`;
-    if (services.includes(slug)) return `/services/${slug}`;
+    if (PRODUCT_SLUGS.has(slug)) return `/products/${slug}`;
+    if (SERVICE_SLUGS.has(slug)) return `/services/${slug}`;
     return `/solutions/${slug}`;
   };
   return (
