@@ -17,7 +17,7 @@ const productLinks = categories.flatMap((c) => [
   ...appsOf(c).map((p) => ({ label: p.name, href: `/products/${p.slug}` })),
 ]);
 
-const cols: { heading: string; links: { label: string; href: string }[] }[] = [
+const cols: { heading: string; links: { label: string; href: string; group?: boolean }[] }[] = [
   {
     heading: "Products",
     links: [
