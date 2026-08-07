@@ -453,7 +453,7 @@ export const products: Product[] = [
     hero: {
       headline: "OKRs were built for a world without agents.",
       subhead:
-        "goal1 replaces the static quarterly OKR with a live, agent-co-owned operating cadence — Mission → Sprint → Pulse, with real-time Signals the agents detect and a human governs. Applying a signal changes the plan, so it's a human decision (K5) — the moat OKR tools don't have.",
+        "goal1 replaces the static quarterly OKR with a live, agent-co-owned operating cadence — Mission → Sprint → Pulse, with Signals a human triages and applies. Applying a signal changes the plan, so it's a human decision (K5) — the moat OKR tools don't have.",
       primaryCta: "Book a demo",
       secondaryCta: "See it live",
     },
@@ -461,25 +461,26 @@ export const products: Product[] = [
       "OKRs are authored once a quarter and stale by week two.",
       "Progress lives in spreadsheets no one updates between check-ins.",
       "Nothing connects a goal to the daily work — or to the agents doing it.",
-      "When a metric moves, no one's watching, and no one decides.",
+      "When the plan changes, nobody records who decided, or why.",
     ],
     capabilities: [
       { title: "Mission architect", description: "Turns an ambition into a 10x mission with a measurable target, grounded in real metrics — drafting only." },
-      { title: "Signal scout (always-on)", description: "Watches the metric stream and surfaces grounded signals — severity, the affected mission, quantified impact, a suggested move. It flags; a human decides." },
-      { title: "Governed apply (K5)", description: "Applying a signal's suggestion changes the plan / can trigger an outbound move — so it's human-approved, every time, with the decision audited." },
-      { title: "Pulse & cadence", description: "The daily beat OKR has no answer for: what moved, who moved it (agent or human), and the momentum streak — all on the live portfolio." },
+      { title: "Signal scout", description: "Surfaces grounded signals — severity, the affected mission, quantified impact, a suggested move — into a triage queue. It flags; a human decides, and the rationale is recorded." },
+      { title: "Governed apply (K5)", description: "Applying a signal's suggestion changes the plan, so it's human-approved and audited, with the approver recorded on the review." },
+      { title: "Autopilot with a budget", description: "Autonomy is granted under human approval, never seized: an envelope has a severity ceiling and a per-cycle cap that spends down. Spend it out and the next move escalates to a human." },
+      { title: "Pulse & cadence", description: "The daily beat OKR has no answer for: what moved, and whether an agent or a human moved it — carried as a first-class field on every pulse." },
     ],
     outcomes: [
-      "Goals that react in real time, not once a quarter",
+      "Goals that stay live between check-ins, not once a quarter",
       "Agents drive execution while a human stays in the loop",
       "Every plan change human-approved and audited",
       "One live cadence from ambition to the daily move",
     ],
-    integrations: ["The full 1 Suite (cross-app signals)", "insight1 metrics", "Metric & event streams", "via MCP connectors"],
+    integrations: ["finance1 (collections lever)", "supply1 (capacity lever)", "enterprise1 governance & audit", "via MCP connectors"],
     suiteFit:
-      "Sits above the suite: it reads signals from every app (insight1 metrics, market1 demand, commerce1 GMV) and routes governed moves back through them. Runs in-process on enterprise1.",
+      "Runs in-process inside enterprise1 rather than as a separate service. It proposes rather than commits: where a mission needs a lever goal1 doesn't own, it names the target app and the approval gate — collections in finance1, replenishment in supply1 — and writes nothing into a sibling itself.",
     trust:
-      "Agents drive and a human stays in control: applying a signal is a consequential action — human-approved (K5) and appended to the immutable audit. Every triage decision is recorded; figures are illustrative, not advice.",
+      "Agents drive and a human stays in control: applying a signal is a consequential action — human-approved (K5) and appended to the immutable audit, with a recorded rationale on every triage. Autonomy is granted, never seized: an agent can't widen its own envelope, and a critical signal always escalates to a human — that ceiling is enforced when the envelope is set and re-checked on every move. Portfolio figures shown in the product are illustrative, not real performance data, and projections are labelled as projections.",
     pricingTiers: [
       { name: "Per workspace", description: "For teams running their goals on an agentic cadence." },
       { name: "Enterprise", description: "SSO, governance, and platform integration via enterprise1." },
