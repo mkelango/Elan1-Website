@@ -250,7 +250,7 @@ function ModelSection() {
       <SectionHead
         kicker="The three-layer model"
         title="The whole company, in one view."
-        lede="Services deliver, products deploy, solutions serve. Click any layer to explore the 23 offerings — and see how a single need opens onto the whole platform."
+        lede={`Services deliver, products deploy, solutions serve. Click any layer to explore all ${products.length + solutions.length + services.length} offerings — and see how a single need opens onto the whole platform.`}
         align="center"
       />
       <div className="mt-12">
