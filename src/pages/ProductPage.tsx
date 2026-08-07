@@ -18,6 +18,9 @@ export default function ProductPage() {
   const diagram = slug ? productDiagram[slug] : undefined;
   const heroImg = slug ? productImage[slug] : undefined;
   const a = product.accent;
+  // enterprise1 is the backbone, not a category member — it keeps the plain "The 1 Suite" crumb.
+  const category = slug ? categoryOfApp[slug] : undefined;
+  const siblings = category ? appsOf(category).filter((p) => p.slug !== product.slug) : [];
   useSeo(product.seo.title, product.seo.description, {
     type: "product",
     jsonLd: productJsonLd(product.name, product.seo.description, `/products/${product.slug}`),
