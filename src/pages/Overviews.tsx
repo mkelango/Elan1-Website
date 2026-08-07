@@ -5,7 +5,7 @@ import { PageHero, Section } from "../components/blocks";
 import { SectionHead, Reveal, Icon, Kicker } from "../components/primitives";
 import { CTASection } from "../components/CTASection";
 import { products } from "../content/products";
-import { categories, appsOf, categorizedAppSlugs } from "../content/categories";
+import { categories, appsOf, categorizedAppSlugs, uncategorizedAppSlugs } from "../content/categories";
 import { solutionsByFocus } from "../content/solutions";
 import { services } from "../content/services";
 import { BrandImage, AbstractHero } from "../components/BrandImage";
