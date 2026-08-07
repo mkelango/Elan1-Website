@@ -186,7 +186,11 @@ export const uncategorizedAppSlugs: string[] = products
   .filter((p) => p.slug !== "enterprise1" && !categorizedAppSlugs.includes(p.slug))
   .map((p) => p.slug);
 
-if (import.meta.env?.DEV && uncategorizedAppSlugs.length > 0) {
+const DEV = Boolean(
+  (import.meta as unknown as { env?: Record<string, unknown> }).env?.DEV,
+);
+
+if (DEV && uncategorizedAppSlugs.length > 0) {
   console.warn(
     `[categories] ${uncategorizedAppSlugs.length} app(s) in products.ts belong to no category: ` +
       `${uncategorizedAppSlugs.join(", ")}. Add them to content/categories.ts.`,
