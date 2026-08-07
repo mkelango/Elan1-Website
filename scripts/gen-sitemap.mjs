@@ -51,6 +51,7 @@ function slugsFrom(file) {
 }
 
 const routes = new Set(STATIC_ROUTES);
+for (const s of slugsFrom("categories.ts")) routes.add(`/products/category/${s}`);
 for (const s of slugsFrom("products.ts")) routes.add(`/products/${s}`);
 for (const s of slugsFrom("solutions.ts")) routes.add(`/solutions/${s}`);
 for (const s of slugsFrom("services.ts")) routes.add(`/services/${s}`);
