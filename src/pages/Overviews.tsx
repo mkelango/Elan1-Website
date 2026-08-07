@@ -118,6 +118,20 @@ export function ProductsOverview() {
             </Reveal>
           ))}
         </div>
+        {/* Structural guard: an app added to products.ts but never placed in a category still renders
+            here rather than silently vanishing — which is exactly how goal1 fell out of the old nav. */}
+        {uncategorizedAppSlugs.length > 0 && (
+          <div className="mt-8">
+            <p className="font-mono text-[10px] uppercase tracking-kicker text-muted">Not yet categorized</p>
+            <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {products
+                .filter((p) => uncategorizedAppSlugs.includes(p.slug))
+                .map((p) => (
+                  <OfferingTile key={p.slug} to={`/products/${p.slug}`} name={p.name} sub={p.businessFunction} tagline={p.tagline} accent={p.accent} live={p.status === "live"} />
+                ))}
+            </div>
+          </div>
+        )}
         <Reveal delay={0.1}>
           <div className="mt-4">
             <OfferingTile to="/products/enterprise1" name="enterprise1" sub="Platform backbone · not a category" tagline="One agentic platform. Every function. Total control." accent="#df8c64" featured />
