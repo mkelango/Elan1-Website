@@ -42,6 +42,9 @@ export default function App() {
 
         {/* Products */}
         <Route path="/products" element={<ProductsOverview />} />
+        {/* Categories live one segment deeper, so `service1` can be both a category and an app
+            without the two routes colliding. */}
+        <Route path="/products/category/:slug" element={<CategoryPage />} />
         <Route path="/products/customer1" element={<Navigate to="/products/sales1" replace />} />
         <Route path="/products/:slug" element={<ProductPage />} />
 
