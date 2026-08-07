@@ -102,8 +102,15 @@ export function Footer() {
                 <p className="font-mono text-[10px] uppercase tracking-kicker text-muted">{c.heading}</p>
                 <ul className="mt-4 space-y-2.5">
                   {c.links.map((l) => (
-                    <li key={l.label}>
-                      <Link to={l.href} className="text-sm text-slate transition-colors hover:text-ink">
+                    <li key={l.href} className={l.group ? "pt-1.5" : ""}>
+                      <Link
+                        to={l.href}
+                        className={
+                          l.group
+                            ? "font-mono text-[11px] uppercase tracking-wide text-ink transition-colors hover:text-clayDeep"
+                            : "text-sm text-slate transition-colors hover:text-ink"
+                        }
+                      >
                         {l.label}
                       </Link>
                     </li>
