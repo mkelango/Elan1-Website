@@ -120,7 +120,7 @@ export const categories: Category[] = [
     composition:
       "project1 hands approved billable time to finance1 for invoicing, so the invoice traces back to a timesheet a human signed off rather than a spreadsheet. people1 supplies the workforce that project1 schedules against capacity. finance1 is the app the rest of the suite ends at: procurement from trade1, billing from project1, and payroll from people1 all land in the same ledger, each behind its own approval.",
     compassNote:
-      "insight1 serves finance and HR analytics directly — the same governed metric definition the CFO reads is the one the agent answers from — and goal1 turns a plan variance into a signal a human can act on while the quarter is still live.",
+      "insight1 serves finance and HR analytics directly — the same governed metric definition the CFO reads is the one the agent answers from. When a goal1 mission is short on revenue, the lever it names is finance1 collections, proposed with its approval gate attached; goal1 commits nothing itself.",
     seo: {
       title: "works1 — agentic finance, HR and delivery | elan1",
       description:
