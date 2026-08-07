@@ -1,6 +1,9 @@
 // content/site.ts
 // Global site content: brand constants, navigation, layer metadata, and home-page copy.
 // Offering copy lives in products.ts / solutions.ts / services.ts.
+// The Products mega-menu derives from categories.ts — see productCategoryColumns below.
+
+import { categories, appsOf, categorizedAppSlugs } from "./categories";
 
 export const BRAND = {
   name: "elan1",
