@@ -178,38 +178,66 @@ function SuiteGrid() {
         <SectionHead
           kicker="The 1 Suite"
           title="One platform. Every business function."
-          lede="Ten agentic apps, each owning one function, each reusable across every industry — unified on the enterprise1 backbone."
+          lede={`${categorizedAppSlugs.length} agentic apps in five categories, each reusable across every industry — grouped by what the approval gate protects, and unified on the enterprise1 backbone.`}
         />
         <Reveal delay={0.1}>
           <Link to="/products" className="btn-ghost shrink-0">Explore the suite <Icon.Arrow className="h-4 w-4" /></Link>
         </Reveal>
       </div>
       <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {products.map((p, i) => (
-          <Reveal key={p.slug} delay={(i % 3) * 0.06}>
+        {categories.map((c, i) => (
+          <Reveal key={c.slug} delay={(i % 3) * 0.06}>
             <Link
-              to={`/products/${p.slug}`}
-              className={`group block h-full rounded-card border border-line bg-surface p-6 shadow-card transition-all hover:-translate-y-1 hover:shadow-lift ${
-                p.slug === "enterprise1" ? "sm:col-span-2 lg:col-span-1" : ""
-              }`}
+              to={`/products/category/${c.slug}`}
+              className="group flex h-full flex-col rounded-card border border-line bg-surface p-6 shadow-card transition-all hover:-translate-y-1 hover:shadow-lift"
             >
               <div className="flex items-center justify-between">
                 <span className="flex items-center gap-2">
-                  <span className="h-2.5 w-2.5 rounded-full" style={{ background: p.accent }} />
-                  <span className="font-mono text-base font-semibold text-ink">{p.name}</span>
+                  <span className="h-2.5 w-2.5 rounded-full" style={{ background: c.accent }} />
+                  <span className="font-mono text-base font-semibold text-ink">{c.name}</span>
                 </span>
-                {p.status === "live" && (
-                  <span className="rounded-full bg-green/15 px-2 py-0.5 font-mono text-[9px] font-bold uppercase text-green">live</span>
-                )}
+                <span className="font-mono text-[10px] uppercase tracking-kicker text-muted">
+                  {c.apps.length} {c.apps.length === 1 ? "app" : "apps"}
+                </span>
               </div>
-              <p className="mt-1 font-mono text-[11px] uppercase tracking-wide text-muted">{p.businessFunction}</p>
-              <p className="mt-4 font-display text-lg font-bold leading-snug text-ink">{p.tagline}</p>
-              <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-clayDeep opacity-0 transition-opacity group-hover:opacity-100">
-                Learn more <Icon.Arrow className="h-4 w-4" />
+              <p className="mt-4 font-display text-lg font-bold leading-snug text-ink">{c.positioning}</p>
+              <div className="mt-4 flex flex-wrap gap-1.5">
+                {appsOf(c).map((p) => (
+                  <span key={p.slug} className="inline-flex items-center gap-1.5 rounded-full border border-line px-2.5 py-1 font-mono text-[11px] text-slate">
+                    <span className="h-1.5 w-1.5 rounded-full" style={{ background: p.accent }} />
+                    {p.name}
+                  </span>
+                ))}
+              </div>
+              <span className="mt-auto pt-5 inline-flex items-center gap-1.5 text-sm font-medium text-clayDeep opacity-0 transition-opacity group-hover:opacity-100">
+                Explore {c.name} <Icon.Arrow className="h-4 w-4" />
               </span>
             </Link>
           </Reveal>
         ))}
+        <Reveal delay={0.18}>
+          <Link
+            to="/products/enterprise1"
+            className="group flex h-full flex-col rounded-card border border-transparent bg-obsidian p-6 text-paper shadow-card transition-all hover:-translate-y-1 hover:shadow-lift"
+          >
+            <div className="flex items-center justify-between">
+              <span className="flex items-center gap-2">
+                <span className="h-2.5 w-2.5 rounded-full bg-clay" />
+                <span className="font-mono text-base font-semibold text-paper">enterprise1</span>
+              </span>
+              <span className="rounded-full bg-clay/20 px-2 py-0.5 font-mono text-[9px] font-bold uppercase text-clay">backbone</span>
+            </div>
+            <p className="mt-4 font-display text-lg font-bold leading-snug text-paper">
+              The control plane the five categories stand on.
+            </p>
+            <p className="mt-3 text-sm leading-relaxed text-paper/60">
+              Identity, policy, audit and wave rollout for every app — not a sixth category.
+            </p>
+            <span className="mt-auto pt-5 inline-flex items-center gap-1.5 text-sm font-medium text-clay opacity-0 transition-opacity group-hover:opacity-100">
+              Explore enterprise1 <Icon.Arrow className="h-4 w-4" />
+            </span>
+          </Link>
+        </Reveal>
       </div>
     </Section>
   );
