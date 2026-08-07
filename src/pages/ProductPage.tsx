@@ -32,7 +32,25 @@ export default function ProductPage() {
       <PageHero
         kicker={`Product · ${product.businessFunction}`}
         accent={a}
-        eyebrow={<Reveal><div className="mb-5"><Crumb to="/products" label="The 1 Suite" /></div></Reveal>}
+        eyebrow={
+          <Reveal>
+            <div className="mb-5 flex flex-wrap items-center gap-x-3 gap-y-1">
+              <Crumb to="/products" label="The 1 Suite" />
+              {category && (
+                <>
+                  <span className="font-mono text-xs text-muted">/</span>
+                  <Link
+                    to={`/products/category/${category.slug}`}
+                    className="font-mono text-xs transition-opacity hover:opacity-70"
+                    style={{ color: category.accent }}
+                  >
+                    part of {category.name}
+                  </Link>
+                </>
+              )}
+            </div>
+          </Reveal>
+        }
         title={product.hero.headline}
         subtitle={product.hero.subhead}
         cta={{
