@@ -141,12 +141,12 @@ export const categories: Category[] = [
       primaryCta: "Book a demo",
     },
     gate: {
-      kind: "Grounding",
+      kind: "Grounding, and autonomy that is granted rather than seized",
       body:
-        "The other four categories move money, goods and people. compass1 moves belief, so its gate is a different kind: a metric must name a real system of record, which is what stops a number being invented. Forecasts are labelled as forecasts. The consequential action here is not a payment — it is publishing a number to an audience that will act on it, and that is human-approved. compass1 publishes; it never pays.",
+        "The other four categories move money, goods and people. compass1 moves belief, so its gate is a different kind: a metric must name a real system of record, which is what stops a number being invented. Forecasts are labelled as forecasts. The consequential action here is not a payment — it is publishing a number to an audience that will act on it, and changing the plan, both of which are human-approved. Where goal1 is allowed to act on its own, the permission is granted by a person and bounded: an agent cannot widen its own envelope, the envelope carries a per-cycle budget that spends down, and a critical signal always escalates to a human. compass1 publishes; it never pays.",
     },
     composition:
-      "insight1 is a thin semantic layer over every other app's system of record: one governed definition per metric, so the dashboard, the board pack and the agent's answer all tie to the same source. goal1 sits above that — it watches the metric stream, raises grounded signals with severity and quantified impact, and routes a suggested move back to the app that owns it. Applying a signal changes the plan, so applying it is a human decision, recorded.",
+      "insight1 is a thin semantic layer over every other app's system of record: one governed definition per metric, so the dashboard, the board pack and the agent's answer all tie to the same source. goal1 sits above that as a live cadence — Mission, Sprint, Pulse — where a signal carries severity, the affected mission, a quantified impact and a suggested move into a triage queue. It proposes rather than commits: when a mission needs a lever goal1 doesn't own, it names the target app and the approval gate — collections in finance1, replenishment in supply1 — and writes nothing into a sibling itself.",
     seo: {
       title: "compass1 — agentic analytics and goal intelligence | elan1",
       description:
