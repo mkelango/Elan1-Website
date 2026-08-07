@@ -55,6 +55,35 @@ export interface Product {
   accent: string;
 }
 
+/**
+ * Product categories — the five groupings the 1 Suite is presented in.
+ * The split is by *what the approval gate protects*, not by org chart.
+ *
+ * This is the SINGLE SOURCE of the category→app mapping. Nav, footer, the products index,
+ * product breadcrumbs and the sitemap all derive from `content/categories.ts` — never
+ * re-list apps in a component (that is exactly how goal1 fell out of the nav and footer).
+ */
+export interface Category {
+  slug: string;
+  name: string;
+  /** One-line positioning — "Win the customer", "Move the goods"… */
+  positioning: string;
+  /** Product slugs in this category, in display order. Must exist in products.ts. */
+  apps: string[];
+  hero: Hero;
+  /** What the approval gate is protecting for this category — the reason the grouping exists. */
+  gate: { kind: string; body: string };
+  /** How the member apps compose with each other. */
+  composition: string;
+  /**
+   * How compass1 (insight1 · goal1) serves THIS category. compass1 is cross-cutting: it is its own
+   * category *and* present inside the other four. Omitted on compass1 itself.
+   */
+  compassNote?: string;
+  seo: SEO;
+  accent: string;
+}
+
 /** Industry solutions — compose products + service pillars with industry skills & governance. */
 export interface Solution {
   slug: string;
