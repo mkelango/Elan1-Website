@@ -39,18 +39,11 @@ export const PLAN_SHAPES: PlanShape[] = [
   },
   {
     id: "enterprise",
+    // DERIVED, not listed: this plan is defined as "the full 1 Suite", so a hardcoded list is a
+    // claim that silently goes stale. It already had — the literal list omitted goal1 while the
+    // `who` line beside it said "full". Deriving makes the copy true by construction.
     name: "Enterprise",
-    apps: [
-      "sales1",
-      "service1",
-      "finance1",
-      "supply1",
-      "people1",
-      "market1",
-      "insight1",
-      "project1",
-      "commerce1",
-    ],
+    apps: categorizedAppSlugs,
     who: "The full 1 Suite on enterprise1, with residency, wave rollout and the governance spine.",
   },
 ];

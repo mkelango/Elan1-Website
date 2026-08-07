@@ -3,7 +3,7 @@
 // Offering copy lives in products.ts / solutions.ts / services.ts.
 // The Products mega-menu derives from categories.ts — see productCategoryColumns below.
 
-import { categories, appsOf, categorizedAppSlugs, numberWord } from "./categories";
+import { categories, appsOf, categorizedAppSlugs, numberWord, sentenceCase } from "./categories";
 
 export const BRAND = {
   name: "elan1",
