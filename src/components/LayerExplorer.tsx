@@ -11,7 +11,7 @@ type Tab = "services" | "products" | "solutions";
 
 const TABS: { key: Tab; label: string; tag: string; blurb: string; accent: string }[] = [
   { key: "services", label: "Services", tag: "How we deliver", blurb: "Six pillars, end to end.", accent: "#7c6cf0" },
-  { key: "products", label: "Products", tag: "What we deploy", blurb: "The 1 Suite — ten agentic apps.", accent: "#2f6df0" },
+  { key: "products", label: "Products", tag: "What we deploy", blurb: "The 1 Suite — ten agentic apps, five categories.", accent: "#2f6df0" },
   { key: "solutions", label: "Solutions", tag: "Who we serve", blurb: "Ten industry solutions.", accent: "#d39a3a" },
 ];
 

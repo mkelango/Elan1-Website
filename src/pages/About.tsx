@@ -64,7 +64,7 @@ export default function About() {
         <div className="mt-12 grid gap-4 md:grid-cols-3">
           {[
             ["Services", "Six pillars — how we deliver, end to end.", "#7c6cf0", "/services"],
-            ["Products", "The 1 Suite — ten agentic apps, one per function.", "#2f6df0", "/products"],
+            ["Products", "The 1 Suite — ten agentic apps in five categories.", "#2f6df0", "/products"],
             ["Solutions", "Ten verticals — the suite, tuned to your industry.", "#d39a3a", "/solutions"],
           ].map(([t, b, a, href], i) => (
             <Reveal key={t} delay={i * 0.06}>

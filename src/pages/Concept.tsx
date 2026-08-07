@@ -42,7 +42,7 @@ const STAGES = [
 
 const ROLE = [
   { label: "Services — how we deliver", href: "/services", desc: "Six pillars that take you from strategy to scale.", accent: "#7c6cf0" },
-  { label: "Products — what we deploy", href: "/products", desc: "The 1 Suite: ten agentic apps on one core.", accent: "#2f6df0" },
+  { label: "Products — what we deploy", href: "/products", desc: "The 1 Suite: ten agentic apps in five categories, on one core.", accent: "#2f6df0" },
   { label: "Solutions — who we serve", href: "/solutions", desc: "Ten industry solutions with the governance your regulator expects.", accent: "#d39a3a" },
 ];
 

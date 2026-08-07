@@ -1,5 +1,6 @@
 // content/products.ts
-// The 1 Suite — ten agentic apps (9 functional + goal1) on one core, plus enterprise1, the backbone.
+// The 1 Suite — ten agentic apps on one core, plus enterprise1, the backbone.
+// Grouped into five categories in content/categories.ts, which is the single source of that mapping.
 // All built, governed (HITL on every consequential action), and durable. Horizontal by function, reused across verticals.
 // Source: elan1 offering catalog + product playbooks (Vols. 7–13).
 

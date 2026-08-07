@@ -186,6 +186,16 @@ export const uncategorizedAppSlugs: string[] = products
   .filter((p) => p.slug !== "enterprise1" && !categorizedAppSlugs.includes(p.slug))
   .map((p) => p.slug);
 
+const NUMBER_WORDS = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve"];
+
+/**
+ * Spell a small derived count for prose, so headline copy reads "five categories, ten agentic apps"
+ * instead of mixing a word and a numeral. Falls back to digits past twelve.
+ */
+export function numberWord(n: number): string {
+  return NUMBER_WORDS[n] ?? String(n);
+}
+
 const DEV = Boolean(
   (import.meta as unknown as { env?: Record<string, unknown> }).env?.DEV,
 );
