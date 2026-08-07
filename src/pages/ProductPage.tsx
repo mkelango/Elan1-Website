@@ -174,6 +174,63 @@ export default function ProductPage() {
         </div>
       </Section>
 
+      {/* Category band — where this app sits in the suite */}
+      {category && (
+        <Section tone="obsidian">
+          <div className="grid items-start gap-12 lg:grid-cols-[0.9fr_1.1fr]">
+            <div>
+              <Kicker>Part of {category.name}</Kicker>
+              <h2 className="mt-4 font-display text-3xl font-bold leading-tight text-paper sm:text-4xl">
+                {category.positioning}
+              </h2>
+              <p className="mt-5 text-[15px] leading-relaxed text-paper/70">
+                The 1 Suite groups its apps by what the approval gate protects. In {category.name} that gate is{" "}
+                <span style={{ color: category.accent }}>{category.gate.kind.toLowerCase()}</span>.
+              </p>
+              <Link
+                to={`/products/category/${category.slug}`}
+                className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-clay hover:underline"
+              >
+                Explore {category.name} <Icon.Arrow className="h-4 w-4" />
+              </Link>
+            </div>
+            <Reveal>
+              <div className="rounded-card border border-paper/15 bg-paper/[0.04] p-7">
+                {siblings.length > 0 ? (
+                  <>
+                    <p className="font-mono text-[10px] uppercase tracking-kicker text-paper/50">
+                      Also in {category.name}
+                    </p>
+                    <div className="mt-4 space-y-3">
+                      {siblings.map((s) => (
+                        <Link
+                          key={s.slug}
+                          to={`/products/${s.slug}`}
+                          className="group flex items-start gap-3 rounded-card border border-paper/10 p-4 transition-colors hover:border-paper/30"
+                        >
+                          <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full" style={{ background: s.accent }} />
+                          <span>
+                            <span className="font-mono text-sm font-semibold text-paper">{s.name}</span>
+                            <span className="mt-0.5 block text-sm leading-relaxed text-paper/60">{s.tagline}</span>
+                          </span>
+                        </Link>
+                      ))}
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <p className="font-mono text-[10px] uppercase tracking-kicker text-paper/50">
+                      One app, its own category
+                    </p>
+                    <p className="mt-4 text-[15px] leading-relaxed text-paper/75">{category.composition}</p>
+                  </>
+                )}
+              </div>
+            </Reveal>
+          </div>
+        </Section>
+      )}
+
       {/* Pricing teaser */}
       <Section tone="mist">
         <SectionHead kicker="Pricing" title="Start small. Scale on proof." lede="Illustrative tiers — the right starting point depends on your size and goals. Nothing here is financial advice." />
