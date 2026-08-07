@@ -46,7 +46,7 @@ export const LAYERS: Record<
   products: {
     label: "Products",
     tag: "What we deploy",
-    blurb: "The 1 Suite — ten agentic apps, one for every business function, unified on enterprise1.",
+    blurb: "The 1 Suite — ten agentic apps in five categories, unified on enterprise1.",
     accent: "#2f6df0",
     href: "/products",
   },
