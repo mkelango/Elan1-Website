@@ -92,7 +92,7 @@ export const categories: Category[] = [
     composition:
       "commerce1 reconciles catalog availability against supply1 rather than keeping a second stock number, which is what stops the oversell. When stock falls below its reorder point, commerce1 drafts a replenishment purchase order against an approved supply1 vendor — the draft is the agent's work, the commitment stays a human's. Source, stock, sell and fulfil sit in one category because splitting them is what creates the reconciliation problem in the first place.",
     compassNote:
-      "insight1 reads both systems of record at once, so stock cover and sell-through are the same number for the merchandiser and the planner; goal1 raises a signal when a category drifts off its target before the quarter ends.",
+      "insight1 reads both systems of record at once, so stock cover and sell-through are the same number for the merchandiser and the planner. When a goal1 mission is blocked on throughput, the lever it names is supply1 replenishment — proposed with its approval gate, never committed by goal1 itself.",
     seo: {
       title: "trade1 — agentic supply chain and commerce | elan1",
       description:
