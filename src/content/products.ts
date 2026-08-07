@@ -488,7 +488,7 @@ export const products: Product[] = [
     seo: {
       title: "goal1 — agentic goal intelligence, the anti-OKR | elan1",
       description:
-        "goal1 replaces static OKRs with a live, agent-co-owned cadence — Mission, Sprint, Pulse, and governed real-time Signals. Applying a signal is a human decision (K5). From elan1.",
+        "goal1 replaces static OKRs with a live, agent-co-owned cadence — Mission, Sprint, Pulse, and governed Signals. Applying a signal is a human decision (K5), and autonomy is granted, never seized. From elan1.",
     },
   },
 
