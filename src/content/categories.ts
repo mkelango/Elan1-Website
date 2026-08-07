@@ -37,7 +37,7 @@ export const categories: Category[] = [
     composition:
       "market1 turns one asset into on-brand pieces across channels and hands the resulting demand to sales1, which researches the account, drafts the outreach and keeps the record clean. The loop closes back the other way: what actually converts in sales1 is the signal market1 plans against. Both write into the same customer record, so nobody reconciles a lead list against a CRM export again.",
     compassNote:
-      "insight1 answers “which channel actually produced revenue” from the live pipeline rather than a spreadsheet, and goal1 watches the number between check-ins — when pipeline slips against the mission, a signal is raised for a human to act on.",
+      "insight1 answers “which channel actually produced revenue” from the live pipeline rather than a spreadsheet, and goal1 keeps the growth target live between check-ins as a mission with a daily pulse — a signal against it carries a suggested move for a human to triage and apply.",
     seo: {
       title: "revenue1 — agentic demand and pipeline | elan1",
       description:
