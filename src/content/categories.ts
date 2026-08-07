@@ -196,6 +196,11 @@ export function numberWord(n: number): string {
   return NUMBER_WORDS[n] ?? String(n);
 }
 
+/** Capitalize the first letter — for a derived word that opens a sentence. */
+export function sentenceCase(s: string): string {
+  return s.charAt(0).toUpperCase() + s.slice(1);
+}
+
 const DEV = Boolean(
   (import.meta as unknown as { env?: Record<string, unknown> }).env?.DEV,
 );
