@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Concept from "./pages/Concept";
 import Demo from "./pages/Demo";
 import ProductPage from "./pages/ProductPage";
+import CategoryPage from "./pages/CategoryPage";
 import SolutionPage from "./pages/SolutionPage";
 import ServicePage from "./pages/ServicePage";
 import { ProductsOverview, SolutionsOverview, ServicesOverview } from "./pages/Overviews";
