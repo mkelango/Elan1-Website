@@ -5,7 +5,7 @@ import { PageHero, Section } from "../components/blocks";
 import { SectionHead, Reveal, Icon, Kicker } from "../components/primitives";
 import { CTASection } from "../components/CTASection";
 import { products } from "../content/products";
-import { categories, appsOf, categorizedAppSlugs, uncategorizedAppSlugs } from "../content/categories";
+import { categories, appsOf, categorizedAppSlugs, uncategorizedAppSlugs, numberWord } from "../content/categories";
 import { solutionsByFocus } from "../content/solutions";
 import { services } from "../content/services";
 import { BrandImage, AbstractHero } from "../components/BrandImage";
@@ -68,15 +68,15 @@ export function ProductsOverview() {
       <PageHero
         kicker="Products · The 1 Suite"
         accent="#2f6df0"
-        title={<>The 1 Suite. <br />Five categories, {appCount} agentic apps.</>}
+        title={<>The 1 Suite. <br />Five categories, {numberWord(appCount)} agentic apps.</>}
         subtitle="Each app owns one business function, works in any industry, and unifies on the enterprise1 platform. Grouped not by org chart, but by what the approval gate protects — because that is what decides where a human stands in the loop."
         cta={{ label: "Book a demo", href: "/contact", secondary: { label: "Why apps beat copilots", href: "/what-is-agentic-transformation" } }}
-        media={<AbstractHero label="The 1 Suite" sub={`five categories · ${appCount} agentic apps`} accent="#2f6df0" accent2="#df8c64" ratio="card" className="shadow-lift" />}
+        media={<AbstractHero label="The 1 Suite" sub={`five categories · ${numberWord(appCount)} agentic apps`} accent="#2f6df0" accent2="#df8c64" ratio="card" className="shadow-lift" />}
       />
       <Section tone="paper">
         <SectionHead
           kicker="The five categories"
-          title={`Five categories. ${appCount} apps. One platform.`}
+          title={`Five categories. ${numberWord(appCount)} apps. One platform.`}
           lede="Horizontal by function, reused across every vertical, governed as one."
         />
         <div className="mt-12 grid gap-4 lg:grid-cols-2">

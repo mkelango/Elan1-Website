@@ -3,7 +3,7 @@
 // Offering copy lives in products.ts / solutions.ts / services.ts.
 // The Products mega-menu derives from categories.ts — see productCategoryColumns below.
 
-import { categories, appsOf, categorizedAppSlugs } from "./categories";
+import { categories, appsOf, categorizedAppSlugs, numberWord } from "./categories";
 
 export const BRAND = {
   name: "elan1",
@@ -120,7 +120,7 @@ export const NAV: NavItem[] = [
     ],
     featured: {
       title: "See the full 1 Suite",
-      body: `${categorizedAppSlugs.length} agentic apps in five categories, on one control plane. Explore how they compose into a single agentic enterprise.`,
+      body: `${sentenceCase(numberWord(categorizedAppSlugs.length))} agentic apps in five categories, on one control plane. Explore how they compose into a single agentic enterprise.`,
       href: "/products",
       cta: "Explore the suite",
     },

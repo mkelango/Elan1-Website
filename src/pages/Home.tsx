@@ -10,7 +10,7 @@ import { LayerExplorer } from "../components/LayerExplorer";
 import { BrandImage } from "../components/BrandImage";
 import { pageImage } from "../content/images";
 import { products } from "../content/products";
-import { categories, appsOf, categorizedAppSlugs } from "../content/categories";
+import { categories, appsOf, categorizedAppSlugs, numberWord } from "../content/categories";
 import { solutions, activeSolutions, parkedSolutions } from "../content/solutions";
 import { services } from "../content/services";
 import { SHIFT, METHOD, FLYWHEEL, WHY_WIN, VS_LEGACY, REGIONS } from "../content/site";
@@ -179,7 +179,7 @@ function SuiteGrid() {
         <SectionHead
           kicker="The 1 Suite"
           title="One platform. Every business function."
-          lede={`${categorizedAppSlugs.length} agentic apps in five categories, each reusable across every industry — grouped by what the approval gate protects, and unified on the enterprise1 backbone.`}
+          lede={`${numberWord(categorizedAppSlugs.length)} agentic apps in five categories, each reusable across every industry — grouped by what the approval gate protects, and unified on the enterprise1 backbone.`}
         />
         <Reveal delay={0.1}>
           <Link to="/products" className="btn-ghost shrink-0">Explore the suite <Icon.Arrow className="h-4 w-4" /></Link>
