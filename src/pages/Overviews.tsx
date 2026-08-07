@@ -57,31 +57,110 @@ function OfferingTile({
 }
 
 export function ProductsOverview() {
-  useSeo("The 1 Suite — agentic apps for every function | elan1", "Ten agentic apps, one for every business function, unified on the enterprise1 platform backbone.");
+  useSeo(
+    "The 1 Suite — five categories, ten agentic apps | elan1",
+    "Ten agentic apps in five categories — revenue1, service1, trade1, works1 and compass1 — unified on the enterprise1 platform backbone.",
+  );
+  const appCount = categorizedAppSlugs.length;
   return (
     <>
       <PageHero
         kicker="Products · The 1 Suite"
         accent="#2f6df0"
-        title={<>The 1 Suite. <br />Agentic apps for every function.</>}
-        subtitle="Each app owns one business function, works in any industry, and unifies on the enterprise1 platform. Not copilots that wait for instructions — agents that do the work, under human control."
+        title={<>The 1 Suite. <br />Five categories, {appCount} agentic apps.</>}
+        subtitle="Each app owns one business function, works in any industry, and unifies on the enterprise1 platform. Grouped not by org chart, but by what the approval gate protects — because that is what decides where a human stands in the loop."
         cta={{ label: "Book a demo", href: "/contact", secondary: { label: "Why apps beat copilots", href: "/what-is-agentic-transformation" } }}
-        media={<AbstractHero label="The 1 Suite" sub="ten agentic apps · one platform" accent="#2f6df0" accent2="#df8c64" ratio="card" className="shadow-lift" />}
+        media={<AbstractHero label="The 1 Suite" sub={`five categories · ${appCount} agentic apps`} accent="#2f6df0" accent2="#df8c64" ratio="card" className="shadow-lift" />}
       />
       <Section tone="paper">
-        <SectionHead kicker="Functional apps" title="Ten apps. One platform." lede="Horizontal by function, reused across every vertical, governed as one." />
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {products.filter((p) => p.slug !== "enterprise1").map((p, i) => (
-            <Reveal key={p.slug} delay={(i % 3) * 0.06}>
-              <OfferingTile to={`/products/${p.slug}`} name={p.name} sub={p.businessFunction} tagline={p.tagline} accent={p.accent} live={p.status === "live"} />
+        <SectionHead
+          kicker="The five categories"
+          title={`Five categories. ${appCount} apps. One platform.`}
+          lede="Horizontal by function, reused across every vertical, governed as one."
+        />
+        <div className="mt-12 grid gap-4 lg:grid-cols-2">
+          {categories.map((c, i) => (
+            <Reveal key={c.slug} delay={(i % 2) * 0.06}>
+              <Link
+                to={`/products/category/${c.slug}`}
+                className="group flex h-full flex-col rounded-card border border-line bg-surface p-7 shadow-card transition-all hover:-translate-y-1 hover:shadow-lift"
+              >
+                <div className="flex items-center justify-between">
+                  <span className="flex items-center gap-2">
+                    <span className="h-2.5 w-2.5 rounded-full" style={{ background: c.accent }} />
+                    <span className="font-mono text-lg font-semibold text-ink">{c.name}</span>
+                  </span>
+                  <span className="font-mono text-[10px] uppercase tracking-kicker text-muted">
+                    {c.apps.length} {c.apps.length === 1 ? "app" : "apps"}
+                  </span>
+                </div>
+                <p className="mt-3 font-display text-lg font-bold leading-snug text-ink">{c.positioning}</p>
+                <p className="mt-3 text-sm leading-relaxed text-slate">{c.hero.subhead}</p>
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {appsOf(c).map((p) => (
+                    <span
+                      key={p.slug}
+                      className="inline-flex items-center gap-1.5 rounded-full border border-line px-2.5 py-1 font-mono text-[11px] text-slate"
+                    >
+                      <span className="h-1.5 w-1.5 rounded-full" style={{ background: p.accent }} />
+                      {p.name}
+                    </span>
+                  ))}
+                </div>
+                <p className="mt-5 font-mono text-[10px] uppercase tracking-kicker text-muted">
+                  Gate · {c.gate.kind}
+                </p>
+                <span className="mt-auto pt-5 inline-flex items-center gap-1.5 text-sm font-medium text-clayDeep opacity-0 transition-opacity group-hover:opacity-100">
+                  Explore {c.name} <Icon.Arrow className="h-4 w-4" />
+                </span>
+              </Link>
             </Reveal>
           ))}
         </div>
         <Reveal delay={0.1}>
           <div className="mt-4">
-            <OfferingTile to="/products/enterprise1" name="enterprise1" sub="Platform backbone" tagline="One agentic platform. Every function. Total control." accent="#df8c64" featured />
+            <OfferingTile to="/products/enterprise1" name="enterprise1" sub="Platform backbone · not a category" tagline="One agentic platform. Every function. Total control." accent="#df8c64" featured />
           </div>
         </Reveal>
+        <Reveal delay={0.12}>
+          <p className="mt-4 text-sm leading-relaxed text-muted">
+            enterprise1 is the control plane the five categories stand on — identity, policy, audit and wave rollout
+            for every app. It is the backbone, not the five bundled together.
+          </p>
+        </Reveal>
+      </Section>
+
+      {/* compass1 is cross-cutting, not a silo */}
+      <Section tone="obsidian">
+        <div className="grid items-start gap-12 lg:grid-cols-[0.9fr_1.1fr]">
+          <div>
+            <Kicker>Cross-cutting</Kicker>
+            <h2 className="mt-4 font-display text-3xl font-bold leading-tight text-paper sm:text-4xl">
+              compass1 is a category — and it's inside the other four.
+            </h2>
+            <p className="mt-5 text-[15px] leading-relaxed text-paper/70">
+              insight1 and goal1 make claims <em>about</em> the rest of the suite, so they hold their own category.
+              But they are not a silo: insight1 serves finance and HR analytics as directly as it serves sales, and
+              goal1 watches whichever number the mission is built on.
+            </p>
+            <Link to="/products/category/compass1" className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-clay hover:underline">
+              Explore compass1 <Icon.Arrow className="h-4 w-4" />
+            </Link>
+          </div>
+          <Reveal>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {categories.filter((c) => c.compassNote).map((c) => (
+                <div key={c.slug} className="rounded-card border border-paper/15 bg-paper/[0.04] p-5">
+                  <span className="flex items-center gap-2">
+                    <span className="h-2 w-2 rounded-full" style={{ background: c.accent }} />
+                    <span className="font-mono text-sm font-semibold text-paper">{c.name}</span>
+                  </span>
+                  <p className="mt-2 text-sm leading-relaxed text-paper/70">{c.compassNote}</p>
+                </div>
+              ))}
+            </div>
+          </Reveal>
+        </div>
       </Section>
       <Section tone="mist">
         <div className="grid items-center gap-12 lg:grid-cols-2">
