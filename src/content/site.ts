@@ -75,37 +75,49 @@ export interface NavItem {
   featured?: { title: string; body: string; href: string; cta: string };
 }
 
+/**
+ * The Products mega-menu is DERIVED from content/categories.ts — one column per category, the
+ * category heading linking to its page and the member apps beneath (the Dynamics 365 pattern).
+ * Never hardcode the app list here: the previous hardcoded version silently lost goal1 while the
+ * featured blurb beside it still claimed "Ten agentic apps".
+ */
+const productCategoryColumns: NavColumn[] = categories.map((c) => ({
+  heading: `${c.name} — ${c.positioning.replace(/\.$/, "")}`,
+  links: [
+    {
+      label: `${c.name} overview`,
+      href: `/products/category/${c.slug}`,
+      desc: `${c.apps.length} ${c.apps.length === 1 ? "app" : "apps"} · gate: ${c.gate.kind.toLowerCase()}`,
+      accent: c.accent,
+    },
+    ...appsOf(c).map((p) => ({
+      label: p.name,
+      href: `/products/${p.slug}`,
+      desc: p.businessFunction,
+      tag: p.status === "live" ? "live" : undefined,
+      accent: p.accent,
+    })),
+  ],
+}));
+
 export const NAV: NavItem[] = [
   {
     label: "Products",
     href: "/products",
     mega: [
-      {
-        heading: "The 1 Suite — by function",
-        links: [
-          { label: "sales1", href: "/products/sales1", desc: "Sales & CRM", tag: "live", accent: "#df8c64" },
-          { label: "service1", href: "/products/service1", desc: "Customer Service", accent: "#d39a3a" },
-          { label: "finance1", href: "/products/finance1", desc: "Finance & Accounting", accent: "#22b8c4" },
-          { label: "supply1", href: "/products/supply1", desc: "Supply Chain", accent: "#3fae6b" },
-          { label: "people1", href: "/products/people1", desc: "HR & Talent", accent: "#e0656d" },
-          { label: "market1", href: "/products/market1", desc: "Marketing & Growth", accent: "#7c6cf0" },
-          { label: "insight1", href: "/products/insight1", desc: "Analytics & Intelligence", tag: "live", accent: "#6c8cf0" },
-          { label: "project1", href: "/products/project1", desc: "Project & Services Delivery", tag: "live", accent: "#5aa9a0" },
-          { label: "commerce1", href: "/products/commerce1", desc: "eCommerce + POS", tag: "live", accent: "#c46fb0" },
-        ],
-      },
+      ...productCategoryColumns,
       {
         heading: "The backbone",
         links: [
-          { label: "enterprise1", href: "/products/enterprise1", desc: "The platform that unifies the suite", accent: "#b9603f" },
-          { label: "The 1 Suite overview", href: "/products", desc: "One platform, every function" },
+          { label: "enterprise1", href: "/products/enterprise1", desc: "The control plane the categories stand on", accent: "#b9603f" },
+          { label: "The 1 Suite overview", href: "/products", desc: "Five categories, one platform" },
           { label: "Agentic apps vs. copilots", href: "/what-is-agentic-transformation", desc: "Why apps that act beat tools that wait" },
         ],
       },
     ],
     featured: {
       title: "See the full 1 Suite",
-      body: "Ten agentic apps, one control plane. Explore how they compose into a single agentic enterprise.",
+      body: `${categorizedAppSlugs.length} agentic apps in five categories, on one control plane. Explore how they compose into a single agentic enterprise.`,
       href: "/products",
       cta: "Explore the suite",
     },
