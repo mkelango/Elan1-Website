@@ -1,6 +1,7 @@
 // pages/ProductPage.tsx — Template A. Renders any 1 Suite product from typed content.
 import { useParams, Navigate, Link } from "react-router-dom";
 import { products } from "../content/products";
+import { categoryOfApp, appsOf } from "../content/categories";
 import { productDiagram } from "../lib/diagrams";
 import { useSeo, productJsonLd } from "../lib/seo";
 import { PageHero, Section, FeatureCard, TickList, GovernanceSpine, Crumb } from "../components/blocks";
