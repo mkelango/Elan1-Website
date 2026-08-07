@@ -10,6 +10,7 @@ import { LayerExplorer } from "../components/LayerExplorer";
 import { BrandImage } from "../components/BrandImage";
 import { pageImage } from "../content/images";
 import { products } from "../content/products";
+import { categories, appsOf, categorizedAppSlugs } from "../content/categories";
 import { solutions, activeSolutions, parkedSolutions } from "../content/solutions";
 import { services } from "../content/services";
 import { SHIFT, METHOD, FLYWHEEL, WHY_WIN, VS_LEGACY, REGIONS } from "../content/site";
