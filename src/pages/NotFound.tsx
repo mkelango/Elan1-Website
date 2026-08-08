@@ -4,7 +4,9 @@ import { useSeo } from "../lib/seo";
 import { Icon } from "../components/primitives";
 
 export default function NotFound() {
-  useSeo("Page not found | elan1");
+  // noindex: a 404 must never be indexed. (Pre-existing gap, found while adding the same guard to
+  // the pillar not-found branch in ServicePage.)
+  useSeo("Page not found | elan1", "That page doesn't exist. Browse the platform, the products, or the industry solutions.", { noindex: true });
   return (
     <section className="relative flex min-h-[70vh] items-center overflow-hidden bg-paper">
       <div className="absolute inset-0 bg-grid-paper opacity-60" aria-hidden />

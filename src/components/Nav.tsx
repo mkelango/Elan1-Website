@@ -18,6 +18,14 @@ function MegaPanel({
   onLeave: () => void;
 }) {
   if (!item.mega) return null;
+  // Derived from the TOTAL CELL COUNT — mega columns plus the featured card, which occupies a cell
+  // too. Keying off `mega.length` alone was off by one: Platform (3 cols + featured = 4 cells)
+  // orphaned its featured card on a half-empty row, and Academy (1 col + featured = 2 cells) left a
+  // blank third column, because the non-wide branch hardcoded a 3-column template.
+  const cells = item.mega.length + (item.featured ? 1 : 0);
+  const wide = cells > 3;
+  // Non-wide menus size the grid to their actual cell count instead of assuming three.
+  const narrowCols = cells <= 1 ? "grid-cols-1" : cells === 2 ? "grid-cols-2" : "grid-cols-[1fr_1fr_0.9fr]";
   return (
     <AnimatePresence>
       {open && (
@@ -33,20 +41,34 @@ function MegaPanel({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 6 }}
             transition={{ duration: 0.16 }}
-            className="w-[min(92vw,920px)] overflow-hidden rounded-2xl border border-line bg-surface/95 shadow-lift backdrop-blur"
+            className={`overflow-hidden rounded-2xl border border-line bg-surface/95 shadow-lift backdrop-blur ${
+              wide
+                ? "w-[min(96vw,1180px)] max-h-[min(84vh,760px)] overflow-y-auto"
+                : "w-[min(92vw,920px)]"
+            }`}
           >
-        <div className={`grid ${item.featured ? "grid-cols-[1fr_1fr_0.9fr]" : "grid-cols-2"} divide-x divide-line`}>
+        {/* With >3 columns (the Products menu after the category restructure) the old fixed
+            3-column grid orphaned the featured card in a half-empty third row and pushed it below
+            the fold. Wide mode uses a 3-col wrapping grid; `gap-px` over a line-coloured background
+            draws clean rules in BOTH axes, which `divide-x` cannot do once rows wrap. */}
+        <div
+          className={`grid ${
+            wide
+              ? "grid-cols-2 gap-px bg-line sm:grid-cols-3"
+              : `${narrowCols} divide-x divide-line`
+          }`}
+        >
           {item.mega.map((col, i) => (
-            <div key={i} className="p-6">
+            <div key={i} className={wide ? "bg-surface px-5 py-4" : "p-6"}>
               {col.heading.trim() && (
-                <p className="mb-3 font-mono text-[10px] uppercase tracking-kicker text-muted">{col.heading}</p>
+                <p className={`font-mono text-[10px] uppercase tracking-kicker text-muted ${wide ? "mb-2" : "mb-3"}`}>{col.heading}</p>
               )}
               <ul className="space-y-1">
                 {col.links.map((l) => (
                   <li key={l.label + l.href}>
                     <Link
                       to={l.href}
-                      className="group/link flex items-start gap-3 rounded-xl px-3 py-2 transition-colors hover:bg-mist"
+                      className={`group/link flex items-start gap-3 rounded-xl px-3 transition-colors hover:bg-mist ${wide ? "py-1.5" : "py-2"}`}
                     >
                       {l.accent && (
                         <span className="mt-[7px] h-2 w-2 shrink-0 rounded-full" style={{ background: l.accent }} />
@@ -67,13 +89,24 @@ function MegaPanel({
             </div>
           ))}
           {item.featured && (
-            <div className="flex flex-col justify-between bg-obsidian p-6 text-paper">
+            <div
+              className={`bg-obsidian text-paper ${
+                wide
+                  ? "col-span-full flex flex-col gap-4 px-5 py-4 sm:flex-row sm:items-center sm:justify-between"
+                  : "flex flex-col justify-between p-6"
+              }`}
+            >
               <div>
                 <p className="font-mono text-[10px] uppercase tracking-kicker text-clay">Featured</p>
-                <p className="display mt-3 text-lg text-paper">{item.featured.title}</p>
-                <p className="mt-2 text-sm text-paper/65">{item.featured.body}</p>
+                <p className={`display text-paper ${wide ? "mt-1.5 text-base" : "mt-3 text-lg"}`}>{item.featured.title}</p>
+                {!wide && <p className="mt-2 text-sm text-paper/65">{item.featured.body}</p>}
               </div>
-              <Link to={item.featured.href} className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-clay hover:text-paper">
+              <Link
+                to={item.featured.href}
+                className={`inline-flex items-center gap-1.5 text-sm font-semibold text-clay hover:text-paper ${
+                  wide ? "shrink-0 sm:mt-0" : "mt-5"
+                }`}
+              >
                 {item.featured.cta} <Icon.Arrow className="h-4 w-4" />
               </Link>
             </div>
@@ -206,8 +239,8 @@ export function Nav() {
           <a href={APP_URL} className="hidden text-sm font-medium text-ink/70 hover:text-ink sm:inline-flex sm:px-3 sm:py-2">
             Log in
           </a>
-          <Link to="/get-started" className="btn-primary hidden sm:inline-flex">
-            Book a demo
+          <Link to="/get-started" className="btn-primary hidden whitespace-nowrap sm:inline-flex">
+            Start a Discovery Sprint
           </Link>
 
           {/* Mobile toggle */}
@@ -255,7 +288,7 @@ export function Nav() {
                 </details>
               ))}
               <div className="flex gap-3 pt-4">
-                <Link to="/get-started" className="btn-primary flex-1">Book a demo</Link>
+                <Link to="/get-started" className="btn-primary flex-1">Start a Discovery Sprint</Link>
                 <a href={APP_URL} className="btn-ghost flex-1 text-center">Log in</a>
               </div>
             </div>

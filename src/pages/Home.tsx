@@ -6,14 +6,13 @@ import { Reveal, Kicker, SectionHead, Icon } from "../components/primitives";
 import { Section } from "../components/blocks";
 import { CTASection } from "../components/CTASection";
 import { VsBuildersBand } from "../components/VsBuildersBand";
-import { LayerExplorer } from "../components/LayerExplorer";
 import { BrandImage } from "../components/BrandImage";
 import { pageImage } from "../content/images";
 import { products } from "../content/products";
 import { categories, appsOf, categorizedAppSlugs, numberWord } from "../content/categories";
-import { solutions, activeSolutions, parkedSolutions } from "../content/solutions";
-import { services } from "../content/services";
-import { SHIFT, METHOD, FLYWHEEL, WHY_WIN, VS_LEGACY, REGIONS } from "../content/site";
+import { solutions, primarySolutions, secondarySolutions } from "../content/solutions";
+import { services, platformPillars, resourcePillars, servicePath } from "../content/services";
+import { SHIFT, METHOD, FLYWHEEL, WHY_WIN, HOW_WE_WORK, REGIONS } from "../content/site";
 
 const ALL_TAGS = [
   ...services.map((s) => s.name),
@@ -55,8 +54,8 @@ function Hero() {
           </Reveal>
           <Reveal delay={0.12}>
             <p className="lede mt-7 max-w-xl">
-              elan1 turns startups, scaleups, and enterprises into agentic organizations — number one in
-              their field. From AI ambition to a deployed, certified result, in weeks, not quarters.
+              elan1 turns startups, scaleups, and enterprises into agentic organizations. From AI ambition to
+              an agent in production — governed on the write path, and enabled one function at a time.
             </p>
           </Reveal>
           <Reveal delay={0.18}>
@@ -72,9 +71,9 @@ function Hero() {
           <Reveal delay={0.24}>
             <dl className="mt-12 grid max-w-lg grid-cols-3 gap-6 border-t border-line pt-7">
               {[
-                ["6", "service pillars"],
-                ["10", "agentic apps"],
-                ["10", "industry solutions"],
+                [String(categorizedAppSlugs.length), "agentic apps"],
+                ["5", "product categories"],
+                [String(solutions.length), "industry solutions"],
               ].map(([n, l]) => (
                 <div key={l}>
                   <dt className="display text-3xl text-ink">{n}</dt>
@@ -123,8 +122,8 @@ function Hero() {
               </div>
             </div>
             <div className="absolute -bottom-4 -left-4 rounded-xl border border-line bg-surface px-4 py-3 shadow-card">
-              <p className="font-mono text-[10px] uppercase tracking-wide text-muted">Time to value</p>
-              <p className="display text-xl text-ink">Weeks, not quarters</p>
+              <p className="font-mono text-[10px] uppercase tracking-wide text-muted">Before it sends</p>
+              <p className="display text-xl text-ink">A person approves</p>
             </div>
           </div>
         </Reveal>
@@ -218,7 +217,7 @@ function SuiteGrid() {
         ))}
         <Reveal delay={0.18}>
           <Link
-            to="/products/enterprise1"
+            to="/platform/enterprise1"
             className="group flex h-full flex-col rounded-card border border-transparent bg-obsidian p-6 text-paper shadow-card transition-all hover:-translate-y-1 hover:shadow-lift"
           >
             <div className="flex items-center justify-between">
@@ -244,22 +243,6 @@ function SuiteGrid() {
   );
 }
 
-function ModelSection() {
-  return (
-    <Section tone="mist">
-      <SectionHead
-        kicker="The three-layer model"
-        title="The whole company, in one view."
-        lede={`Services deliver, products deploy, solutions serve. Click any layer to explore all ${products.length + solutions.length + services.length} offerings — and see how a single need opens onto the whole platform.`}
-        align="center"
-      />
-      <div className="mt-12">
-        <Reveal><LayerExplorer /></Reveal>
-      </div>
-    </Section>
-  );
-}
-
 function SolutionsRow() {
   return (
     <Section tone="paper">
@@ -268,9 +251,9 @@ function SolutionsRow() {
         <Reveal delay={0.1}><Link to="/solutions" className="btn-ghost shrink-0">Find your industry <Icon.Arrow className="h-4 w-4" /></Link></Reveal>
       </div>
       <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
-        {/* FY1 GTM focus: the 7 active verticals are featured; the 3 parked ones (bank1/insure1/gov1 —
-            still fully built & certified, just not this year's outbound focus) are one click away. */}
-        {activeSolutions.map((s, i) => (
+        {/* The five focus verticals lead; the other five are one click away. GTM placement only —
+            every vertical is fully built, live and indexed. */}
+        {primarySolutions.map((s, i) => (
           <Reveal key={s.slug} delay={(i % 5) * 0.04}>
             <Link to={`/solutions/${s.slug}`} className="group block h-full rounded-card border border-line bg-surface p-5 transition-all hover:-translate-y-1 hover:shadow-card">
               <span className="h-2 w-2 rounded-full" style={{ background: s.accent, display: "block" }} />
@@ -279,10 +262,10 @@ function SolutionsRow() {
             </Link>
           </Reveal>
         ))}
-        <Reveal delay={activeSolutions.length % 5 * 0.04}>
+        <Reveal delay={primarySolutions.length % 5 * 0.04}>
           <Link to="/solutions" className="group flex h-full flex-col justify-center rounded-card border border-dashed border-line bg-mist/60 p-5 text-center transition-all hover:-translate-y-1 hover:shadow-card">
-            <p className="font-mono text-sm font-semibold text-ink">+{parkedSolutions.length} more</p>
-            <p className="mt-1 text-xs leading-snug text-slate">Certified &amp; available by inquiry — {parkedSolutions.map((s) => s.name).join(", ")}</p>
+            <p className="font-mono text-sm font-semibold text-ink">More industries</p>
+            <p className="mt-1 text-xs leading-snug text-slate">{secondarySolutions.map((s) => s.name).join(", ")}</p>
           </Link>
         </Reveal>
       </div>
@@ -290,22 +273,48 @@ function SolutionsRow() {
   );
 }
 
-function ServicesJourney() {
+// Was "the six pillars are a journey and a flywheel". There is no Services section any more, and
+// the pillars are no longer one homogeneous set — so this renders the actual split: software under
+// Platform, people under Academy. Both groups DERIVED from services.ts.
+function PillarsSection() {
+  const groups = [
+    { key: "platform", kicker: "The platform", title: "Plan it. Build it. Prove it. Operate it.", items: platformPillars, href: "/platform", cta: "Explore the platform" },
+    { key: "resources", kicker: "Academy", title: "And get your people ready.", items: resourcePillars, href: "/resources", cta: "Go to Resources" },
+  ];
   return (
     <Section tone="mist">
-      <SectionHead kicker="End-to-end services" title="Strategy to scale, under one roof." lede="The six pillars are a journey — and a flywheel. Start anywhere; we take you everywhere." />
-      <div className="mt-12 grid gap-4 md:grid-cols-3 lg:grid-cols-6">
-        {services.map((s, i) => (
-          <Reveal key={s.slug} delay={i * 0.05}>
-            <Link to={`/services/${s.slug}`} className="group flex h-full flex-col rounded-card border border-line bg-surface p-5 transition-all hover:-translate-y-1 hover:shadow-card">
-              <span className="font-mono text-[11px] text-muted">{String(i + 1).padStart(2, "0")}</span>
-              <span className="mt-2 flex items-center gap-2">
-                <span className="h-2 w-2 rounded-full" style={{ background: s.accent }} />
-                <span className="font-mono text-sm font-semibold text-ink">{s.name}</span>
-              </span>
-              <span className="mt-2 text-xs leading-snug text-slate">{s.tagline}</span>
-            </Link>
-          </Reveal>
+      <SectionHead
+        kicker="Beneath the products"
+        title="What it runs on, and who gets you there."
+        lede="Products are what you run your business on. These are the pillars underneath — the engagement that plans the work, the software that builds, proves and operates it, and the training that makes your people capable."
+      />
+      <div className="mt-12 grid gap-8 lg:grid-cols-2">
+        {groups.map((g) => (
+          <div key={g.key}>
+            <div className="flex items-baseline justify-between gap-4">
+              <p className="font-mono text-[10px] uppercase tracking-kicker text-muted">{g.kicker}</p>
+              <Link to={g.href} className="text-sm font-medium text-clayDeep hover:underline">
+                {g.cta} →
+              </Link>
+            </div>
+            <p className="mt-2 font-display text-xl font-bold text-ink">{g.title}</p>
+            <div className="mt-5 grid gap-3 sm:grid-cols-3">
+              {g.items.map((s, i) => (
+                <Reveal key={s.slug} delay={i * 0.05}>
+                  <Link
+                    to={servicePath(s)}
+                    className="group flex h-full flex-col rounded-card border border-line bg-surface p-5 transition-all hover:-translate-y-1 hover:shadow-card"
+                  >
+                    <span className="flex items-center gap-2">
+                      <span className="h-2 w-2 rounded-full" style={{ background: s.accent }} />
+                      <span className="font-mono text-sm font-semibold text-ink">{s.name}</span>
+                    </span>
+                    <span className="mt-2 text-xs leading-snug text-slate">{s.tagline}</span>
+                  </Link>
+                </Reveal>
+              ))}
+            </div>
+          </div>
         ))}
       </div>
     </Section>
@@ -315,7 +324,7 @@ function ServicesJourney() {
 function Method() {
   return (
     <Section tone="paper">
-      <SectionHead kicker="The method" title="Discover → Expand. With gates that earn trust." lede="A repeatable path from opportunity to a scaled, governed result — with formal gates (G1–G4) where humans sign off." />
+      <SectionHead kicker="The method" title="Discover → Expand. With gates that earn trust." lede="A repeatable path from opportunity to a scaled, governed result — with named gates where a human signs off before the next phase starts." />
       <ol className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-6">
         {METHOD.map((m, i) => (
           <Reveal as="li" key={m.name} delay={i * 0.05} className="relative">
@@ -365,7 +374,12 @@ function Flywheel() {
 function WhyWin() {
   return (
     <Section tone="paper">
-      <SectionHead kicker="Why we win" title="Working proof in weeks — not decks in quarters." lede="Legacy consulting is structurally too slow and too expensive to lead the agentic era. Here's the contrast." align="center" />
+      <SectionHead
+        kicker="How we work"
+        title="A working agent, and the gate it had to pass."
+        lede="What an engagement with us actually produces, and where the control sits. Stated about us — draw your own comparison."
+        align="center"
+      />
       <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {WHY_WIN.map((w, i) => (
           <Reveal key={w.metric} delay={i * 0.06}>
@@ -379,16 +393,19 @@ function WhyWin() {
 
       <Reveal delay={0.1}>
         <div className="mt-10 overflow-hidden rounded-card border border-line bg-surface">
-          <div className="grid grid-cols-3 border-b border-line bg-mist/60 px-6 py-3 font-mono text-[11px] uppercase tracking-wide text-muted">
-            <span></span>
-            <span>Legacy consulting</span>
-            <span className="text-clayDeep">elan1</span>
+          <div className="border-b border-line bg-mist/60 px-6 py-3 font-mono text-[11px] uppercase tracking-wide text-muted">
+            How we work
           </div>
-          {VS_LEGACY.map((r) => (
-            <div key={r.dim} className="grid grid-cols-3 gap-3 border-b border-line px-6 py-4 text-sm last:border-0">
+          {HOW_WE_WORK.map((r) => (
+            <div
+              key={r.dim}
+              className="grid gap-2 border-b border-line px-6 py-5 text-sm last:border-0 sm:grid-cols-[minmax(0,0.9fr)_minmax(0,2.1fr)] sm:gap-6"
+            >
               <span className="font-medium text-ink">{r.dim}</span>
-              <span className="text-muted line-through decoration-rose/40">{r.legacy}</span>
-              <span className="flex items-start gap-1.5 font-medium text-ink"><Icon.Check className="mt-0.5 h-4 w-4 shrink-0 text-green" />{r.elan1}</span>
+              <span className="flex items-start gap-2 leading-relaxed text-slate">
+                <Icon.Check className="mt-0.5 h-4 w-4 shrink-0 text-green" />
+                <span>{r.body}</span>
+              </span>
             </div>
           ))}
         </div>
@@ -407,7 +424,7 @@ function TrustGlobal() {
             <h3 className="display mt-4 text-2xl text-ink">Built on Claude. Governed by assure1.</h3>
             <p className="mt-3 text-slate">Human-in-the-loop, grounded and cited, eval-gated Trust Marks, and per-vertical governance signatures. Trust isn't a page — it's how the work is built.</p>
             <ul className="mt-6 flex flex-wrap gap-2">
-              {["Human-in-the-loop", "Audit trails", "DPDP / data residency", "Eval-gated", "Ad-free", "Responsible AI"].map((t) => (
+              {["Human-in-the-loop", "Audit trails", "DPDP-aligned", "Eval-gated", "Ad-free", "Responsible AI"].map((t) => (
                 <li key={t} className="chip">{t}</li>
               ))}
             </ul>
@@ -417,8 +434,12 @@ function TrustGlobal() {
         <Reveal delay={0.1}>
           <div className="flex h-full flex-col rounded-card border border-line bg-surface p-8">
             <Kicker accent="#2f6df0">Global</Kicker>
-            <h3 className="display mt-4 text-2xl text-ink">Delivered from India, for the world.</h3>
-            <p className="mt-3 text-slate">One team, five regions — region-aware compliance language, data residency, and case studies.</p>
+            <h3 className="display mt-4 text-2xl text-ink">Region-aware, and honest about which part.</h3>
+            <p className="mt-3 text-slate">
+              Pick a region and the compliance language follows it. Residency itself is declared per
+              tenant and classified fail-closed — declared, not enforced, and the platform's own
+              posture surface says so rather than claiming otherwise.
+            </p>
             <div className="mt-7 grid grid-cols-2 gap-2.5">
               {REGIONS.map((r) => (
                 <div key={r} className="flex items-center gap-2 rounded-xl border border-line bg-paper px-4 py-3">
@@ -442,9 +463,8 @@ export default function Home() {
       <Hero />
       <Shift />
       <SuiteGrid />
-      <ModelSection />
       <SolutionsRow />
-      <ServicesJourney />
+      <PillarsSection />
       <Method />
       <Flywheel />
       <WhyWin />

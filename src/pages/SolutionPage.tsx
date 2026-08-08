@@ -19,6 +19,7 @@ export default function SolutionPage() {
   const a = sol.accent;
   useSeo(sol.seo.title, sol.seo.description, {
     image: `/img/${sol.slug}.jpg`,
+    breadcrumbs: [{ name: "Solutions", href: "/solutions" }],
     jsonLd: serviceJsonLd(`${sol.name} — ${sol.industry}`, sol.seo.description, `/solutions/${sol.slug}`),
   });
 
@@ -59,15 +60,57 @@ export default function SolutionPage() {
         }
       />
 
+      {/* The industry's version of the problem — what this pack is built against. */}
+      {sol.problem && sol.problem.length > 0 && (
+        <Section tone="mist">
+          <SectionHead
+            kicker="The problem"
+            title={`What goes wrong in ${sol.industry.toLowerCase()}.`}
+            lede="Not generic digital-transformation pain — the specific failures this pack's write path is built to refuse."
+          />
+          <div className="mt-10 grid gap-4 sm:grid-cols-2">
+            {sol.problem.map((p, i) => (
+              <Reveal key={p} delay={(i % 2) * 0.06}>
+                <div className="flex h-full items-start gap-4 rounded-card border border-line bg-surface p-6">
+                  <span className="font-mono text-sm font-bold" style={{ color: a }} aria-hidden>
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <p className="text-[15px] leading-relaxed text-slate">{p}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </Section>
+      )}
+
       {/* WHO / challenge already in hero. WHAT we deploy */}
       <Section tone="paper">
         <div className="grid gap-14 lg:grid-cols-[0.85fr_1.15fr]">
           <div className="lg:sticky lg:top-24 self-start">
-            <SectionHead kicker="The elan1 solution" title="What we deploy." lede="This vertical composes 1 Suite apps and service pillars with industry skills, connectors, and governance." />
+            <SectionHead kicker="The elan1 solution" title="What we deploy." lede="An industry pack is configuration over the same built apps — the suite apps it composes, plus the records, agents and guards this industry needs and the others do not." />
             <div className="mt-7 rounded-card border border-line bg-mist/50 p-6">
-              <p className="font-mono text-[11px] uppercase tracking-kicker text-muted">Composed of</p>
+              <p className="font-mono text-[11px] uppercase tracking-kicker text-muted">
+                Composes {sol.composedOf.length} suite apps
+              </p>
               <div className="mt-4"><ComposedOf slugs={sol.composedOf} /></div>
-              <p className="mt-6 text-sm leading-relaxed text-slate">{sol.starterEngagement}</p>
+              {sol.composedOfNote && (
+                <p className="mt-5 border-t border-line pt-5 text-sm leading-relaxed text-slate">
+                  {sol.composedOfNote}
+                </p>
+              )}
+              {sol.ownRecords && sol.ownRecords.length > 0 && (
+                <>
+                  <p className="mt-6 font-mono text-[11px] uppercase tracking-kicker text-muted">
+                    And the records it owns itself
+                  </p>
+                  <ul className="mt-3 flex flex-wrap gap-1.5">
+                    {sol.ownRecords.map((r) => (
+                      <li key={r} className="chip">{r}</li>
+                    ))}
+                  </ul>
+                </>
+              )}
+              <p className="mt-6 border-t border-line pt-5 text-sm leading-relaxed text-slate">{sol.starterEngagement}</p>
             </div>
           </div>
           <div>
@@ -91,8 +134,16 @@ export default function SolutionPage() {
             <h2 className="display mt-4 text-3xl text-paper sm:text-4xl">The governance signature.</h2>
             <p className="mt-5 text-lg leading-relaxed text-paper/70">
               In {sol.industry.toLowerCase()}, trust is the product. This is the governance that makes agentic
-              deployment safe here — the page legacy firms can't write convincingly.
+              deployment safe here — what is enforced on the write path, and what it refuses.
             </p>
+            {sol.wedge && (
+              <div className="mt-7 rounded-card border border-paper/15 bg-paper/[0.04] p-6">
+                <p className="font-mono text-[11px] uppercase tracking-kicker text-paper/40">
+                  The one guard this industry needs
+                </p>
+                <p className="mt-3 text-[15px] leading-relaxed text-paper/80">{sol.wedge}</p>
+              </div>
+            )}
           </div>
           <Reveal>
             <div className="relative overflow-hidden rounded-card border border-rose/30 bg-rose/[0.08] p-7">
@@ -106,6 +157,99 @@ export default function SolutionPage() {
           </Reveal>
         </div>
       </Section>
+
+      {/*
+        Regulatory rails, each carrying what the code ACTUALLY does about it.
+        The status badge is the point: a regulated buyer's first question is which controls block a
+        write and which only inform a person, and a page that blurs the two is the page they stop
+        trusting. Publishing the weaker answer next to the stronger one is what makes both credible.
+      */}
+      {sol.regulatoryRails && sol.regulatoryRails.length > 0 && (
+        <Section tone="paper">
+          <SectionHead
+            kicker="Regulatory rails"
+            title="Which controls block a write, and which only inform a person."
+            lede="Named rail by rail, because the difference decides whether a control survives an audit — and because a constant named after a regulation is not enforcement of it."
+          />
+          <div className="mt-12 grid gap-4 lg:grid-cols-2">
+            {sol.regulatoryRails.map((r, i) => {
+              const tone =
+                r.status === "enforced"
+                  ? { background: "#7fd58f26", color: "#2f6b3e" }
+                  : r.status === "computed"
+                    ? { background: "#6c8cf026", color: "#33509e" }
+                    : r.status === "modelled"
+                      ? { background: "#e3b25c26", color: "#8a6415" }
+                      : { background: "#0b122012", color: "#5b6472" };
+              return (
+                <Reveal key={r.name} delay={(i % 2) * 0.05}>
+                  <div className="card h-full">
+                    <div className="flex items-start justify-between gap-3">
+                      <h3 className="font-display text-[17px] font-bold leading-snug text-ink">{r.name}</h3>
+                      <span
+                        className="mt-0.5 shrink-0 rounded-full px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-kicker"
+                        style={tone}
+                      >
+                        {r.status}
+                      </span>
+                    </div>
+                    <p className="mt-3 text-sm leading-relaxed text-slate">{r.note}</p>
+                  </div>
+                </Reveal>
+              );
+            })}
+          </div>
+          <Reveal>
+            <div className="mt-8 rounded-card border border-line bg-mist/50 p-6 text-sm leading-relaxed text-slate">
+              <span className="font-semibold text-ink">enforced</span> — a guard on the write path
+              refuses the write.{" "}
+              <span className="font-semibold text-ink">computed</span> — derived at read as decision
+              support: it informs a person and blocks nothing.{" "}
+              <span className="font-semibold text-ink">declared</span> — recorded as configuration or
+              an audited attestation, with no block of its own.{" "}
+              <span className="font-semibold text-ink">modelled</span> — a deterministic adapter or a
+              constant table standing in for a live rail.
+            </div>
+          </Reveal>
+        </Section>
+      )}
+
+      {/* Refusals, quoted from this pack's write path. */}
+      {sol.refusals && sol.refusals.length > 0 && (
+        <Section tone="obsidian">
+          <div className="grid items-start gap-12 lg:grid-cols-[0.85fr_1.15fr]">
+            <div className="lg:sticky lg:top-24">
+              <Kicker dark accent={a}>What it refuses</Kicker>
+              <h2 className="display mt-4 text-3xl text-paper sm:text-4xl">
+                The industry rule, as the system states it.
+              </h2>
+              <p className="mt-5 text-[15px] leading-relaxed text-paper/70">
+                Refusal messages quoted from{" "}
+                <span className="font-mono" style={{ color: a }}>{sol.name}</span>'s write path. Braces
+                mark values filled in at runtime.
+              </p>
+              {sol.evals && (
+                <div className="mt-7 rounded-card border border-paper/15 bg-paper/[0.04] p-6">
+                  <p className="font-mono text-[11px] uppercase tracking-kicker text-paper/40">
+                    How it is scored
+                  </p>
+                  <p className="mt-3 text-sm leading-relaxed text-paper/75">{sol.evals}</p>
+                </div>
+              )}
+            </div>
+            <Reveal>
+              <ul className="flex flex-col gap-2.5">
+                {sol.refusals.map((r) => (
+                  <li key={r} className="flex items-start gap-3 rounded-lg border border-paper/15 bg-paper/[0.04] p-4">
+                    <span className="mt-0.5 shrink-0 font-mono text-sm" style={{ color: a }} aria-hidden>✕</span>
+                    <code className="font-mono text-[13px] leading-relaxed text-paper/80">{r}</code>
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
+          </div>
+        </Section>
+      )}
 
       {/* Diagram */}
       {diagram && (
@@ -136,7 +280,7 @@ export default function SolutionPage() {
       <CTASection
         kicker="Get started"
         title={`Bring agentic transformation to ${sol.industry.toLowerCase()}.`}
-        body={`Start with the ${sol.name} Launchpad — one flagship workflow, live and governance-validated in 4–6 weeks.`}
+        body={`Start with the ${sol.name} Launchpad — one flagship workflow, live and under the governance gates, in 4–6 weeks.`}
         primary={{ label: `Talk to our ${sol.name} team`, href: "/contact" }}
       />
     </>

@@ -9,21 +9,24 @@ const cards = [
   { t: "Diagram library", b: "See the systems we build — the full visual language, browsable.", href: "/resources/diagrams", accent: "#df8c64", live: true },
   { t: "Insights", b: "Agentic transformation, per layer and per vertical. Reviewed before publish, ad-free.", href: "/resources/insights", accent: "#7c6cf0", live: true },
   { t: "Use cases", b: "Agentic, by industry × job-to-be-done — generated from the platform's packs.", href: "/agentic", accent: "#2f6df0", live: true },
-  { t: "Playbooks", b: "Gated guides — the Roadmap, governance, vertical & FinOps playbooks.", href: "/resources/playbooks", accent: "#2f6df0", live: true },
-  { t: "Proof & case studies", b: "Before / after, with Trust Marks. Filterable by industry.", href: "/resources/proof", accent: "#3fae6b", live: true },
+  { t: "Playbooks", b: "Published in full, free to read — the roadmap, governance, industry blueprints, FinOps, agent evidence and connector readiness.", href: "/resources/playbooks", accent: "#2f6df0", live: true },
+  { t: "Governed patterns", b: "Before / after, and the guarantee each pattern carries. Filterable by industry.", href: "/resources/proof", accent: "#3fae6b", live: true },
   { t: "ROI calculator", b: "Size the value, lite — a band-aware, illustrative estimate.", href: "/for/scaleup", accent: "#d39a3a", live: true },
   { t: "Glossary", b: "The agentic vocabulary, defined plainly. Searchable.", href: "/resources/glossary", accent: "#22b8c4", live: true },
+    // Academy is a Resources-owned pillar (services.ts `home: "resources"`). Its breadcrumb and
+    // the homepage CTA both point here, so the hub must list it or those paths dead-end.
+    { t: "Academy", b: "Training, certification and certified talent — make your people capable of running agents.", href: "/resources/academy", accent: "#7c6cf0", live: true },
 ];
 
 export default function Resources() {
-  useSeo("Resources — insights, diagrams, playbooks & proof | elan1", "The elan1 resources hub: the diagram library, insights, gated playbooks, proof and case studies, an ROI calculator, and a glossary.");
+  useSeo("Resources — insights, diagrams, playbooks & proof | elan1", "The elan1 resources hub: the diagram register, insights, playbooks published in full, governed workflow patterns, an estimator, and the agentic glossary.");
   return (
     <>
       <PageHero
         kicker="Resources"
         accent="#7c6cf0"
         title="Learn the agentic playbook."
-        subtitle="Authority content, the diagram library, gated playbooks, proof, and tools — everything you need to understand agentic transformation and size it for your business."
+        subtitle="Insights, the diagram register, playbooks published in full, the governed patterns and the vocabulary — everything you need to understand agentic transformation and size it for your business, with no form in the way."
         cta={{ label: "Browse the diagram library", href: "/resources/diagrams", secondary: { label: "Book a demo", href: "/contact" } }}
       />
       <Section tone="paper">

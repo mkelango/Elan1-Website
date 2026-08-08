@@ -1,0 +1,166 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    {
+      "source": "/academy",
+      "destination": "/resources/academy",
+      "permanent": true
+    },
+    {
+      "source": "/academy/academy",
+      "destination": "/resources/academy",
+      "permanent": true
+    },
+    {
+      "source": "/academy/academy1",
+      "destination": "/resources/academy",
+      "permanent": true
+    },
+    {
+      "source": "/academy/advisory",
+      "destination": "/platform/strategy1",
+      "permanent": true
+    },
+    {
+      "source": "/academy/agency1",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/academy/agent1",
+      "destination": "/platform/agent1",
+      "permanent": true
+    },
+    {
+      "source": "/academy/assure1",
+      "destination": "/platform/assure1",
+      "permanent": true
+    },
+    {
+      "source": "/academy/learn",
+      "destination": "/resources/academy/learn",
+      "permanent": true
+    },
+    {
+      "source": "/academy/run1",
+      "destination": "/platform/run1",
+      "permanent": true
+    },
+    {
+      "source": "/academy/strategy1",
+      "destination": "/platform/strategy1",
+      "permanent": true
+    },
+    {
+      "source": "/concept",
+      "destination": "/what-is-agentic-transformation",
+      "permanent": true
+    },
+    {
+      "source": "/partners",
+      "destination": "/company/partners",
+      "permanent": true
+    },
+    {
+      "source": "/platform/advisory",
+      "destination": "/platform/strategy1",
+      "permanent": true
+    },
+    {
+      "source": "/platform/approach",
+      "destination": "/what-is-agentic-transformation",
+      "permanent": true
+    },
+    {
+      "source": "/products/category/compass1",
+      "destination": "/products/category/compass",
+      "permanent": true
+    },
+    {
+      "source": "/products/category/revenue1",
+      "destination": "/products/category/revenue",
+      "permanent": true
+    },
+    {
+      "source": "/products/category/service1",
+      "destination": "/products/category/service",
+      "permanent": true
+    },
+    {
+      "source": "/products/category/trade1",
+      "destination": "/products/category/trade",
+      "permanent": true
+    },
+    {
+      "source": "/products/category/works1",
+      "destination": "/products/category/works",
+      "permanent": true
+    },
+    {
+      "source": "/products/customer1",
+      "destination": "/products/sales1",
+      "permanent": true
+    },
+    {
+      "source": "/products/enterprise1",
+      "destination": "/platform/enterprise1",
+      "permanent": true
+    },
+    {
+      "source": "/resources/academy1",
+      "destination": "/resources/academy",
+      "permanent": true
+    },
+    {
+      "source": "/services",
+      "destination": "/platform",
+      "permanent": true
+    },
+    {
+      "source": "/services/academy",
+      "destination": "/resources/academy",
+      "permanent": true
+    },
+    {
+      "source": "/services/academy1",
+      "destination": "/resources/academy",
+      "permanent": true
+    },
+    {
+      "source": "/services/advisory",
+      "destination": "/platform/strategy1",
+      "permanent": true
+    },
+    {
+      "source": "/services/agency1",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/services/agent1",
+      "destination": "/platform/agent1",
+      "permanent": true
+    },
+    {
+      "source": "/services/assure1",
+      "destination": "/platform/assure1",
+      "permanent": true
+    },
+    {
+      "source": "/services/run1",
+      "destination": "/platform/run1",
+      "permanent": true
+    },
+    {
+      "source": "/services/strategy1",
+      "destination": "/platform/strategy1",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/((?!api/).*)",
+      "destination": "/index.html"
+    }
+  ]
+}

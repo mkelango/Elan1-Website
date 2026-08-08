@@ -23,11 +23,10 @@ export const pageImage = {
   trust: "/img/trust.jpg", // governance review
 } as const;
 
-// Human-facing service pillars only (agent1 / assure1 / run1 stay diagram-led).
+// Human-facing pillars only (agent1 / assure1 / run1 stay diagram-led).
 export const serviceImage: Record<string, string> = {
   strategy1: "/img/strategy1.jpg", // strategy / planning wall
-  academy1: "/img/academy.jpg", // learning (shared)
-  agency1: "/img/agency1.jpg", // creative / design swatches
+  academy: "/img/academy.jpg", // learning (shared)
 };
 
 // Product heroes are abstract (AbstractHero) until we wire real enterprise1 console screenshots.

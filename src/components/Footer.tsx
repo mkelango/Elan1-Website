@@ -1,59 +1,72 @@
 // components/Footer.tsx — full-sitemap footer with the tagline strip.
 import { Link } from "react-router-dom";
 import { Logo } from "./Logo";
-import { REGIONS, SOCIALS } from "../content/site";
+import { primarySolutions, secondarySolutions } from "../content/solutions";
+import { BRAND, SOCIALS, navColumnLinks } from "../content/site";
 import { RegionSwitcher } from "./RegionSwitcher";
-import { solutionsByFocus } from "../content/solutions";
 import { categories, appsOf } from "../content/categories";
-
-// Solutions links are DERIVED from solutionsByFocus (active-7 first, parked-3 last) rather than
-// hardcoded, so this list can never drift out of sync with the FY1 GTM-focus ordering.
-const solutionLinks = solutionsByFocus.map((s) => ({ label: s.slug, href: `/solutions/${s.slug}` }));
 
 // Products are DERIVED from categories.ts for the same reason — the previously hardcoded list had
 // silently lost goal1. Category link first, then its apps indented beneath.
 const productLinks = categories.flatMap((c) => [
+  // A category heading is differentiated by COLOUR, CASE AND WEIGHT — clayDeep, uppercase mono —
+  // and deliberately carries NO bullet. Dots in this site's grammar mark a thing you run (an app, a
+  // pillar); a category is a grouping, so a dot beside it flattens exactly the hierarchy the colour
+  // is drawing. The category's own accent is not used for the label either: those are light tints
+  // (gold #e3b25c, green #7fd58f) that fail contrast on the paper ground at 11px.
   { label: c.name, href: `/products/category/${c.slug}`, group: true },
   ...appsOf(c).map((p) => ({ label: p.name, href: `/products/${p.slug}` })),
 ]);
 
-const cols: { heading: string; links: { label: string; href: string; group?: boolean }[] }[] = [
+const cols: {
+  heading: string;
+  links: { label: string; href: string; group?: boolean; accent?: string }[];
+}[] = [
   {
     heading: "Products",
     links: [
       { label: "The 1 Suite", href: "/products" },
       ...productLinks,
-      { label: "enterprise1", href: "/products/enterprise1" },
     ],
   },
   {
+    // DERIVED, like Platform and Resources. The hand-written version listed the five focus verticals
+    // and a bare "By initiative" link — so the five initiative pages (agentic transformation,
+    // customer experience, cost & FinOps, compliance & governance, legacy modernization) had no
+    // footer entry at all, while the header gave each its own row. Same defect as Resources: a short
+    // array is not a type error, so nothing caught it.
     heading: "Solutions",
     links: [
-      { label: "All industries", href: "/solutions" },
-      { label: "By initiative", href: "/solutions/initiatives" },
-      ...solutionLinks,
+      { label: "All industries", href: "/solutions", group: true },
+      // Mirrors the header's "By industry" column: the five featured verticals, then the roll-up.
+      // Both DERIVED from `focus` in solutions.ts — never a second hardcoded roster, which is how the
+      // old nav split had already drifted from the field it was supposed to mirror.
+      ...primarySolutions.map((x) => ({ label: x.slug, href: `/solutions/${x.slug}` })),
+      {
+        label: `More industries (${secondarySolutions.length})`,
+        href: "/solutions",
+      },
+      { label: "By initiative", href: "/solutions/initiatives", group: true },
+      ...navColumnLinks("Solutions").filter((l) => l.href.startsWith("/solutions/initiatives/")),
     ],
   },
   {
-    heading: "Services",
-    links: [
-      { label: "All pillars", href: "/services" },
-      { label: "strategy1", href: "/services/strategy1" },
-      { label: "agent1", href: "/services/agent1" },
-      { label: "assure1", href: "/services/assure1" },
-      { label: "academy1", href: "/services/academy1" },
-      { label: "run1", href: "/services/run1" },
-      { label: "agency1", href: "/services/agency1" },
-    ],
-  },
-  {
+    // DERIVED from the header's own mega-menu, so the footer cannot drift from it in order OR in
+    // completeness. Both used to be hand-listed and both had drifted: Platform ran in a different
+    // order than the header (overview first, the four pillars buried after the engineering links),
+    // and Resources showed 7 of its 9 destinations — "ROI calculator" and "Certified talent" were
+    // missing, invisibly, because a short array is not a type error.
     heading: "Platform",
     links: [
-      { label: "What is agentic transformation?", href: "/what-is-agentic-transformation" },
-      { label: "The “1” philosophy", href: "/platform/the-1-philosophy" },
-      { label: "The flywheel", href: "/platform/flywheel" },
-      { label: "Trust & governance", href: "/trust" },
-      { label: "Built on Claude", href: "/platform/built-on-claude" },
+      { label: "Platform overview", href: "/platform", group: true },
+      ...navColumnLinks("Platform").filter((l) => l.href !== "/platform"),
+    ],
+  },
+  {
+    heading: "Resources",
+    links: [
+      { label: "All resources", href: "/resources", group: true },
+      ...navColumnLinks("Resources").filter((l) => l.href !== "/resources"),
     ],
   },
   {
@@ -62,8 +75,8 @@ const cols: { heading: string; links: { label: string; href: string; group?: boo
       { label: "About", href: "/company/about" },
       { label: "Careers", href: "/company/careers" },
       { label: "Partners", href: "/company/partners" },
-      { label: "Academy", href: "/academy" },
-      { label: "Resources", href: "/resources" },
+      { label: "Newsroom", href: "/company/newsroom" },
+      { label: "Pricing", href: "/pricing" },
       { label: "Diagram library", href: "/resources/diagrams" },
       { label: "Contact", href: "/contact" },
     ],
@@ -77,16 +90,25 @@ export function Footer() {
         <div className="grid gap-10 lg:grid-cols-[1.4fr_3.6fr]">
           <div>
             <Logo />
+            {/*
+              🚨 TWO CLAIMS WERE REMOVED FROM THIS BLOCK, AND THEY WERE ON EVERY PAGE.
+              The footer renders sitewide, which is what made them expensive:
+
+              1. "From a $1M brand to a $1B enterprise" — a customer-scale claim. There are no
+                 customers to characterise, and the site says so on its own press-kit page.
+              2. A row of region chips built from REGIONS. That constant is the compliance-language
+                 selector and a form dropdown — a locale picker, not a set of offices. Rendered as
+                 bare pills under the wordmark it reads as presence, which is a headcount-and-offices
+                 claim made without a sentence anyone could fact-check.
+
+              The descriptor that replaces them is BRAND.promise, so the footer cannot describe the
+              company differently from the rest of the site. If you want the regions back, label them
+              for what they are — see the region switcher, which does exactly that.
+            */}
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-slate">
-              The agentic transformation company. From a $1M brand to a $1B enterprise — number one in its field.
+              {BRAND.promise} Governance on the write path — a person approves what matters, and the
+              record says who.
             </p>
-            <div className="mt-6 flex flex-wrap gap-2">
-              {REGIONS.map((r) => (
-                <span key={r} className="rounded-full border border-line px-2.5 py-1 font-mono text-[11px] text-slate">
-                  {r}
-                </span>
-              ))}
-            </div>
             <div className="mt-6 flex gap-3 text-slate">
               {SOCIALS.map((s) => (
                 <a key={s.key} href={s.href} target="_blank" rel="noreferrer noopener" aria-label={s.label} className="flex h-9 w-9 items-center justify-center rounded-full border border-line text-xs font-mono uppercase hover:border-ink/40 hover:text-ink">
@@ -101,13 +123,16 @@ export function Footer() {
               <div key={c.heading}>
                 <p className="font-mono text-[10px] uppercase tracking-kicker text-muted">{c.heading}</p>
                 <ul className="mt-4 space-y-2.5">
+                  {/* Composite key: three hrefs legitimately appear twice (a section link plus its
+                      entry in another column), and href alone collided into a React duplicate-key
+                      error on every page of the site. */}
                   {c.links.map((l) => (
-                    <li key={l.href} className={l.group ? "pt-1.5" : ""}>
+                    <li key={`${c.heading}:${l.label}:${l.href}`} className={l.group ? "pt-3 first:pt-0" : ""}>
                       <Link
                         to={l.href}
                         className={
                           l.group
-                            ? "font-mono text-[11px] uppercase tracking-wide text-ink transition-colors hover:text-clayDeep"
+                            ? "font-mono text-[11px] font-semibold uppercase tracking-kicker text-clayDeep transition-colors hover:text-ink"
                             : "text-sm text-slate transition-colors hover:text-ink"
                         }
                       >

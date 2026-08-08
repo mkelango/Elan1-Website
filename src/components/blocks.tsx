@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { Reveal, Icon, Kicker } from "./primitives";
 import { products } from "../content/products";
-import { services } from "../content/services";
+import { serviceBySlug, servicePath } from "../content/services";
 
 /** Inner-page hero with a tinted accent wash and blueprint grid. */
 export function PageHero({
@@ -161,13 +161,15 @@ export function Section({
 // DERIVED from the typed content, not hardcoded — the previous inline literal omitted goal1, which
 // would have routed a `composedOf: ["goal1"]` pill to /solutions/goal1 and 404'd.
 const PRODUCT_SLUGS = new Set(products.map((p) => p.slug));
-const SERVICE_SLUGS = new Set(services.map((s) => s.slug));
 
 /** Composed-of pills linking to the offerings a solution/service connects to. */
 export function ComposedOf({ slugs }: { slugs: string[] }) {
   const route = (slug: string) => {
     if (PRODUCT_SLUGS.has(slug)) return `/products/${slug}`;
-    if (SERVICE_SLUGS.has(slug)) return `/services/${slug}`;
+    // Pillars resolve through servicePath() — /platform/<slug> or /academy/<slug>. Building
+    // `/services/${slug}` here would link ~16 solution and initiative pages into a redirect shim.
+    const svc = serviceBySlug(slug);
+    if (svc) return servicePath(svc);
     return `/solutions/${slug}`;
   };
   return (

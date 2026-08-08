@@ -27,9 +27,13 @@ jobs:
           cache: npm
       - name: Install
         run: npm ci
-      - name: Build (regenerates sitemap via prebuild)
+      - name: Build (sitemap + redirects via prebuild, prerender-meta via postbuild)
         run: npm run build
-      - name: SPA fallback — serve index.html for unknown client routes
+      - name: SEO checks
+        run: npm run check:seo
+      - name: Redirect checks
+        run: npm run check:redirects
+      - name: 404 fallback for routes not covered by prerender
         run: cp dist/index.html dist/404.html
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3

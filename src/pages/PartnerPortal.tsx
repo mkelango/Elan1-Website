@@ -17,7 +17,7 @@ const STEPS = [
 ];
 
 const TYPES = [
-  { t: "SIs & delivery", b: "Deliver Discovery Sprints & Launchpads on the platform; access academy1 certification." },
+  { t: "SIs & delivery", b: "Deliver Discovery Sprints & Launchpads on the platform; access Academy certification." },
   { t: "Tech / ISV", b: "Build apps, packs, and connectors on the core; list them in the marketplace." },
   { t: "Advisory", b: "Co-sell agentic transformation with a governed, certifiable platform underneath." },
 ];
@@ -82,7 +82,7 @@ export default function PartnerPortal() {
           ))}
         </div>
         <p className="mx-auto mt-6 max-w-2xl text-center text-sm text-muted">
-          Certified talent is matched via the <Link to="/academy/learn" className="text-clayDeep underline underline-offset-2">academy1 learning hub</Link>.
+          Certified talent is matched via the <Link to="/resources/academy/learn" className="text-clayDeep underline underline-offset-2">Academy learning hub</Link>.
         </p>
       </Section>
 

@@ -1,0 +1,85 @@
+# elan1 — The Agentic Transformation Company
+
+> elan1 builds governed agentic business applications. Ten agentic apps on one control plane, ten industry configurations, and a human approval gate on the actions that commit your business.
+
+## What elan1 is
+
+elan1 is an agentic transformation company. It provides a governed platform of agentic business applications — the 1 Suite — on one control plane (enterprise1), with a human approval gate on consequential actions and a hash-chained audit of what happened.
+
+Built on Claude by Anthropic. Ad-free, pixel-free.
+
+## The 1 Suite — ten agentic apps in five categories
+
+### Revenue (win the customer)
+- [sales1: Agentic CRM](https://elan1.ai/products/sales1)
+- [market1: Agentic marketing](https://elan1.ai/products/market1)
+
+### Service (keep the customer)
+- [service1: Agentic customer service](https://elan1.ai/products/service1)
+
+### Trade (move the goods)
+- [commerce1: Agentic eCommerce and POS](https://elan1.ai/products/commerce1)
+- [supply1: Agentic supply chain](https://elan1.ai/products/supply1)
+
+### Works (run the company)
+- [finance1: Agentic finance](https://elan1.ai/products/finance1)
+- [people1: Agentic HR](https://elan1.ai/products/people1)
+- [project1: Agentic project and PSA](https://elan1.ai/products/project1)
+
+### Compass (see what happened and set where to go)
+- [insight1: Agentic analytics](https://elan1.ai/products/insight1)
+- [goal1: Agentic goal management](https://elan1.ai/products/goal1)
+
+## Platform
+
+- [enterprise1: The control plane](https://elan1.ai/platform/enterprise1)
+- [assistant1: The governed central assistant](https://elan1.ai/platform/assistant1)
+- [Platform overview](https://elan1.ai/platform)
+- [Engineering and readiness](https://elan1.ai/platform/engineering)
+- [Connectors](https://elan1.ai/platform/connectors)
+- [Governance — three layers](https://elan1.ai/platform/governance)
+
+## Industry solutions
+
+- [bank1: Banking](https://elan1.ai/solutions/bank1)
+- [health1: Healthcare](https://elan1.ai/solutions/health1)
+- [retail1: Retail](https://elan1.ai/solutions/retail1)
+- [edu1: Education](https://elan1.ai/solutions/edu1)
+- [manufacture1: Manufacturing](https://elan1.ai/solutions/manufacture1)
+- [insure1: Insurance](https://elan1.ai/solutions/insure1)
+- [energy1: Energy](https://elan1.ai/solutions/energy1)
+- [telco1: Telecom](https://elan1.ai/solutions/telco1)
+- [realestate1: Real estate](https://elan1.ai/solutions/realestate1)
+- [gov1: Government](https://elan1.ai/solutions/gov1)
+
+## Key concepts
+
+- [What is agentic transformation?](https://elan1.ai/what-is-agentic-transformation)
+- [Why elan1 vs builders](https://elan1.ai/platform/why-elan1)
+- [The "1" philosophy](https://elan1.ai/platform/the-1-philosophy)
+- [The flywheel](https://elan1.ai/platform/flywheel)
+- [Built on Claude](https://elan1.ai/platform/built-on-claude)
+- [Trust, safety and governance](https://elan1.ai/trust)
+
+## Resources
+
+- [Insights](https://elan1.ai/resources/insights)
+- [Governed workflow patterns](https://elan1.ai/resources/proof)
+- [Glossary](https://elan1.ai/resources/glossary)
+- [Playbooks](https://elan1.ai/resources/playbooks)
+- [Diagram library](https://elan1.ai/resources/diagrams)
+- [Academy](https://elan1.ai/resources/academy)
+
+## Company
+
+- [About](https://elan1.ai/company/about)
+- [Careers](https://elan1.ai/company/careers)
+- [Partners](https://elan1.ai/company/partners)
+- [Newsroom](https://elan1.ai/company/newsroom)
+- [Contact](https://elan1.ai/contact)
+
+## Contact
+
+- Email: hello@elan1.ai
+- Sales: sales@elan1.ai
+- Website: https://elan1.ai

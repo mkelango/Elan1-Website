@@ -55,32 +55,52 @@ export function BrandImage({
             alt={alt}
             loading={eager ? "eager" : "lazy"}
             decoding="async"
+            // Intrinsic size so the browser reserves the box before the bytes arrive. The wrapper
+            // already fixes the aspect ratio, but without width/height the <img> itself contributes
+            // layout shift on first paint. Sources are capped at 1600px wide (3:2), so these are the
+            // real intrinsic dimensions, not a guess.
+            width={1600}
+            height={1067}
+            // The largest render on the site is a hero at roughly half the shell; everything else is
+            // a card or a tile. Telling the browser that stops it reserving full-width bandwidth.
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 40vw"
             className="absolute inset-0 h-full w-full object-cover"
-            style={{ filter: treatment === "plain" ? "none" : "grayscale(1) contrast(1.05) brightness(0.95)" }}
+            style={{
+              // Lift, don't crush: the photo's tonal range has to survive the grade or the subject
+              // stops reading. Was brightness(0.95), which darkened an already-dimmed image.
+              filter: treatment === "plain" ? "none" : "grayscale(1) contrast(1.06) brightness(1.06)",
+            }}
           />
           {treatment !== "plain" && (
             <>
-              {/* Duotone: shadows → obsidian, highlights → accent */}
-              <div className="absolute inset-0" style={{ background: "#0a1320", mixBlendMode: "color" }} />
+              {/*
+                Duotone: shadows → obsidian, highlights → accent.
+                ONE colour-blend layer only. There used to be a flat #0a1320 `mix-blend-mode: color`
+                layer beneath this gradient — on an already-grayscale image that forces every pixel
+                to one flat navy hue, and stacking a second colour blend on top of it is what made
+                photos read as murky washes. The gradient alone produces the duotone; the flat layer
+                only destroyed contrast.
+              */}
               <div
                 className="absolute inset-0"
                 style={{
-                  background: `linear-gradient(135deg, ${accent} 0%, #13283f 60%, #0a1320 100%)`,
+                  background: `linear-gradient(135deg, ${accent} 0%, #2b4a6b 55%, #13283f 100%)`,
                   mixBlendMode: "color",
-                  opacity: 0.85,
+                  opacity: 0.55,
                 }}
               />
               <div
                 className="absolute inset-0"
-                style={{ background: `linear-gradient(135deg, ${accent}55, transparent 55%)`, mixBlendMode: "screen" }}
+                style={{ background: `linear-gradient(135deg, ${accent}3d, transparent 60%)`, mixBlendMode: "screen" }}
               />
             </>
           )}
         </>
       )}
 
-      {/* Blueprint dot texture */}
-      <div className="bg-grid-obsidian absolute inset-0 opacity-25" aria-hidden />
+      {/* Blueprint dot texture — light over a photo (it competes with detail), fuller over the
+          photo-free gradient fallback where there is nothing to compete with. */}
+      <div className={`bg-grid-obsidian absolute inset-0 ${src ? "opacity-10" : "opacity-25"}`} aria-hidden />
 
       {/* Bottom scrim for legible captions/labels */}
       {(treatment === "scrim" || overlay) && (

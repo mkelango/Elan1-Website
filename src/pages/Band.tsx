@@ -77,7 +77,7 @@ export default function Band() {
 
       <CTASection
         title={`Ready to become the one — at ${band.name} scale?`}
-        body="Start with a fixed-scope Discovery Sprint, fully credited. We ship a working, certified agent in weeks."
+        body="Start with a fixed-scope Discovery Sprint, fully credited. We ship a working, governed agent in weeks — certified when it passes its evals."
       />
     </>
   );

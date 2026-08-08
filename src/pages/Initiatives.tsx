@@ -9,14 +9,14 @@ import { initiatives } from "../content/initiatives";
 import { initiativeImage } from "../content/images";
 
 export function InitiativesOverview() {
-  useSeo("Initiatives — agentic transformation by business need | elan1", "Cross-industry initiatives: agentic transformation, customer experience, cost & FinOps, compliance & governance, and legacy modernization.");
+  useSeo("Initiatives — agentic transformation by business need | elan1", "Cross-industry initiatives: agentic transformation, customer experience, cost & FinOps, compliance & governance, and legacy modernization.", { breadcrumbs: [{ name: "Solutions", href: "/solutions" }] });
   return (
     <>
       <PageHero
         kicker="Solutions · By initiative"
         accent="#df8c64"
         title="Start from the outcome you need."
-        subtitle="Some needs cross every industry. Browse by initiative to see how elan1 composes the service pillars and the 1 Suite around a single business outcome — from agentic transformation to legacy modernization."
+        subtitle="Some needs cross every industry. Browse by initiative to see how elan1 composes the platform pillars and the 1 Suite around a single business outcome — from agentic transformation to legacy modernization."
         cta={{ label: "Start a Discovery Sprint", href: "/contact", secondary: { label: "Browse by industry", href: "/solutions" } }}
       />
       <Section tone="paper">
@@ -61,7 +61,7 @@ export function InitiativePage() {
   const it = initiatives.find((x) => x.slug === slug);
   if (!it) return <Navigate to="/solutions/initiatives" replace />;
   const a = it.accent;
-  useSeo(it.seo.title, it.seo.description);
+  useSeo(it.seo.title, it.seo.description, { breadcrumbs: [{ name: "Solutions", href: "/solutions" }, { name: "Initiatives", href: "/solutions/initiatives" }] });
 
   return (
     <>
@@ -129,7 +129,7 @@ export function InitiativePage() {
         </div>
       </Section>
 
-      <CTASection title={`Make ${it.name.toLowerCase()} real.`} body="Start with a Discovery Sprint — low-risk, fully credited — and ship a working, certified proof in weeks." />
+      <CTASection title={`Make ${it.name.toLowerCase()} real.`} body="Start with a Discovery Sprint — low-risk, fully credited — and ship a working, governed proof in weeks." />
     </>
   );
 }

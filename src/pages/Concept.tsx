@@ -6,7 +6,7 @@ import { useSeo, SITE_URL } from "../lib/seo";
 import { PageHero, Section } from "../components/blocks";
 import { SectionHead, Reveal, Icon, Kicker } from "../components/primitives";
 import { CTASection } from "../components/CTASection";
-import { SHIFT, VS_LEGACY } from "../content/site";
+import { SHIFT, HOW_WE_WORK } from "../content/site";
 
 const PATH = "/what-is-agentic-transformation";
 
@@ -26,8 +26,8 @@ const CONTRAST = [
 
 const PILLARS_OF_DEF = [
   { t: "Goal, not prompt", body: "You give an outcome; the agent plans the steps." },
-  { t: "Tools + grounding", body: "It reads the systems of record (via MCP connectors) and acts on them — grounded, not guessing." },
-  { t: "Governed autonomy", body: "Human-in-the-loop on every consequential action; everything logged, evaluated, and certified." },
+  { t: "Tools + grounding", body: "It reads your systems of record and proposes against them — grounded in records rather than recalled." },
+  { t: "Governed autonomy", body: "A consequential action routes to a named human, and the approval is bound to that action and that exact payload." },
   { t: "A new operating layer", body: "Not a feature inside an app — a layer the whole business runs on." },
 ];
 
@@ -41,7 +41,7 @@ const STAGES = [
 ];
 
 const ROLE = [
-  { label: "Services — how we deliver", href: "/services", desc: "Six pillars that take you from strategy to scale.", accent: "#7c6cf0" },
+  { label: "Platform — what it runs on", href: "/platform", desc: "One control plane, plus the pillars that build, prove and operate your agents.", accent: "#b9603f" },
   { label: "Products — what we deploy", href: "/products", desc: "The 1 Suite: ten agentic apps in five categories, on one core.", accent: "#2f6df0" },
   { label: "Solutions — who we serve", href: "/solutions", desc: "Ten industry solutions with the governance your regulator expects.", accent: "#d39a3a" },
 ];
@@ -53,15 +53,15 @@ const FAQ = [
   },
   {
     q: "How is an agent different from a copilot or chatbot?",
-    a: "A copilot suggests and waits; a human does the work. An agent acts: it plans toward a goal, calls tools and connectors, completes multi-step tasks, and routes to a human only for consequential decisions — every step grounded, governed, and audited.",
+    a: "A copilot suggests and waits; a human does the work. An agent acts: it plans toward a goal, calls tools and connectors, and completes multi-step work, stopping at a human for the consequential steps. On this platform those steps are named rather than implied, and the approval that releases one is bound to that action and that payload.",
   },
   {
     q: "Why now?",
-    a: "Frontier models, the Agent SDK, MCP connectors, and Skills have made production agents real and reliable. The window to lead is open, and legacy consulting is structurally too slow and expensive to follow.",
+    a: "Frontier models, the Agent SDK, MCP connectors and Skills have made production agents buildable. The harder half is governing what they write, which is why the interesting question moved from whether an agent can act to what happens at the moment it commits.",
   },
   {
     q: "Is it safe? What about governance?",
-    a: "Governance is the differentiator: human-in-the-loop on every consequential action, grounded and cited outputs, eval-gated Trust Marks, per-vertical governance signatures, immutable audit, and data residency (DPDP/GDPR).",
+    a: "Governance is the differentiator: human-in-the-loop on consequential actions, grounded and cited outputs, eval-gated Trust Marks, per-vertical governance signatures, an immutable hash-chained audit, and DPDP-aligned privacy with per-tenant declared residency.",
   },
 ];
 
@@ -187,22 +187,22 @@ export default function Concept() {
         <SectionHead
           kicker="Why now"
           title="The window to lead is open."
-          lede="Frontier models, the Agent SDK, MCP connectors, and Skills have made production agents real. Legacy consulting is structurally too slow and too expensive to follow."
+          lede="Frontier models, the Agent SDK, MCP connectors and Skills made production agents buildable. Governing what they write is the half that decides whether they ship."
           align="center"
         />
         <div className="mx-auto mt-10 max-w-4xl overflow-hidden rounded-card border border-line bg-surface">
-          <div className="grid grid-cols-3 border-b border-line bg-mist/60 px-6 py-3 font-mono text-[11px] uppercase tracking-wide text-muted">
-            <span></span>
-            <span>Legacy consulting</span>
-            <span className="text-clayDeep">elan1</span>
+          <div className="border-b border-line bg-mist/60 px-6 py-3 font-mono text-[11px] uppercase tracking-wide text-muted">
+            How we work
           </div>
-          {VS_LEGACY.map((r) => (
-            <div key={r.dim} className="grid grid-cols-3 gap-3 border-b border-line px-6 py-4 text-sm last:border-0">
+          {HOW_WE_WORK.map((r) => (
+            <div
+              key={r.dim}
+              className="grid gap-2 border-b border-line px-6 py-5 text-sm last:border-0 sm:grid-cols-[minmax(0,0.9fr)_minmax(0,2.1fr)] sm:gap-6"
+            >
               <span className="font-medium text-ink">{r.dim}</span>
-              <span className="text-muted">{r.legacy}</span>
-              <span className="flex items-start gap-1.5 font-medium text-ink">
+              <span className="flex items-start gap-2 leading-relaxed text-slate">
                 <Icon.Check className="mt-0.5 h-4 w-4 shrink-0 text-green" />
-                {r.elan1}
+                <span>{r.body}</span>
               </span>
             </div>
           ))}
@@ -222,7 +222,7 @@ export default function Concept() {
           dark
           kicker="elan1's role"
           title="One core. Many apps. Every vertical."
-          lede="elan1 is the trusted, fastest way to adopt the agentic operating layer — services that deliver it, products that run it, solutions that fit your industry."
+          lede="elan1 is the trusted, fastest way to adopt the agentic operating layer — a platform that runs it, products that deploy on it, solutions that fit your industry."
           align="center"
         />
         <div className="mx-auto mt-10 grid max-w-5xl gap-4 md:grid-cols-3">

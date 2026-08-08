@@ -76,7 +76,7 @@ export default function Demo() {
               <Link to="/contact" className="font-medium text-clayDeep underline underline-offset-2">
                 Start a Discovery Sprint
               </Link>{" "}
-              — a working, certified agent in weeks.
+              — a working, governed agent in weeks.
             </p>
           </div>
         </div>

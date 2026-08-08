@@ -1,4 +1,4 @@
-// pages/Learn.tsx — WS4.4: the public academy1 learning hub. Courses + certification levels, tied to
+// pages/Learn.tsx — WS4.4: the public Academy learning hub. Courses + certification levels, tied to
 // platform roles (the certification economy).
 import { Link } from "react-router-dom";
 import { useSeo } from "../lib/seo";
@@ -9,17 +9,17 @@ import { COURSES, CERT_LEVELS } from "../content/courses";
 
 export default function Learn() {
   useSeo(
-    "academy1 — learning hub & certification | elan1",
+    "Academy — learning hub & certification | elan1",
     "Learn to run on agents: courses for operating the platform, certifications tied to platform roles, and a path from associate to expert.",
   );
   return (
     <>
       <PageHero
-        kicker="academy1 · Learn"
+        kicker="Academy · Learn"
         accent="#7c6cf0"
         title="Get certified to run on agents."
         subtitle="Courses for operating the platform and its apps, with certifications tied to real platform roles — from associate to expert. Enable your team; earn verifiable credentials."
-        cta={{ label: "Talk to academy1", href: "/get-started", secondary: { label: "Back to Academy", href: "/academy" } }}
+        cta={{ label: "Talk to Academy", href: "/get-started", secondary: { label: "Back to Academy", href: "/resources/academy" } }}
       />
 
       <Section tone="paper">
@@ -68,7 +68,7 @@ export default function Learn() {
         </p>
       </Section>
 
-      <CTASection title="Enable your team." body="academy1 certifies your people to operate, approve, and administer the platform — confidently." />
+      <CTASection title="Enable your team." body="Academy certifies your people to operate, approve, and administer the platform — confidently." />
     </>
   );
 }

@@ -1,6 +1,9 @@
 // pages/WhyElan1.tsx — "vs agent-builder platforms": why a governed operations platform beats a builder.
-// Framed generically (no competitor named) — the public version of the launch leave-behind.
+// Framed generically — it describes ONLY elan1 and what a builder is FOR. It must never assert
+// a capability a competitor LACKS: approvals, HITL and audit are table stakes across that field
+// now, so any "they can't" line is both false and checkable by a buyer in one click.
 import { useSeo } from "../lib/seo";
+import { factLine } from "../content/platform-facts";
 import { PageHero, Section, GovernanceSpine } from "../components/blocks";
 import { SectionHead, Reveal, Icon, Kicker } from "../components/primitives";
 import { CTASection } from "../components/CTASection";
@@ -14,10 +17,10 @@ const contrast = [
     tone: "muted",
     points: [
       "Give you a canvas to build an agent — you assemble the app.",
-      "No system-of-record — you bring your own data.",
-      "Governance stops at content filters (model I/O).",
-      "Ungoverned tool calls; no approval inbox.",
-      "No immutable audit; trust is asserted, not provable.",
+      "The agent acts on records that live in your other systems.",
+      "The approval and the trace sit in the orchestrator.",
+      "The system of record is somebody else's, reached across an integration.",
+      "You own the assembly — and the governance you wire around it.",
     ],
   },
   {
@@ -27,8 +30,8 @@ const contrast = [
       "Ships the app: data models, workflows, and governance included.",
       "Native systems-of-record across the 1 Suite, with RLS tenant isolation.",
       "Three layers of defense-in-depth — business, AI-safety, platform.",
-      "Every consequential action is human-gated (HITL) and least-privilege.",
-      "Immutable, hash-chained audit — export a regulator-verifiable receipt.",
+      "Consequential actions are human-gated and least-privilege — the approval single-use and bound to the payload the reviewer saw.",
+      "A hash-chained audit that recomputes — export a receipt a regulator can check.",
     ],
   },
 ];
@@ -39,8 +42,8 @@ const parity = [
   ["Visual multi-agent flow builder", "A drag-style canvas for multi-agent flows", "every node policy-gated (HITL); the whole run is audited"],
   ["Describe-to-build (NL → agent)", "A sentence becomes a draft agent with tools + tier", "never auto-published — human review + a passing eval first"],
   ["Agent marketplace / App Store", "Browse and install agents & blueprints", "certified = eval-gated; community is clearly uncertified until it passes"],
-  ["Voice agents", "ASR/TTS voice agents (Deepgram · ElevenLabs)", "over a consent-gated, audited voice channel"],
-  ["Multi-model routing", "Claude-native default + multi-provider failover", "cost-aware + guardrail-screened on every route"],
+  ["Voice agents", "A voice-agent compiler with consent gating", "over an audited channel; the speech transport is credential-gated"],
+  ["Multi-model routing", "Claude-native, OpenAI-compatible providers behind the seam", "cost-aware + guardrail-screened on every route"],
 ];
 
 /* The governance arc — captioned snapshots of what you see in the live control plane. */
@@ -48,8 +51,8 @@ const frames = [
   {
     act: "The moat",
     head: "Human-in-the-loop, resolved from the pane",
-    sub: "A person approves the consequential action — and it lands on the immutable chain.",
-    vs: "no approval inbox in a builder",
+    sub: "A person approves the consequential action — and it lands on the chain.",
+    vs: "the approval lands beside the record it changed",
     accent: "#e0656d",
     ui: (
       <div className="space-y-2">
@@ -72,7 +75,7 @@ const frames = [
     act: "Provable governance",
     head: "Hash-chained audit + compliance receipt",
     sub: "Exportable, tamper-evident. Change one event → verification fails.",
-    vs: "no immutable audit in a builder",
+    vs: "the chain recomputes — change one event and verification fails",
     accent: "#3fae6b",
     ui: (
       <div className="space-y-2">
@@ -122,17 +125,21 @@ const runIt = [
   { t: "One control plane", b: "Governance, observability, FinOps, wave rollout, and identity — across every app and every tenant, in one pane." },
 ];
 
+// DERIVED from content/platform-facts.ts — never hand-typed. The literals here previously read
+// "6 product apps" and "78 governed agents" against a tree of 10 and 155, understating the product
+// by roughly forty percent on the page whose whole job is credibility.
 const proof = [
-  "6 product apps live on one governed core · 1 control plane · 10 vertical config packs.",
-  "Immutable audit chain that verifies; consequential actions human-gated; eval-gated promotion to prod.",
-  "35+ connectors (native + self-serve SaaS) · 78 governed agents · cost metered per tenant.",
-  "Lean stack deploys in one documented step; enterprise track on multi-region for residency.",
+  `${factLine("suiteApps")} on one governed core · 1 control plane · ${factLine("verticalPacks")}.`,
+  `${factLine("agentsRegistered")}, enabled in governed waves · ${factLine("skills")} · ${factLine("crossAppSagas")} that span them.`,
+  `${factLine("systemsOfRecord")} with ${factLine("objectTypes")} · a hash-chained audit you can recompute · eval-gated promotion to production.`,
+  `${factLine("workspaceScreens")} across the suite and the packs · ${factLine("connectors")} · cost metered per tenant.`,
+  "Lean stack deploys in one documented step; a multi-region track is the enterprise roadmap.",
 ];
 
 export default function WhyElan1() {
   useSeo(
     "Why elan1 vs. agent-builder platforms | elan1",
-    "Builder platforms help you build an agent. elan1 runs your business on governed agents — with provable governance, owned data, and residency no builder has. Every builder surface, wrapped in governance.",
+    "Builder platforms help you build an agent. elan1 runs your business on governed agents — the approval, the write and the record are one transaction on one spine, landing in a hash-chained audit you can recompute.",
   );
   return (
     <>
@@ -213,7 +220,7 @@ export default function WhyElan1() {
           ))}
         </div>
         <p className="mt-4 font-mono text-xs text-muted">
-          Claude-native by positioning; multi-provider behind the runtime seam. The router is cost- and guardrail-aware — which a builder's router isn't.
+          Claude-native by positioning, with other providers reachable behind the same runtime seam. Guardrails are evaluated on the route; cost-aware model downshifting is a separate behaviour that an operator turns on deliberately rather than something running by default.
         </p>
       </Section>
 
@@ -222,7 +229,7 @@ export default function WhyElan1() {
         <SectionHead
           kicker="Inside the control plane"
           title="What governed actually looks like."
-          lede="Three moments from the live control plane — the surfaces a builder can't show you."
+          lede="Three moments from the live control plane."
         />
         <div className="mt-12 grid gap-5 lg:grid-cols-3">
           {frames.map((f, i) => (
@@ -257,9 +264,9 @@ export default function WhyElan1() {
             <Kicker accent="#e0656d">Provable, not asserted</Kicker>
             <h2 className="display mt-4 text-2xl text-ink sm:text-3xl">The moat is governance you can hand to a regulator.</h2>
             <p className="lede mt-5 text-slate">
-              A human approves every consequential action. The decision lands on an immutable, hash-chained audit. Export a
-              compliance receipt — a tamper-evident, offline-verifiable record of every agent action. Tamper one event and
-              verification fails. No builder platform ships this.
+              A human approves consequential actions. The decision lands on a hash-chained audit that recomputes. Export a
+              compliance receipt — a tamper-evident, offline-verifiable record of what passed through the governed path. Tamper
+              with one event and verification fails. The approval, the write and the record are one transaction — not an orchestrator call joined to someone else’s record by a trace.
             </p>
             <div className="mt-7">
               <a href="/platform/governance" className="btn-ghost">
@@ -276,7 +283,7 @@ export default function WhyElan1() {
 
       {/* Run it like a business */}
       <Section tone="mist">
-        <SectionHead kicker="Run it like a business" title="A CFO/COO pane no builder has." />
+        <SectionHead kicker="Run it like a business" title="A CFO/COO pane over governed work." />
         <div className="mt-12 grid gap-4 sm:grid-cols-3">
           {runIt.map((r, i) => (
             <Reveal key={r.t} delay={i * 0.06}>

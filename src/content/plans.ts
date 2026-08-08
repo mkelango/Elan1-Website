@@ -46,7 +46,7 @@ export const PLAN_SHAPES: PlanShape[] = [
     // `who` line beside it said "full". Deriving makes the copy true by construction.
     name: "Enterprise",
     apps: categorizedAppSlugs,
-    who: "The full 1 Suite on enterprise1, with residency, wave rollout and the governance spine.",
+    who: "The full 1 Suite on enterprise1, with declared residency, wave rollout and the governance spine.",
   },
 ];
 
@@ -80,7 +80,10 @@ export const METERED = [
  * and the page must not imply it. What is true: the model cost is inside the plan, not beside it.
  */
 export const INCLUDED_VS_EXTRA = [
-  { item: "The nine suite apps your plan unlocks", included: true },
+  // Deliberately NOT a number. This bullet sits beside the plan cards, which unlock 1, 3 or all ten
+  // apps depending on tier — so any fixed count is wrong for two of the three plans, and the literal
+  // "nine" here contradicted the derived "10 apps" badge rendered inches away on the same page.
+  { item: "The suite apps your plan unlocks", included: true },
   { item: "Model tokens, up to your plan's allowance", included: true },
   { item: "Governance — evals, approval gates, the hash-chained audit", included: true },
   { item: "Connectors and least-privilege grants", included: true },

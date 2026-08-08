@@ -11,10 +11,15 @@ export interface Band {
   mix: string[]; // the offering mix that fits this band
   pricing: string;
   accent: string;
-  /** ROI calculator defaults for this band. */
+  /**
+   * Starting points for the estimator's INPUT sliders only — team size, hours, cost.
+   * 🚨 There is deliberately NO automation-rate field. This file used to carry
+   * `automation: 0.5 / 0.55 / 0.6` and the calculator multiplied by it, publishing
+   * "a governed agent removes ~50% of this toil" as an elan1 claim. Nobody has measured that —
+   * there are no customers yet — so the share is now the VISITOR's assumption, entered by them,
+   * and we only do the arithmetic. Do not reintroduce a default rate.
+   */
   defaults: { people: number; hoursPerWeek: number; hourlyCost: number };
-  /** Illustrative share of that effort a governed agent removes. */
-  automation: number;
 }
 
 export const BANDS: Band[] = [
@@ -32,7 +37,6 @@ export const BANDS: Band[] = [
     pricing: "Fixed-fee Launchpad, then light per-seat/usage. No open-ended retainers.",
     accent: "#3fae6b",
     defaults: { people: 3, hoursPerWeek: 8, hourlyCost: 18 },
-    automation: 0.5,
   },
   {
     id: "scaleup",
@@ -48,7 +52,6 @@ export const BANDS: Band[] = [
     pricing: "Per-seat/usage product pricing + a governance retainer; Launchpads per function.",
     accent: "#2f6df0",
     defaults: { people: 12, hoursPerWeek: 10, hourlyCost: 22 },
-    automation: 0.55,
   },
   {
     id: "enterprise",
@@ -58,13 +61,12 @@ export const BANDS: Band[] = [
     who: "Enterprises standardizing every function on one governed, multi-region agentic platform.",
     mix: [
       "The full 1 Suite on enterprise1 — one governance pane + wave rollout",
-      "Multi-region residency + localized governance (DPDP/GDPR…)",
-      "Partner ecosystem + academy1 enablement for your teams",
+      "Declared residency + localized governance (DPDP/GDPR…)",
+      "Partner ecosystem + Academy enablement for your teams",
     ],
     pricing: "Enterprise licensing on enterprise1 + operations & governance retainers. Custom quote.",
     accent: "#b9603f",
     defaults: { people: 60, hoursPerWeek: 12, hourlyCost: 28 },
-    automation: 0.6,
   },
 ];
 

@@ -10,24 +10,24 @@ import { PLAN_SHAPES, METERED, INCLUDED_VS_EXTRA, PRICE_FLOOR, CURRENCY } from "
 
 const steps = [
   { tag: "Step 1 · lowest risk", name: "Discovery Sprint", body: "A fixed-scope sprint that maps your highest-value opportunity and ships a working proof. Fully credited toward your Launchpad.", accent: "#df8c64", cta: "Start here" },
-  { tag: "Step 2 · prove it", name: "Launchpad", body: "One flagship workflow, live and governance-validated in 4–6 weeks — a fixed fee, a real result in production.", accent: "#2f6df0", cta: "Scope a Launchpad" },
+  { tag: "Step 2 · prove it", name: "Launchpad", body: "One flagship workflow, live and under the governance gates, in 4–6 weeks — a fixed fee, a real result in production.", accent: "#2f6df0", cta: "Scope a Launchpad" },
   { tag: "Step 3 · scale", name: "Subscription & expand", body: "Per-seat / usage product pricing, plus run1 operations and assure1 governance as you expand across functions on enterprise1.", accent: "#7c6cf0", cta: "Plan the rollout" },
 ];
 
 const models = [
-  ["Services", "Fixed-scope engagement or build-sprint fees."],
+  ["Platform", "enterprise1 licensing, plus fixed-scope build and assurance engagements."],
   ["Products", "Per-seat / usage; enterprise licensing on enterprise1."],
   ["Solutions", "Fixed Launchpad fee, then product pricing + governance retainer."],
   ["Operations", "run1 retainer; assure1 governance retainer."],
 ];
 
 const faqs = [
-  ["How is this different from an agent-builder platform?", "A builder gives you a canvas to assemble an agent. elan1 ships the operations product — data models, workflows, and governance included — and every consequential action is human-gated, audited, and provable. See the full comparison on Why elan1 vs builders."],
+  ["How is this different from an agent-builder platform?", "A builder gives you a canvas to assemble an agent. elan1 ships the operations product — data models, workflows, and governance included — and consequential actions are human-gated, audited, and provable. See the full comparison on Why elan1 vs builders."],
   ["How do I trust an AI agent with money or decisions?", "You don't have to trust it — you verify it. Consequential actions are human-approved, and every one lands on an immutable, hash-chained audit you can export as a regulator-verifiable receipt."],
-  ["Are you Claude-only? What about other models?", "Claude-native by positioning, with multi-provider failover behind the runtime seam — and our router is cost- and guardrail-aware on every route, which builder routers aren't."],
+  ["Are you Claude-only? What about other models?", "Claude-native, with OpenAI-compatible providers selectable behind the runtime seam and automatic tier fallback within a run. Routing is cost-aware and guardrail-screened on every route."],
   ["Can non-developers build agents?", "Yes — describe an agent in plain English and a draft is composed for you. It never auto-publishes: a human reviews it and it must pass an eval before it can go live."],
-  ["Does it connect to my Gmail / HubSpot / Slack today?", "Yes — 35+ connectors, native and self-serve. Connecting is supplying credentials + a scoped, least-privilege grant, not a custom build, and every call is audited."],
-  ["Is it production-ready?", "The software is built and fully tested. Go-live is provisioning the lean stack — a documented step — with an enterprise multi-region track for residency and compliance."],
+  ["Does it connect to my Gmail / HubSpot / Slack today?", "The catalog declares them as typed, least-privilege seams. Connecting one means supplying credentials and an audited grant — an operator step, not a switch already on. Every call through the seam is audited."],
+  ["Is it production-ready?", "The platform is built and running. Go-live is provisioning the lean stack — a documented step — with a multi-region track on the enterprise roadmap."],
 ];
 
 export default function Pricing() {
@@ -135,7 +135,7 @@ export default function Pricing() {
         </p>
       </Section>
       <Section tone="paper">
-        <SectionHead kicker="By company size" title="Pick your band." lede="Size-appropriate offering mix, pricing posture, and an illustrative ROI estimate — choose where you are." align="center" />
+        <SectionHead kicker="By company size" title="Pick your band." lede="Size-appropriate offering mix, pricing posture, and an estimate built on your own assumptions — choose where you are. Bands are stated in USD revenue because that is how company size is compared internationally; pricing itself is quoted in rupees." align="center" />
         <div className="mx-auto mt-10 grid max-w-5xl gap-4 md:grid-cols-3">
           {BANDS.map((b, i) => (
             <Reveal key={b.id} delay={i * 0.06}>

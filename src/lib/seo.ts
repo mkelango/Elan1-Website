@@ -6,9 +6,18 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 /** Canonical production origin (no trailing slash). */
-export const SITE_URL = "https://elan1.in";
+export const SITE_URL = "https://elan1.ai";
 /** Default social share image (overridable per page). */
-export const DEFAULT_OG_IMAGE = "/img/about.jpg";
+// A purpose-built 1200×630 social card: the wordmark, the descriptor, and nothing else.
+// It replaced /img/about.jpg — a stock photograph of people at a desk. That was the sitewide share
+// image, so every link shared from this site led with an implied team photo, which is a headcount
+// claim in the one medium nobody fact-checks. The About page explicitly refuses to make that claim.
+export const DEFAULT_OG_IMAGE = "/img/og-elan1.png";
+
+export interface BreadcrumbItem {
+  name: string;
+  href: string;
+}
 
 export interface SeoOptions {
   /** Social share image (path or absolute URL). */
@@ -19,6 +28,8 @@ export interface SeoOptions {
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
   /** Keep this page out of the index (e.g. thank-you pages). */
   noindex?: boolean;
+  /** Breadcrumb trail (parent chain). Current page is appended automatically from the title. */
+  breadcrumbs?: BreadcrumbItem[];
 }
 
 function absolute(pathOrUrl: string): string {
@@ -61,10 +72,41 @@ function setJsonLd(data?: SeoOptions["jsonLd"]): void {
   if (!existing) document.head.appendChild(el);
 }
 
+function breadcrumbJsonLd(crumbs: BreadcrumbItem[], currentName: string): Record<string, unknown> {
+  const items: Record<string, unknown>[] = [
+    { "@type": "ListItem", position: 1, name: "elan1", item: SITE_URL },
+  ];
+  let pos = 2;
+  for (const c of crumbs) {
+    items.push({ "@type": "ListItem", position: pos++, name: c.name, item: absolute(c.href) });
+  }
+  items.push({ "@type": "ListItem", position: pos, name: currentName });
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items,
+  };
+}
+
+const BREADCRUMB_ID = "page-breadcrumb-ld";
+function setBreadcrumbLd(data?: Record<string, unknown>): void {
+  const existing = document.getElementById(BREADCRUMB_ID);
+  if (!data) {
+    existing?.remove();
+    return;
+  }
+  const el = (existing as HTMLScriptElement | null) ?? document.createElement("script");
+  el.id = BREADCRUMB_ID;
+  el.setAttribute("type", "application/ld+json");
+  el.textContent = JSON.stringify(data);
+  if (!existing) document.head.appendChild(el);
+}
+
 export function useSeo(title: string, description?: string, opts: SeoOptions = {}): void {
   const { pathname } = useLocation();
-  const { image, type = "website", jsonLd, noindex = false } = opts;
+  const { image, type = "website", jsonLd, noindex = false, breadcrumbs } = opts;
   const jsonLdKey = jsonLd ? JSON.stringify(jsonLd) : "";
+  const bcKey = breadcrumbs ? JSON.stringify(breadcrumbs) : "";
 
   useEffect(() => {
     const url = absolute(pathname);
@@ -91,9 +133,20 @@ export function useSeo(title: string, description?: string, opts: SeoOptions = {
 
     setJsonLd(jsonLd);
 
-    return () => setJsonLd(undefined); // each route sets its own; clear on unmount
+    // BreadcrumbList — inject if breadcrumbs are provided
+    if (breadcrumbs && breadcrumbs.length > 0) {
+      const shortTitle = title.replace(/ \| elan1$/, "").replace(/ — .*$/, "") || title;
+      setBreadcrumbLd(breadcrumbJsonLd(breadcrumbs, shortTitle));
+    } else {
+      setBreadcrumbLd(undefined);
+    }
+
+    return () => {
+      setJsonLd(undefined);
+      setBreadcrumbLd(undefined);
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [title, description, pathname, image, type, noindex, jsonLdKey]);
+  }, [title, description, pathname, image, type, noindex, jsonLdKey, bcKey]);
 }
 
 // ——— JSON-LD builders (schema.org) ———

@@ -11,8 +11,11 @@ import { BrandImage, AbstractHero } from "../components/BrandImage";
 import { productImage } from "../content/images";
 import { CTASection } from "../components/CTASection";
 
-export default function ProductPage() {
-  const { slug } = useParams();
+export default function ProductPage({ slug: fixedSlug }: { slug?: string } = {}) {
+  // enterprise1 is the CONTROL PLANE, not one of the five product categories — it belongs to
+  // Platform and is mounted there on a static route. Every other product comes from the URL.
+  const { slug: paramSlug } = useParams();
+  const slug = fixedSlug ?? paramSlug;
   const product = products.find((p) => p.slug === slug);
   if (!product) return <Navigate to="/products" replace />;
 
@@ -24,6 +27,9 @@ export default function ProductPage() {
   const siblings = category ? appsOf(category).filter((p) => p.slug !== product.slug) : [];
   useSeo(product.seo.title, product.seo.description, {
     type: "product",
+    breadcrumbs: category
+      ? [{ name: "Products", href: "/products" }, { name: category.name, href: `/products/category/${category.slug}` }]
+      : [{ name: "Platform", href: "/platform" }],
     jsonLd: productJsonLd(product.name, product.seo.description, `/products/${product.slug}`),
   });
 
@@ -35,7 +41,7 @@ export default function ProductPage() {
         eyebrow={
           <Reveal>
             <div className="mb-5 flex flex-wrap items-center gap-x-3 gap-y-1">
-              <Crumb to="/products" label="The 1 Suite" />
+              <Crumb to={product.slug === "enterprise1" ? "/platform" : "/products"} label={product.slug === "enterprise1" ? "Platform" : "The 1 Suite"} />
               {category && (
                 <>
                   <span className="font-mono text-xs text-muted">/</span>
@@ -108,6 +114,229 @@ export default function ProductPage() {
         </div>
       </Section>
 
+      {/*
+        The capability surface, derived from platform code.
+        Every block below renders ONLY when its data is present, so a product entry without the
+        optional fields degrades to the original page rather than to a row of empty shells.
+      */}
+
+      {/* The workforce — roster vs launch wave. Staged enablement is a control, so we publish both. */}
+      {product.workforce && (
+        <Section tone="obsidian">
+          <div className="grid items-start gap-12 lg:grid-cols-[0.95fr_1.05fr]">
+            <div>
+              <Kicker accent={a}>The workforce</Kicker>
+              <h2 className="mt-4 font-display text-3xl font-bold leading-tight text-paper sm:text-4xl">
+                {product.workforce.registered} agents ship.{" "}
+                <span style={{ color: a }}>{product.workforce.launchWave} are on at launch.</span>
+              </h2>
+              <p className="mt-5 text-[15px] leading-relaxed text-paper/70">{product.workforce.note}</p>
+              <p className="mt-4 text-[15px] leading-relaxed text-paper/70">
+                That gap is the control, not a gap in the product. Enablement is staged per tenant:
+                a function outside the enabled set is refused before it acts, and a suspend switch
+                overrides the set entirely.
+              </p>
+            </div>
+            <Reveal>
+              <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-card bg-paper/15">
+                <div className="bg-obsidian p-5">
+                  <dt className="display text-3xl text-paper">{product.workforce.registered}</dt>
+                  <dd className="mt-1 text-sm leading-snug text-paper/60">agents declared</dd>
+                </div>
+                <div className="bg-obsidian p-5">
+                  <dt className="display text-3xl" style={{ color: a }}>{product.workforce.launchWave}</dt>
+                  <dd className="mt-1 text-sm leading-snug text-paper/60">enabled in the launch wave</dd>
+                </div>
+                {product.systemOfRecord && (
+                  <div className="bg-obsidian p-5">
+                    <dt className="display text-3xl text-paper">{product.systemOfRecord.objectTypes}</dt>
+                    <dd className="mt-1 text-sm leading-snug text-paper/60">typed object types it owns</dd>
+                  </div>
+                )}
+                {product.skills && (
+                  <div className="bg-obsidian p-5">
+                    <dt className="display text-3xl text-paper">{product.skills.count}</dt>
+                    <dd className="mt-1 text-sm leading-snug text-paper/60">reusable skills</dd>
+                  </div>
+                )}
+              </dl>
+              {product.systemOfRecord && (
+                <div className="mt-4 rounded-card border border-paper/15 bg-paper/[0.04] p-6">
+                  <p className="font-mono text-[11px] uppercase tracking-kicker text-paper/40">
+                    Its own system of record
+                  </p>
+                  <p className="mt-2 text-sm leading-relaxed text-paper/70">{product.systemOfRecord.note}</p>
+                </div>
+              )}
+            </Reveal>
+          </div>
+        </Section>
+      )}
+
+      {/* Copilots — in-screen assists, each labelled advisory or gated. */}
+      {product.copilots && product.copilots.length > 0 && (
+        <Section tone="paper">
+          <SectionHead
+            kicker="Copilots"
+            title="The assists inside the screens."
+            lede="Not background agents — panels you work beside. Each one is labelled by what it is allowed to do."
+          />
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {product.copilots.map((c, i) => (
+              <Reveal key={c.name} delay={(i % 3) * 0.06}>
+                <div className="card h-full">
+                  <div className="flex items-start justify-between gap-3">
+                    <h3 className="font-display text-lg font-bold leading-snug text-ink">{c.name}</h3>
+                    <span
+                      className="mt-0.5 shrink-0 rounded-full px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-kicker"
+                      style={
+                        c.mode === "advisory"
+                          ? { background: "#0b122010", color: "#5b6472" }
+                          : { background: `${a}1f`, color: a }
+                      }
+                    >
+                      {c.mode === "advisory" ? "advisory" : "gated"}
+                    </span>
+                  </div>
+                  <p className="mt-3 text-sm leading-relaxed text-slate">{c.does}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </Section>
+      )}
+
+      {/* Automations — the real triggers, quoted from the agent specs. */}
+      {product.automations && product.automations.length > 0 && (
+        <Section tone="mist">
+          <SectionHead
+            kicker="Automations"
+            title="What runs on its own, and what starts it."
+            lede="Triggers as declared in code — a schedule or a named event, never “continuously”."
+          />
+          <Reveal>
+            <div className="mt-10 overflow-hidden rounded-card border border-line bg-surface">
+              {product.automations.map((au, i) => (
+                <div
+                  key={au.name}
+                  className={`grid gap-2 p-5 sm:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] sm:gap-6 ${i > 0 ? "border-t border-line" : ""}`}
+                >
+                  <div>
+                    <p className="font-mono text-sm font-semibold text-ink">{au.name}</p>
+                    <p className="mt-1.5 inline-block rounded bg-mist px-2 py-0.5 font-mono text-[11px] text-clayDeep">
+                      {au.trigger}
+                    </p>
+                  </div>
+                  <p className="text-sm leading-relaxed text-slate">{au.does}</p>
+                </div>
+              ))}
+            </div>
+          </Reveal>
+        </Section>
+      )}
+
+      {/* Refusals — quoted verbatim. The hardest thing on the page to fake. */}
+      {product.refusals && product.refusals.length > 0 && (
+        <Section tone="obsidian">
+          <div className="grid items-start gap-12 lg:grid-cols-[0.85fr_1.15fr]">
+            <div className="lg:sticky lg:top-24">
+              <Kicker accent={a}>What it refuses</Kicker>
+              <h2 className="mt-4 font-display text-3xl font-bold leading-tight text-paper sm:text-4xl">
+                The guardrail, in its own words.
+              </h2>
+              <p className="mt-5 text-[15px] leading-relaxed text-paper/70">
+                These are refusal messages quoted from{" "}
+                <span className="font-mono" style={{ color: a }}>{product.name}</span>'s write path — the
+                text the system returns when it declines. A refusal you can read is a stronger claim
+                than any adjective we could write about safety.
+              </p>
+              <p className="mt-4 text-[15px] leading-relaxed text-paper/70">
+                Braces mark values filled in at runtime.
+              </p>
+            </div>
+            <Reveal>
+              <ul className="flex flex-col gap-2.5">
+                {product.refusals.map((r) => (
+                  <li
+                    key={r}
+                    className="flex items-start gap-3 rounded-lg border border-paper/15 bg-paper/[0.04] p-4"
+                  >
+                    <span className="mt-0.5 shrink-0 font-mono text-sm" style={{ color: a }} aria-hidden>
+                      ✕
+                    </span>
+                    <code className="font-mono text-[13px] leading-relaxed text-paper/80">{r}</code>
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
+          </div>
+        </Section>
+      )}
+
+      {/* Dashboards + tool seams. */}
+      {((product.dashboards && product.dashboards.length > 0) ||
+        (product.mcpSeams && product.mcpSeams.length > 0)) && (
+        <Section tone="paper">
+          <div className="grid gap-14 lg:grid-cols-2">
+            {product.dashboards && product.dashboards.length > 0 && (
+              <div>
+                <SectionHead
+                  kicker="Dashboards"
+                  title="The surfaces you work in."
+                  lede="Described by what each one computes, because that is what makes a number defensible."
+                />
+                <ul className="mt-8 flex flex-col gap-3">
+                  {product.dashboards.map((d) => (
+                    <li key={d} className="flex items-start gap-3">
+                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full" style={{ background: a }} aria-hidden />
+                      <span className="text-[15px] leading-relaxed text-slate">{d}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+            {product.mcpSeams && product.mcpSeams.length > 0 && (
+              <div>
+                <SectionHead
+                  kicker="Tool seams · MCP"
+                  title="What it can reach, and how real that is."
+                  lede="Each seam is labelled. We would rather tell you a connector is modelled than let you assume it is live."
+                />
+                <div className="mt-8 flex flex-col gap-3">
+                  {product.mcpSeams.map((m) => (
+                    <div key={m.name} className="rounded-card border border-line bg-surface p-5">
+                      <div className="flex items-center gap-2.5">
+                        <span className="font-mono text-sm font-semibold text-ink">{m.name}</span>
+                        <span
+                          className="rounded-full px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-kicker"
+                          style={
+                            m.status === "live"
+                              ? { background: "#7fd58f26", color: "#3f7a4c" }
+                              : m.status === "modelled"
+                                ? { background: "#e3b25c26", color: "#8a6415" }
+                                : { background: "#0b122010", color: "#5b6472" }
+                          }
+                        >
+                          {m.status}
+                        </span>
+                      </div>
+                      <p className="mt-2 text-sm leading-relaxed text-slate">{m.note}</p>
+                    </div>
+                  ))}
+                </div>
+                <p className="mt-5 text-sm leading-relaxed text-muted">
+                  <span className="font-semibold">live</span> — a real connection.{" "}
+                  <span className="font-semibold">modelled</span> — a deterministic adapter behind the
+                  same interface: real shape, not real data.{" "}
+                  <span className="font-semibold">declared</span> — named and scoped, pending
+                  credentials and a grant.
+                </p>
+              </div>
+            )}
+          </div>
+        </Section>
+      )}
+
       {/* Architecture diagram */}
       {diagram ? (
         <Section tone="mist">
@@ -168,8 +397,30 @@ export default function ProductPage() {
                   <li key={it} className="chip">{it}</li>
                 ))}
               </ul>
-              <Link to="/products/enterprise1" className="mt-6 inline-block"><span className="link-underline">Standardize on enterprise1 <Icon.Arrow className="h-4 w-4" /></span></Link>
+              <Link to="/platform/enterprise1" className="mt-6 inline-block"><span className="link-underline">Standardize on enterprise1 <Icon.Arrow className="h-4 w-4" /></span></Link>
             </div>
+            {product.crossAppFlows && product.crossAppFlows.length > 0 && (
+              <div className="mt-4 rounded-card border border-line bg-surface p-6">
+                <p className="font-mono text-[11px] uppercase tracking-kicker text-muted">
+                  Governed cross-app workflows
+                </p>
+                <ul className="mt-4 flex flex-col gap-2.5">
+                  {product.crossAppFlows.map((f) => (
+                    <li key={f} className="flex items-start gap-2.5">
+                      <span className="mt-1 shrink-0" style={{ color: a }} aria-hidden>
+                        <Icon.Arrow className="h-3.5 w-3.5" />
+                      </span>
+                      <span className="text-sm leading-relaxed text-slate">{f}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-5 border-t border-line pt-4 text-sm leading-relaxed text-muted">
+                  Each leg terminates at the receiving app's own approval gate rather than inheriting
+                  the caller's — which is why one app can hand work to another without widening what
+                  either is allowed to do.
+                </p>
+              </div>
+            )}
           </div>
         </div>
       </Section>

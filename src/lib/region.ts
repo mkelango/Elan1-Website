@@ -12,11 +12,15 @@ export interface RegionInfo {
 
 // The elan1 geo order: India → Singapore → US → Middle East → Europe.
 export const SITE_REGIONS: RegionInfo[] = [
-  { id: "in", label: "India", locale: "en-IN", compliance: "Data resident in India · DPDP-aligned" },
-  { id: "sg", label: "Singapore", locale: "en-SG", compliance: "Data resident in Singapore · PDPA-aligned" },
+  // ⚠️ These strings previously read "Data resident in <region>" — five per-region ENFORCEMENT
+  // claims. The platform ships `declared: true, enforced: false` for residency and runs
+  // single-region today (its own routing table is labelled "demonstration"). So these state the
+  // regulatory ALIGNMENT, which is true, and not a residency guarantee, which is not.
+  { id: "in", label: "India", locale: "en-IN", compliance: "DPDP-aligned · residency declared per tenant" },
+  { id: "sg", label: "Singapore", locale: "en-SG", compliance: "PDPA-aligned · residency declared per tenant" },
   { id: "us", label: "United States", locale: "en-US", compliance: "US data handling · sector controls" },
-  { id: "me", label: "Middle East", locale: "en-AE", compliance: "In-region residency · local data protection" },
-  { id: "eu", label: "Europe", locale: "en-IE", compliance: "Data resident in the EU · GDPR-aligned" },
+  { id: "me", label: "Middle East", locale: "en-AE", compliance: "Local data protection · residency declared per tenant" },
+  { id: "eu", label: "Europe", locale: "en-IE", compliance: "GDPR-aligned · residency declared per tenant" },
 ];
 
 const KEY = "elan1.region";

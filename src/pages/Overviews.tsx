@@ -1,15 +1,15 @@
-// pages/Overviews.tsx — Products / Solutions / Services overview (hub) pages.
+// pages/Overviews.tsx — Products / Solutions overview (hub) pages.
+// The Services hub was deleted with the section; Platform now has its own PlatformOverview page.
 import { Link } from "react-router-dom";
 import { useSeo } from "../lib/seo";
 import { PageHero, Section } from "../components/blocks";
 import { SectionHead, Reveal, Icon, Kicker } from "../components/primitives";
 import { CTASection } from "../components/CTASection";
 import { products } from "../content/products";
-import { categories, appsOf, categorizedAppSlugs, uncategorizedAppSlugs, numberWord } from "../content/categories";
-import { solutionsByFocus } from "../content/solutions";
-import { services } from "../content/services";
+import { categories, appsOf, categorizedAppSlugs, uncategorizedAppSlugs, numberWord, sentenceCase } from "../content/categories";
+import { solutionsByFocus, primarySolutions, secondarySolutions, byInquirySolutions } from "../content/solutions";
 import { BrandImage, AbstractHero } from "../components/BrandImage";
-import { solutionImage, serviceImage } from "../content/images";
+import { solutionImage } from "../content/images";
 
 function OfferingTile({
   to,
@@ -60,7 +60,7 @@ function OfferingTile({
 export function ProductsOverview() {
   useSeo(
     "The 1 Suite — five categories, ten agentic apps | elan1",
-    "Ten agentic apps in five categories — revenue1, service1, trade1, works1 and compass1 — unified on the enterprise1 platform backbone.",
+    "Ten agentic apps in five categories — revenue, service1, trade, Works and Compass — unified on the enterprise1 platform backbone.",
   );
   const appCount = categorizedAppSlugs.length;
   return (
@@ -134,7 +134,7 @@ export function ProductsOverview() {
         )}
         <Reveal delay={0.1}>
           <div className="mt-4">
-            <OfferingTile to="/products/enterprise1" name="enterprise1" sub="Platform backbone · not a category" tagline="One agentic platform. Every function. Total control." accent="#df8c64" featured />
+            <OfferingTile to="/platform/enterprise1" name="enterprise1" sub="Platform backbone · not a category" tagline="One agentic platform. Every function. Total control." accent="#df8c64" featured />
           </div>
         </Reveal>
         <Reveal delay={0.12}>
@@ -145,21 +145,21 @@ export function ProductsOverview() {
         </Reveal>
       </Section>
 
-      {/* compass1 is cross-cutting, not a silo */}
+      {/* Compass is cross-cutting, not a silo */}
       <Section tone="obsidian">
         <div className="grid items-start gap-12 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
             <Kicker>Cross-cutting</Kicker>
             <h2 className="mt-4 font-display text-3xl font-bold leading-tight text-paper sm:text-4xl">
-              compass1 is a category — and it's inside the other four.
+              Compass is a category — and it's inside the other four.
             </h2>
             <p className="mt-5 text-[15px] leading-relaxed text-paper/70">
               insight1 and goal1 make claims <em>about</em> the rest of the suite, so they hold their own category.
               But they are not a silo: insight1 serves finance and HR analytics as directly as it serves sales, and
               goal1 watches whichever number the mission is built on.
             </p>
-            <Link to="/products/category/compass1" className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-clay hover:underline">
-              Explore compass1 <Icon.Arrow className="h-4 w-4" />
+            <Link to="/products/category/compass" className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-clay hover:underline">
+              Explore Compass <Icon.Arrow className="h-4 w-4" />
             </Link>
           </div>
           <Reveal>
@@ -185,7 +185,7 @@ export function ProductsOverview() {
               {[
                 "Each app is a workforce of agents for one function.",
                 "Grounded in your data and systems via MCP connectors.",
-                "Human-in-the-loop on every consequential action.",
+                "Human-in-the-loop on consequential actions.",
                 "Standardize on enterprise1 for shared governance at scale.",
               ].map((t, i) => (
                 <li key={i} className="flex items-start gap-3 rounded-card border border-line bg-surface p-4">
@@ -215,14 +215,14 @@ export function SolutionsOverview() {
         kicker="Solutions · By industry & size"
         accent="#d39a3a"
         title="Agentic transformation, tuned to your world."
-        subtitle="Verticals compose the 1 Suite and the service pillars with industry skills, connectors, and the governance your sector demands. The governance signature is the hero of each."
+        subtitle="Verticals compose the 1 Suite and the platform pillars with industry skills, connectors, and the governance your sector demands. The governance signature is the hero of each."
         cta={{ label: "Find your industry", href: "#industries", secondary: { label: "Book a demo", href: "/contact" } }}
       />
       <Section tone="paper" >
         <div id="industries" />
-        <SectionHead kicker="By industry" title="Ten industries. Ten governance signatures." lede="From clinical sign-off in health1 to model-risk governance in bank1 — each vertical leads with the trust its regulator expects. The seven below are this year's active rollout; three more are fully certified and available by inquiry." />
+        <SectionHead kicker="By industry" title="Ten industries. Ten governance signatures." lede={`From clinical sign-off in health1 to model-risk governance in bank1 — each vertical leads with the trust its regulator expects. ${sentenceCase(numberWord(primarySolutions.length))} lead this year's go-to-market; the other ${numberWord(secondarySolutions.length)} are just as built and live, and ${numberWord(byInquirySolutions.length)} of those are sold by inquiry.`} />
         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {/* solutionsByFocus orders active-7 first, parked-3 (bank1/insure1/gov1) last — a GTM-focus
+          {/* solutionsByFocus orders the five focus verticals first, the other five after — GTM-focus
               ordering only; every card below is equally built, composed, and certified. */}
           {solutionsByFocus.map((s, i) => (
             <Reveal key={s.slug} delay={(i % 3) * 0.05}>
@@ -246,7 +246,7 @@ export function SolutionsOverview() {
                 <div className="flex flex-1 flex-col p-6">
                   <p className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-wide text-muted">
                     {s.industry}
-                    {s.focus === "parked" && <span className="rounded-full bg-mist px-1.5 py-0.5 text-[9px] font-semibold text-slate">by inquiry</span>}
+                    {s.byInquiry && <span className="rounded-full bg-mist px-1.5 py-0.5 text-[9px] font-semibold text-slate">by inquiry</span>}
                   </p>
                   <p className="mt-2 font-display text-base font-bold leading-snug text-ink">{s.tagline}</p>
                   <span className="mt-auto pt-4 inline-flex items-center gap-1.5 text-sm font-medium text-clayDeep opacity-0 transition-opacity group-hover:opacity-100">
@@ -284,55 +284,6 @@ export function SolutionsOverview() {
         </div>
       </Section>
       <CTASection title="Bring agentic transformation to your industry." primary={{ label: "Talk to an industry team", href: "/contact" }} />
-    </>
-  );
-}
-
-export function ServicesOverview() {
-  useSeo("Services — strategy to scale, under one roof | elan1", "Six service pillars take you from agentic strategy to a scaled, governed result: strategy1, agent1, assure1, academy1, run1, agency1.");
-  return (
-    <>
-      <PageHero
-        kicker="Services · The six pillars"
-        accent="#7c6cf0"
-        title="Strategy to scale, under one roof."
-        subtitle="The six pillars are how elan1 delivers — and a flywheel. You can start anywhere; we take you everywhere. Every recommendation is grounded in what we can actually build on Claude, and we prove it."
-        cta={{ label: "Start a Discovery Sprint", href: "/contact", secondary: { label: "See the method", href: "/platform/flywheel" } }}
-      />
-      <Section tone="paper">
-        <SectionHead kicker="The pillars" title="Six pillars, end to end." lede="Strategy → Build → Assure → Academy → Run → Creative. Each is a standalone engagement and a step in the flywheel." />
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((s, i) => (
-            <Reveal key={s.slug} delay={(i % 3) * 0.06}>
-              <OfferingTile
-                to={`/services/${s.slug}`}
-                name={s.name}
-                sub={s.tagline}
-                tagline={s.promise}
-                accent={s.accent}
-                thumb={
-                  serviceImage[s.slug] ? (
-                    <BrandImage src={serviceImage[s.slug]} alt={s.tagline} accent={s.accent} ratio="21 / 9" rounded={false} />
-                  ) : (
-                    <AbstractHero label={s.name} accent={s.accent} ratio="21 / 9" compact className="!rounded-none" />
-                  )
-                }
-              />
-            </Reveal>
-          ))}
-        </div>
-      </Section>
-      <Section tone="obsidian">
-        <SectionHead kicker="The method" title="Discover → Design → Deliver → Assure → Handoff → Expand." lede="A repeatable path with formal gates (G1–G4) where humans sign off — so speed never costs you control." dark />
-        <div className="mt-10">
-          <Kicker dark accent="#7c6cf0">Start anywhere</Kicker>
-          <p className="mt-4 max-w-3xl text-lg text-paper/70">
-            Need a plan? Start with strategy1. Need it built? agent1. Need to prove it's safe? assure1. Already
-            live and need it run? run1. Whatever the entry point, the pillars connect into one continuous motion.
-          </p>
-        </div>
-      </Section>
-      <CTASection title="Start anywhere. We'll take you everywhere." primary={{ label: "Start a Discovery Sprint", href: "/contact" }} />
     </>
   );
 }

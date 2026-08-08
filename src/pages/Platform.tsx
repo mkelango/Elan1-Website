@@ -7,7 +7,7 @@ import { CTASection } from "../components/CTASection";
 import { FLYWHEEL } from "../content/site";
 
 export function Philosophy() {
-  useSeo('The "1" philosophy | elan1', 'Number One, one-to-one, all-as-one. Add "1" to any capability and you get its number-one agentic version.');
+  useSeo('The "1" philosophy | elan1', 'Number one, one-to-one, all-as-one — and the brand grammar it sets: lowercase and a trailing 1 marks a thing you run, while groupings stay plain English.');
   const ones = [
     { tag: "Number One", body: "Best-in-class. Add 1 to any capability and you get its number-one version — the standard others measure against.", accent: "#df8c64" },
     { tag: "One-to-one", body: "Hyper-personal. Every customer, every employee, every decision treated as if it were the only one.", accent: "#2f6df0" },
@@ -40,7 +40,7 @@ export function Philosophy() {
           <Kicker dark>The brand grammar</Kicker>
           <p className="display mt-6 text-2xl leading-snug text-paper sm:text-3xl">
             Lowercase, one word + “1”, no space. <span className="font-mono text-clay">sales1</span> — never “Customer 1”.
-            Only functions, products, and verticals get a “1” name. The master brand endorses its family: “sales1, an elan1 company.”
+            The “1” marks a thing you run — an app, an industry pack, enterprise1, and the platform pillars: agent1, assure1, run1 and strategy1. A grouping is not a thing you run, so the five product categories are written in plain English: Revenue, Service, Trade, Works, Compass. Resources is where you read, learn and evaluate, so what lives there — Academy, the insights, the glossary — is written in plain English. The master brand endorses its family: “sales1, an elan1 company.”
           </p>
         </div>
       </Section>
@@ -50,15 +50,15 @@ export function Philosophy() {
 }
 
 export function Flywheel() {
-  useSeo("The flywheel — how value compounds | elan1", "Services land, products expand, solutions deepen, trust compounds. How elan1 makes value compound across the three layers.");
+  useSeo("The flywheel — what each turn reuses | elan1", "A sprint lands, products expand, industry packs deepen, and the governance posture carries forward. What the next function inherits instead of rebuilding.");
   return (
     <>
       <PageHero
         kicker="Platform · The flywheel"
         accent="#e0656d"
-        title="How value compounds."
-        subtitle="elan1 isn't a line of one-off projects — it's a flywheel. Each turn makes the next easier, cheaper, and more certain. This is why land-and-expand beats sell-and-leave."
-        cta={{ label: "Start a Discovery Sprint", href: "/contact", secondary: { label: "The method", href: "/services" } }}
+        title="What each turn reuses."
+        subtitle="elan1 isn't a line of one-off projects. Each turn reuses what the last one stood up — the control plane, the identity and audit posture, the connector grants, the governance signature — so the second function starts from an operating platform rather than from nothing. We have not measured how much that saves, and we do not claim a figure."
+        cta={{ label: "Start a Discovery Sprint", href: "/contact", secondary: { label: "The platform", href: "/platform" } }}
       />
       <Section tone="paper">
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -75,8 +75,8 @@ export function Flywheel() {
         </div>
         <Reveal delay={0.2}>
           <p className="mt-12 rounded-card border border-line bg-mist/50 p-7 text-center font-display text-xl leading-snug text-ink">
-            The result: every certified deployment makes the next sale easier and the next deployment faster.
-            <span className="text-clayDeep"> Trust compounds.</span>
+            What carries forward is concrete: the control plane, the approval and audit posture, the connector grants and the governance signature are already standing.
+            <span className="text-clayDeep"> The next function inherits them.</span>
           </p>
         </Reveal>
       </Section>

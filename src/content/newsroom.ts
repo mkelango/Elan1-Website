@@ -1,0 +1,470 @@
+// content/newsroom.ts — the press kit.
+//
+// 🚨 WHAT THIS PAGE MAY NOT CONTAIN, EVER:
+//   · press releases that were never issued
+//   · media coverage, logos of publications, or "as seen in"
+//   · awards, rankings, analyst mentions or funding announcements
+//   · customer names, quotes or case studies — there are none yet, and a newsroom is the single
+//     most damaging place to imply otherwise, because journalists check.
+//
+// What a newsroom is actually FOR is the boring, useful stuff a writer needs at 5pm on deadline:
+// a boilerplate they can paste, the correct spelling of the brand, colours and type that will not
+// get redrawn wrongly, facts they can attribute, and a person to email. All of that is real.
+//
+// ——— WHAT CHANGED, AND WHY (the verification pass, 2026-08-08) ———
+//
+// Fifty pages of this site were rewritten to describe mechanisms rather than benefits. This page was
+// re-checked against the result rather than left alone, and four things came out of it.
+//
+//   1. THE DENOMINATOR PROBLEM — the reason COUNT_GUIDE exists.
+//      As counted on 2026-08-08 the product pages publish 132 agents across the ten suite apps, and
+//      platform-facts publishes 155 registered across the platform. Both are true and they are
+//      DIFFERENT DENOMINATORS: the suite apps' rosters, versus every roster the runtime registers
+//      (the control-plane surfaces and the industry packs carry advisors of their own). Same for
+//      enablement — 47 of the suite's agents are in the launch wave, out of 69 wave entries
+//      platform-wide. Those four figures are quoted here to explain the shape; the page itself
+//      renders them, so this comment going stale cannot make the page wrong.
+//      A newsroom is the one surface where publishing one of those without the other produces a
+//      printed correction, so both are published, each labelled with what it counts. Neither is
+//      typed here: the suite figures are SUMMED FROM content/products.ts through categoryStats — the
+//      same per-app numbers the product pages render — and the platform figures come from
+//      platform-facts.ts. A count on this page must render from the surface it describes.
+//
+//   2. THE BOILERPLATE gained the mechanism the rewrite made central (staged, per-tenant enablement)
+//      and lost "for customers worldwide", which sat one section above "we have no customers to
+//      name". Its two counts are now interpolated from platform-facts rather than spelled by hand.
+//
+//   3. NAMING_TABLE and CORRECTIONS are new. They are the deadline-shaped gap the old page still
+//      had: a writer who has the boilerplate and the hex codes can still call enterprise1 an app,
+//      call the Trust Mark a security certification, or write that the kill-switch stops everything.
+//      Each correction states the accurate version in the platform's own terms.
+//
+//   4. MEDIA_CONTACT publishes an actual address. The old page linked to a contact form, which is
+//      not a media contact — it is a lead form with a deadline behind it.
+//
+// Every platform figure here comes from content/platform-facts.ts or is summed from the typed
+// content the rest of the site renders. Nothing on this page is hand-typed.
+
+import { PLATFORM_FACTS } from "./platform-facts";
+import { categories, categoryStats, categorizedAppSlugs, numberWord } from "./categories";
+import { solutions } from "./solutions";
+import { BRAND } from "./site";
+
+export interface BrandColour {
+  name: string;
+  hex: string;
+  use: string;
+}
+
+/* ————————————————————————————————————————————————————————————————————————————————————————————
+ * DERIVED TOTALS — never typed.
+ * ———————————————————————————————————————————————————————————————————————————————————————————— */
+
+/**
+ * The ten suite apps, summed from the five categories — which sum from products.ts, which is what
+ * the product pages themselves render. Going through `categoryStats` rather than filtering
+ * `products` directly is deliberate: it makes the denominator "apps that sit in a category", so a
+ * backbone entry like enterprise1 can never drift into a figure captioned "the ten suite apps".
+ */
+const SUITE = categories.reduce(
+  (acc, c) => {
+    const s = categoryStats(c.slug);
+    return {
+      apps: acc.apps + s.apps,
+      agents: acc.agents + s.agents,
+      launchWave: acc.launchWave + s.launchWave,
+    };
+  },
+  { apps: 0, agents: 0, launchWave: 0 },
+);
+
+/** Agents registered outside the ten suite apps — the control plane and the industry packs. */
+const OUTSIDE_SUITE = Math.max(0, PLATFORM_FACTS.agentsRegistered.value - SUITE.agents);
+/** Wave entries enabled outside the ten suite apps. */
+const OUTSIDE_SUITE_ENABLED = Math.max(0, PLATFORM_FACTS.agentsEnabled.value - SUITE.launchWave);
+
+const DEV = Boolean((import.meta as unknown as { env?: Record<string, unknown> }).env?.DEV);
+
+// The two sources are counted independently (products.ts per app; platform-facts.ts from the
+// registry). If the suite ever sums HIGHER than the platform total, one of them is stale and the
+// subtraction above would quietly floor at zero rather than showing the contradiction. Say so.
+if (DEV && SUITE.agents > PLATFORM_FACTS.agentsRegistered.value) {
+  console.warn(
+    `[newsroom] the suite sums to ${SUITE.agents} agents but platform-facts says ` +
+      `${PLATFORM_FACTS.agentsRegistered.value} are registered platform-wide. One is stale — ` +
+      `re-count both before this page publishes either.`,
+  );
+}
+
+/* ————————————————————————————————————————————————————————————————————————————————————————————
+ * THE PARAGRAPH A JOURNALIST PASTES
+ * ———————————————————————————————————————————————————————————————————————————————————————————— */
+
+/** Keep it plain, factual and short. The two counts interpolate; nothing here is typed. */
+export const BOILERPLATE =
+  "elan1 is an agentic transformation company. It builds a governed platform of agentic business " +
+  "applications — a suite of apps for sales, service, finance, supply chain, people, marketing, " +
+  "analytics, projects, commerce and goals — that run on one control plane, with a human approval " +
+  "gate on consequential actions and an append-only, hash-chained audit of what happened. Agent " +
+  "functions are switched on per tenant one at a time, and a function outside the enabled set is " +
+  "refused before it acts. " +
+  `${sentenceWord(PLATFORM_FACTS.verticalPacks.value)} industry configurations adapt the same suite ` +
+  "to a sector's records, regulator and vocabulary — configuration over one core, not forked " +
+  "application code. elan1 is built in India, for organisations worldwide.";
+
+/** The one-line version, for a caption or a listing. */
+export const SHORT_DESCRIPTOR =
+  "elan1 builds governed agentic business applications: agents that do the work, with a person approving what matters.";
+
+/** What it runs on — the question a technology desk asks before the second paragraph. */
+export const TECHNOLOGY_LINE =
+  "The agents are built on Anthropic's Claude models. One published through the build studio reaches the runtime the same way whether our engineers authored it or your admins did: a passing eval, a human's approval, a Trust Mark bound to a content hash of the agent's definition, then deploy.";
+
+/** Spell a small count for prose, capitalised for the start of a sentence. */
+function sentenceWord(n: number): string {
+  const w = numberWord(n);
+  return w.charAt(0).toUpperCase() + w.slice(1);
+}
+
+/* ————————————————————————————————————————————————————————————————————————————————————————————
+ * THE NAME
+ * ———————————————————————————————————————————————————————————————————————————————————————————— */
+
+/** How the name is written. Getting this wrong is the most common press error for a brand like this. */
+export const NAME_RULES: string[] = [
+  "elan1 — one word, all lowercase, no space before the 1. Never “Elan1”, “Elan 1”, “ELAN1” or “élan1”.",
+  "Lowercase even at the start of a sentence. If that reads awkwardly, rewrite so the name is not first.",
+  "Lowercase in an all-caps headline, a standfirst or a byline too. A house style that capitalises everything is the most common way the name gets broken in print.",
+  "The product names follow the same rule: sales1, service1, finance1, supply1, people1, market1, insight1, project1, commerce1, goal1, enterprise1, assistant1.",
+  "The suite is “the 1 Suite” — the numeral, a space, then a capital S. Not “1suite”, “One Suite” or “the elan1 Suite”.",
+  "The trailing 1 marks something you run. Groupings and content surfaces are written in plain English — Revenue, Academy, Insights.",
+];
+
+/* ————————————————————————————————————————————————————————————————————————————————————————————
+ * WHAT TO CALL THINGS
+ *
+ * The taxonomy, because the deadline error this page could not previously prevent is a category
+ * error rather than a spelling one. Each row is derived where a roster is involved, so a new app or
+ * a new pack cannot leave a stale list behind on the one page that is quoted verbatim.
+ * ———————————————————————————————————————————————————————————————————————————————————————————— */
+
+export interface NamingRow {
+  term: string;
+  /** What it is, in one sentence. */
+  is: string;
+  /** The thing a story most often turns it into. */
+  isNot: string;
+}
+
+const APP_ROSTER = categorizedAppSlugs.join(" · ");
+const CATEGORY_ROSTER = categories.map((c) => c.name).join(", ");
+const PACK_ROSTER = solutions.map((s) => s.name).join(" · ");
+
+export const NAMING_TABLE: NamingRow[] = [
+  {
+    term: "elan1",
+    is: "The company, and the name of the platform it builds.",
+    isNot: "Not a single product. A piece about “the elan1 app” has the shape wrong — what you install is the control plane, and the apps that run on it.",
+  },
+  {
+    term: "the 1 Suite",
+    is: `The ${numberWord(SUITE.apps)} agentic business applications — ${APP_ROSTER} — grouped into ${numberWord(categories.length)} categories: ${CATEGORY_ROSTER}.`,
+    isNot: "Not a set of independent tools bolted together. Where one app needs something from another, it composes through that app's own approval gate rather than writing into its records directly.",
+  },
+  {
+    term: "enterprise1",
+    is: "The control plane: identity, policy, the audit chain, rollout waves, and the consoles the platform is operated from.",
+    isNot: "Not one of the suite apps and not in a category. If your piece counts apps, enterprise1 is not among them.",
+  },
+  {
+    term: "assistant1",
+    is: "The governed central assistant. It proposes; the owning app decides.",
+    isNot: "Not a chatbot layered over the suite. A consequential step it suggests still routes to the owning app's gate, on that app's terms.",
+  },
+  {
+    term: "the industry packs",
+    is: `${sentenceWord(solutions.length)} industry configurations — ${PACK_ROSTER} — that adapt the suite to a sector's records, regulator and vocabulary.`,
+    isNot: "Not forked versions of the apps, not separate products, and — because there are no customers to name — not evidence of a sector we are deployed in.",
+  },
+  {
+    term: "the platform pillars",
+    is: "strategy1 plans the work, agent1 builds agents, assure1 certifies them, run1 operates them, and Academy teaches the people who will use them.",
+    isNot: "Two of these are not software in the way the name suggests. strategy1 is a delivery motion performed by people — no app, agent, screen or endpoint behind it. assure1 ships no package of its own; its code is the certification kernel inside the core.",
+  },
+  {
+    term: "Academy",
+    is: "The learn surface: an authored curriculum, and a fixed set of certification paths tied to roles the access system actually holds.",
+    isNot: "Not a school with alumni. No cohort has run the curriculum, and the talent directory is a consent-gated matching mechanism — we publish no count of certified people and represent no pool of hireable talent.",
+  },
+  {
+    term: "the Trust Mark",
+    is: "assure1's certification of one agent, minted only from an eval run that passed and scored at least one case, and bound to a content hash of that agent's definition — so editing the definition revokes the mark.",
+    isNot: "Not a third-party or security certification, and not a claim about behaviour by default. The default agent check is structural: it tests what the agent declares about its tier, tools and gates. Read the tier, not the badge.",
+  },
+];
+
+/* ————————————————————————————————————————————————————————————————————————————————————————————
+ * BRAND ASSETS
+ * ———————————————————————————————————————————————————————————————————————————————————————————— */
+
+// Verified against tailwind.config.js on 2026-08-08 — these five are the tokens the site renders
+// from, not a palette written beside them.
+export const BRAND_COLOURS: BrandColour[] = [
+  { name: "Clay", hex: "#df8c64", use: "The primary accent, and the dot on the wordmark's 1." },
+  { name: "Clay deep", hex: "#b9603f", use: "Links, and the accent on a light ground." },
+  { name: "Obsidian", hex: "#0a1320", use: "The dark ground for feature sections and diagrams." },
+  { name: "Paper", hex: "#fbfaf7", use: "The warm white canvas the site is built on." },
+  { name: "Ink", hex: "#0b1220", use: "Body text on paper." },
+];
+
+export const TYPOGRAPHY: { role: string; face: string; note: string }[] = [
+  { role: "Display", face: "Bricolage Grotesque", note: "Headlines and the wordmark." },
+  { role: "Body", face: "Outfit", note: "Running text." },
+  { role: "Mono", face: "JetBrains Mono", note: "Product names, labels and anything technical." },
+];
+
+export const WORDMARK_RULES: string[] = [
+  "Keep clear space around the wordmark of at least the height of the “1”.",
+  "Use it on paper or on obsidian. Do not place it on a photograph without a solid panel behind it.",
+  "Do not recolour it, outline it, stretch it, add effects, or rebuild it in another typeface.",
+  "The clay dot is part of the mark. Do not remove it or change its colour.",
+  "There is no separate icon or logomark — the wordmark is the mark. If you need a square avatar, ask rather than cropping one out of it.",
+];
+
+/** What we can actually send you, and what does not exist. */
+export const ASSET_NOTES: string[] = [
+  "The wordmark is typographic — set in the display face with a clay dot on the 1. Ask and we will send a vector file for print.",
+  "The diagrams on the site are ours and are drawn to be read at small sizes. Ask before reprinting one and we will send a clean version rather than a screenshot.",
+  "For a portrait to run with an interview, ask. We will not send you a stock image of people who do not work here.",
+];
+
+/* ————————————————————————————————————————————————————————————————————————————————————————————
+ * FACTS YOU CAN ATTRIBUTE
+ * ———————————————————————————————————————————————————————————————————————————————————————————— */
+
+export interface AttributableFact {
+  /** Typed against PLATFORM_FACTS, so a mistyped key is a build error rather than a blank tile. */
+  key: keyof typeof PLATFORM_FACTS;
+  gloss: string;
+  /** The qualifier that has to travel with the number. Omitted where the number stands alone. */
+  caveat?: string;
+}
+
+export const ATTRIBUTABLE_FACTS: AttributableFact[] = [
+  { key: "suiteApps", gloss: "agentic business applications in the suite" },
+  { key: "verticalPacks", gloss: "industry configurations of that suite" },
+  {
+    key: "agentsRegistered",
+    gloss: "agents registered across the platform",
+    caveat: "Registered, not running — and platform-wide, not the suite. See the note below before you print this one.",
+  },
+  { key: "systemsOfRecord", gloss: "systems of record the platform owns" },
+  { key: "crossAppSagas", gloss: "workflows that cross from one application to another" },
+  {
+    key: "connectors",
+    gloss: "connectors registered and callable",
+    caveat: "Most ship as modelled adapters and become live only once credentials and an audited grant are configured.",
+  },
+];
+
+/* ————————————————————————————————————————————————————————————————————————————————————————————
+ * WHICH NUMBER TO PRINT
+ *
+ * The one thing this page can do that no other page can: put the two denominators beside each other
+ * so the wrong one does not get quoted. Every figure below is rendered, never typed.
+ * ———————————————————————————————————————————————————————————————————————————————————————————— */
+
+export interface CountRow {
+  figure: string;
+  counts: string;
+  caution: string;
+}
+
+export const COUNT_GUIDE: CountRow[] = [
+  {
+    figure: String(PLATFORM_FACTS.agentsRegistered.value),
+    counts: "agents registered across the whole platform",
+    caution:
+      "Includes the control plane's own advisors and the industry packs'. It is not the number in the business applications.",
+  },
+  {
+    figure: String(SUITE.agents),
+    counts: `of those, registered inside the ${numberWord(SUITE.apps)} suite apps`,
+    caution:
+      "This is what the product pages add up to, app by app. If your piece is about the business applications, this is the figure.",
+  },
+  {
+    figure: String(PLATFORM_FACTS.agentsEnabled.value),
+    counts: "agent functions enabled in the baseline wave",
+    caution:
+      "Registered is not running. Enablement is staged per tenant, and a function outside the enabled set is refused before it acts.",
+  },
+  {
+    figure: String(SUITE.launchWave),
+    counts: `of those, inside the ${numberWord(SUITE.apps)} suite apps`,
+    caution:
+      "The remainder are deliberately off. Staged enablement is the control, not a gap in the product.",
+  },
+];
+
+/** The prose that stops the two columns above reading as a contradiction. */
+export const COUNT_GUIDE_NOTE =
+  `The gap is real rather than an error: ${OUTSIDE_SUITE} of the registered agents sit outside the suite — on the ` +
+  `control plane, where the surfaces that govern something carry advisors of their own, and inside the industry ` +
+  `packs, where a pack's advisory agent is part of the configuration. ${OUTSIDE_SUITE_ENABLED} of the enabled wave ` +
+  `entries sit there too. Quote a figure with the denominator attached and both numbers stay true; quote one bare ` +
+  `and one of them becomes a correction.`;
+
+/* ————————————————————————————————————————————————————————————————————————————————————————————
+ * WHAT WE MOST OFTEN HAVE TO CORRECT
+ *
+ * Written as heard/accurate rather than as a list of don'ts, because the useful thing on deadline is
+ * the sentence you can actually run — not an instruction to go and find one.
+ * ———————————————————————————————————————————————————————————————————————————————————————————— */
+
+export interface Correction {
+  heard: string;
+  accurate: string;
+}
+
+export const CORRECTIONS: Correction[] = [
+  {
+    heard: "“elan1 is SOC 2 and ISO 27001 certified.”",
+    accurate:
+      "Neither certification is held today, and no third-party penetration-test report is on file. What exists is the control set those audits examine — the hash-chained audit trail, row-level tenant isolation, access control, encryption at rest, continuous control monitoring — plus the readiness assessment and gap analysis in code. The control mapping is recorded as underway and not certified.",
+  },
+  {
+    heard: "“One button stops everything.”",
+    accurate:
+      "One admin action suspends an app's entire agent fleet, immediately, non-destructively and on the audit trail. The platform also carries a clause that would refuse that app's direct system-of-record writes while it is suspended — but it is registered without the rollout reference the clause reads, so in the shipped wiring it does not fire. The kill-switch stops agents; a direct write through another path is not what it holds.",
+  },
+  {
+    heard: "“elan1 integrates with Salesforce, SAP and your ERP.”",
+    accurate:
+      "Connectors are typed, least-privilege seams, and a registered one ships as a modelled adapter until credentials and an audited grant are configured — at which point it becomes live. Beside those sits a separate credential-gated catalogue of declared seams, and beside that the MCP servers. Treat a named integration as scope to agree rather than a switch to flip, and ask which of the three tiers it sits in.",
+  },
+  {
+    heard: "“The agents run the business autonomously.”",
+    accurate:
+      "They research, draft, score and propose; the consequential end routes to a named human, and the approval token is bound to both the action and a content hash of the exact payload that person reviewed, then spent on use — so it cannot be replayed on anything else. Some writes are immediate rather than gated, and the product pages name which ones. Where autonomy is granted it is granted by a person and bounded: an agent cannot widen its own envelope.",
+  },
+  {
+    heard: "“Its agents are certified, so they have been tested for how they behave.”",
+    accurate:
+      "Read the tier, not the badge. The default agent certification is a structural declaration check — it tests what the agent declares about its tier, tools and gates. A behaviour battery that probes what the model actually says covers a named handful of agents, and where a vertical declares a safety dimension its certification must additionally survive an adversarial battery scored on block rate and false positives together.",
+  },
+  {
+    heard: "“run1 guarantees uptime.”",
+    accurate:
+      "run1 ships no service-level machinery. An availability commitment is a contract term to agree, not something the platform measures for you. We publish no latency, throughput or availability figures at all — not as an omission, but because we will not put a number in front of a reader that we cannot reproduce on someone else's data and deployment.",
+  },
+];
+
+/* ————————————————————————————————————————————————————————————————————————————————————————————
+ * THE HONEST LIMITS
+ * ———————————————————————————————————————————————————————————————————————————————————————————— */
+
+/**
+ * Stated plainly, because a journalist will ask and the honest answer is better than a dodge.
+ */
+export const WHAT_WE_CANNOT_PROVIDE: string[] = [
+  "Customer names, logos or case studies. We do not have customers to name yet, and we will not imply otherwise.",
+  "Outcome statistics. Nothing has been measured in a customer environment, so any figure would be invented.",
+  "Performance figures — latency, throughput or availability. None would survive being reproduced on your shape of data.",
+  "Funding, valuation or headcount figures.",
+  "Analyst recognition or awards.",
+  "A certification date. Certification inside the product is eval-gated and can withhold, and the external certifications are an auditor's to issue — so we name neither a date nor a quarter.",
+];
+
+/** Where the company actually is, so a piece is not written around an assumption. */
+export const WHERE_THINGS_STAND: string[] = [
+  "Everything the site claims describes what the software does, checked against its own source. None of it describes what it has done for a customer, because there is not one to describe.",
+  "The limits are published as a named list on the engineering page rather than summarised away — data residency declared but not enforced by routing, no certification held, no penetration-test report on file, single-region deployment, and the capabilities that are built but wired to nothing in production, named individually.",
+  "Where a property is not yet true, the platform measures the gap and freezes the measurement as a ceiling that may fall and may never rise. “Every write is governed” is published as a direction with a ratchet on it, not as a fact.",
+  "If a capability on your requirements list is one of the unwired ones, that is scope to agree — and we would rather you print that than let a diagram imply it is switched on.",
+];
+
+/* ————————————————————————————————————————————————————————————————————————————————————————————
+ * HOW TO CHECK US
+ * ———————————————————————————————————————————————————————————————————————————————————————————— */
+
+export interface VerifyRoute {
+  label: string;
+  href: string;
+  find: string;
+}
+
+export const VERIFY_ROUTES: VerifyRoute[] = [
+  {
+    label: "Engineering & readiness",
+    href: "/platform/engineering",
+    find: "Every control labelled with the state it is actually in — enforced, declared, or built-but-not-wired — and the named limits list.",
+  },
+  {
+    label: "Trust, safety & governance",
+    href: "/trust",
+    find: "The certification posture in plain words, and the controls that exist behind it.",
+  },
+  {
+    label: "The product pages",
+    href: "/products",
+    find: "Per app: agents registered, how many the launch wave enables, the object types in its system of record, and the refusals it quotes verbatim.",
+  },
+  {
+    label: "Verticals are configuration",
+    href: "/platform/verticals-are-config",
+    find: "What an industry pack changes, and what it deliberately does not fork.",
+  },
+  {
+    label: "Connectors",
+    href: "/platform/connectors",
+    find: "Which seams are registered and callable, which are credential-gated catalogue entries, and which are MCP.",
+  },
+  {
+    label: "The glossary",
+    href: "/resources/glossary",
+    find: "The vocabulary, including the three pillar limits a story most often gets wrong.",
+  },
+];
+
+/* ————————————————————————————————————————————————————————————————————————————————————————————
+ * THE CONTACT
+ * ———————————————————————————————————————————————————————————————————————————————————————————— */
+
+export const MEDIA_CONTACT = {
+  email: BRAND.email,
+  /** Said out loud, because a masthead expecting a press office should not have to guess. */
+  note: "There is no separate press desk. This address reaches the team and a media request is routed by hand, so put the deadline in the subject line.",
+  /** What to put in the mail, so the reply is useful the first time. */
+  include: [
+    "What you are writing and who it is for.",
+    "Your deadline, in your timezone.",
+    "The specific claim you want checked — we would rather correct a sentence before it runs than after.",
+    "Whether you need the vector wordmark or a diagram at print resolution.",
+  ],
+  /** Topics we can put someone on the record for. Roles, not a roster. */
+  onRecord: [
+    {
+      topic: "The company, the category and where it is going",
+      who: `${BRAND.founder}, founder and chief executive`,
+    },
+    {
+      topic: "How the governance works in practice — approvals, the audit chain, what the platform refuses and why",
+      who: "an engineering or governance lead, with the mechanism on screen rather than described",
+    },
+    {
+      topic: "What has not been built, and the limits as published",
+      who: "the same people. It is a better interview than the one where you have to infer it.",
+    },
+  ],
+  /** The thing we will not do, said before you ask. */
+  cannot:
+    "We cannot offer a customer reference, because there is not one to offer. If your piece needs one, that is a reason to come back to us later rather than to write around it.",
+};
+
+export const NEWSROOM_SEO = {
+  title: "Newsroom — press kit and brand assets | elan1",
+  description:
+    "Boilerplate, how to write the elan1 name, what to call each part of the platform, brand colours and typography, attributable platform facts with their denominators, the corrections we most often have to make, and a media contact. No customer names or outcome statistics — we do not have them yet.",
+};
+

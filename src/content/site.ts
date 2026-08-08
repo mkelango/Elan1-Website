@@ -4,6 +4,8 @@
 // The Products mega-menu derives from categories.ts — see productCategoryColumns below.
 
 import { categories, appsOf, categorizedAppSlugs, numberWord, sentenceCase } from "./categories";
+import { platformPillars, resourcePillars, servicePath } from "./services";
+import { primarySolutions, secondarySolutions } from "./solutions";
 
 export const BRAND = {
   name: "elan1",
@@ -12,12 +14,12 @@ export const BRAND = {
   oneLiner:
     "elan1 turns startups, scaleups, and enterprises into agentic organizations — number one in their field, one customer at a time.",
   founder: "Elango",
-  email: "hello@elan1.in",
-  sales: "sales@elan1.in",
+  email: "hello@elan1.ai",
+  sales: "sales@elan1.ai",
 };
 
 // The control-plane console URL ("Log in"). Override per-environment with VITE_APP_URL
-// (e.g. https://app.elan1.in in production); defaults to the local dev console.
+// (e.g. https://app.elan1.ai in production); defaults to the local dev console.
 export const APP_URL =
   (import.meta as unknown as { env?: Record<string, string | undefined> }).env?.VITE_APP_URL ||
   "http://localhost:5189";
@@ -30,18 +32,18 @@ export const SOCIALS: { key: string; label: string; href: string }[] = [
   { key: "yt", label: "YouTube", href: "https://www.youtube.com/@elan1ai" },
 ].filter((s) => s.href.trim().length > 0);
 
-export type LayerKey = "products" | "solutions" | "services";
+export type LayerKey = "products" | "solutions" | "platform";
 
 export const LAYERS: Record<
   LayerKey,
   { label: string; tag: string; blurb: string; accent: string; href: string }
 > = {
-  services: {
-    label: "Services",
-    tag: "How we deliver",
-    blurb: "Six pillars that take you from strategy to scale — start anywhere, we take you everywhere.",
-    accent: "#7c6cf0",
-    href: "/services",
+  platform: {
+    label: "Platform",
+    tag: "What it runs on",
+    blurb: "One control plane, plus the pillars that build, prove and operate your agents.",
+    accent: "#b9603f",
+    href: "/platform",
   },
   products: {
     label: "Products",
@@ -60,6 +62,21 @@ export const LAYERS: Record<
 };
 
 // ——— Navigation model (drives the mega-menus) ———
+
+/**
+ * "The approach" — the narrative set that has always lived under Platform. Declared once here and
+ * consumed by BOTH the Platform mega-menu and the /platform hub page, so the two can never diverge.
+ */
+export const APPROACH_LINKS: NavLink[] = [
+  { label: "What is agentic transformation?", href: "/what-is-agentic-transformation", desc: "The category, the shift, the maturity curve, why now" },
+  { label: "Why elan1 vs builders", href: "/platform/why-elan1", desc: "Run your business on agents — not just build one" },
+  { label: "The \u201C1\u201D philosophy", href: "/platform/the-1-philosophy", desc: "Number one \u00B7 one-to-one \u00B7 all-as-one" },
+  { label: "The flywheel", href: "/platform/flywheel", desc: "How value compounds across the layers" },
+  { label: "Governance \u2014 three layers", href: "/platform/governance", desc: "Defense-in-depth, provable & exportable" },
+  { label: "Trust, safety & governance", href: "/trust", desc: "How every agent is built, approved and audited" },
+  { label: "Built on Claude", href: "/platform/built-on-claude", desc: "Why Claude-native depth wins" },
+  { label: "Security & compliance", href: "/trust", desc: "Data handling, residency, certifications" },
+];
 export interface NavLink {
   label: string;
   href: string;
@@ -87,11 +104,13 @@ export interface NavItem {
 const productCategoryColumns: NavColumn[] = categories.map((c) => ({
   heading: `${c.name} — ${c.positioning.replace(/\.$/, "")}`,
   links: [
+    // No `accent` on the overview, matching "Platform overview" in the Platform column: a dot marks
+    // a THING YOU RUN (an app, a pillar). An overview is navigation to the parent, not a peer of the
+    // apps beneath it — an identical dot flattened that hierarchy.
     {
       label: `${c.name} overview`,
       href: `/products/category/${c.slug}`,
       desc: `${c.apps.length} ${c.apps.length === 1 ? "app" : "apps"} · gate: ${c.gate.kind.toLowerCase()}`,
-      accent: c.accent,
     },
     ...appsOf(c).map((p) => ({
       label: p.name,
@@ -110,11 +129,11 @@ export const NAV: NavItem[] = [
     mega: [
       ...productCategoryColumns,
       {
-        heading: "The backbone",
+        heading: "The suite, end to end",
         links: [
-          { label: "enterprise1", href: "/products/enterprise1", desc: "The control plane the categories stand on", accent: "#b9603f" },
           { label: "The 1 Suite overview", href: "/products", desc: "Five categories, one platform" },
           { label: "Agentic apps vs. copilots", href: "/what-is-agentic-transformation", desc: "Why apps that act beat tools that wait" },
+          { label: "Pricing", href: "/pricing", desc: "How the plans and the metered usage work" },
         ],
       },
     ],
@@ -130,23 +149,22 @@ export const NAV: NavItem[] = [
     href: "/solutions",
     mega: [
       {
+        // DERIVED — the five focus verticals, then ONE link to the rest. The menu used to hardcode
+        // all ten, and the hardcoded split had already drifted from the `focus` field it was
+        // supposed to mirror. Never re-list a vertical here.
         heading: "By industry",
         links: [
-          { label: "health1", href: "/solutions/health1", desc: "Healthcare & life sciences", accent: "#3fae6b" },
-          { label: "retail1", href: "/solutions/retail1", desc: "Retail & e-commerce", accent: "#d39a3a" },
-          { label: "manufacture1", href: "/solutions/manufacture1", desc: "Manufacturing", accent: "#22b8c4" },
-          { label: "realestate1", href: "/solutions/realestate1", desc: "Real estate & construction", accent: "#d39a3a" },
-          { label: "edu1", href: "/solutions/edu1", desc: "Education", accent: "#3fae6b" },
-        ],
-      },
-      {
-        heading: " ",
-        links: [
-          { label: "telco1", href: "/solutions/telco1", desc: "Telecommunications", accent: "#7c6cf0" },
-          { label: "energy1", href: "/solutions/energy1", desc: "Energy & utilities", accent: "#b9603f" },
-          { label: "bank1", href: "/solutions/bank1", desc: "Banking & capital markets · by inquiry", accent: "#df8c64" },
-          { label: "insure1", href: "/solutions/insure1", desc: "Insurance · by inquiry", accent: "#22b8c4" },
-          { label: "gov1", href: "/solutions/gov1", desc: "Public sector · by inquiry", accent: "#e0656d" },
+          ...primarySolutions.map((s) => ({
+            label: s.name,
+            href: `/solutions/${s.slug}`,
+            desc: s.industry,
+            accent: s.accent,
+          })),
+          {
+            label: "More industries",
+            href: "/solutions",
+            desc: `${secondarySolutions.map((s) => s.name).join(", ")}`,
+          },
         ],
       },
       {
@@ -168,58 +186,45 @@ export const NAV: NavItem[] = [
     },
   },
   {
-    label: "Services",
-    href: "/services",
+    label: "Platform",
+    href: "/platform",
     mega: [
       {
-        heading: "The six pillars — end-to-end delivery",
+        // DERIVED — enterprise1 (the control plane) plus every platform pillar from services.ts, in
+        // LIFECYCLE order: plan it (strategy1) → build it (agent1) → prove it (assure1) →
+        // operate it (run1). Everything under Platform is something you run, so every pillar here
+        // carries the "1"; Resources is content and learning, and uses plain English.
+        heading: "The platform — what it runs on",
         links: [
-          { label: "strategy1", href: "/services/strategy1", desc: "Agentic strategy that ships", accent: "#df8c64" },
-          { label: "agent1", href: "/services/agent1", desc: "The agent build studio", accent: "#3fae6b" },
-          { label: "assure1", href: "/services/assure1", desc: "Governance, evals & trust", accent: "#e0656d" },
+          { label: "enterprise1", href: "/platform/enterprise1", desc: "The control plane: governance, identity, audit, rollout", accent: "#b9603f" },
+          { label: "assistant1", href: "/platform/assistant1", desc: "The governed central assistant — it proposes, the app decides", accent: "#5ad1c0" },
+          ...platformPillars.map((s) => ({
+            label: s.name,
+            href: servicePath(s),
+            desc: s.tagline,
+            accent: s.accent,
+          })),
+          { label: "Platform overview", href: "/platform", desc: "How the control plane and the pillars fit" },
         ],
       },
       {
-        heading: " ",
+        heading: "How it holds up",
         links: [
-          { label: "academy1", href: "/services/academy1", desc: "Training, certification & talent", accent: "#7c6cf0" },
-          { label: "run1", href: "/services/run1", desc: "Managed AgentOps & FinOps", accent: "#22b8c4" },
-          { label: "agency1", href: "/services/agency1", desc: "Creative at agent speed", accent: "#d39a3a" },
+          { label: "Engineering & readiness", href: "/platform/engineering", desc: "Identity, isolation, audit, retention, DR — and the limits, stated" },
+          { label: "Connectors", href: "/platform/connectors", desc: "Typed, least-privilege seams — credential-gated, never pre-connected" },
+          { label: "Verticals are config", href: "/platform/verticals-are-config", desc: "Ten industries, zero forked application code" },
+          { label: "Governance — three layers", href: "/platform/governance", desc: "Defense-in-depth, provable & exportable" },
         ],
       },
+      { heading: "The approach", links: APPROACH_LINKS.slice(0, 4) },
     ],
     featured: {
-      title: "Strategy to scale, under one roof",
-      body: "The six pillars are a flywheel: services land, products expand, solutions deepen, trust compounds.",
-      href: "/services",
-      cta: "See the method",
+      title: "Plan it. Build it. Prove it. Operate it.",
+      body: "Products are the five categories you run your business on. The platform is what they run on — one control plane, the engagement that plans the work, and the pillars that build, prove and operate it.",
+      href: "/platform",
+      cta: "Explore the platform",
     },
   },
-  {
-    label: "Platform",
-    href: "/what-is-agentic-transformation",
-    mega: [
-      {
-        heading: "The approach",
-        links: [
-          { label: "What is agentic transformation?", href: "/what-is-agentic-transformation", desc: "The category, the shift, the maturity curve, why now" },
-          { label: "Why elan1 vs builders", href: "/platform/why-elan1", desc: "Run your business on agents — not just build one", accent: "#df8c64" },
-          { label: "The “1” philosophy", href: "/platform/the-1-philosophy", desc: "Number one · one-to-one · all-as-one" },
-          { label: "The flywheel", href: "/platform/flywheel", desc: "How value compounds across the three layers" },
-        ],
-      },
-      {
-        heading: " ",
-        links: [
-          { label: "Governance — three layers", href: "/platform/governance", desc: "Defense-in-depth, provable & exportable", accent: "#e0656d" },
-          { label: "Trust, safety & governance", href: "/trust", desc: "The differentiator legacy firms can't write" },
-          { label: "Built on Claude", href: "/platform/built-on-claude", desc: "Why Claude-native depth wins" },
-          { label: "Security & compliance", href: "/trust", desc: "Data handling, residency, certifications" },
-        ],
-      },
-    ],
-  },
-  { label: "Academy", href: "/academy" },
   {
     label: "Resources",
     href: "/resources",
@@ -235,12 +240,35 @@ export const NAV: NavItem[] = [
       {
         heading: "Prove",
         links: [
-          { label: "Proof & case studies", href: "/resources/proof", desc: "Before / after, with Trust Marks" },
-          { label: "ROI calculator", href: "/resources", desc: "Size the value, lite" },
+          { label: "Governed patterns", href: "/resources/proof", desc: "Before / after, and the guarantee each one carries" },
+          { label: "ROI calculator", href: "/for/scaleup", desc: "Size the value, lite" },
           { label: "Glossary", href: "/resources/glossary", desc: "The agentic vocabulary" },
         ],
       },
+      {
+        // DERIVED — the learn-surface pillars from services.ts (Academy). The top-level Academy menu
+        // is gone; training is something you come to Resources to do.
+        heading: "Academy",
+        links: [
+          // No `accent` here on purpose. In the Platform menu every pillar carries one, so the dots
+          // read as a set. Here Academy is the only pillar among plain content links, so a lone dot
+          // reads as an accident rather than emphasis.
+          ...resourcePillars.map((s) => ({
+            label: s.name,
+            href: servicePath(s),
+            desc: s.tagline,
+          })),
+          { label: "Learning hub", href: "/resources/academy/learn", desc: "Courses and certification levels" },
+          { label: "Certified talent", href: "/company/partners", desc: "Hire or augment with certified people" },
+        ],
+      },
     ],
+    featured: {
+      title: "Start with a Discovery Sprint",
+      body: "Fixed-scope, low-risk and fully credited: a costed opportunity map and a working proof. It is the strategy1 engagement that gets a first agent into production.",
+      href: "/platform/strategy1",
+      cta: "See how strategy1 works",
+    },
   },
   {
     label: "Company",
@@ -249,16 +277,15 @@ export const NAV: NavItem[] = [
       {
         heading: "elan1",
         links: [
-          { label: "About", href: "/company/about", desc: "Born in India to lead the agentic era" },
-          { label: "Vision, mission & values", href: "/company/about", desc: "The “1” code" },
-          { label: "Careers", href: "/company/careers", desc: "Join the #1 team" },
+          { label: "About", href: "/company/about", desc: "Why the gate belongs on the write path" },
+          { label: "Careers", href: "/company/careers", desc: "What the work is, and how we build" },
         ],
       },
       {
         heading: " ",
         links: [
-          { label: "Partners", href: "/partners", desc: "Plug in and win together" },
-          { label: "Newsroom", href: "/company/about", desc: "Press & brand assets" },
+          { label: "Partners", href: "/company/partners", desc: "Build on the core, certify before you list" },
+          { label: "Newsroom", href: "/company/newsroom", desc: "Boilerplate, brand assets, attributable facts" },
           { label: "Contact", href: "/contact", desc: "Talk to an expert" },
         ],
       },
@@ -278,44 +305,113 @@ export const SHIFT = {
     },
     {
       title: "The elan1 way",
-      body: "A working, certified agent deployed in weeks, operated reliably, then sequenced to scale across the whole business.",
+      body: "A working agent that reached production through a passing eval, a named approver and a Trust Mark — then operated, and widened one enabled function at a time.",
     },
     {
       title: "Why now",
-      body: "Frontier models, the Agent SDK, MCP connectors, and Skills have made production agents real. The window to lead is open — legacy consulting is structurally too slow to follow.",
+      body: "Frontier models, the Agent SDK, MCP connectors, and Skills have made production agents real. What changed is not the ambition but the substrate: production agents are buildable, and governable, now.",
     },
   ],
 };
 
 export const METHOD = [
-  { step: "01", name: "Discover", body: "Map the highest-value agentic opportunities across your business.", gate: "G1" },
+  { step: "01", name: "Discover", body: "Map the highest-value agentic opportunities across your business.", gate: "Scope agreed" },
   { step: "02", name: "Design", body: "Architect the agent, its skills, connectors, and governance.", gate: "" },
-  { step: "03", name: "Deliver", body: "Ship a production-grade agent in weeks, integrated with your stack.", gate: "G2" },
-  { step: "04", name: "Assure", body: "Evaluate accuracy, safety, and fairness — earn the Trust Mark.", gate: "G3" },
-  { step: "05", name: "Handoff", body: "Operate reliably with run1, or hand the keys to your team.", gate: "G4" },
+  { step: "03", name: "Deliver", body: "Ship a production-grade agent in weeks, integrated with your stack.", gate: "In production" },
+  { step: "04", name: "Assure", body: "Evaluate accuracy, safety, and fairness — earn the Trust Mark.", gate: "Trust Mark" },
+  { step: "05", name: "Handoff", body: "Operate reliably with run1, or hand the keys to your team.", gate: "Operating" },
   { step: "06", name: "Expand", body: "Sequence the next function. The flywheel turns.", gate: "" },
 ];
 
+// The motion is unchanged; only the first label was tied to the retired "Services" section.
+// A first engagement is strategy1, the pillar that plans and lands the work under Platform.
 export const FLYWHEEL = [
-  { label: "Services land", body: "A pillar engagement ships the first proof.", accent: "#7c6cf0" },
+  { label: "A sprint lands", body: "A fixed-scope strategy1 engagement ships the first proof.", accent: "#7c6cf0" },
   { label: "Products expand", body: "The win graduates into a 1 Suite app.", accent: "#2f6df0" },
   { label: "Solutions deepen", body: "Industry skills + governance compound value.", accent: "#d39a3a" },
-  { label: "Trust compounds", body: "Each certified result makes the next sale easier.", accent: "#e0656d" },
+  { label: "Trust carries forward", body: "The control plane, the connector grants and the governance signature are reused rather than rebuilt.", accent: "#e0656d" },
 ];
 
 export const WHY_WIN = [
-  { metric: "Weeks", label: "to a deployed, certified agent — not quarters to a deck." },
-  { metric: "Human-in-the-loop", label: "on every consequential action, by design." },
+  { metric: "Eval-gated", label: "an agent reaches production through a passing eval, a named approver and a Trust Mark." },
+  { metric: "Human-in-the-loop", label: "on consequential actions — single-use, fingerprinted approvals." },
   { metric: "Built on Claude", label: "frontier depth, safety, and reasoning — not multi-model generalism." },
   { metric: "Outcome-priced", label: "we land on a fixed-scope wedge, then expand on proof." },
 ];
 
 export const REGIONS = ["India", "Singapore", "United States", "Middle East", "Europe"];
 
-export const VS_LEGACY = [
-  { dim: "What you get", legacy: "A slide deck and a recommendation", elan1: "A working, certified agent in production" },
-  { dim: "Time to value", legacy: "Quarters", elan1: "Weeks" },
-  { dim: "Pricing", legacy: "Time & materials, open-ended", elan1: "Fixed-scope wedge, then expand on proof" },
-  { dim: "Governance", legacy: "A separate risk workstream", elan1: "Built in — human-in-the-loop, audited, Trust-Marked" },
-  { dim: "After delivery", legacy: "They leave", elan1: "We operate it, and sequence the next win" },
+/**
+ * How we work — five commitments, stated about elan1 only.
+ *
+ * 🚨 THIS REPLACED A COMPETITOR TABLE, AND MUST NOT BECOME ONE AGAIN.
+ *
+ * It was `VS_LEGACY`: three columns — dimension, "Legacy consulting", "elan1" — with the middle
+ * column rendered STRUCK THROUGH. Its five rows asserted that legacy consulting delivers "a slide
+ * deck and a recommendation", takes "quarters", prices "time & materials, open-ended", treats
+ * governance as "a separate risk workstream", and that after delivery "they leave".
+ *
+ * Three things were wrong with it. It asserted what a competitor category does, which we never do
+ * and cannot source. It carried a timeline promise ("Weeks") that no one had sized. And it rendered
+ * on BOTH the home page and /what-is-agentic-transformation from this one constant — so removing it
+ * from a page would not have removed it from the site. That last part is the reason it lives here
+ * with this comment rather than being fixed twice in two components.
+ *
+ * The replacement keeps the persuasive job — telling a buyer what working with us is actually like —
+ * and does it by naming OUR mechanisms precisely enough that a reader can make the comparison
+ * themselves. That is the stronger move anyway: a specific claim about us beats a vague one about
+ * someone else, and it survives being read by the people it used to be about.
+ */
+export const HOW_WE_WORK = [
+  {
+    dim: "What you get",
+    body: "A working agent in production, or a written reason it is not ready. Reaching production means a passing eval, a named approver and a Trust Mark — a mark is refused on an eval run that scored zero cases, one that did not pass, or one from another tenant.",
+  },
+  {
+    dim: "How it is scoped",
+    body: "A fixed-scope engagement first, then expansion on what shipped. The rollout order is not a promise in a deck: agents are enabled per tenant one function at a time, and a function outside the enabled set is refused before it runs.",
+  },
+  {
+    dim: "Where governance sits",
+    body: "On the write path, not in a parallel risk workstream. A consequential action routes to a named human, and the approval token is bound to both the action and a content hash of the exact payload, then spent — so it cannot be reused on anything else.",
+  },
+  {
+    dim: "What you can audit",
+    body: "An append-only, hash-chained record per tenant, with updates and deletes blocked by a database trigger rather than by convention. Where damage cannot be repaired it is declared with a frozen digest instead of quietly rewritten.",
+  },
+  {
+    dim: "After it ships",
+    body: "We operate it and widen it one enabled function at a time — which is also the only way to roll one back. A suspend switch overrides an enabled set immediately, because reducing capability is the wrong thing to queue for approval.",
+  },
 ];
+
+/**
+ * Every link under a top-level nav item, flattened in the order the header's mega-menu shows them.
+ *
+ * 🚨 WHY THIS EXISTS. The footer used to hand-list its Platform and Resources columns. Both drifted
+ * from the header, in both of the ways a duplicated list can:
+ *   · ORDER — the footer put "Platform overview" first and buried the four pillars after the
+ *     engineering links, while the header runs enterprise1 → assistant1 → the pillars in lifecycle
+ *     order (plan it → build it → prove it → operate it) → overview.
+ *   · COMPLETENESS — Resources showed 7 of its 9 destinations. "ROI calculator" and "Certified
+ *     talent" were simply absent, and nothing failed: a missing row in a hand-written array is
+ *     invisible to the type-checker and to every gate.
+ *
+ * This is the same defect the Products column already had — a hardcoded list that silently lost
+ * goal1 while the blurb beside it still said "ten agentic apps". The fix is the same one: derive.
+ *
+ * `dedupeByHref` matters because a mega-menu legitimately repeats a destination across columns
+ * (Trust appears under both "Trust, safety & governance" and "Security & compliance"). The header
+ * wants both labels; a footer column wants one row per destination.
+ */
+export function navColumnLinks(
+  label: string,
+  opts: { dedupeByHref?: boolean } = { dedupeByHref: true },
+): NavLink[] {
+  const item = NAV.find((n) => n.label === label);
+  if (!item?.mega) return [];
+  const flat = item.mega.flatMap((c) => c.links);
+  if (!opts.dedupeByHref) return flat;
+  const seen = new Set<string>();
+  return flat.filter((l) => (seen.has(l.href) ? false : (seen.add(l.href), true)));
+}

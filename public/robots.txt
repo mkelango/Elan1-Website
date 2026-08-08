@@ -1,5 +1,26 @@
 # elan1 — robots
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /admin/
 
-Sitemap: https://elan1.in/sitemap.xml
+Sitemap: https://elan1.ai/sitemap.xml
+
+# AI crawlers — welcome; see llms.txt for structured content
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Amazonbot
+Allow: /

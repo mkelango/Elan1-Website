@@ -10,6 +10,7 @@ export default function Insights() {
   useSeo(
     "Insights — agentic transformation, per layer & vertical | elan1",
     "On-brand, reviewed, ad-free insights on agentic transformation: strategy, governance, and the composable platform.",
+    { breadcrumbs: [{ name: "Resources", href: "/resources" }] },
   );
   return (
     <>
@@ -50,6 +51,7 @@ export function InsightArticle() {
 
   useSeo(`${a.title} | elan1 Insights`, a.excerpt, {
     type: "article",
+    breadcrumbs: [{ name: "Resources", href: "/resources" }, { name: "Insights", href: "/resources/insights" }],
     jsonLd: {
       "@context": "https://schema.org",
       "@type": "Article",

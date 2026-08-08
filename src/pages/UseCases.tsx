@@ -76,7 +76,7 @@ export function UseCasePage() {
             <p className="mt-2 font-mono text-sm" style={{ color: u.accent }}>{u.signature}</p>
           </div>
           <ul className="mt-6 space-y-2.5">
-            {["Composes built apps — configuration, no app fork", "Earns an assure1 Trust Mark before it goes live", "Human-in-the-loop on every consequential action", "Grounded, audited, and metered"].map((x) => (
+            {["Composes built apps — configuration, no app fork", "Earns an assure1 Trust Mark before it goes live", "Human-in-the-loop on consequential actions", "Grounded, audited, and metered"].map((x) => (
               <li key={x} className="flex items-start gap-2.5 text-slate">
                 <Icon.Check className="mt-0.5 h-4 w-4 shrink-0 text-clayDeep" /> {x}
               </li>

@@ -6,7 +6,7 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = resolve(__dirname, "..");
-const SITE_URL = "https://elan1.in";
+const SITE_URL = "https://elan1.ai";
 
 /** Static, content-independent routes (mirrors src/App.tsx). */
 const STATIC_ROUTES = [
@@ -15,15 +15,18 @@ const STATIC_ROUTES = [
   "/products",
   "/solutions",
   "/solutions/initiatives",
-  "/services",
+  "/platform",
+  "/platform/assistant1",
+  "/platform/engineering",
+  "/platform/connectors",
+  "/platform/verticals-are-config",
   "/platform/the-1-philosophy",
   "/platform/flywheel",
   "/platform/built-on-claude",
   "/platform/why-elan1",
   "/platform/governance",
   "/trust",
-  "/academy",
-  "/academy/learn",
+  "/resources/academy/learn",
   "/resources",
   "/resources/diagrams",
   "/resources/proof",
@@ -31,9 +34,12 @@ const STATIC_ROUTES = [
   "/resources/playbooks",
   "/resources/insights",
   "/agentic",
-  "/partners",
+  // "/partners" is NOT listed: it redirects to /company/partners. A URL that 301s must never
+  // appear in the sitemap — check:redirects fails the build on exactly that, which is how this was
+  // caught rather than shipped as a self-contradicting signal to a crawler.
   "/company/about",
   "/company/careers",
+  "/company/newsroom",
   "/company/partners",
   "/pricing",
   "/for/growth",
@@ -50,11 +56,35 @@ function slugsFrom(file) {
   return [...src.matchAll(/slug:\s*["'`]([a-z0-9-]+)["'`]/gi)].map((m) => m[1]);
 }
 
+/**
+ * Pillars, paired with the section that owns them. Reads `slug` and the `home` declared two lines
+ * below it in content/services.ts, so a pillar moved between Platform and Academy re-homes its
+ * sitemap URL automatically. Throws rather than emitting a wrong URL if the pair can't be read.
+ */
+function servicesWithHome() {
+  const src = readFileSync(resolve(root, "src/content/services.ts"), "utf8");
+  const found = [...src.matchAll(/slug:\s*"([a-z0-9-]+)",\s*\n\s*layer:\s*"service",\s*\n\s*home:\s*"(platform|resources)"/g)]
+    .map((m) => ({ slug: m[1], home: m[2] }));
+  const declared = [...src.matchAll(/^    slug:\s*"([a-z0-9-]+)"/gm)].length;
+  if (found.length !== declared) {
+    throw new Error(
+      `gen-sitemap: read ${found.length} pillar home(s) but services.ts declares ${declared} pillar(s). ` +
+        `A pillar without a readable \`home\` would be silently dropped from the sitemap.`,
+    );
+  }
+  return found;
+}
+
 const routes = new Set(STATIC_ROUTES);
 for (const s of slugsFrom("categories.ts")) routes.add(`/products/category/${s}`);
-for (const s of slugsFrom("products.ts")) routes.add(`/products/${s}`);
+// enterprise1 is the control plane and lives under Platform; /products/enterprise1 redirects.
+for (const s of slugsFrom("products.ts")) {
+  routes.add(s === "enterprise1" ? "/platform/enterprise1" : `/products/${s}`);
+}
 for (const s of slugsFrom("solutions.ts")) routes.add(`/solutions/${s}`);
-for (const s of slugsFrom("services.ts")) routes.add(`/services/${s}`);
+// Pillars live under whichever section owns them, so the sitemap derives the path from each
+// entry's own `home` field rather than assuming a /services prefix that no longer exists.
+for (const { slug, home } of servicesWithHome()) routes.add(`/${home}/${slug}`);
 for (const s of slugsFrom("initiatives.ts")) routes.add(`/solutions/initiatives/${s}`);
 for (const s of slugsFrom("insights.ts")) routes.add(`/resources/insights/${s}`);
 for (const s of slugsFrom("usecases.ts")) routes.add(`/agentic/${s}`);

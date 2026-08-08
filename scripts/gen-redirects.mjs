@@ -1,0 +1,162 @@
+// scripts/gen-redirects.mjs
+//
+// Emits HOST-LEVEL redirects + the SPA fallback: public/_redirects (Netlify) and vercel.json
+// (Vercel). Both are written so the site works on either host without further setup.
+//
+// WHY THIS EXISTS. Every redirect in the app is a React Router <Navigate>, which only runs AFTER
+// index.html has loaded. On a static host a deep link like /products/goal1 never reaches the app at
+// all — the host looks for that file, doesn't find it, and returns a 404. And a client-side bounce
+// is a 200 + JS, so it passes no link equity: retired URLs need real 301s.
+//
+// DERIVED, NOT RESTATED. The pillar rules are read from content/services.ts — the same file the
+// app, the nav, the footer and the sitemap read — so a pillar that moves between Platform and
+// Resources re-homes its host redirect automatically. The static pairs below mirror the literal
+// <Navigate> routes in App.tsx; `npm run check:redirects` fails the build if App.tsx grows a
+// literal redirect that is not mirrored here.
+import { readFileSync, writeFileSync } from "node:fs";
+import { resolve, dirname } from "node:path";
+import { fileURLToPath } from "node:url";
+
+const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
+const read = (p) => readFileSync(resolve(root, p), "utf8");
+
+/** Pillars, each paired with the section that currently owns it. */
+function pillars() {
+  const src = read("src/content/services.ts");
+  const found = [
+    ...src.matchAll(
+      /slug: "([a-z0-9-]+)",\s*\n\s*layer: "service",\s*\n\s*home: "(platform|resources)"/g,
+    ),
+  ].map((m) => ({ slug: m[1], home: m[2] }));
+  const declared = [...src.matchAll(/^    slug:\s*"([a-z0-9-]+)"/gm)].length;
+  if (found.length !== declared) {
+    throw new Error(
+      `gen-redirects: read ${found.length} pillar home(s) but services.ts declares ${declared}. ` +
+        `A pillar without a readable \`home\` would lose its host redirect.`,
+    );
+  }
+  return found;
+}
+
+/** Slugs a pillar used to ship under → its current slug. */
+function legacySlugs() {
+  const src = read("src/content/services.ts");
+  const block = src.match(/const LEGACY_SLUGS[^{]*\{([\s\S]*?)\}/);
+  if (!block) throw new Error("gen-redirects: LEGACY_SLUGS not found in services.ts");
+  return Object.fromEntries(
+    [...block[1].matchAll(/([a-z0-9]+):\s*"([a-z0-9-]+)"/g)].map((m) => [m[1], m[2]]),
+  );
+}
+
+const PILLARS = pillars();
+const LEGACY = legacySlugs();
+const canonical = (slug) => {
+  const target = LEGACY[slug] ?? slug;
+  const p = PILLARS.find((x) => x.slug === target);
+  return p ? `/${p.home}/${p.slug}` : null;
+};
+
+/** Mirrors the literal <Navigate> routes in src/App.tsx. Kept in sync by check-redirects.mjs. */
+const STATIC = [
+  ["/concept", "/what-is-agentic-transformation"],
+  ["/products/customer1", "/products/sales1"],
+  // enterprise1 is the control plane, not one of the five product categories — it lives under
+  // Platform beside assistant1, and the old product URL redirects there.
+  ["/products/enterprise1", "/platform/enterprise1"],
+  ["/products/category/revenue1", "/products/category/revenue"],
+  ["/products/category/service1", "/products/category/service"],
+  ["/products/category/trade1", "/products/category/trade"],
+  ["/products/category/works1", "/products/category/works"],
+  ["/products/category/compass1", "/products/category/compass"],
+  // Two pages on one subject; the Company page is the one that was rewritten.
+  ["/partners", "/company/partners"],
+  ["/services", "/platform"],
+  ["/platform/approach", "/what-is-agentic-transformation"],
+  ["/academy", "/resources/academy"],
+  ["/academy/learn", "/resources/academy/learn"],
+];
+
+// The two retired sections. Every pillar resolves to its CURRENT home in ONE hop; a slug that no
+// longer maps to anything (agency1, retired outright) goes to the home page, never to a lookalike.
+const RETIRED_SECTIONS = ["/services", "/academy"];
+const pillarRedirects = [];
+for (const section of RETIRED_SECTIONS) {
+  for (const slug of new Set([...PILLARS.map((p) => p.slug), ...Object.keys(LEGACY)])) {
+    const to = canonical(slug);
+    if (to && to !== `${section}/${slug}`) pillarRedirects.push([`${section}/${slug}`, to]);
+  }
+}
+// A legacy slug reaching the RIGHT section still has to canonicalise: /platform/advisory is not
+// /platform/strategy1, and serving both would be a duplicate-content twin.
+for (const [from, to] of Object.entries(LEGACY)) {
+  const dest = canonical(to);
+  const p = PILLARS.find((x) => x.slug === to);
+  if (dest && p) pillarRedirects.push([`/${p.home}/${from}`, dest]);
+}
+// agency1 was retired with no equivalent.
+pillarRedirects.push(["/services/agency1", "/"], ["/academy/agency1", "/"]);
+
+const all = [...STATIC, ...pillarRedirects].filter(
+  ([from, to], i, arr) => from !== to && arr.findIndex(([f]) => f === from) === i,
+);
+all.sort((a, b) => a[0].localeCompare(b[0]));
+
+// ——— Netlify ———
+const netlify = [
+  "# GENERATED by scripts/gen-redirects.mjs — do not edit by hand.",
+  "# Retired URLs, as permanent redirects (a client-side bounce passes no link equity).",
+  ...all.map(([from, to]) => `${from}  ${to}  301!`),
+  "",
+  "# SPA fallback — must be LAST. Without it every deep link 404s on a static host.",
+  "/*  /index.html  200",
+  "",
+].join("\n");
+writeFileSync(resolve(root, "public/_redirects"), netlify);
+
+// ——— Vercel ———
+const vercel = {
+  $schema: "https://openapi.vercel.sh/vercel.json",
+  redirects: all.map(([source, destination]) => ({ source, destination, permanent: true })),
+  rewrites: [{ source: "/((?!api/).*)", destination: "/index.html" }],
+};
+writeFileSync(resolve(root, "vercel.json"), JSON.stringify(vercel, null, 2) + "\n");
+
+// ——— GitHub Pages HTML redirects ———
+// Pages ignores _redirects and vercel.json. The only way to redirect is an actual HTML file at the
+// source path with a <meta http-equiv="refresh"> and a JS fallback. These are written to public/
+// so they ship in dist/ alongside the prerendered per-route files.
+//
+// The prerender script writes real page HTML at each CANONICAL route; these files handle only
+// RETIRED routes that should redirect — so the two sets never overlap by construction.
+import { mkdirSync, existsSync } from "node:fs";
+
+let pagesWritten = 0;
+for (const [from, to] of all) {
+  const absTo = to.startsWith("http") ? to : `https://elan1.ai${to}`;
+  const html = `<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="refresh" content="0;url=${absTo}">
+<link rel="canonical" href="${absTo}">
+<title>Redirecting…</title>
+</head>
+<body>
+<p>Redirecting to <a href="${absTo}">${absTo}</a>…</p>
+<script>window.location.replace(${JSON.stringify(absTo)});</script>
+</body>
+</html>
+`;
+  const dir = resolve(root, "public", from.replace(/^\//, ""));
+  const file = resolve(dir, "index.html");
+  // Don't overwrite a real page
+  if (!existsSync(file)) {
+    mkdirSync(dir, { recursive: true });
+    writeFileSync(file, html);
+    pagesWritten++;
+  }
+}
+
+console.log(
+  `redirects written — ${all.length} permanent redirects + SPA fallback (public/_redirects, vercel.json, ${pagesWritten} HTML redirect pages)`,
+);

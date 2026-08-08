@@ -15,12 +15,12 @@ const layers = [
     icon: <Icon.Shield className="h-5 w-5" />,
     lede: "Governs the action.",
     points: [
-      "Human-in-the-loop — a person approves every consequential action, from the control pane.",
-      "Immutable, hash-chained audit — every action recorded, tamper-evident, exportable.",
+      "Human-in-the-loop — a person approves consequential actions, from the control pane.",
+      "A hash-chained audit you can recompute — append-only enforced by the database itself, not by convention.",
       "Eval-gated promotion — no passing eval → no Trust Mark → no production.",
       "Policy engine — blocks, allows, or routes-to-human per tenant and vertical signature.",
     ],
-    note: "No builder platform ships this.",
+    note: "Suspend an app mid-incident and its agent fleet stops — per tenant, per app, immediately and without waiting in an approval queue, because reducing capability is the wrong thing to gate. The policy that would additionally refuse that app's own direct system-of-record writes is registered in production without the rollout reference its clause reads, so that half does not fire today.",
   },
   {
     n: "Layer 2",
@@ -34,7 +34,7 @@ const layers = [
       "Denied-topic and policy screening on inputs and outputs.",
       "Pattern engine by default; Bedrock Guardrails / Model Armor when configured.",
     ],
-    note: "The layer most platforms stop at.",
+    note: "Content safety — necessary, and not sufficient on its own.",
   },
   {
     n: "Layer 3",
@@ -44,7 +44,7 @@ const layers = [
     lede: "Isolates the tenant.",
     points: [
       "Postgres row-level-security tenant isolation — never retrofitted.",
-      "Data residency (in → sg → us → me → eu) with localized governance.",
+      "Per-tenant declared residency with localized governance; data classified fail-closed.",
       "Least-privilege connector grants on the MCP fabric.",
       "Encryption, OIDC SSO, and secrets via a manager — never hardcoded.",
     ],
@@ -64,7 +64,7 @@ const lifecycle = [
 export default function Governance() {
   useSeo(
     "Governance — three layers of defense-in-depth | elan1",
-    "Business governance (HITL + immutable audit + eval-gated Trust Marks), AI safety (PII redaction, prompt-injection), and platform security (RLS, residency, least-privilege). Provable, exportable, regulator-ready.",
+    "Business governance (human approval + a recomputable hash-chained audit + eval-gated Trust Marks), AI safety (PII redaction, prompt-injection), and platform security (row-level tenant isolation, declared residency, least-privilege). Provable, exportable, regulator-ready.",
   );
   return (
     <>
@@ -72,9 +72,63 @@ export default function Governance() {
         kicker="Platform · Governance"
         accent={ACCENT}
         title="Three layers of defense-in-depth. All live. All provable."
-        subtitle="Most platforms put a content filter in front of a model and call it governance. elan1 governs the action, screens the content, and isolates the tenant — and gives you a receipt you can verify offline."
+        subtitle="A content filter screens what a model says. elan1 governs what an agent may DO, screens the content, and isolates the tenant — then gives you a receipt you can verify offline."
         cta={{ label: "Book a demo", href: "/get-started", secondary: { label: "Why elan1 vs builders", href: "/platform/why-elan1" } }}
       />
+
+      {/*
+        Approval QUALITY — the strongest genuinely-unclaimed differentiator on the board, and it led
+        nowhere on this page before. Approval gates are now common across the agent field; what an
+        approval is BOUND to is not. Every property below is enforced in core/elan1_core/approvals.py
+        and sor_write.py — none of it asserts anything about anyone else.
+      */}
+      <Section tone="mist">
+        <SectionHead
+          kicker="What an approval is worth"
+          title="An approval gate is common. What the approval is bound to is not."
+          lede="A gate that can be replayed, widened, or quietly satisfied by a rubber stamp is theatre. These are the properties that make one mean something — each enforced in the platform, not asked for in a prompt."
+        />
+        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {[
+            ["Single-use", "An approval is consumed when it executes. It cannot be replayed for a second run."],
+            ["Bound to the exact action", "The token carries the action string. An approval for one operation cannot authorise a different one."],
+            ["Fingerprinted to the payload", "The token carries a content hash of the exact payload the reviewer saw. Change the payload after approval and it no longer matches."],
+            ["Maker-checker enforced", "The person who requests an action is not the person who may approve it — and an admin does not bypass that."],
+            ["No auto-approve, anywhere", "A breached SLA escalates. It never decides. There is no path in the platform where waiting long enough opens a gate."],
+            ["A rubber stamp is visible", "A decision returned too fast to have been read is surfaced as exactly that — computed from the audit chain, not stored as a flag someone could clear."],
+          ].map(([t, b], i) => (
+            <Reveal key={t} delay={(i % 3) * 0.06}>
+              <div className="card card-hover h-full">
+                <h3 className="font-display text-lg font-bold text-ink">{t}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-slate">{b}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+        <Reveal delay={0.1}>
+          <p className="mt-8 max-w-3xl text-[15px] leading-relaxed text-slate">
+            There is one more, and it is the one that matters most: the approval, the write and the
+            record are a single transaction on a single spine — identity, policy, human approval, act,
+            audit. The approval does not live in one system while the record lands in another, joined
+            only by a trace.
+          </p>
+        </Reveal>
+        <Reveal delay={0.14}>
+          <div className="mt-6 max-w-3xl rounded-card border border-line bg-surface p-6">
+            <p className="font-mono text-[11px] uppercase tracking-kicker text-muted">And one about evidence</p>
+            <p className="mt-3 text-[15px] leading-relaxed text-ink">
+              An evaluation here reports three outcomes, not two: passed, failed, and{" "}
+              <span className="font-mono text-sm">not measurable</span>.
+            </p>
+            <p className="mt-3 text-sm leading-relaxed text-slate">
+              “We did not look” never renders as “we looked and it was fine.” A run with nothing
+              scored cannot mint a Trust Mark — an empty battery is not evidence — and a score with
+              no measurable case returns nothing rather than zero. It is a small distinction that
+              decides whether a governance report means anything.
+            </p>
+          </div>
+        </Reveal>
+      </Section>
 
       {/* The three layers */}
       <Section tone="paper">
@@ -118,8 +172,8 @@ export default function Governance() {
         <SectionHead
           dark
           kicker="The governed action lifecycle"
-          title="Every consequential action runs the same gauntlet."
-          lede="No agent action skips a step. This is the path from intent to audited fact."
+          title="A consequential action runs the same gauntlet, every time."
+          lede="This is the path from intent to audited fact, and the governed write path holds it end to end."
         />
         <div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {lifecycle.map(([step, body], i) => (
@@ -150,7 +204,7 @@ export default function Governance() {
               verified independently — tamper with a single event and verification fails. Trust stops being a claim and becomes math.
             </p>
             <ul className="mt-7 space-y-3">
-              {["Who acted, what they did, when, and under which policy", "Which human approved it — and the role it was routed to", "A verifiable hash chain, exportable for board, regulator, or customer", "Erasure that honors privacy without breaking the immutable record"].map((t) => (
+              {["Who acted, what they did, when, and under which policy", "Which human approved it — and the role it was routed to", "A chain that recomputes — export it for a board, a regulator, or a customer", "Erasure that honors privacy without breaking the chain"].map((t) => (
                 <li key={t} className="flex items-start gap-3"><span className="mt-0.5 text-green"><Icon.Check className="h-5 w-5" /></span><span className="text-[15px] text-slate">{t}</span></li>
               ))}
             </ul>

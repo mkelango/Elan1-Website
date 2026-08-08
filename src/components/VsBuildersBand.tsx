@@ -40,10 +40,10 @@ export function VsBuildersBand() {
         <Reveal delay={0.12}>
           <ul className="grid gap-3">
             {[
-              ["Human-in-the-loop", "A person approves every consequential action — from one pane."],
+              ["Human-in-the-loop", "A person approves consequential actions — approvals are single-use and payload-bound."],
               ["Immutable audit", "Hash-chained + exportable: a receipt a regulator can verify offline."],
               ["Eval-gated", "No passing eval → no Trust Mark → no production."],
-              ["Owned data + residency", "Native systems-of-record, RLS isolation, India-first residency."],
+              ["Owned data + isolation", "Native systems-of-record with row-level tenant isolation, and per-tenant declared residency."],
             ].map(([t, b]) => (
               <li key={t} className="flex items-start gap-3 rounded-card border border-paper/15 bg-paper/[0.04] p-4">
                 <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-rose/20 text-rose">
