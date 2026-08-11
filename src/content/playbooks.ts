@@ -257,10 +257,10 @@ const SOURCES: PlaybookSource[] = [
       },
       {
         title: "Decide what counts as consequential, in writing",
-        body: "The gate exists because an action is declared consequential, and that declaration has a sharp edge. An operation declared non-consequential is still policy-evaluated and audited — but it is not gated. Some are deliberately so: revoking a key is a fast security response you never want sitting in a queue. Read \"not consequential\" as ungated, never as governed-but-queued; that misreading is how a control gets signed off that was never there.",
+        body: "A non-consequential action is still audited but not gated. Revoking a key is fast, you want no queue. Read non-consequential as ungated, never as governed-but-queued.",
         decision:
-          "The list of actions in your deployment that must gate, signed by the risk owner, before the build starts.",
-        trap: "Hearing a non-consequential declaration as a softer gate. It is not a softer gate; it is no gate.",
+          "The list of actions in your deployment that must gate, signed by the risk owner, before build starts.",
+        trap: "Reading non-consequential as a softer gate. It is no gate.",
       },
       {
         title: "Bind the approval to the payload, not to the intent",
