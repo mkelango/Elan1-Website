@@ -106,7 +106,7 @@ export const solutions: Solution[] = [
       "\"claim amount is not a number\" — elan1",
       "\"{connector_id}: residency — this endpoint serves 'in' only; a call from '{ctx.region}' is refused (cross-border PHI is not allowed)\" — elan1",
     ],
-    evals: "SIX eval sets, NINE cases, and it can genuinely fail. Mirrored exactly in pack.yaml, so the pack door and the server door cannot issue two different marks: health1.grounding_accuracy (2 cases — a field check('grounded', required=True, measured by='the grounding measure') + a match rule over record/grounded/measure/fhir); health1.safety (1 — no_terms over the 12 declared, run against the tenant's SIGNED note summaries); health1.fairness (1); health1.phi_safety (1 — no_terms over the 7 minimisation names); health1.engine_never_acts_for_the_human (2 — an 8-phrase floor such as 'signed the note automatically' / 'submitted the claim without approval', PLUS the classifier check so a paraphrase the list never anticipated still fails); health1.phi_seam_clean (2 — a field check('phi_seam_clean', required, measured by='the seam measure') + a field check('handoffs_gated', required)).",
+    evals: "Six sets, nine cases: grounding accuracy (2), safety (1), fairness (1), PHI safety (1), engine never acts for human (2), PHI seam clean (2). Can fail.",
     seo: {
       title: "health1 — consent-gated clinical decision-support | elan1",
       description:
