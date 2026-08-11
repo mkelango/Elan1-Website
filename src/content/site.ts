@@ -307,12 +307,12 @@ export const NAV: NavItem[] = [
       {
         heading: "Help Center",
         links: [
+          { label: "Blog", href: "/resources/insights", desc: "Agentic transformation insights" },
           { label: "Guides", href: "/resources/guides", desc: "Step-by-step howtos and best practices" },
-          { label: "Playbooks", href: "/resources/playbooks", desc: "Implementation guides from discovery to scale" },
           { label: "Templates", href: "/resources/templates", desc: "Pre-built agent templates" },
+          { label: "Playbooks", href: "/resources/playbooks", desc: "Implementation guides from discovery to scale" },
           { label: "Whitepapers", href: "/resources/whitepapers", desc: "Technical insights and research" },
           { label: "Reports", href: "/resources/reports", desc: "Market analysis and case studies" },
-          { label: "Blog", href: "/resources/insights", desc: "Agentic transformation insights" },
           { label: "Glossary", href: "/resources/glossary", desc: "The agentic vocabulary" },
         ],
       },
