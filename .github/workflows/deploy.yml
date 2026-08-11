@@ -33,6 +33,10 @@ jobs:
         run: npm run check:seo
       - name: Redirect checks
         run: npm run check:redirects
+      # Both directions: a dead nav href AND an orphaned route. The second is invisible to every
+      # other gate — an unlinked page type-checks, builds and renders perfectly.
+      - name: Navigation checks
+        run: npm run check:nav
       - name: 404 fallback for routes not covered by prerender
         run: cp dist/index.html dist/404.html
       - name: Upload Pages artifact
