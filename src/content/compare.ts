@@ -200,19 +200,19 @@ export const COMPARISONS: Comparison[] = [
       {
         title: "The approval is bound to the payload, not filed beside it",
         body:
-          "A consequential action stops before it acts and requests an approval carrying its own arguments. On resume the gate checks three things together — approved, same action, and a content hash over the resumed payload matching the hash over the approved one — then consumes the token. So an approval granted for one operation cannot be spent on another, one for one record cannot authorise a different record, and a replayed token is already spent. Both gates that implement this run the identical three checks, because a second guard weaker than the first is how the weak one survives a review.",
+          "Consequential action stops, requests approval with arguments. Resume gate checks: approved, same action, content-hash match. Consumes token. Approval for one op cannot spend on another; replayed token already spent.",
         patternId: "money-release",
       },
       {
         title: "A refund is bounded by the payment record, not by the request",
         body:
-          "The maximum refundable amount is computed from what the payment record shows was captured rather than accepted from the caller: \"refund {refund} exceeds captured {captured} — blocked (not grounded)\". The same shape guards the order book — a line cannot take more of a product than is available at the location it is taken from.",
+          "Max refundable computed from captured amount: \"refund exceeds captured—blocked (not grounded)\". Same guard on order book.",
         patternId: "refund-capture",
       },
       {
         title: "Cross-application moves keep the target's gate, not the caller's",
         body:
-          `There are ${factValue("crossAppSagas")} governed cross-application workflows, and each step evaluates the receiving application's own gate. A pack that needs a service case opens one through service1's governed writer and raises an error rather than writing a case row itself when that gate refuses; a disbursement posts as a finance1 payable and inherits finance1's approval. Otherwise composition becomes a way to launder an action past a control it would not have passed directly.`,
+          `${factValue("crossAppSagas")} workflows; each step evaluates receiving app's gate. Pack opens service1 case through its writer, error if refused. Disbursement inherits finance1 approval.`,
       },
     ],
   },
