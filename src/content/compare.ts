@@ -283,7 +283,7 @@ export const COMPARISONS: Comparison[] = [
         them:
           "The connector catalog is very large, and DLP policy is how an administrator constrains which of it an agent may combine.",
         us:
-          `${factValue("connectors")} connectors, registered and callable, and each is labelled live, modelled or declared on this site so a demonstration is never mistaken for an integration. A grant resolves against the operations a connector actually declares, and asking for one it does not expose raises rather than quietly widening the grant.`,
+          `${factValue("connectors")} connectors, registered and callable — and the connectors page names, one by one, which of them ship a modelled adapter by default and reach an external system only once an endpoint is configured, so a demonstration is never mistaken for an integration. On the governed grant path a grant is drawn from the operations a connector actually declares, and asking for a scope it does not expose is refused by the scope lattice before a credential is involved.`,
       },
     ],
     whereTheyLead: [
