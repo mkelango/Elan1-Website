@@ -197,7 +197,7 @@ export const NAMING_TABLE: NamingRow[] = [
   {
     term: “the Trust Mark”,
     is: “Cert of one agent: eval passed, case scored, bound to agent definition hash.”,
-    isNot: "Not a third-party or security certification, and not a claim about behaviour by default. The default agent check is structural: it tests what the agent declares about its tier, tools and gates. Read the tier, not the badge.",
+    isNot: "Not third-party or security cert. Default check is structural.",
   },
 ];
 
