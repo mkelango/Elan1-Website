@@ -435,7 +435,7 @@ const SOURCES: PlaybookSource[] = [
       },
       {
         title: "Gate every cost-down migration on the same battery",
-        body: "A Trust Mark earned on one model is not evidence about another. When a model change is detected under a byte-identical agent, the certifying eval is re-run and a lower score is treated as a regression rather than noise. A re-run that cannot be scored comes back not measurable, which is not a pass — and a comparison against a missing number is not a regression either, because \"we could not measure\" must not manufacture a verdict in either direction. Know what your re-run actually exercises: for most agents it is the structural declaration check, and only the agents named in the evidence playbook below carry a behaviour battery that grades what the model says.",
+        body: "A model change re-runs the eval. Lower score = regression. Not-measurable is not a pass. Only named agents carry a behaviour battery.",
         decision:
           "The stop condition — that a not-measurable outcome halts the migration until a battery exists.",
         trap: "Reading not-measurable as clean because nothing turned red.",
