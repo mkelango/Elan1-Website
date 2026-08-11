@@ -328,57 +328,6 @@ export default function EnterpriseOntology() {
         </Reveal>
       </Section>
 
-      {/* Where to go next — link, never restate */}
-      <Section tone="paper">
-        <SectionHead
-          kicker="Adjacent"
-          title="The four pages this one deliberately does not repeat."
-          lede="Each of these carries its own evidence and its own limits. This page names the structure; they show what is built on it."
-        />
-        <div className="mt-12 grid gap-4 sm:grid-cols-2">
-          {[
-            {
-              href: "/platform/connectors",
-              label: "connectors",
-              title: "The seam, tier by tier.",
-              body: "Which connectors are registered and callable, which are credential-gated catalog entries, and what a grant actually is.",
-            },
-            {
-              href: "/platform/verticals-are-config",
-              label: "packs",
-              title: "A vertical is a manifest.",
-              body: "The ten industry packs, one of them printed with only its comments trimmed — and what the pack validator does not check.",
-            },
-            {
-              href: "/platform/governance",
-              label: "governance",
-              title: "The gate the writer reaches.",
-              body: "The policy engine, the human approval gate and the hash-chained audit — the three layers a validated write passes through.",
-            },
-            {
-              href: "/platform/engineering",
-              label: "engineering",
-              title: "Identity, isolation, retention.",
-              body: "The procurement checklist with each control's real state: enforced, declared, or built but not wired.",
-            },
-          ].map((c, i) => (
-            <Reveal key={c.href} delay={(i % 2) * 0.05}>
-              <Link
-                to={c.href}
-                className="group flex h-full flex-col rounded-card border border-line bg-surface p-7 shadow-card transition-all hover:-translate-y-1 hover:shadow-lift"
-              >
-                <span className="font-mono text-base font-semibold text-ink">{c.label}</span>
-                <p className="mt-3 font-display text-lg font-bold leading-snug text-ink">{c.title}</p>
-                <p className="mt-3 text-sm leading-relaxed text-slate">{c.body}</p>
-                <span className="mt-auto pt-5 inline-flex items-center gap-1.5 text-sm font-medium text-clayDeep opacity-0 transition-opacity group-hover:opacity-100">
-                  Open <Icon.Arrow className="h-4 w-4" />
-                </span>
-              </Link>
-            </Reveal>
-          ))}
-        </div>
-      </Section>
-
       <CTASection
         title="Bring us a write you cannot let an agent make."
         body="Start with one fixed-scope Discovery Sprint. We map the record it would have to create, the structure that write is validated against, and the exact refusal that stands in front of it."

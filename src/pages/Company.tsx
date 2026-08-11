@@ -229,11 +229,7 @@ export function Careers() {
         </div>
       </Section>
 
-      {/* Self-selection AND the introduction, in one band. They were two sections telling the reader
-          the same thing in sequence — decide whether this suits you, then write — and the second's
-          layout repeated the first's. Both lists survive intact: READ_THIS_TWICE_IF carries stated
-          limits (single-region, unwired capabilities, no cohort, no pen-test report) and is not
-          droppable, so it is a column here rather than a band of its own. */}
+      {/* Self-selection and introduction */}
       <Section tone="mist">
         <SectionHead
           kicker="Before you write"
@@ -241,7 +237,7 @@ export function Careers() {
           lede={INTRODUCE_LEDE}
           accent={CAREERS_ACCENT}
         />
-        <div className="mt-12 grid gap-4 lg:grid-cols-3">
+        <div className="mt-12 grid gap-4 lg:grid-cols-2">
           <Reveal>
             <div className="h-full rounded-card border border-line bg-surface p-7">
               <div className="flex items-center gap-2">
@@ -261,26 +257,6 @@ export function Careers() {
             </div>
           </Reveal>
           <Reveal delay={0.06}>
-            <div className="h-full rounded-card border border-line bg-mist/70 p-7">
-              <div className="flex items-center gap-2">
-                <span className="flex h-7 w-7 items-center justify-center rounded-md bg-ink/[0.06] text-muted">
-                  <Icon.Shield className="h-4 w-4" />
-                </span>
-                <span className="font-mono text-[11px] uppercase tracking-kicker text-muted">
-                  Read it twice if
-                </span>
-              </div>
-              <ul className="mt-6 flex flex-col gap-3">
-                {READ_THIS_TWICE_IF.map((t) => (
-                  <li key={t} className="flex items-start gap-3">
-                    <span className="mt-1 font-mono text-xs text-muted">—</span>
-                    <span className="text-[15px] leading-relaxed text-slate">{t}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </Reveal>
-          <Reveal delay={0.12}>
             <div className="h-full rounded-card border border-line bg-surface p-7">
               <p className="font-mono text-[11px] uppercase tracking-kicker text-muted">Useful to send</p>
               <div className="mt-5">
