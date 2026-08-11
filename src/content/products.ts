@@ -462,14 +462,14 @@ export const products: Product[] = [
     hero: {
       headline: "The agents plan. A human commits.",
       subhead:
-        "Demand planning, replenishment, procurement, inventory and quality on its own system of record — 32 object types. Nine agents compute and draft; a purchase order can only name an approved vendor, and submitting one is a human decision carrying an idempotency key.",
+        "32 object types. 9 agents compute and draft. PO names only approved vendor. Submitting requires human decision with idempotency key.",
       primaryCta: "Book a demo",
     },
     problem: [
-      "On-hand, on-order and available-to-promise disagree, because stock truth lives in spreadsheets.",
-      "The approved-vendor rule is a policy document, not a check on the write.",
-      "Replenishment quantities are typed by hand, and nobody can reconstruct them.",
-      "Receipts, batches and serials are tracked apart from valuation, so ledger and goods drift.",
+      "On-hand, on-order, available-to-promise disagree.",
+      "Approved-vendor rule in policy, not checked on write.",
+      "Replenishment quantities typed by hand.",
+      "Receipts, batches, serials tracked apart from valuation.",
     ],
     capabilities: [
       {
