@@ -43,7 +43,7 @@ export const ASSISTANT_SPINE: { step: string; name: string; body: string }[] = [
   {
     step: "04",
     name: "Act",
-    body: "Approving a proposal hands it to the app that owns the record, which applies its own approval gate before anything is written — so a conversation does not become a side door around a control that app enforces. Three apps expose a governed proposer today: sales1, people1 and finance1. Everything else is read-only from a conversation, which is a limit worth knowing rather than one worth hiding.",
+    body: "Approval routes through app's own gate; sales1, people1, finance1 only. Everything else read-only.",
   },
 ];
 
