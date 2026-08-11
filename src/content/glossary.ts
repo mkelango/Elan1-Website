@@ -236,7 +236,7 @@ export const GLOSSARY: Term[] = [
   {
     term: "System of record",
     category: "The write path",
-    def: `The durable, typed store an app owns and is answerable for — not a cache of somebody else's system. The platform registers ${factValue("systemsOfRecord")} of them, each with a governed writer in front of it, holding ${factValue("objectTypes")} typed object types between them. An app declares the types it owns, and a create against a type outside that set is rejected by name. One boundary to know before comparing numbers across this site: sales1's CRM is a system of record in every sense that matters here, but it runs on its own core store rather than inside that registered schema set — so it sits outside the ${factValue("systemsOfRecord")}, while its object types are counted inside the total above.`,
+    def: `The durable, typed store an app owns and is answerable for — not a cache of somebody else's system. The platform registers ${factValue("systemsOfRecord")} of them, each with a governed writer in front of it, holding ${factValue("objectTypes")} typed object types between them. An app declares the types it owns, and a create against a type outside that set is rejected by name. One boundary before you compare numbers across this site: sales1's CRM is a system of record in every sense that matters here, but runs on its own core store rather than inside that registered schema set — so it sits outside the ${factValue("systemsOfRecord")}, while its object types are counted inside the total above.`,
     why: "Owning the record is what makes the rest possible. You cannot gate, recompute or audit a write into a system you are only syncing with.",
     see: ["Governed writer", "Computed at read", "Semantic layer"],
   },
