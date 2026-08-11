@@ -260,7 +260,7 @@ export const GLOSSARY: Term[] = [
     term: "Immediate write",
     category: "The write path",
     usage: "elan1",
-    def: "A governed write that does not stop at a human. It still passes policy evaluation and still lands in the hash-chained audit — it simply is not consequential. The product pages name them explicitly rather than leaving them implied: in sales1, a stage move below Closed Won, a next step, a risk flag, a note, a lead score or route, a sequence enrolment, and a discount inside the rep's own authority.",
+    def: "A governed write that does not stop at a human. It still passes policy evaluation and still lands in the hash-chained audit — it simply is not consequential. The product pages name them: in sales1, a stage move below Closed Won, a next step, a risk flag, a note, a lead score or route, a sequence enrolment, and a discount inside the rep's own authority.",
     why: "Governed and gated are not synonyms, and a page that blurs them is describing a product nobody could actually use.",
     see: ["Governed writer", "Consequential action"],
   },
