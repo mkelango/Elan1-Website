@@ -300,12 +300,9 @@ export const PROOF: CaseStudy[] = [
     industry: "Manufacturing",
     domain: "Physical control",
     app: "manufacture1 · supply1",
-    before:
-      "Lot genealogy is assembled after the fact from spreadsheets, so a recall traces to a guess. A predictive-maintenance agent that can also act closes a loop nobody asked it to close. And the certificate of analysis gets signed off an inspection that passed before the non-conformance was raised, because nothing reconciles the certificate against what happened after it.",
-    after:
-      "Completing a batch is refused when material was never issued against it, and consuming more of a lot than was received is refused. A certificate of analysis is refused over an open non-conformance and over a later failed inspection — an earlier pass survives neither. An inspection criterion must carry a verdict a person reached, because the write path refuses to infer from a measurement whether it is in spec. On the machine side, a command against a locked-out asset is refused outright.",
-    guarantee:
-      "Verbatim, and worth reading in full because the code says why: \"cannot complete this batch: no material issued for {materials}. A produced unit without lot genealogy cannot be recalled — traceability is this vertical's promise, and it is kept here or nowhere.\" · \"cannot issue a certificate of analysis for a batch with {n} OPEN non-conformance(s) — an earlier pass does not survive an unresolved NCR. Close it (a human's decision) first.\" · \"machine safety: no command may be issued against a LOCKED-OUT machine (LOTO)\". Advisory is enforced at build time too: the agent studio refuses to compile an agent marked advisory that holds a control-system connector — \"advisory agent '{name}' may not hold control-system connectors {connectors} — OT actions are taken by humans\".",
+    before: "Genealogy post-hoc from spreadsheets. Agent acts on maintenance. CoA unchecked.",
+    after: "Batch refused without material issue. CoA refused over open NCR. LOTO enforced.",
+    guarantee: "\"cannot complete batch: no material issued for {materials}\" · \"CoA refused, open non-conformance(s)\" · \"no command on LOCKED-OUT machine\".",
     trustMark: "manufacture1.predictive_maintenance",
     accent: ACCENT.cyan,
   },
