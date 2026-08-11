@@ -45,6 +45,12 @@ const Careers = lazy(() => import("./pages/Company").then(m => ({ default: m.Car
 const Partners = lazy(() => import("./pages/Company").then(m => ({ default: m.Partners })));
 const Newsroom = lazy(() => import("./pages/Newsroom"));
 const NotFound = lazy(() => import("./pages/NotFound"));
+// The repositioning surfaces: the comparison set, the published-limits page, the developer hub,
+// and the Enterprise Ontology page that organises the typed record model.
+const ComparePage = lazy(() => import("./pages/ComparePage"));
+const WhatElan1IsNot = lazy(() => import("./pages/WhatElan1IsNot"));
+const Developers = lazy(() => import("./pages/Developers"));
+const EnterpriseOntology = lazy(() => import("./pages/EnterpriseOntology"));
 
 function PageFallback() {
   return (

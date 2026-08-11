@@ -123,6 +123,29 @@ const productCategoryColumns: NavColumn[] = categories.map((c) => ({
 }));
 
 /**
+ * A platform pillar as a nav link, DERIVED from services.ts.
+ *
+ * The Platform mega now regroups the four pillars SEMANTICALLY — agent1 builds, assure1 proves,
+ * run1 operates, strategy1 plans — so each lands in a different column and the old single
+ * `platformPillars.map(...)` can no longer express the layout. That is not a licence to hardcode.
+ * This keeps the name, the path and the accent derived from the pillar's own record, so a rename,
+ * an accent change, or a re-home between Platform and Resources still travels into the menu.
+ *
+ * It THROWS rather than returning undefined: a pillar that has been renamed upstream would
+ * otherwise ship as a silent dead link in the primary navigation, which is precisely the class of
+ * defect that put goal1 out of the nav for a month.
+ */
+function pillarLink(slug: string, desc?: string): NavLink {
+  const s = platformPillars.find((p) => p.slug === slug);
+  if (!s) {
+    throw new Error(
+      `site.ts: no platform pillar "${slug}" in services.ts — the Platform mega would ship a dead link.`,
+    );
+  }
+  return { label: s.name, href: servicePath(s), desc: desc ?? s.tagline, accent: s.accent };
+}
+
+/**
  * TOP-LEVEL ORDER IS AN ARGUMENT, NOT AN ALPHABET.
  *
  * Platform leads. The wedge is architectural — elan1 owns the system of record and governs the
@@ -153,7 +176,7 @@ export const NAV: NavItem[] = [
         links: [
           { label: "enterprise1", href: "/platform/enterprise1", desc: "Governance, identity, audit and wave rollout for every app", accent: "#b9603f" },
           { label: "assistant1", href: "/platform/assistant1", desc: "The governed central assistant — it proposes, the app decides", accent: "#5ad1c0" },
-          { label: "agent1", href: "/platform/agent1", desc: "The studio where a governed agent is built, evaluated and compiled", accent: "#7c6cf0" },
+          pillarLink("agent1", "The studio where a governed agent is built, evaluated and compiled"),
         ],
       },
       {
@@ -171,7 +194,7 @@ export const NAV: NavItem[] = [
       {
         heading: "Trust & governance",
         links: [
-          { label: "assure1", href: "/platform/assure1", desc: "Evals, evidence packs and the Trust Mark", accent: "#e0656d" },
+          pillarLink("assure1", "Evals, evidence packs and the Trust Mark"),
           { label: "Governance — three layers", href: "/platform/governance", desc: "The policy engine, the approval gate, and the hash-chained audit" },
           { label: "Trust Center", href: "/trust", desc: "Principles, governance signatures, security and certification posture" },
         ],
@@ -179,7 +202,7 @@ export const NAV: NavItem[] = [
       {
         heading: "Operate",
         links: [
-          { label: "run1", href: "/platform/run1", desc: "Operations, token metering and FinOps, eval-gated model migration", accent: "#3fae6b" },
+          pillarLink("run1", "Operations, token metering and FinOps, eval-gated model migration"),
           { label: "Engineering & readiness", href: "/platform/engineering", desc: "Identity, isolation, audit, retention, DR — and the limits, stated" },
           { label: "Platform overview", href: "/platform", desc: "How the control plane and the pillars fit" },
         ],
@@ -187,10 +210,23 @@ export const NAV: NavItem[] = [
       {
         heading: "Build & prove",
         links: [
-          { label: "strategy1", href: "/platform/strategy1", desc: "The fixed-scope engagement that plans and lands the work", accent: "#df8c64" },
+          pillarLink("strategy1", "The fixed-scope engagement that plans and lands the work"),
           { label: "Built on Claude", href: "/platform/built-on-claude", desc: "Why Claude-native depth wins" },
           { label: "Why elan1 vs builders", href: "/platform/why-elan1", desc: "Run your business on agents — not just build one" },
         ],
+      },
+      {
+        // 🚨 THIS COLUMN IS LOAD-BEARING FOR REACHABILITY, NOT JUST FOR NARRATIVE.
+        // The restructure above regrouped the Platform menu around the control plane, the ontology,
+        // trust, operations and build — and in doing so dropped the old "The approach" column.
+        // That silently orphaned /platform/the-1-philosophy and /platform/flywheel: both pages
+        // still existed and still rendered, and nothing in the build fails on a page no menu points
+        // at. A page with no link is the same defect as a link with no page, and only one of the
+        // two is visible. Derived from APPROACH_LINKS so it cannot drift from the /platform hub.
+        heading: "The approach",
+        links: APPROACH_LINKS.filter((l) =>
+          ["/what-is-agentic-transformation", "/platform/the-1-philosophy", "/platform/flywheel"].includes(l.href),
+        ),
       },
     ],
     featured: {
@@ -369,18 +405,25 @@ export const NAV: NavItem[] = [
         links: [
           { label: "About", href: "/company/about", desc: "Why the gate belongs on the write path" },
           { label: "Careers", href: "/company/careers", desc: "What the work is, and how we build" },
+          { label: "Newsroom", href: "/company/newsroom", desc: "Boilerplate, brand assets, attributable facts" },
         ],
       },
       {
-        heading: " ",
+        heading: "Connect",
         links: [
           { label: "Partners", href: "/company/partners", desc: "Build on the core, certify before you list" },
-          { label: "Newsroom", href: "/company/newsroom", desc: "Boilerplate, brand assets, attributable facts" },
           { label: "Contact", href: "/contact", desc: "Talk to an expert" },
+          // Trust belongs one click from every page in a trust sale. It is ALSO in the Platform and
+          // Proof menus and in the footer -- deliberate duplication: a buyer hunting for it does not
+          // know which of the three menus we happened to file it under.
+          { label: "Trust Center", href: "/trust", desc: "How every agent is built, approved and audited" },
         ],
       },
     ],
   },
+  // A PLAIN LINK, NO MEGA. Pricing was buried inside the Products mega -- three hovers from the
+  // homepage, which is where a buyer looks first. A NavItem with no `mega` renders as a direct link.
+  { label: "Pricing", href: "/pricing" },
 ];
 
 // ——— Home page copy ———
