@@ -43,7 +43,9 @@ const LABEL = "font-mono text-[10px] uppercase tracking-kicker text-muted";
 export default function WhatElan1IsNot() {
   useSeo(
     "What elan1 is not — the limits | elan1",
-    "The boundaries, stated plainly: no certification held, no named customers, no universal governed write path, no autonomy setting that removes the human approver — and the five things elan1 deliberately refuses to automate.",
+    // The count is derived here too. A meta description is the one string nobody re-reads, which is
+    // exactly where a hand-typed "five" survives the refusal it stopped describing.
+    `The boundaries, stated plainly: no certification held, no named customers, no universal governed write path, no unattended run of a consequential action — and the ${DELIBERATE_REFUSALS.length} things elan1 deliberately refuses to automate.`,
     { type: "article", breadcrumbs: [{ name: "Trust", href: "/trust" }] },
   );
 
