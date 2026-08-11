@@ -970,7 +970,7 @@ export const solutions: Solution[] = [
       "finance1 is not available — edu1 never invoices on its own",
       "This enrollment has no fee plan — attach one in Academics & learners",
     ],
-    evals: "SEVEN eval sets, NINE cases, and the pack declares exactly the seven the server runs (asserted by — an earlier version declared three of five and validated happily, which is the bug that test exists to prevent). The sets: edu1.grounding (1 case — a required a field check on the live grounding fact with measured by=the grounding measure, so a tenant with no published metric scores NOT-MEASURABLE, never a pass); edu1.integrity_safety (1 banned-phrase case); edu1.fairness (1 case, but it reuses the shared lending/underwriting vocabulary — apt for bank1/insure1, not an edu-specific fairness guard); edu1.student_data_safety (1 case); edu1.age_safety (1 case — the ONLY place age-appropriateness is checked at all); edu1.engine_never_acts_for_the_human (2 cases — an 8-phrase floor PLUS the classifier check running the live autonomous-action-claim classifier, so a paraphrase nobody listed still fails); edu1.student_data_seam_clean (2 cases — the recomputed seam invariant, required, gated on the seam measure, plus handoffs_gated).",
+    evals: "Seven sets, nine cases: grounding (1), integrity (1), fairness (1), student data (1), age safety (1), engine never acts (2), seam clean (2).",
     seo: {
       title: "edu1 — governed higher-ed records and an integrity-safe tutor | elan1",
       description:
