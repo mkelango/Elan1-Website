@@ -346,11 +346,19 @@ export const DEV_SURFACES: DevSurface[] = [
   },
 ];
 
-/** The eight core surfaces, DERIVED — never a second hand-typed list that can disagree with the first. */
-export const CORE_SURFACES: DevSurface[] = DEV_SURFACES.filter((s) => /^k[1-8]$/.test(s.id));
+/**
+ * The core surfaces, DERIVED — never a second hand-typed list that can disagree with the first.
+ *
+ * The predicate is `^k<digits>$`, deliberately NOT `^k[1-8]$`. A range would have been a hardcoded
+ * roster wearing a filter's clothes: add a ninth surface and it would silently fall into the other
+ * bucket while the count on the page stayed at eight and stayed wrong.
+ */
+const IS_CORE_SURFACE = (s: DevSurface): boolean => /^k\d+$/.test(s.id);
+
+export const CORE_SURFACES: DevSurface[] = DEV_SURFACES.filter(IS_CORE_SURFACE);
 
 /** Everything you build WITH, derived as the complement. Add a row above and it lands in exactly one. */
-export const BUILD_SURFACES: DevSurface[] = DEV_SURFACES.filter((s) => !/^k[1-8]$/.test(s.id));
+export const BUILD_SURFACES: DevSurface[] = DEV_SURFACES.filter((s) => !IS_CORE_SURFACE(s));
 
 /** How many rows carry each status — computed, so the page can never quote a stale tally. */
 export const DEV_STATUS_COUNTS: Record<DevStatus, number> = DEV_SURFACES.reduce(
