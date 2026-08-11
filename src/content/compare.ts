@@ -169,22 +169,22 @@ export const COMPARISONS: Comparison[] = [
       {
         title: "Inside a Salesforce estate, they are already where the work is",
         body:
-          "The record, the permission model, the reports and the administrators are all in one place. An agent acting on an opportunity needs no integration, no migration and no second vendor — adoption is a configuration change. That is a decisive advantage and no competitor argument makes it go away.",
+          "One place: record, permission model, reports, admins. Agent on opportunity needs no integration/migration/vendor—adoption is config change.",
       },
       {
         title: "A platform underneath the agents that has been operated at scale for two decades",
         body:
-          "Flow, Apex, the sharing and permission model, sandboxes, release management, and a certified-administrator labour market you can hire from in any city. Agentforce inherits all of it. elan1 inherits none of it, because every one of those things is older than elan1 is.",
+          "Flow, Apex, sharing/permission, sandboxes, release, certified-admin market. Agentforce inherits it; elan1 does not.",
       },
       {
         title: "The Einstein Trust Layer is a serious answer to the model-side risks",
         body:
-          "Prompt defence, data masking, zero-retention handling with the model provider, and prompt-and-response logging — shipped and documented before most of the market had an answer at all. Those are real controls over what the model sees and keeps, and we are not going to pretend otherwise.",
+          "Prompt defence, data masking, zero-retention, logging shipped before most had answers. Real controls; we acknowledge it.",
       },
       {
         title: "An ecosystem: AppExchange, partners, ISVs and a hiring pool",
         body:
-          "If your implementation depends on finding people who have done it before, that market exists for Salesforce and does not yet exist for us. This is the concession that costs us the most deals and it is the one we are most sure is true.",
+          "Salesforce implementation market exists; ours does not yet. This concession costs us most deals and is most true.",
       },
     ],
     whenToPickThem:
