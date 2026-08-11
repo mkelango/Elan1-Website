@@ -669,22 +669,22 @@ export const COMPARISONS: Comparison[] = [
       {
         title: "Total control, and no vendor risk at all",
         body:
-          "No roadmap you do not own, no pricing change, no acquisition, no end-of-life notice, no data in someone else's tenancy, and no contract to renegotiate. For some organisations that is not a preference — it is the requirement, and nothing we ship answers it.",
+          "No roadmap, pricing, acquisition, EOL, data in others' tenancy, contract. For some, requirement not preference.",
       },
       {
         title: "Exact fit, because a bought platform's opinions are its main cost",
         body:
-          "Our data model, our category structure, our idea of what a consequential action is: you inherit all of it. Building means every one of those decisions is yours, made against your business rather than against a market of them.",
+          "Our model, category structure, consequential action definition: you inherit. Build means yours, made for business not market.",
       },
       {
         title: "The frameworks are genuinely good, and improving fast",
         body:
-          "Durable execution, checkpointing, human-in-the-loop interrupts, tracing, eval tooling and model routing ship in the box now, with real communities behind them. The gap between a framework and a platform is smaller every quarter, and it is not honest to describe that as a blank sheet of paper.",
+          "Durable, checkpointing, interrupts, tracing, eval, routing ship now with real communities. Gap smaller every quarter.",
       },
       {
         title: "If the governed surface is small, our machinery is overhead",
         body:
-          "One workflow, one team, one system of record, low blast radius — you would be paying for approval binding, wave enablement, tenant isolation and eval gating you do not need. Buy the platform when the surface is a business; build when it is a workflow.",
+          "One workflow, one team, one store, low blast—you pay for approval/wave/tenant/eval you don't need. Buy platform for business, build for workflow.",
       },
     ],
     whenToPickThem:
