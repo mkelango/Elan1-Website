@@ -336,9 +336,9 @@ const SOURCES: PlaybookSource[] = [
       },
       {
         title: "Ask the four questions of any vertical claim",
-        body: "One: is the rule enforced when a record is written, or only when a screen renders? Two: is the number computed from the record, or accepted from whatever the payload supplied? Three: does the eval that scores the rule contain a case that could actually fail? Four: does the pack's own agent write through the same governed writer a person uses? A claim that survives all four is a mechanism. A claim that survives fewer is a screen, and screens can be changed by anyone with the console open.",
+        body: "Is the rule enforced at write or only at screen render? Is the number computed or accepted from the payload? Does the eval contain a case that could fail? Does the pack's own agent use the same governed writer a person uses?",
         decision: "Which of your own controls you will put through the same four questions.",
-        trap: "Accepting a demonstration as the answer to question one. A demo shows the happy path; the question is about the write path.",
+        trap: "Accepting a demo as the answer. A demo shows the happy path; ask about the write path.",
       },
       {
         title: "Read the refusals, not the feature list",
