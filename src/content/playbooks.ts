@@ -478,9 +478,9 @@ const SOURCES: PlaybookSource[] = [
     steps: [
       {
         title: "Know which of the two checks you are looking at",
-        body: `The default agent certification is a deterministic structural declaration check. It asks whether the agent has instructions, whether a tool-using agent at higher autonomy declares policy tags so the policy engine has something to evaluate, and whether a fully autonomous tool-using agent either requires approval or verifies itself. It certifies that the declared governance posture is coherent for the autonomy level — it does not ask how the agent behaves when it is probed. A behaviour battery does ask that: adversarial and nominal scenarios graded on what the agent actually says, through the vertical's own live classifier. It hardens the certification gate for ${BATTERY_COUNT} agents, named here so the count and the roster cannot come apart — ${BATTERY_ROSTER}. Every other registered agent certifies on the structural declaration check alone, and the platform is explicit that this is a staged roll-forward rather than a sample: the battery is a lookup, deliberately not a blanket requirement, so an agent with no entry keeps the declaration-only gate. Note who is not on that list — no suite app and no cross-app workflow has one, and neither do the clinical, banking and insurance advisories.`,
+        body: `Default: structural declaration check. Behaviour battery tests adversarial and nominal scenarios for ${BATTERY_COUNT} agents: ${BATTERY_ROSTER}. All others use declaration check only.`,
         decision: "Which of your agents need a behaviour battery, given what their tools can reach.",
-        trap: "Reading a Trust Mark as a behavioural result. Ask which of the two checks earned it before you rely on it.",
+        trap: "Reading a Trust Mark as behavioural. Ask which of the two checks earned it.",
       },
       {
         title: "Know what the battery graded, as well as who it covered",
