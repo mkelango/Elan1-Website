@@ -114,7 +114,6 @@ const productCategoryColumns: NavColumn[] = categories.map((c) => ({
       href: `/products/${p.slug}`,
       desc: p.businessFunction,
       tag: p.status === "live" ? "live" : undefined,
-      accent: p.accent,
     })),
   ],
 }));
