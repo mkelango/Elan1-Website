@@ -148,7 +148,7 @@ export const COMPARISONS: Comparison[] = [
         them:
           "A person, through the platform's approval processes and permission model, configured per object and per flow by an administrator.",
         us:
-          "A person, through one gate in the writer, and the approval is what executes rather than what is filed. Segregation of duties holds in the same writer: \"segregation of duties — {principal} requested approval '{id}' and cannot also approve it; a different approver is required\". The administrator role does not lift it, because it is a control rather than a permission.",
+          "A person, through one gate in the writer, and the approval is what executes rather than what is filed. Where a writer flags a write maker-checker — releasing a payment, and a commerce refund, are the two that carry it today — segregation of duties holds in the same gate: \"segregation of duties — {principal} requested approval '{id}' and cannot also approve it; a different approver is required\". The administrator role does not lift it, because it is a control rather than a permission.",
       },
       {
         dim: "What happens on rollback or incident",
