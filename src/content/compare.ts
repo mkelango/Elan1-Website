@@ -443,19 +443,19 @@ export const COMPARISONS: Comparison[] = [
       {
         title: "A number computed at read cannot drift from the book it summarises",
         body:
-          `insight1 stores no metric of its own and computes at read from ${factValue("insightSourceApps")} sibling systems of record — a named set, deliberately not \"every application\". Grounding is a refusal rather than a caveat under the chart: \"metric not grounded ({reason})\" · \"could not ground the ask — a human rephrases; the copilot never guesses a query\". The pattern this closes is the one where an empty result and an unread source produce the same confident green number.`,
+          `insight1 computes at read from ${factValue("insightSourceApps")} sibling systems—named set. Grounding refusal: \"metric not grounded\" or \"human rephrases; copilot never guesses\". Closes pattern where empty and unread both show green.`,
         patternId: "publish-number",
       },
       {
         title: "The answering agent's entire tool grant is the knowledge seam",
         body:
-          "It can retrieve; it cannot act on a record. Below a confidence floor the endpoint routes to a human and says why — \"no confident KB match — a human takes this\" — and above it, the agent returns a cited draft with a proposed status. A person sends it: \"a PROPOSED resolution — a human confirms the resolve + send (K5); the agent never auto-closes\".",
+          "Retrieve only, cannot act. Below floor routes to human. Above floor, returns cited draft with proposed status. Person sends: \"PROPOSED resolution—human confirms (K5); agent never auto-closes\".",
         patternId: "service-draft",
       },
       {
         title: "Publishing is a human's action, and the check reads the record",
         body:
-          "The truthfulness check reads the asset's own title and body rather than a flag on the request, so an asset cannot declare itself compliant: \"blocked — banned/misleading claim(s) in the post: {claims}\". Stated limit: that check is lexical over the record's text, which is exactly why the human review sits above it rather than behind it.",
+          "Truthfulness check reads title/body, not request flag. Cannot self-declare compliant: \"blocked—banned claims: {claims}\". Lexical, human review above.",
         patternId: "publish-asset",
       },
     ],
