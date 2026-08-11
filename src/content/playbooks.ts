@@ -503,9 +503,9 @@ const SOURCES: PlaybookSource[] = [
       },
       {
         title: "Collect the definition, not a description of it",
-        body: "Certification binds a fingerprint of the agent's consequential definition — its instructions, skills, tools, policy tags, model policy, approval posture and trigger. Your evidence pack should hold those same fields verbatim, plus the battery, the run that passed, and the model that run was scored on. A pack holding a summary cannot be checked against the fingerprint later, and being checkable later is the entire purpose of a fingerprint.",
+        body: "Certification binds a fingerprint of the agent's definition. Your pack should hold those fields verbatim, plus battery, passing run, and model.",
         decision: "Where the pack is stored, and who can read it during an audit.",
-        trap: "A pack assembled from the documentation rather than from the definition. They diverge silently.",
+        trap: "A pack assembled from documentation rather than definition.",
       },
       {
         title: "Expect certification to be refused for three specific reasons",
