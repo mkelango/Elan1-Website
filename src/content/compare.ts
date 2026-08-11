@@ -132,7 +132,7 @@ export const COMPARISONS: Comparison[] = [
       {
         dim: "Whether a refusal is demonstrable",
         them:
-          "Guardrails are expressed as topic scope, action permissions and the platform's own validation and sharing rules — configuration a admin can show you in the org.",
+          "Guardrails are expressed as topic scope, action permissions and the platform's own validation and sharing rules — configuration an administrator can show you in the org.",
         us:
           "As a string you can ask us to raise, live, in a demo. The governed writer declines the write, appends a refused event to the chain, and persists nothing: \"pricing integrity: sale price {sale} exceeds MRP {mrp} (Legal Metrology)\". The test we invite you to apply to us, and to them: ask to see the refusal, not the policy.",
       },
