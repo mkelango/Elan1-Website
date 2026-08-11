@@ -227,8 +227,8 @@ export const GLOSSARY: Term[] = [
     category: "The idea",
     usage: "elan1",
     aka: ["K1", "K2", "K3", "K4", "K5", "K6", "K7", "K8"],
-    def: "elan1's internal shorthand for the shared core's pillars: identity and tenancy, the agent and model runtime, connectors, skills, the human approval gate, the audit chain, policy and governance, and metering — numbered K1 through K8 in that order. They surface in the product's own screens and refusal text, so they are worth recognising.",
-    why: "They are our numbering, not a standard and not a compliance framework. Wherever this site uses one it names the mechanism beside it, and this glossary indexes the mechanism rather than the code.",
+    def: "elan1's internal shorthand for the shared core's pillars: identity and tenancy, the agent and model runtime, connectors, skills, the human approval gate, the audit chain, policy and governance, and metering — numbered K1 through K8 in that order. They surface in the product's own screens and refusal text.",
+    why: "Our numbering, not a standard and not a compliance framework. This site names the mechanism beside the code, and this glossary indexes the mechanism.",
     see: ["Human approval gate", "Hash-chained audit"],
   },
 
