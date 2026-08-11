@@ -239,51 +239,51 @@ export const COMPARISONS: Comparison[] = [
       {
         dim: "Where the record lives",
         them:
-          "The grounding corpus is the work graph — mail, files, chats, meetings. Custom agents store their own state in Dataverse. The business record stays in the line-of-business system, reached through a connector.",
+          "Work graph (mail, files, chats, meetings) in M365. Dataverse for state. LOB records via connector.",
         us:
-          `In elan1. ${factValue("systemsOfRecord")} systems of record and ${factValue("objectTypes")} typed object types, natively — which is why a control at the write is available at all: there is a writer to put it in.`,
+          `${factValue("systemsOfRecord")} systems natively with ${factValue("objectTypes")} types. Writer available because record exists.`,
       },
       {
         dim: "What the audit proves",
         them:
-          "Purview records the agent interactions and the content actions across the estate, and each connected system keeps its own change history — a trail per system, joined by the investigator.",
+          "Purview records interactions/actions, each system keeps own history, trails joined by investigator.",
         us:
-          "One trail with the linkage built in: the prior record state, the policy decision, the human approver and the hash of the preceding event. A trigger on the audit table raises on UPDATE and DELETE — for the table owner too — so deletion is not a permission anyone can be granted, and the chain can be recomputed offline to show nothing was edited after the fact.",
+          "One trail with linkage: prior state, policy, approver, hash of preceding. Trigger on UPDATE/DELETE (owner included); offline-recomputable.",
       },
       {
         dim: "Whether a refusal is demonstrable",
         them:
-          "A data-loss-prevention policy blocks a connector combination at design or run time, and the platform reports the block — a control expressed in the admin surface.",
+          "DLP blocks connector combo, reports in admin surface.",
         us:
-          "As a business-language string on the write path, raised live: \"a claim can only be approved against an ACTIVE policy (coverage grounding — a lapsed / cancelled policy is not in force)\". The refusal names the record it protected, lands in the audit beside it, and returns the status that is true — because a governance denial working must not look identical to a system breaking.",
+          "Business-language string live: \"claim only approved against ACTIVE policy (lapsed/cancelled not in force)\". Audit beside record.",
       },
       {
         dim: "How a vertical is delivered",
         them:
-          "Industry accelerators, templates and partner solutions layered on the Power Platform and Dynamics stack, plus whatever the customer builds in Copilot Studio.",
+          "Accelerators, templates, partner solutions on Power Platform/Dynamics.",
         us:
-          `${factValue("verticalPacks")} packs as configuration over the same applications, each adding the record no horizontal app owns — the entitlement, whether coverage is in force, the lot genealogy behind a recall — plus its own refusals and a governance signature that becomes policy rather than a document.`,
+          `${factValue("verticalPacks")} packs as config, each adds record no app owns, signature becomes policy.`,
       },
       {
         dim: "Who approves a consequential write",
         them:
-          "Whoever the destination system says. An agent's action reaches the line-of-business system through the connector and lands under that system's approval and permission model.",
+          "Destination system decides via connector; lands under system's approval/permission.",
         us:
-          "One human, at one gate, in the writer — and the same gate whether the change came from a screen, an API client or an agent. Where a writer flags maker-checker, the requester cannot approve their own request and the administrator role does not bypass it.",
+          "One gate in writer, same for screen/API/agent. Maker-checker segregates; admin does not bypass.",
       },
       {
         dim: "What happens on rollback or incident",
         them:
-          "Disable the agent, revoke the connector, or tighten the environment's policy — administered through the Power Platform admin centre and Entra, tools your security team already runs.",
+          "Disable agent, revoke connector, tighten policy via admin centre/Entra.",
         us:
-          "A single suspend action stops an application's whole agent fleet at once, identifies itself in its own refusal text as an incident kill-switch so a deliberate stop is never read as a configuration gap, preserves the enabled set, and survives a restart. Lifting it expands access again, so lifting it is the part that needs an approval. Stated limit: it stops the agent fleet, not that application's direct writes to its own store.",
+          "Single suspend stops fleet immediately, preserves enabled set, survives restart. Lift needs approval. Stops agents, not direct writes.",
       },
       {
         dim: "What the agent may reach",
         them:
-          "The connector catalog is very large, and DLP policy is how an administrator constrains which of it an agent may combine.",
+          "Large connector catalog; DLP constrains agent combinations.",
         us:
-          `${factValue("connectors")} connectors, registered and callable — and the connectors page names, one by one, which of them ship a modelled adapter by default and reach an external system only once an endpoint is configured, so a demonstration is never mistaken for an integration. On the governed grant path a grant is drawn from the operations a connector actually declares, and asking for a scope it does not expose is refused by the scope lattice before a credential is involved.`,
+          `${factValue("connectors")} connectors; grant drawn from declared operations. Unexposed scope refused before credential.`,
       },
     ],
     whereTheyLead: [
