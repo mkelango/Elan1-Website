@@ -12,41 +12,41 @@ export const solutions: Solution[] = [
     industry: "Healthcare & life sciences",
     tagline: "The scribe drafts. The clinician decides. The write path holds the line.",
     challenge:
-      "health1 runs provider patient access, revenue cycle, clinical documentation, interoperability and population health on a 25-type clinical system of record where a PHI write without an active patient consent is refused, the eligibility verdict and the quality rate are computed rather than typed, and every clinical note is re-classified on every write.",
+      "A 25-type clinical system of record spanning patient access, revenue cycle, documentation, interoperability and population health. A PHI write without an active patient consent is refused. Eligibility verdicts and quality rates are computed, never typed. Every clinical note is re-classified on every write.",
     composedOf: ["finance1", "insight1", "project1"],
     accent: ACCENT.green,
     useCases: [
       {
         title: "The consent gate, on create and on update",
-        description: "Six object types are declared PHI — encounter, clinical_note, condition, allergy, observation, medication — and a write to any of them is refused without an active consent for the resolved patient: \"no active patient consent — a clinical record requires consent (DPDP/ABDM/HIPAA)\". A partial PATCH that carries no patient_id resolves the stored one, so a record does not stay writable after a patient withdraws. The same gate stands on the read side: the advisor, the risk, care-gap, coding and summary endpoints all refuse before reading anything, and the population worklist skips each unconsented patient and reports how many.",
+        description: "Six object types are PHI — encounter, clinical_note, condition, allergy, observation, medication — and a write to any is refused without an active consent for the resolved patient: \"no active patient consent — a clinical record requires consent (DPDP/ABDM/HIPAA)\". A PATCH carrying no patient_id resolves the stored one, so withdrawal closes the record. The read side refuses first too — advisor, risk, care-gap, coding, summary — and the population worklist skips each unconsented patient and reports how many.",
       },
       {
         title: "A clinical decision cannot be laundered into the record",
-        description: "Safety_status is recomputed from the note's effective summary on every write, so PATCH {\"safety_status\": \"safe\"} changes nothing; the refusal reads the effective status, so amending an already-signed note into a diagnosis is refused too. The classifier is intent-based and negation-aware — declining to diagnose is not diagnosing — and matches the verb prescrib* rather than the noun, so a scribe documenting the prescription a clinician actually issued is not blocked.",
+        description: "Safety_status is recomputed from the note's effective summary on every write, so PATCH {\"safety_status\": \"safe\"} changes nothing, and amending an already-signed note into a diagnosis is refused on the same read. The classifier is intent-based and negation-aware — declining to diagnose is not diagnosing — and matches the verb prescrib* rather than the noun, so documenting a prescription a clinician issued is not blocked.",
       },
       {
         title: "Numbers computed from the record, not accepted from the payload",
-        description: "The eligibility status is derived from the patient's coverage; a claim is clean only with active coverage AND codes AND a positive amount; an observation's abnormal flag comes from its own recorded reference range; a medication's conflict comes from the patient's recorded active allergies including five cross-sensitivity families; a quality measure's numerator, denominator and rate are counted from care plans. Every branch fires on every write, so a supplied value does not survive.",
+        description: "Eligibility status derives from the patient's coverage; a claim is clean only with active coverage AND codes AND a positive amount; an observation's abnormal flag comes from its own recorded reference range; a medication conflict comes from the patient's active allergies including five cross-sensitivity families; a quality measure's numerator, denominator and rate are counted from care plans. Every derive fires on every write, so a supplied value does not survive.",
       },
       {
         title: "Refusals that stand between a draft and a commitment",
-        description: "\"cannot submit a claim with no procedure/diagnosis codes\" · \"cannot submit a claim with a non-positive amount\" · \"cannot publish a quality measure over an empty cohort — no grounded denominator\". Thirteen transitions across nine object types are human-gated at K5, including both directions of consent — revoking closes the PHI gate, and granting it opens one, so a person decides either way.",
+        description: "\"cannot submit a claim with no procedure/diagnosis codes\" · \"cannot submit a claim with a non-positive amount\" · \"cannot publish a quality measure over an empty cohort — no grounded denominator\". Thirteen transitions across nine object types are human-gated at K5, including both directions of consent — revoking closes the PHI gate and granting it opens one, so a person decides either way.",
       },
       {
         title: "The care spine, recomputed at the boundary",
-        description: "A paid claim posts a finance1 AR invoice; an activated care plan opens a project1 care-delivery project; a published quality measure lands an insight1 insight. A governed endpoint recomputes two invariants over the LIVE sibling records — how many PHI or clinical field names crossed, and how many hand-off paths are not downstream of a K5 approval — and reports the records it actually scanned alongside the ones it could not read, so an empty or degraded scan cannot report as a clean one.",
+        description: "A paid claim posts a finance1 AR invoice; an activated care plan opens a project1 care-delivery project; a published quality measure lands an insight1 insight. A governed endpoint recomputes two invariants over the LIVE sibling records — how many PHI or clinical field names crossed, and how many hand-off paths sit outside a K5 approval — and reports the records it scanned alongside the ones it could not read, so an empty or degraded scan cannot report as a clean one.",
       },
       {
         title: "Interoperability as a scoped, region-refused seam",
-        description: "Three connectors, each residency-bound: any call from outside the in region is refused with \"cross-border PHI is not allowed\". FHIR R4 stamps US-Core and ABDM/NRCeS profiles, refuses a non-conformant push at the seam, and reports its own mode — it reads a live R4 endpoint when one is configured, and health1's own record otherwise. The ABDM HIE-CM connector decides nothing and writes nothing: it returns instructions the governed writer performs, validated, gated and audited. The interop route accepts only these three connector ids, and refuses a credential reference supplied by a caller.",
+        description: "Three connectors, each residency-bound: a call from outside the in region is refused with \"cross-border PHI is not allowed\". FHIR R4 stamps US-Core and ABDM/NRCeS profiles, refuses a non-conformant push at the seam, and reports its own mode — a live R4 endpoint when one is configured, health1's own record otherwise. The ABDM HIE-CM connector decides nothing and writes nothing: it returns instructions the governed writer performs, validated, gated and audited. The route accepts only these three connector ids, and refuses a caller-supplied credential reference.",
       },
       {
         title: "health1.care_advisor — the pack's own agent, on its own record",
-        description: "Advisory tier, self-verifying, approval-required, with its policy tags derived from the health1 governance signature rather than hand-written. It reads a consent-gated record and lands its words as a DRAFT clinical note through the same governed writer a human uses — same derive, same refusal. When nothing matched it says so in those words: \"That is not a clearance — it is the limit of what is written down here.\"",
+        description: "Advisory tier, self-verifying, approval-required, with policy tags derived from the health1 governance signature rather than hand-written. It reads a consent-gated record and lands its words as a DRAFT clinical note through the same governed writer a human uses — same derive, same refusal. When nothing matched: \"That is not a clearance — it is the limit of what is written down here.\"",
       },
       {
         title: "A Trust Mark that can be refused, and revoked",
-        description: "Six eval sets and nine cases scored over live samples from the record: grounding, clinical safety, fairness, PHI minimisation, engine-never-acts-for-the-human (an exact-phrase floor plus a paraphrase classifier), and the two recomputed spine facts. Cases carry measured by companions, so a tenant with no published metric is scored not-measurable rather than passing on an empty sample — and the receipt names every claim it did not attest. Re-running the battery revokes a valid mark that no longer passes.",
+        description: "Six eval sets and nine cases scored over live samples from the record: grounding, clinical safety, fairness, PHI minimisation, engine-never-acts-for-the-human (an exact-phrase floor plus a paraphrase classifier), and the two recomputed spine facts. Cases carry measured-by companions, so a tenant with no published metric is scored not-measurable rather than passing on an empty sample — and the receipt names every claim it did not attest. Re-running the battery revokes a valid mark that no longer passes.",
       },
     ],
     compliance:
