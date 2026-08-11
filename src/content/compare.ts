@@ -534,33 +534,33 @@ export const COMPARISONS: Comparison[] = [
       {
         title: "Decades of functional depth we have not accumulated",
         body:
-          "Statutory reporting, country localisations, tax regimes, industry modules, and the long tail of edge cases that only tens of thousands of implementations discover. If your requirement is on that long tail, they have met it before and we have not. This is the single largest honest gap on this page.",
+          "Statutory, localizations, tax, industry, long tail of edge cases from thousands. If on tail, they've met it; we haven't. Largest honest gap here.",
       },
       {
         title: "An ecosystem: partners, implementers, a hiring pool and a training market",
         body:
-          "You can hire someone who has done your implementation before, in your country, in your industry. You can fire a partner and find another. For many organisations the implementer matters more than the platform, and that market exists for these suites and does not exist for elan1.",
+          "Hire locals who've done it. Fire/find partners. Market exists for suites, not elan1. Implementer often matters more than platform.",
       },
       {
         title: "Proven at scale, over a long time, under regulator scrutiny",
         body:
-          "These systems run supply chains, ledgers and payrolls that predate most software categories, and they have survived audits, migrations, mergers and regulatory change for decades. Longevity is evidence. elan1 has none of it yet, and no amount of architecture argument substitutes for it.",
+          "Supply chains, ledgers, payrolls surviving decades of audits/mergers/regulatory change. Longevity is evidence. elan1 has none.",
       },
       {
         title: "Odoo, Frappe and ERPNext: open source, self-hostable, forkable",
         body:
-          "You can read every line you run, host it where you like, patch it yourself, and leave without asking anyone. That is a real and permanent answer to vendor risk, and it is one elan1 does not offer.",
+          "Read, host where you like, patch, leave free. Real answer to vendor risk. elan1 doesn't offer.",
       },
     ],
     whenToPickThem:
-      "Choose an established suite, not elan1, if you need decades-deep statutory and localisation coverage on day one, if your implementation depends on a partner ecosystem at a scale we do not have, or if the ability to read and fork the source is a hard requirement.",
+      "Choose suite if you need decades-deep statutory/localisation day one, partner ecosystem at scale, or fork ability.",
     ourLimits: [
-      "Functional depth: an established suite has met statutory, tax and industry edge cases we have not. We would rather you test us on the long tail early than discover it in month four.",
-      "No partner or implementation ecosystem, no certified-consultant market, no third-party training industry.",
-      "No SOC 2 and no ISO 27001 certification is held today, and no third-party penetration-test report is on file.",
-      "No named customers, no reference sites and no published deployment history — the longevity argument runs entirely against us.",
-      "elan1 is not open source and is not self-hostable today. If forkability is your answer to vendor risk, we do not have an equivalent.",
-      "run1 ships no service-level-agreement machinery today, and the resilience logic is real while the multi-node deployment is not.",
+      "Functional depth: edge cases not met. Test on long tail early, not month four.",
+      "No partner ecosystem, no consultant market, no training industry.",
+      "No SOC 2, no ISO 27001, no pen test report.",
+      "No named customers, references, deployment history—longevity against us.",
+      "Not open source, not self-hostable. No forkability answer to vendor risk.",
+      "No SLA machinery, resilience logic real, multi-node not.",
     ],
     proofPoints: [
       {
