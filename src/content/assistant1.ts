@@ -87,11 +87,11 @@ export const ASSISTANT_CAPABILITIES: AssistantCapability[] = [
 
 /** What it is NOT — stated plainly, because the category is full of overclaiming. */
 export const ASSISTANT_BOUNDARIES: string[] = [
-  "It holds no writer for a business system of record. It proposes; the owning app decides. It does write its own conversation, and a fact you pin is stored as you asked — that write is immediate rather than gated.",
-  "It does not browse the open web, and it does not read across tenants.",
-  "It does not replace an approver. A consequential action still needs a person.",
-  "The model-backed natural-language engine is opt-in. Left off, the assistant matches named intents and looks up records rather than conversing freely — a deliberate default, and the one you should assume when you first meet it.",
-  "It is not a general-purpose chatbot bolted onto a suite — it runs on the same core, identity and audit as every app.",
+  "No business-system writer; proposes only. Owns conversation record, pinned facts stored as requested.",
+  "No web access; no cross-tenant reads.",
+  "Does not replace an approver. Consequential actions need human sign-off.",
+  "Model-backed NL is opt-in. Default: named-intent matching, never freeform conversation.",
+  "Not a chatbot bolted on; runs on platform core with identity and audit.",
 ];
 
 export const ASSISTANT_SEO = {
