@@ -497,9 +497,9 @@ const SOURCES: PlaybookSource[] = [
       },
       {
         title: "Write down how the classifier can be wrong",
-        body: "The battery's verdict comes from a classifier reading the response text — the app's own semantic one rather than a keyword list. Classifiers have characteristic failure shapes: a contrastive decline that reads as an offer, a request that collapses to its noun and loses the intent. Record the known false positives beside the battery, because whoever reads a failed case in six months will otherwise re-derive them from scratch, or worse, edit the case.",
+        body: "Classifiers have characteristic failure shapes. Record known false positives beside the battery.",
         decision: "Who owns the classifier's known-error list, and where it lives.",
-        trap: "Tuning the classifier until a case passes. That is editing the instrument to fit the reading.",
+        trap: "Tuning the classifier until a case passes.",
       },
       {
         title: "Collect the definition, not a description of it",
