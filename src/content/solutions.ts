@@ -283,7 +283,7 @@ export const solutions: Solution[] = [
       "The insure1 Launchpad: claims triage & FNOL live and under the fairness gates, in 4–6 weeks, then operated on a run1 retainer.",
     pricingNote:
       "Fixed Launchpad fee, then per-claim/seat pricing plus a run1 retainer. Illustrative; not insurance, financial, or compliance advice.",
-    wedge: "COVERAGE-GROUNDED ADJUDICATION, enforced in the insurance write path at the moment of approval. A claim can only move to approved if its policy is currently active, AND only if remaining_coverage (sum insured LESS the coverage-capped paid_amount of prior approved/paid claims) is still above zero — both COMPUTED from the live record, neither read from a stored field. If some coverage remains but less than the claim asks, the composition caps the payout: payout = min(asked, remaining) is what gets stored as paid_amount and what posts to finance1 as the AP.",
+    wedge: "Coverage-grounded adjudication enforced at approval. Claim approval requires active policy AND remaining coverage > 0, both computed live. Payout capped to min(asked, remaining).",
     problem: [
       "Coverage lives in a policy document and the payment lives in a ledger, with nothing in between that can refuse a payout the policy no longer covers.",
       "A fraud signal and a denial are different decisions, and any engine able to set a claim to 'denied' can quietly collapse them into one.",
