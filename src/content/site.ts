@@ -42,21 +42,18 @@ export const LAYERS: Record<
     label: "Platform",
     tag: "What it runs on",
     blurb: "One control plane, plus the pillars that build, prove and operate your agents.",
-    accent: "#b9603f",
     href: "/platform",
   },
   products: {
     label: "Products",
     tag: "What we deploy",
     blurb: "The 1 Suite — ten agentic apps in five categories, unified on enterprise1.",
-    accent: "#2f6df0",
     href: "/products",
   },
   solutions: {
     label: "Solutions",
     tag: "Who we serve",
     blurb: "Ten industry solutions that compose the suite with sector skills and the governance your regulator expects.",
-    accent: "#d39a3a",
     href: "/solutions",
   },
 };
@@ -174,8 +171,8 @@ export const NAV: NavItem[] = [
         // `desc` rather than as a link to nowhere: a nav entry is a promise that a page exists.
         heading: "The control plane",
         links: [
-          { label: "enterprise1", href: "/platform/enterprise1", desc: "Governance, identity, audit and wave rollout for every app", accent: "#b9603f" },
-          { label: "assistant1", href: "/platform/assistant1", desc: "The governed central assistant — it proposes, the app decides", accent: "#5ad1c0" },
+          { label: "enterprise1", href: "/platform/enterprise1", desc: "Governance, identity, audit and wave rollout for every app" },
+          { label: "assistant1", href: "/platform/assistant1", desc: "The governed central assistant — it proposes, the app decides" },
           pillarLink("agent1", "The studio where a governed agent is built, evaluated and compiled"),
         ],
       },
@@ -186,7 +183,7 @@ export const NAV: NavItem[] = [
         // second place in someone else's word is worth nothing.
         heading: "Enterprise Ontology",
         links: [
-          { label: "The record model", href: "/platform/enterprise-ontology", desc: "Typed objects across the systems of record — what a write is validated against", accent: "#2f6df0" },
+          { label: "The record model", href: "/platform/enterprise-ontology", desc: "Typed objects across the systems of record — what a write is validated against" },
           { label: "Connectors — MCP-native", href: "/platform/connectors", desc: "Typed, least-privilege seams; credential-gated, never pre-connected" },
           { label: "Verticals are config, not forks", href: "/platform/verticals-are-config", desc: "Ten industries, zero forked application code" },
         ],
@@ -285,11 +282,11 @@ export const NAV: NavItem[] = [
       {
         heading: "By initiative",
         links: [
-          { label: "Agentic transformation", href: "/solutions/initiatives/agentic-transformation", desc: "From AI to an agentic org", accent: "#df8c64" },
-          { label: "Customer experience", href: "/solutions/initiatives/customer-experience", desc: "Resolve, personalize, grow", accent: "#2f6df0" },
-          { label: "Cost & FinOps", href: "/solutions/initiatives/cost-finops", desc: "More, for less", accent: "#3fae6b" },
-          { label: "Compliance & governance", href: "/solutions/initiatives/compliance", desc: "Deploy with evidence", accent: "#e0656d" },
-          { label: "Legacy modernization", href: "/solutions/initiatives/legacy-modernization", desc: "Wrap, don't rip", accent: "#7c6cf0" },
+          { label: "Agentic transformation", href: "/solutions/initiatives/agentic-transformation", desc: "From AI to an agentic org" },
+          { label: "Customer experience", href: "/solutions/initiatives/customer-experience", desc: "Resolve, personalize, grow" },
+          { label: "Cost & FinOps", href: "/solutions/initiatives/cost-finops", desc: "More, for less" },
+          { label: "Compliance & governance", href: "/solutions/initiatives/compliance", desc: "Deploy with evidence" },
+          { label: "Legacy modernization", href: "/solutions/initiatives/legacy-modernization", desc: "Wrap, don't rip" },
         ],
       },
     ],
@@ -406,10 +403,10 @@ export const METHOD = [
 // The motion is unchanged; only the first label was tied to the retired "Services" section.
 // A first engagement is strategy1, the pillar that plans and lands the work under Platform.
 export const FLYWHEEL = [
-  { label: "A sprint lands", body: "A fixed-scope strategy1 engagement ships the first proof.", accent: "#7c6cf0" },
-  { label: "Products expand", body: "The win graduates into a 1 Suite app.", accent: "#2f6df0" },
-  { label: "Solutions deepen", body: "Industry skills + governance compound value.", accent: "#d39a3a" },
-  { label: "Trust carries forward", body: "The control plane, the connector grants and the governance signature are reused rather than rebuilt.", accent: "#e0656d" },
+  { label: "A sprint lands", body: "A fixed-scope strategy1 engagement ships the first proof." },
+  { label: "Products expand", body: "The win graduates into a 1 Suite app." },
+  { label: "Solutions deepen", body: "Industry skills + governance compound value." },
+  { label: "Trust carries forward", body: "The control plane, the connector grants and the governance signature are reused rather than rebuilt." },
 ];
 
 export const WHY_WIN = [
