@@ -161,7 +161,7 @@ export const services: Service[] = [
     name: "assure1",
     tagline: "No eval, no Trust Mark.",
     promise:
-      "A Trust Mark is minted only from an eval run that passed and scored at least one case — and it is withdrawn when the definition, the evidence, or the model beneath it moves. assure1 is that gate, and the register that shows how much of your estate holds one.",
+      "Trust Mark only from a passing eval. Withdrawn when definition, evidence, or model moves.",
     whoFor: "For regulated and risk-aware teams who have to show the evidence rather than describe it — and who would rather read an honest \"not measured\" than a green tick that means nothing.",
     accent: ACCENT.rose,
     offerings: [
