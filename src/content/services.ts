@@ -134,7 +134,7 @@ export const services: Service[] = [
       "Evals, guardrails, and operational handoff",
     ],
     whyElan1:
-      "Two things here you can check rather than take on trust. The studio refuses builds: an advisory blueprint holding a control-system connector raises instead of compiling, and three vertical packs run through that guard every time they import. And a mark cannot be minted without evidence: Trust Mark issuance refuses an eval run that scored zero cases, refuses one that did not pass, and refuses one belonging to another tenant. What we have not done is measure speed, cost or accuracy in a customer environment — so we do not claim it. Integration is the honest exception too: the shared connector fabric ships as high-fidelity stand-ins, and making one real means wiring a native adapter or pointing an MCP connector at your actual server. That is engagement work, and we scope it as engagement work.",
+      "Builds refuse unsafe blueprints. Marks require passing evals. Integration needs engagement work.",
     outcomes: [
       "An advisory agent that cannot hold a control-system connector — the build raises instead of compiling",
       "A Trust Mark bound to a content hash of the agent's definition, so editing the definition revokes the mark rather than outliving it",
