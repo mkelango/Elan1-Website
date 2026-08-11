@@ -264,9 +264,9 @@ const SOURCES: PlaybookSource[] = [
       },
       {
         title: "Bind the approval to the payload, not to the intent",
-        body: "An approval is bound to the action and to a fingerprint of the exact payload, and it is consumed on use — so a token approved for one operation cannot be spent on another, and a payload edited after approval no longer matches the token that authorised it. The operational consequence sits on your side of the line: your approvers are approving a specific payload, so an approval screen that shows a friendly summary and not the payload is a gap in your process rather than in the mechanism.",
+        body: "An approval is bound to the action and a content-hash fingerprint of the exact payload; consumed on use. A token approved for one operation cannot be spent on another.",
         decision: "What an approver must see on screen for the approval to mean anything.",
-        trap: "Approving a description. The fingerprint is over the payload; the description is not what executes.",
+        trap: "Approving a description, not the payload. The fingerprint is over what executes.",
       },
       {
         title: "Maker-checker is a tag plus two people",

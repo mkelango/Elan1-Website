@@ -475,32 +475,32 @@ export const products: Product[] = [
       {
         title: "demand_planner — demand planning",
         description:
-          "Forecasts per-SKU demand from that SKU's committed-order history. Too little history comes back ungrounded — \"no committed-PO history for sku\" — never as an invented number. Read-only; the projected gap is what replenishment plans against.",
+          "Forecasts per-SKU demand from history. Too little history: ungrounded, never invented.",
       },
       {
         title: "reorder — replenishment",
         description:
-          "Compares projected availability against each reorder rule's minimum and maximum, and drafts consolidated orders by preferred supplier. Drafts only — the spec is declared requires-approval at the human-led tier, and each drafted order still meets the approved-vendor check.",
+          "Compares availability to min/max rules, drafts orders to preferred supplier. Approved vendor check applied.",
       },
       {
         title: "procurement — the buying surface",
         description:
-          "Purchase orders, RFQs ranked from real quotations, requisitions, goods receipts with three-way match, blanket orders with a computed cap. The judge runs before the write.",
+          "POs, RFQs, requisitions, goods receipts, blanket orders. Judge runs before write.",
       },
       {
         title: "supplier_risk — the approved-vendor registry",
         description:
-          "Keeps the registry and scorecards, scoring delivery, quality and single-source concentration. An unapproved supplier is never returned as recommended.",
+          "Scores delivery, quality, concentration. Unapproved never recommended.",
       },
       {
         title: "inventory — warehouses, transfers and valuation",
         description:
-          "Per-warehouse stock with computed available-to-promise, governed transfers, and a stock ledger where every valued movement carries a cost replayed rather than typed. Handing the value to finance1 drafts an inventory journal a finance1 human posts.",
+          "Per-warehouse stock, computed available-to-promise. Cost replayed, never typed.",
       },
       {
         title: "quality — incoming QC, recalls and returns",
         description:
-          "Inspects receipts, holds batches, drives first-expiry-first-out and return-to-vendor. A recall hands to service1, which owns the customer outcome.",
+          "Inspects, holds batches, FEFO, return-to-vendor. Recall hands to service1.",
       },
     ],
     outcomes: [
