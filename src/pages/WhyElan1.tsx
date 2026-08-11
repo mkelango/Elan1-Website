@@ -281,7 +281,9 @@ export default function WhyElan1() {
         </div>
       </Section>
 
-      {/* Run it like a business */}
+      {/* Run it like a business — with the former standalone "Proof points" band folded in below.
+          Both answered "what does it look like to operate this today"; two bands of equal weight,
+          one after the other, was the repetition. Every derived factLine survives. */}
       <Section tone="mist">
         <SectionHead kicker="Run it like a business" title="A CFO/COO pane over governed work." />
         <div className="mt-12 grid gap-4 sm:grid-cols-3">
@@ -295,19 +297,19 @@ export default function WhyElan1() {
             </Reveal>
           ))}
         </div>
-      </Section>
 
-      {/* Proof points */}
-      <Section tone="paper">
-        <SectionHead kicker="Proof points — today" title="Not a roadmap. A running platform." />
-        <ul className="mt-10 grid gap-3 sm:grid-cols-2">
-          {proof.map((p, i) => (
-            <Reveal as="li" key={i} delay={(i % 2) * 0.06} className="flex items-start gap-3 rounded-card border border-line bg-surface p-5">
-              <span className="mt-0.5 text-green"><Icon.Check className="h-5 w-5" /></span>
-              <span className="text-[15px] leading-relaxed text-slate">{p}</span>
-            </Reveal>
-          ))}
-        </ul>
+        <div className="mt-16 border-t border-line pt-12">
+          <Kicker accent="#3fae6b">Proof points — today</Kicker>
+          <h3 className="display mt-4 text-2xl text-ink">Not a roadmap. A running platform.</h3>
+          <ul className="mt-8 grid gap-3 sm:grid-cols-2">
+            {proof.map((p, i) => (
+              <Reveal as="li" key={i} delay={(i % 2) * 0.06} className="flex items-start gap-3 rounded-card border border-line bg-surface p-5">
+                <span className="mt-0.5 text-green"><Icon.Check className="h-5 w-5" /></span>
+                <span className="text-[15px] leading-relaxed text-slate">{p}</span>
+              </Reveal>
+            ))}
+          </ul>
+        </div>
       </Section>
 
       <CTASection

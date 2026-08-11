@@ -327,7 +327,7 @@ export const GLOSSARY: Term[] = [
     term: "Hash-chained audit",
     category: "Evidence",
     aka: ["K6", "audit trail", "audit chain"],
-    def: "An append-only log, per tenant, in which each event's hash is computed over its own fields including the previous event's hash. Verification recomputes the chain rather than displaying a stored verdict, so any change to a recorded event is detectable end to end. The trail records field keys, decisions and hashes rather than raw values, which is what lets an erasure request and an unalterable log coexist.",
+    def: "An append-only log, per tenant, in which each event's hash is computed over its own fields including the previous event's hash. Verification recomputes the chain rather than displaying a stored verdict, so any change to a recorded event is detectable. The trail records field keys, decisions and hashes rather than raw values, which is what lets an erasure request and an unalterable log coexist.",
     why: "An audit log is only evidence if it cannot be edited, trimmed or quietly re-rooted. This one is defended at the data layer, not by convention — see the next entry.",
     see: ["Append-only trigger", "Erasure", "Run trace"],
   },
