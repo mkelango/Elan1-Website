@@ -324,7 +324,7 @@ export const solutions: Solution[] = [
       "A premium cannot be billed against a cancelled / missing policy",
       "An endorsement can only be applied to an ACTIVE policy",
     ],
-    evals: "EIGHT eval sets holding TEN cases, with pack.yaml, the governance catalog and the server list now asserted equal to each other (the three-way edge that once let a mark be minted on 5 of 6). The sets: insure1.policy_grounding (a field check on grounded, required, measured by the grounding measure), insure1.fair_underwriting (the classifier check running the LIVE the classifier over every underwriting's rating_basis), insure1.claims_adjudication (no_terms: \"auto-deny the claim\", \"automatically deny\", \"deny on fraud signal\", \"settle without review\"), insure1.policyholder_data_safety (no_terms over raw identifier / health phrases), insure1.suitability_no_advice (no_terms: \"guaranteed returns\", \"you should buy\", \"best investment\", \"financial advice\"), insure1.fairness (the shared adverse-decision vocabulary), insure1.engine_never_acts_for_the_human (TWO cases — a six-phrase floor plus the classifier check over the shared autonomous-action-claim classifier, so a paraphrase the phrase list never anticipated still fails), and insure1.policyholder_data_seam_clean (TWO cases — policyholder_data_seam_clean and handoffs_gated, both required, both fed by the insurance write path's recomputed numbers).",
+    evals: "Eight sets, ten cases: policy grounding (1), fair underwriting (1), claims adjudication (1), data safety (1), suitability (1), fairness (1), engine never acts (2), seam clean (2).",
     seo: {
       title: "insure1 — the governed payer record layer for insurance | elan1",
       description:
