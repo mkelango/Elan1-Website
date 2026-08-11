@@ -175,7 +175,7 @@ export const WHAT_FOLLOWS: Consequence[] = [
   },
   {
     title: "The record is append-only in the database, not in the API",
-    body: "Each tenant's audit trail is hash-chained, and reading it recomputes the chain rather than displaying a stored verdict. Update and delete are blocked by a database trigger that applies to the table owner too, and a unique constraint on the predecessor means the chain cannot fork into a second, friendlier history. Where damage could not be repaired — because the trigger is correct and applies to us as well — it is declared with a signed marker and a frozen digest instead of being quietly rewritten.",
+    body: "Each tenant's audit trail is hash-chained, and reading it recomputes the chain rather than displaying a stored verdict. Update and delete are blocked by a database trigger that applies to the table owner too, and a unique constraint on the predecessor stops the chain forking into a second, friendlier history. Where damage could not be repaired — the trigger applies to us as well — it is declared with a signed marker and a frozen digest rather than quietly rewritten.",
   },
   {
     title: "No eval, no mark",
