@@ -123,7 +123,7 @@ export const THESIS: ThesisMovement[] = [
   {
     n: "02",
     title: "The difficult half is the instant a proposal becomes a record.",
-    body: "Up to that instant an agent is producing a draft, and a wrong draft costs nothing. One instant later the same output is a payment, a refund, a purchase order, a payslip, a reply the customer has already read. Everything that makes agentic software frightening to a business that is regulated, audited or simply large lives inside that transition — and none of it is fixed by the model reasoning better.",
+    body: "Up to that instant an agent is producing a draft, and a wrong draft costs nothing. One instant later the same output is a payment, a payslip, a reply the customer has already read. Everything that makes agentic software frightening to a regulated business lives inside that transition, and none of it is fixed by the model reasoning better.",
   },
   {
     n: "03",
