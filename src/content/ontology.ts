@@ -180,22 +180,16 @@ export const ONTOLOGY_LAYERS: OntologyLayer[] = [
   {
     id: "record-model",
     name: "The record model",
-    what: `Every record any app writes is an instance of a declared object type, and each system of record declares its own list of them — ${factValue(
-      "objectTypes",
-    )} typed object types in all, of which ${factValue(
-      "systemsOfRecord",
-    )} lists resolve through one shared registry and the CRM store declares its own beside them. Alongside the types, a system of record declares value domains: object type → field → the values that field may hold, so a lifecycle field is a closed set rather than a free string. This is not documentation of the shape. It is the shape, in the form the write path reads.`,
+    what: `${factValue("objectTypes")} typed object types across ${factValue("systemsOfRecord")} systems; value domains declare closed sets per field.`,
     howItShips:
-      "The declarations live in one registry keyed by the system of record's own name, rather than as a parameter passed in at each writer's construction — deliberately, because a parameter is a thing the next system of record gets added without. A writer resolves its schema by name, so a twenty-first system of record is covered the moment it declares its types rather than the moment somebody remembers to wire it. A name the registry does not know resolves to an empty declaration and enforces nothing, which keeps the registry a data contract rather than a naming rule.",
-    verified: `Counted by execution, not by reading: importing the twenty declared type registries yields 379 object types across them, plus 29 more on the CRM store that runs on its own core store — ${factValue(
-      "objectTypes",
-    )} in total, which is the number this site publishes and the derivation it publishes it with.`,
+      "Writer resolves schema by name from registry, not constructor parameter; unknown names enforce nothing.",
+    verified: `Counted by execution: 379 types + 29 CRM = ${factValue("objectTypes")} total, published with derivation method.`,
     refusals: [
-      "unknown object_type '{object_type}' for {sor} — the {sor} system of record declares {n} types and this is not one of them",
-      "{object_type}.{field_name}={value} is not a declared value — {sor}.{object_type}.{field_name} must be one of {allowed}",
+      "unknown object_type '{object_type}' — {sor} declares {n} types",
+      "{object_type}.{field_name}={value} not declared — must be one of {allowed}",
     ],
     limit:
-      "Fewer than half of those object types name a value domain today. A field with no declared domain is not checked, and the declaration's own note is the honest reading of that: an absent domain is a known gap, not a permission. Nothing was invented to fill one in, because a domain invented to make the coverage look better is a rule nobody agreed to, enforced on real data.",
+      "Fewer than half of those object types name a value domain. Absent domain = known gap, not permission.",
     accent: ACCENT.blue,
   },
   {
