@@ -186,8 +186,8 @@ export const GLOSSARY: Term[] = [
   {
     term: "Agentic transformation",
     category: "The idea",
-    def: "Adopting agents as an operating layer for the business rather than as a feature inside an existing app — the work, the record it writes to, and the control over that write all moving together.",
-    why: "Our version of it is deliberately unglamorous: a sequence of functions enabled one at a time, each with a gate, on a control plane that refuses the ones you have not enabled yet.",
+    def: "Adopting agents as an operating layer rather than a feature inside an existing app — the work, the record it writes to, and the control over that write moving together.",
+    why: "Ours is deliberately unglamorous: functions enabled one at a time, each with a gate, on a control plane that refuses the ones you have not enabled yet.",
     see: ["Wave rollout", "Discovery Sprint"],
   },
   {
