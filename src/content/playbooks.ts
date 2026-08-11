@@ -416,9 +416,9 @@ const SOURCES: PlaybookSource[] = [
       },
       {
         title: "Route by task class, decided by an eval",
-        body: "Model routing selects a tier per policy alias, so which work goes to which tier is a written policy rather than a per-developer preference. The right way to move a task class to a cheaper tier is to run that class's battery on both and compare the scores — which makes it an evidence decision that happens to save money, rather than a cost decision that happens to touch safety.",
+        body: "Model routing selects a tier per policy alias. Move a task class to a cheaper tier by running its battery on both and comparing scores.",
         decision: "The task classes, and the battery each one is scored by.",
-        trap: "Routing by intuition and meeting the regression in production, where it costs more than the tier ever saved.",
+        trap: "Routing by intuition and meeting regression in production.",
       },
       {
         title: "Know the four places the number is softer than it looks",
