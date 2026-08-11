@@ -428,7 +428,7 @@ export const solutions: Solution[] = [
       "This store holds {held} reserved unit(s) — customer reservations must be released or fulfilled before it can be closed",
       "Cannot count stock at a CLOSED store",
     ],
-    evals: "SEVEN eval sets / NINE cases, defined once in the governance catalog and read by BOTH certification doors — the pack's evals: list and the server's own eval-set list. That is the point: they once disagreed 2-vs-5, so ONE signature could issue TWO different Trust Marks, and the pack's door was the weaker one — silently skipping pricing integrity, PII safety and consumer protection.",
+    evals: "Seven sets, nine cases: recommendation accuracy (1), brand safety (1), pricing integrity (1), PII safety (1), consumer protection (1), engine never acts (1), seam clean (2).",
     seo: {
       title: "retail1 — MRP-safe merchandising and integrity for retail | elan1",
       description:
