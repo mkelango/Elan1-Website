@@ -190,11 +190,11 @@ export const COMPARISONS: Comparison[] = [
     whenToPickThem:
       "Choose Agentforce, not elan1, if your operating record already is Salesforce, the work you want agents to do lives inside that estate, and you would rather deepen one platform your team already runs than stand a second one up beside it.",
     ourLimits: [
-      "No SOC 2 and no ISO 27001 certification is held today. Both are planned ahead of general availability and we will not imply otherwise until a certificate exists.",
-      "No named customers and no case studies. There is no reference you can call, and nothing on this site claims one.",
-      "No partner ecosystem, no marketplace and no certified-implementer labour market at Salesforce's scale — or at any scale comparable to it.",
-      `A connector catalog of ${factValue("connectors")} registered and callable connectors, which is a fraction of what a twenty-year-old platform's marketplace carries.`,
-      "Coverage of the governed write path is not universal. A build-time check counts the mutating handlers that still write to a store directly and freezes that count as a ceiling that may only fall — we publish the ratchet rather than the slogan.",
+      "No SOC 2, no ISO 27001 today; both planned before GA.",
+      "No named customers, no case studies, no reference calls.",
+      "No partner ecosystem, marketplace, or implementer labour market.",
+      `${factValue("connectors")} connectors, a fraction of Salesforce marketplace.`,
+      "Write path coverage not universal; counted and capped via build-time check.",
     ],
     proofPoints: [
       {
