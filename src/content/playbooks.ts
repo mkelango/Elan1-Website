@@ -422,9 +422,9 @@ const SOURCES: PlaybookSource[] = [
       },
       {
         title: "Know the four places the number is softer than it looks",
-        body: "The rate card is keyed by routing tier, not by model, and it holds an entry per tier. So: a model with no entry is recorded at zero, and that zero is logged and counted as unpriced rather than accepted as free — reconcile the unpriced counter to nothing before you trust a monthly figure. An unrecognised model identifier falls back to the middle tier and is charged at that tier's rate. A provider reached through the compatible client reports the tier as its model name, so calls to it are priced against the same tier rates rather than that provider's own. And a caller that already priced its own usage has that number stored as supplied — the platform respects it rather than recomputing. None of these is a bug; each is a place where a figure means slightly less than a reader will assume.",
+        body: "No entry = unpriced, not free. Unrecognised model falls back to middle tier. Provider client reports tier as model name. Caller-priced usage is stored as-is.",
         decision: "Who checks the unpriced counter, and on what cadence.",
-        trap: "A monthly total that looks excellent because part of it was never priced, or was priced at a tier's rate rather than a provider's.",
+        trap: "A monthly total that looks excellent because part was never priced.",
       },
       {
         title: "Set a budget so the ceiling is yours",
