@@ -269,7 +269,7 @@ export const GLOSSARY: Term[] = [
     category: "The write path",
     usage: "narrowed",
     aka: ["Human-in-the-loop", "HITL", "K5", "maker gate"],
-    def: "The control a consequential action stops at. A request is raised carrying the payload the reviewer will see, a named person approves or rejects it, and only then does the action execute — both the request and the decision land in the audit chain. There is no auto-approve: a decision that misses its deadline escalates, it never decides.",
+    def: "The control a consequential action stops at. A request is raised carrying the payload the reviewer will see, a named person approves or rejects, and only then does the action execute — request and decision both land in the audit chain. There is no auto-approve: a decision that misses its deadline escalates, it never decides.",
     why: "A gate that opens itself when people are slow converts a backlog into unreviewed consequential action, silently, exactly when attention is scarcest.",
     see: ["Approval token", "Maker-checker (segregation of duties)"],
   },
