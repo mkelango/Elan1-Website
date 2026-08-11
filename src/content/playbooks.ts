@@ -515,10 +515,10 @@ const SOURCES: PlaybookSource[] = [
       },
       {
         title: "Treat an un-revoked mark on a changed agent as the incident",
-        body: "A re-published agent whose instructions, tools or approval posture changed produces a new fingerprint, so the prior certification no longer matches, and a drift sweep revokes it. Revocation is the mechanism working as designed. The condition worth alerting on is the opposite one: a mark still showing valid against a definition that has moved.",
+        body: "A changed definition produces a new fingerprint; drift sweep revokes it. Alert on a mark still valid against a moved definition.",
         decision:
-          "What your change process does on revocation — re-run and re-certify, or disable the function until it is re-certified.",
-        trap: "Building a process that treats revocation as a failure and re-issues the mark to make a dashboard green.",
+          "What your change process does on revocation — re-run and re-certify, or disable until re-certified.",
+        trap: "Building a process that treats revocation as a failure.",
       },
       {
         title: "Handle a model change as a second kind of drift",
