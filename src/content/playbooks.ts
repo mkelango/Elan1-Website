@@ -169,9 +169,9 @@ const SOURCES: PlaybookSource[] = [
     steps: [
       {
         title: "Write the roadmap as functions, not departments",
-        body: "Enablement is staged per tenant, and the unit is one app function — not one app, not one team. A function outside the enabled set is refused before it acts: \"{app}.{function} not enabled for tenant {ctx.tenant_id}\" — braces are values the platform fills in at runtime — and the blocked run lands on the audit chain. The sequence is a state the control plane holds, not a promise in a deck.",
+        body: "Enablement is per function per tenant. A function outside the enabled set is refused: \"{app}.{function} not enabled for tenant {ctx.tenant_id}\" — and the blocked run lands on the audit chain.",
         decision: "Which named functions are in wave one, and who is allowed to add the next one.",
-        trap: "A plan written in teams and quarters. It survives exactly as long as everyone's goodwill does.",
+        trap: "A plan written in teams and quarters will not hold without a control plane to enforce it.",
       },
       {
         title: "Make wave one advisory by construction",
