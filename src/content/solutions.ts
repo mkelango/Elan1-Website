@@ -1078,7 +1078,7 @@ export const solutions: Solution[] = [
       "\"a meter reading's kwh must be a number (VEE)\" — /Users/elango/Desktop/Nooru dot ai website/elan1",
       "\"meter reading {k:.0f} kWh exceeds the physical maximum for a {cap:.0f}kW DER over a month (VEE — implausible; check the register)\" — /Users/elango/Desktop/Nooru dot ai website/elan1",
     ],
-    evals: "SEVEN eval sets, NINE cases, all declared identically in pack.yaml, the governance catalog and the server — kept identical by an assertion that the pack's battery IS the signature's, not a copy of it. The sets: grounding (are published metrics grounded), grid_safety, green_attribute_integrity, consumer_data_safety, critical_infra_security, engine_never_acts_for_the_human (2 cases), prosumer_data_seam_clean (2 cases).",
+    evals: "Seven sets, nine cases: grounding (1), grid safety (1), green attribute integrity (1), prosumer data safety (1), critical infra security (1), engine never acts (2), seam clean (2).",
     seo: {
       title: "energy1 — agentic DER, REC and net-metering ops | elan1",
       description:
