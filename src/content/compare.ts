@@ -350,13 +350,13 @@ export const COMPARISONS: Comparison[] = [
       description:
         "Glean's permission-faithful retrieval graph is genuinely strong and it now ships agent governance. elan1 governs the write into the record. An honest comparison, with concessions and our own limits.",
     },
-    headline: "Glean makes the estate findable. elan1 makes the write refusable.",
+    headline: "Glean finds; elan1 governs the write.",
     subhead:
-      "Retrieval and governance are not competing answers to the same question. One is about what an agent can know. The other is about what it can change — and the second is the one a regulator asks about.",
+      "Retrieval and governance are different questions. One: what can it know. Two: what can it change. Regulator asks about two.",
     theirModel:
-      "Glean indexes your connected applications into a retrieval graph — a search and knowledge layer that mirrors each source system's permissions at index time, so a person retrieves only what they were already entitled to see. On top of it sit Glean Assistant and Glean Agents: an agent builder with agentic reasoning over that graph, and governance shipped around those agents rather than bolted on afterwards. Permission-faithful enterprise search across a large, messy estate is a genuinely hard engineering problem and Glean is very good at it. Where an agent acts rather than answers, the action goes out through a connector into the application that owns the record, and the write lands under that application's rules.",
+      "Glean indexes connected apps into retrieval graph, mirrors permissions at index time. Assistant and Agents on top with governance. Permission-faithful search hard; they do it well. Actions via connector to owning app under app's rules.",
     ourModel:
-      `elan1 owns the record it writes to. ${factValue("systemsOfRecord")} systems of record, each behind a governed writer that resolves identity, evaluates policy, routes a consequential change to a human and appends the audit entry. Retrieval matters here too — every answer is grounded and cited, and \"nothing matched\" and \"we could not look\" are deliberately different answers rather than the same green number. But the argument elan1 makes is about the other half: what happens when the agent stops answering and starts changing something.`,
+      `elan1 owns record. ${factValue("systemsOfRecord")} systems behind governed writer: identity, policy, approval, audit. Retrieval grounded/cited. Write-side argument: what happens when agent stops answering and starts changing.`,
     dimensions: [
       {
         dim: "Where the record lives",
