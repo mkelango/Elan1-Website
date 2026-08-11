@@ -391,11 +391,11 @@ export const solutions: Solution[] = [
       "Fixed Launchpad fee, then per-seat/usage product pricing. Illustrative; not financial advice.",
     wedge: "MRP cap enforced from both directions on effective record. Status-only PATCH re-runs the check; lowering MRP below active rules is refused.",
     problem: [
-      "Legal Metrology makes MRP a legal ceiling on the sale price, but the ceiling and the price live on two different records. Systems check the price against the ceiling. Almost nothing checks the ceiling against the prices already selling underneath it — so you lower an MRP and quietly put a live price out of compliance.",
-      "A markdown is a claim about a 'was' price. If the anchor itself sits above MRP, the discount computed off it is a dark pattern under the CPA 2019 guidance — a saving measured against a number nothing verified.",
-      "A sku carrying two active price rules has no answer to \"what does this cost?\" The answer depends on which record you read first, and a shop that cannot say what a thing costs has no pricing integrity to certify.",
-      "Stock the system believes in is not stock a person counted. The gap between them is shrinkage — and in most catalogs there is no object type where a physical count and the system figure sit side by side.",
-      "Catalog, price and stock hand off to a storefront, to campaigns and to analytics. Each hand-off is a place the integrity check can quietly stop applying, and asserting that it still applies is not the same as recomputing it.",
+      "MRP ceiling and sale price live on different records with no check between them.",
+      "Markdown anchors can sit above MRP creating a dark pattern discount.",
+      "Multiple active price rules for one SKU create pricing ambiguity.",
+      "System stock and physical count gaps go unrecorded.",
+      "Integrity checks stop applying at each hand-off without recomputation.",
     ],
     composedOfNote: "retail1 composes sales1, commerce1, supply1, market1, service1, insight1; adds merchandising record: SKU, price rule, inventory, store, offer, RMA, cycle count, attestations.",
     ownRecords: [
