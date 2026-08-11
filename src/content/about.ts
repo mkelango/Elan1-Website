@@ -133,7 +133,7 @@ export const THESIS: ThesisMovement[] = [
   {
     n: "04",
     title: "Which makes the honest claim a direction with a ratchet on it.",
-    body: "We do not claim that every write in an estate passes the governed writer. A standing guard holds a ceiling over the mutating handlers that still reach a system of record outside it, and that ceiling is not zero — it may only fall. Governed-everywhere is the direction; the ratchet is the mechanism; and we would rather hand you the ratchet than claim the destination. That sentence is the reason to trust the three above it.",
+    body: "We do not claim that every write in an estate passes the governed writer. A standing guard holds a ceiling over the mutating handlers that still reach a system of record outside it; that ceiling is not zero, and it may only fall. Governed-everywhere is the direction, the ratchet is the mechanism, and we would rather hand you the ratchet than claim the destination.",
   },
 ];
 
