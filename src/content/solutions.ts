@@ -926,7 +926,7 @@ export const solutions: Solution[] = [
       "The edu1 Launchpad: curriculum/lesson generation or a learner-support agent live in 4–6 weeks.",
     pricingNote:
       "Fixed Launchpad fee, then per-teacher/subscription pricing. Illustrative; not educational or compliance advice.",
-    wedge: "The AGENT'S OWN OUTPUT is refused by the system of record. The education write path runs two SAFE semantic classifiers over a tutoring_session before it persists — the classifier (does the response do the student's work / enable cheating) and the classifier (does it name another learner alongside a grade, disciplinary or health detail) — and a governed endpoint puts the live agent's composed guidance through that same governed writer. So the refusal is not a system prompt, a policy file, or a filter in front of the model: if the tutor does the student's homework, the record refuses to keep it, whoever composed the words (the deterministic dev model or a keyed Claude).",
+    wedge: "Agent output refused by system of record. Two semantic classifiers run on tutoring responses: does it do the student's work? Does it name another learner's grades? Refusals are enforced at write.",
     problem: [
       "An AI tutor's safety lives in the sentence it just produced. A system prompt, an instruction file and a policy PDF all sit upstream of that sentence, and none of them reads it.",
       "A pass mark that arrives as a field on a request is a credential nobody computed — and a credential is the thing an academic record exists to protect.",
