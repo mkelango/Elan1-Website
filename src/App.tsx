@@ -106,6 +106,9 @@ export default function App() {
           <Route path="/platform/engineering" element={<EngineeringPage />} />
           <Route path="/platform/connectors" element={<ConnectorsPage />} />
           <Route path="/platform/verticals-are-config" element={<VerticalsConfigPage />} />
+          {/* Enterprise Ontology — the typed record model a governed write is validated against.
+              Static, so it wins over /platform/:slug, which only ever catches a pillar slug. */}
+          <Route path="/platform/enterprise-ontology" element={<EnterpriseOntology />} />
           <Route path="/platform/:slug" element={<ServicePage home="platform" />} />
 
           {/* Trust */}
