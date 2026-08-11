@@ -409,9 +409,9 @@ const SOURCES: PlaybookSource[] = [
       },
       {
         title: "Price the token classes separately",
-        body: "Input, output, cache reads and cache writes are disjoint parts of a prompt and are priced independently rather than derived from one another. A cache read costs roughly a tenth of the base input rate. A cache write costs more than a plain input token, and the multiplier is a function of the cache lifetime — the card carries the multiplier for the short, five-minute lifetime the platform actually requests, and a longer lifetime is a different multiplier. That coupling is the part people miss: changing the caching strategy without re-pricing under-charges quietly, and quietly is the expensive way to be wrong. A test ties the priced lifetime to the one the client sends, so the mismatch shows up red rather than silently.",
+        body: "Input, output, cache reads and cache writes are priced independently. Cache writes cost more, multiplied by lifetime. Changing caching strategy without re-pricing under-charges silently.",
         decision:
-          "Who owns the caching strategy, and that the same owner owns the rate change that goes with it.",
+          "Who owns the caching strategy, and the rate change that goes with it.",
         trap: "Treating cache tokens as free because they are cheap.",
       },
       {
