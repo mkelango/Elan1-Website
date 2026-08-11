@@ -48,32 +48,32 @@ export const products: Product[] = [
       {
         title: "deal_closer — the close motion",
         description:
-          "Proposes the next move on an open deal. Advancing a stage writes immediately; Closed Won routes to a human. The amount is the record's, never invented.",
+          "Proposes next move. Advancing a stage writes immediately; Closed Won stops for human.",
       },
       {
         title: "quote_proposal — catalog-grounded quotes and CPQ",
         description:
-          "Line prices come from the product master and its price books. Declared human-led, so pricing and contracts wait for a person. A discount within the rep's authority applies immediately; a deeper one escalates to the deal desk.",
+          "Prices from product master. Within-authority discounts apply; deeper ones escalate.",
       },
       {
         title: "outbound_sdr — the single outreach path",
         description:
-          "Researches, drafts and handles replies. A send waits for a one-tap confirm, a do-not-contact recipient is blocked, and a cadence auto-unenrols anyone who has replied.",
+          "Researches, drafts, handles replies. Send waits for one-tap confirm.",
       },
       {
         title: "forecast — the grounded roll-up",
         description:
-          "Open opportunities rolled up by category, stage-weighted, with gap-to-quota. The rep's commit sits beside the roll-up, never as its source. Read-only.",
+          "Stage-weighted opportunities by category. Rep's commit beside, never sourcing it.",
       },
       {
         title: "o2c_fulfil — order to cash as one governed move",
         description:
-          "Releasing a confirmed order drives a supply1 shipment and a finance1 receivable as one compensating transaction: if invoicing fails, the shipment is voided. The human approval is what executes the saga, not a note filed after it.",
+          "Confirmed order triggers supply1 shipment and finance1 receivable as one compensating move.",
       },
       {
         title: "crm_hygiene — duplicates, proposed not merged",
         description:
-          "Runs daily and proposes merges for the duplicates it finds. The merge waits for a person.",
+          "Daily duplicate detection. Merge waits for human approval.",
       },
     ],
     outcomes: [
