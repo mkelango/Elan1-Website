@@ -570,9 +570,9 @@ const SOURCES: PlaybookSource[] = [
       },
       {
         title: "Declare the operations before you ask for a credential",
-        body: "A connector is authored as a typed manifest — an id, a category, and each operation with its typed arguments and whether it is consequential. The declared operations are the scopes a grant can be drawn from, so least privilege is a property of the declaration rather than something a review has to impose afterwards. Doing this first also makes the security conversation concrete: you are asking for named operations, not for access to a system.",
+        body: "A manifest declares operations and scopes. Least privilege is a property of declaration. Ask for named operations, not system access.",
         decision: "The operation list per seam, written before the credential request goes out.",
-        trap: "Requesting broad access and promising to narrow it later. Later does not arrive.",
+        trap: "Requesting broad access and promising to narrow it later.",
       },
       {
         title: "Mark the consequential operations yourself",
