@@ -173,13 +173,13 @@ export const WHAT_TO_BRING: BringItem[] = [
  * unaccredited credential, and no bench of certified people to hire from).
  */
 export const NOT_ON_OFFER: string[] = [
-  "A reference call. There are no customers to name yet, and we will not stage one.",
-  "An outcome number. Nothing has been measured in a customer environment, so a percentage would be invented. The value model we build with you is arithmetic over your assumptions, shown rather than asserted, and labelled illustrative.",
-  "A date for a certification. A Trust Mark is minted only from an eval run that passed and scored real cases — it is a gate rather than a milestone, and it may withhold.",
-  "A certificate we do not hold. No SOC 2 and no ISO 27001. What exists is the control set those audits examine, plus the readiness and gap work; if certification is a procurement gate for you, say so early and it gets sequenced into the engagement.",
-  "A response-time commitment on this page. We would rather leave it out than break it.",
-  "A live connection to your stack on day one. Connectors are modelled adapters until credentials and an audited grant are in place. That is engagement work, and we scope it as engagement work.",
-  "A bench of certified practitioners to hire from. Academy’s syllabi are authored rather than delivered, no cohort has run, and the credential is elan1’s own — not accredited by any external body, and a different object from the Trust Mark the platform issues to an agent.",
+  "Reference calls. No customers to name yet.",
+  "Outcome numbers. Nothing measured in production.",
+  "Certification dates. Eval-gated, may withhold.",
+  "SOC 2 or ISO 27001. No third-party certs held.",
+  "Response-time commitments. Too often broken.",
+  "Day-one live connections. Connectors are modelled until credentials are in place.",
+  "Certified practitioners. Academy credential is unaccredited.",
 ];
 
 // ——— Things that answer part of it without us ———
