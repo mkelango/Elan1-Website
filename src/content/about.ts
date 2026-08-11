@@ -97,7 +97,7 @@ export const ABOUT_FACT_KEYS = [
 
 export const ABOUT_FACTS: string[] = ABOUT_FACT_KEYS.map((k) => factLine(k));
 
-export const ABOUT_FACTS_NOTE = `Counted on ${PLATFORM_FACTS_COUNTED_ON} against the platform tree. Each figure carries its own derivation in this site's source, so it can be re-run rather than trusted — including the ones that got smaller when we re-ran them.`;
+export const ABOUT_FACTS_NOTE = `Counted on ${PLATFORM_FACTS_COUNTED_ON} against the platform tree. Each figure carries its derivation in this site's source, so it can be re-run rather than trusted — including the ones that got smaller when we re-ran them.`;
 
 /* ————————————————————————————————————————————————————————————————————————————————————————————
  * THE ARGUMENT. This is the page.
