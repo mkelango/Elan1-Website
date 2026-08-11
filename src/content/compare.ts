@@ -228,9 +228,9 @@ export const COMPARISONS: Comparison[] = [
       description:
         "Copilot grounds on the work graph and governs through Entra, Purview and DLP. elan1 puts a governed writer in front of each system of record. Where Copilot leads, when to pick it, and what elan1 does not have.",
     },
-    headline: "Copilot works the work graph. elan1 works the record.",
+    headline: "Copilot works the work graph; elan1 works the record.",
     subhead:
-      "Two different jobs that both get called \"AI at work\". Drafting, summarising and finding across mail, files and meetings is one. Landing a payment, a purchase order or a clinical note in a system of record is another, and only the second one needs an approval gate.",
+      "Two jobs: drafting/summarizing (M365) and landing writes (systems of record). Only writes need approval gates.",
     theirModel:
       "Microsoft 365 Copilot grounds on the Microsoft Graph — your mail, files, chats, meetings and the permissions already attached to them — and answers inside the applications people have open all day. Copilot Studio is the builder alongside it: agents assembled from topics, knowledge sources and actions over the Power Platform connector catalog, with Dataverse as their store. Governance is the enterprise governance Microsoft already sells you: Entra for identity and conditional access, environments and data-loss-prevention policies to constrain which connectors an agent may combine, Purview for classification, retention, eDiscovery and audit. For a business record that lives in Dynamics 365, in SAP or in a line-of-business database, the agent reaches it through a connector, and the write lands under that system's own permission model.",
     ourModel:
