@@ -529,9 +529,9 @@ const SOURCES: PlaybookSource[] = [
       },
       {
         title: "Do something specific with not measurable",
-        body: "Not measurable is one of three verdicts and it is not a pass. At a gate it is a refusal. Everywhere else it means an instrument went unread, and there are only two honest responses: write the missing battery, or record in the pack that this function is not eligible for promotion. Either is defensible. Leaving it undecided is the one option that is not.",
+        body: "Not-measurable is not a pass. Either write the missing battery or record the function ineligible.",
         decision: "Which of the two responses applies, recorded against the agent by name.",
-        trap: "A dashboard that groups not-measurable with passed because neither of them is red.",
+        trap: "A dashboard that groups not-measurable with passed.",
       },
       {
         title: "Keep the not-attested list with the receipt",
