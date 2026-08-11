@@ -207,7 +207,7 @@ export const services: Service[] = [
       "The assure1 Trust Mark (where validated)",
     ],
     whyElan1:
-      "Everything here is built so that an absence cannot read as a pass. A battery that scored nothing, a dimension that could not be tested, a control that collected no evidence, a mark whose eval can no longer be found, and a re-check that could not be measured each get their own refusal or their own \"not measured\" — instead of a green tick.",
+      "Absence is not a pass. Empty batteries, untested dimensions, unscored cases each get their own refusal.",
     outcomes: [
       "A certification that cannot exist without a passing eval run behind it",
       "Coverage as a computed fraction of your estate — including what has never been scored",
