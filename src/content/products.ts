@@ -1176,32 +1176,32 @@ export const products: Product[] = [
       {
         title: "One order book — cashier, channel_sync, subscription_manager",
         description:
-          "Four ways a sale enters the book — storefront, POS, marketplace import, subscription renewal — and all four run the same check before it lands: at least one line, each naming a product this tenant actually has, quantity above zero. The cashier's total derives from price × quantity; capturing the money is a separate governed write.",
+          "Four entry paths: storefront, POS, marketplace, subscription. Same check: product exists, quantity >0. Total from price × quantity.",
       },
       {
         title: "fulfilment_planner and the returns queue",
         description:
-          "Paid orders become drafted shipments through pick, pack, ship and deliver; the order flips to fulfilled when its lines are covered, computed rather than asserted. The record refuses two things outright — an order must be paid before it can be shipped, and a shipment cannot carry more than the order has left. A return can never claim more than the order billed, and approving one is the money step.",
+          "Paid orders to shipped via pick, pack, ship. Order must be paid before ship. Return cannot exceed billed.",
       },
       {
         title: "inventory_sync — replenishment that drafts, never buys",
         description:
-          "Runs hourly over commerce1's own availability ledger and drafts a supply1 order for the computed shortfall, to a vendor both approved and active. It writes no stock movement of its own and the order lands as a draft: the commitment belongs to supply1, and the flow terminates at supply1's approval gate.",
+          "Hourly sync over availability ledger. Drafts supply1 order for shortfall to approved vendor.",
       },
       {
         title: "refund_agent — the only money-out agent, and it is gated",
         description:
-          "Declared requires-approval with self-verification on. A refund larger than what was captured is blocked outright, and an unparseable captured amount routes to a human. Settlement is handed to the delegated gateway seam, which only ever executes an already-approved decision.",
+          "Refund larger than captured blocked. Unparseable amount routes to human.",
       },
       {
         title: "The proposal layer — five computed capabilities, none of which decides",
         description:
-          "Forecasting, recommendation, price optimisation, fraud and recovery scoring are read-and-compute verbs. Price optimisation carries a hard floor — never below cost.",
+          "Forecasting, recommendation, optimisation, fraud, recovery scoring. Price has hard floor.",
       },
       {
         title: "Tills, loyalty and gift cards",
         description:
-          "Register sessions with their own close-out review, a loyalty ledger where a redemption above the balance is refused, and gift cards issued only against a paid order.",
+          "Register close-out review. Loyalty redemption refused above balance. Gift cards issued on paid order.",
       },
     ],
     outcomes: [
