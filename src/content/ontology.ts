@@ -122,7 +122,7 @@ export const ONTOLOGY_FRAME = {
     {
       question: "What it can refuse",
       retrieval:
-        "Nothing. Retrieval returns what it found and ranks it. A ranking is not a verdict, and there is no state in which retrieval says no.",
+        "Nothing, by itself. Retrieval returns what it found and ranks it, and a ranking is not a verdict. Where something does say no on the way out — this platform withholds a leaky chunk at retrieval time, further down this page — that is a governance layer wrapped around retrieval, not retrieval doing it.",
       ontology:
         "An object type nothing declares. A value outside its declared domain. A duplicate natural key. A link that resolves to no record. Each one is a refusal with a reason attached.",
     },

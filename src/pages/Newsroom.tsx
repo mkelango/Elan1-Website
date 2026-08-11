@@ -8,6 +8,11 @@
 // suite figure (summed from products.ts) and the platform figure (from the registry) are both true
 // and count different things, and this is the one page a journalist quotes verbatim. Splitting them
 // across two sections is how one of them gets printed bare.
+//
+// SECTION COUNT. Six bands, down from nine — three pairs that were making one point across two
+// layouts were merged, and nothing was dropped: the boilerplate carries the name rules beside it,
+// the corrections carry the honest-limits lists under them, and the fact-checking routes carry the
+// media contact under them. Every qualifier, refusal and limit that had its own band still renders.
 import { Link } from "react-router-dom";
 import { useSeo } from "../lib/seo";
 import { PageHero, Section, TickList, Crumb } from "../components/blocks";
@@ -66,46 +71,46 @@ export default function Newsroom() {
         }
       />
 
-      {/* Boilerplate */}
+      {/* Boilerplate + the name — one band: the words to paste, and how to spell the one in them. */}
       <Section tone="paper">
-        <SectionHead kicker="Boilerplate" title="The paragraph to paste." lede="Current as of this page. If you need it shorter, the one-liner is below it." />
-        <Reveal>
-          <blockquote className="mt-8 max-w-3xl rounded-card border border-line bg-surface p-7 text-[15px] leading-relaxed text-ink">
-            {BOILERPLATE}
-          </blockquote>
-        </Reveal>
-        <div className="mt-4 grid max-w-3xl gap-4 sm:grid-cols-2">
-          <Reveal delay={0.06}>
-            <div className="h-full rounded-card border border-line bg-mist/60 p-6">
-              <p className="font-mono text-[11px] uppercase tracking-kicker text-muted">One line</p>
-              <p className="mt-2 text-[15px] leading-relaxed text-ink">{SHORT_DESCRIPTOR}</p>
-            </div>
-          </Reveal>
-          <Reveal delay={0.12}>
-            <div className="h-full rounded-card border border-line bg-mist/60 p-6">
-              <p className="font-mono text-[11px] uppercase tracking-kicker text-muted">What it runs on</p>
-              <p className="mt-2 text-[15px] leading-relaxed text-ink">{TECHNOLOGY_LINE}</p>
-            </div>
-          </Reveal>
-        </div>
-      </Section>
-
-      {/* The name */}
-      <Section tone="mist">
-        <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr]">
+        <SectionHead
+          kicker="Boilerplate"
+          title="The paragraph to paste, and how to write the name."
+          lede="Current as of this page. The one-liner and what it runs on sit under it; the capital letter is the most common error in coverage of a brand like this one."
+        />
+        <div className="mt-12 grid gap-8 lg:grid-cols-[1.05fr_0.95fr]">
           <div>
-            <SectionHead kicker="The name" title="How to write it." lede="The most common error in coverage of a brand like this one is the capital letter." />
+            <Reveal>
+              <blockquote className="rounded-card border border-line bg-surface p-7 text-[15px] leading-relaxed text-ink">
+                {BOILERPLATE}
+              </blockquote>
+            </Reveal>
+            <div className="mt-4 grid gap-4 sm:grid-cols-2">
+              <Reveal delay={0.06}>
+                <div className="h-full rounded-card border border-line bg-mist/60 p-6">
+                  <p className="font-mono text-[11px] uppercase tracking-kicker text-muted">One line</p>
+                  <p className="mt-2 text-[15px] leading-relaxed text-ink">{SHORT_DESCRIPTOR}</p>
+                </div>
+              </Reveal>
+              <Reveal delay={0.12}>
+                <div className="h-full rounded-card border border-line bg-mist/60 p-6">
+                  <p className="font-mono text-[11px] uppercase tracking-kicker text-muted">What it runs on</p>
+                  <p className="mt-2 text-[15px] leading-relaxed text-ink">{TECHNOLOGY_LINE}</p>
+                </div>
+              </Reveal>
+            </div>
           </div>
-          <Reveal>
-            <div className="rounded-card border border-line bg-surface p-7">
-              <TickList items={NAME_RULES} accent={ACCENT} />
+          <Reveal delay={0.08}>
+            <div className="h-full rounded-card border border-line bg-surface p-7">
+              <p className="font-mono text-[11px] uppercase tracking-kicker text-muted">How the name is written</p>
+              <div className="mt-5"><TickList items={NAME_RULES} accent={ACCENT} /></div>
             </div>
           </Reveal>
         </div>
       </Section>
 
       {/* What to call things */}
-      <Section tone="paper">
+      <Section tone="mist">
         <SectionHead
           kicker="What to call things"
           title="The taxonomy, so the category error does not make print."
@@ -131,7 +136,7 @@ export default function Newsroom() {
       </Section>
 
       {/* Wordmark + colour + type */}
-      <Section tone="mist">
+      <Section tone="paper">
         <SectionHead kicker="Brand assets" title="The mark, the colours, the type." lede="The wordmark is typographic — set in the display face with a clay dot on the 1. Ask us if you need a vector file for print." />
         <div className="mt-12 grid gap-4 lg:grid-cols-3">
           <Reveal>
@@ -252,8 +257,9 @@ export default function Newsroom() {
         </div>
       </Section>
 
-      {/* What we most often have to correct */}
-      <Section tone="paper">
+      {/* The corrections, and under them the honest limits — one band, because they are one answer:
+          here is the accurate sentence, and here is the thing that does not exist to be given. */}
+      <Section tone="mist">
         <SectionHead
           kicker="Corrections"
           title="What we most often have to correct."
@@ -277,13 +283,17 @@ export default function Newsroom() {
             </Reveal>
           ))}
         </div>
-      </Section>
 
-      {/* The honest limits */}
-      <Section tone="mist">
-        <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr]">
+        {/* The honest limits — kept whole, moved here rather than dropped. */}
+        <div className="mt-16 grid gap-12 border-t border-line pt-14 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
-            <SectionHead kicker="What we cannot give you" title="Straight answers, so you are not left guessing." lede="You would find this out by asking. Better that it is written down." />
+            <Kicker accent={ACCENT}>What we cannot give you</Kicker>
+            <h3 className="mt-4 font-display text-2xl font-bold leading-tight text-ink sm:text-3xl">
+              Straight answers, so you are not left guessing.
+            </h3>
+            <p className="mt-5 text-[15px] leading-relaxed text-slate">
+              You would find this out by asking. Better that it is written down.
+            </p>
             <Reveal delay={0.1}>
               <ul className="mt-8 flex flex-col gap-3">
                 {WHERE_THINGS_STAND.map((t) => (
@@ -315,12 +325,12 @@ export default function Newsroom() {
         </div>
       </Section>
 
-      {/* How to check us */}
+      {/* Where to check a claim, and who to ask when reading is not enough — one band. */}
       <Section tone="paper">
         <SectionHead
           kicker="Fact-checking"
           title="Where to check a claim before you print it."
-          lede="Every mechanism named on this page is written down somewhere you can read without talking to us first."
+          lede="Every mechanism named on this page is written down somewhere you can read without talking to us first. What is left, put in a mail — the address is below."
         />
         <div className="mt-12 grid gap-3 md:grid-cols-2 lg:grid-cols-3">
           {VERIFY_ROUTES.map((r, i) => (
@@ -341,13 +351,15 @@ export default function Newsroom() {
             </Reveal>
           ))}
         </div>
-      </Section>
 
-      {/* The contact */}
-      <Section tone="mist">
-        <div className="grid gap-12 lg:grid-cols-[1fr_1fr]">
+        {/* The media contact — moved under the fact-checking routes rather than given its own band. */}
+        <div className="mt-16 grid gap-12 border-t border-line pt-14 lg:grid-cols-[1fr_1fr]">
           <div>
-            <SectionHead kicker="Media contact" title="One address, and what to put in it." lede={MEDIA_CONTACT.note} />
+            <Kicker accent={ACCENT}>Media contact</Kicker>
+            <h3 className="mt-4 font-display text-2xl font-bold leading-tight text-ink sm:text-3xl">
+              One address, and what to put in it.
+            </h3>
+            <p className="mt-5 text-[15px] leading-relaxed text-slate">{MEDIA_CONTACT.note}</p>
             <Reveal delay={0.1}>
               <a
                 href={`mailto:${MEDIA_CONTACT.email}`}
