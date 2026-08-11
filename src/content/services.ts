@@ -93,7 +93,7 @@ export const services: Service[] = [
     tagline: "Governance is a build step.",
     promise:
       "We build your agents in a studio that can refuse the build.",
-    whoFor: "agent1 is both a delivery motion and a shipped console. Our engineers author your agents as typed blueprints; your platform admins open the same Studio inside enterprise1. Either way an agent reaches the runtime the same way — a passing eval, a human's approval, a Trust Mark, then deploy.",
+    whoFor: "Teams building agents. We author blueprints or you author in Studio. One path: eval → approval → mark → deploy.",
     accent: ACCENT.green,
     offerings: [
       {
