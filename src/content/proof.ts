@@ -324,12 +324,9 @@ export const PROOF: CaseStudy[] = [
     industry: "Telecom",
     domain: "Physical control",
     app: "telco1 · service1 + project1",
-    before:
-      "Provisioning runs across three systems that each believe they own the inventory. The same SIM, number or address ends up assigned twice, and the conflict surfaces as an outage on somebody's live service. Meanwhile the agent that triages the alarm is one permission away from being the thing that changes the network.",
-    after:
-      "On the governed write, a network resource can only be assigned from available, so a second allocation has no path through — and the refusal names the state it actually found rather than saying the request was invalid. A circuit activates only for a KYC-verified enterprise account, and only while it is genuinely allocatable: endpoints set, not already active, not decommissioned. The agent plans, triages and correlates; a person provisions, suspends and decides every flag.",
-    guarantee:
-      "Verbatim: \"a network resource can only be assigned from 'available' (it is '{current}') — a number / IP / SIM is never double-allocated (resource integrity)\" · \"humans act on the network: the agent plans and triages, but a human provisions, suspends and decides every flag (refused: {marker})\" · \"a circuit may only be activated for a KYC-verified enterprise account (DoT CAF)\" · \"cannot publish a network metric with no underlying records (ungrounded)\".",
+    before: "Provisioning across three systems; double-allocation possible.",
+    after: "Resource assigned from available only. Agent triages; human provisions.",
+    guarantee: "\"resource can only be assigned from 'available'\" · \"number never double-allocated\" · \"circuit activated for KYC-verified account only\".",
     trustMark: "telco1.high_volume_care",
     accent: ACCENT.violet,
   },
