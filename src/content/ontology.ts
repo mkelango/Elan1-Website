@@ -182,9 +182,9 @@ export const ONTOLOGY_LAYERS: OntologyLayer[] = [
     name: "The record model",
     what: `Every record any app writes is an instance of a declared object type, and each system of record declares its own list of them — ${factValue(
       "objectTypes",
-    )} typed object types across ${factValue(
+    )} typed object types in all, of which ${factValue(
       "systemsOfRecord",
-    )} systems of record. Alongside the types, a system of record declares value domains: object type → field → the values that field may hold, so a lifecycle field is a closed set rather than a free string. This is not documentation of the shape. It is the shape, in the form the write path reads.`,
+    )} lists resolve through one shared registry and the CRM store declares its own beside them. Alongside the types, a system of record declares value domains: object type → field → the values that field may hold, so a lifecycle field is a closed set rather than a free string. This is not documentation of the shape. It is the shape, in the form the write path reads.`,
     howItShips:
       "The declarations live in one registry keyed by the system of record's own name, rather than as a parameter passed in at each writer's construction — deliberately, because a parameter is a thing the next system of record gets added without. A writer resolves its schema by name, so a twenty-first system of record is covered the moment it declares its types rather than the moment somebody remembers to wire it. A name the registry does not know resolves to an empty declaration and enforces nothing, which keeps the registry a data contract rather than a naming rule.",
     verified: `Counted by execution, not by reading: importing the twenty declared type registries yields 379 object types across them, plus 29 more on the CRM store that runs on its own core store — ${factValue(
