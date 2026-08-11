@@ -33,7 +33,7 @@ export const ASSISTANT_SPINE: { step: string; name: string; body: string }[] = [
   {
     step: "02",
     name: "Ground",
-    body: "Answers are drawn from your own systems of record and knowledge bases, with citations. If the assistant cannot ground an answer, it says so instead of producing one — cite-or-refuse is a screened path, not a prompt instruction.",
+    body: "Answers grounded in your systems; cite-or-refuse, never hallucinate.",
   },
   {
     step: "03",
