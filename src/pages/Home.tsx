@@ -355,6 +355,73 @@ function PillarsSection() {
   );
 }
 
+/**
+ * The proof band — three governed patterns, DERIVED from content/proof.ts.
+ *
+ * 🚨 NEVER HAND-WRITE A PATTERN HERE. proof.ts is the single source, and its header explains at
+ * length why: an earlier draft of that file asserted ten Trust Marks that did not exist, and the
+ * fix was to make `trustMark` optional and label the weaker fact differently. A pattern retyped
+ * into this component would sit outside that discipline entirely and could not be corrected by
+ * fixing the source. `proofBadge()` is exported precisely so a surface cannot invent its own badge.
+ *
+ * The slice is the first three horizontal patterns — the ones that hold whatever the industry is,
+ * which is the argument for one core. Taking them by index rather than by id keeps this working
+ * when the roster changes; taking three keeps the row from wrapping on a laptop.
+ */
+function ProofBand() {
+  const featured = PROOF.slice(0, 3);
+  return (
+    <Section tone="mist">
+      <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
+        <SectionHead
+          kicker="Proof, not promises"
+          title="What it refuses is the product."
+          lede="A platform that sits on top of your system of record can log that it called an API. Owning the record is what makes a refusal possible — here are three, each quoting the string the write path actually raises."
+        />
+        <Reveal delay={0.1}>
+          <Link to="/resources/proof" className="btn-ghost shrink-0">
+            All {PROOF.length} patterns <Icon.Arrow className="h-4 w-4" />
+          </Link>
+        </Reveal>
+      </div>
+      <div className="mt-12 grid gap-4 lg:grid-cols-3">
+        {featured.map((c, i) => {
+          const badge = proofBadge(c);
+          return (
+            <Reveal key={c.id} delay={i * 0.06}>
+              <Link
+                to="/resources/proof"
+                className="group flex h-full flex-col rounded-card border border-line bg-surface p-6 shadow-card transition-all hover:-translate-y-1 hover:shadow-lift"
+              >
+                <div className="flex items-center justify-between gap-3">
+                  <span className="font-mono text-[10px] uppercase tracking-kicker text-muted">{c.domain}</span>
+                  {/* Badge label comes from proofBadge() — a Trust Mark and a registered agent are
+                      different facts, and this row must never flatten them into one green pill. */}
+                  {badge && (
+                    <span className="rounded-full border border-line bg-mist px-2 py-0.5 font-mono text-[9px] font-medium text-muted">
+                      {badge.label}
+                    </span>
+                  )}
+                </div>
+                <h3 className="mt-3 font-display text-lg font-bold leading-snug text-ink">{c.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-slate">{c.before}</p>
+                <span className="mt-auto pt-5 inline-flex items-center gap-1.5 text-sm font-medium text-clayDeep opacity-0 transition-opacity group-hover:opacity-100">
+                  See what stops it <Icon.Arrow className="h-4 w-4" />
+                </span>
+              </Link>
+            </Reveal>
+          );
+        })}
+      </div>
+      <Reveal delay={0.2}>
+        <p className="mt-8 max-w-3xl border-t border-line pt-6 text-sm leading-relaxed text-muted">
+          {GOVERNED_PATH_SCOPE}
+        </p>
+      </Reveal>
+    </Section>
+  );
+}
+
 function Method() {
   return (
     <Section tone="paper">
