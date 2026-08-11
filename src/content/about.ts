@@ -128,7 +128,7 @@ export const THESIS: ThesisMovement[] = [
   {
     n: "03",
     title: "So we put the gate on the write path rather than beside it.",
-    body: "The comfortable place to put governance is next to the agent: a review queue, a monitoring pane, a policy document builders are asked to honour. We put it in the path the write itself has to travel. A consequential action is evaluated before it executes, routed to a named human where the policy says so, and the approval that releases it is bound to that action and to a content hash of that exact payload, then spent. The decision lands on an append-only chain whether it was allowed, refused or routed. We chose that shape because a control standing beside the write only governs the traffic that goes through it, and we would rather not depend on the traffic's cooperation.",
+    body: "The comfortable place for governance is beside the agent: a review queue, a monitoring pane, a policy document builders are asked to honour. We put it in the path the write itself has to travel. A consequential action is evaluated before it executes, routed to a named human where the policy says so, and the approval that releases it is bound to that action and to a content hash of that exact payload, then spent. Allowed, refused or routed, the decision lands on an append-only chain. A control standing beside the write only governs the traffic that goes through it.",
   },
   {
     n: "04",
