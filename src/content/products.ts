@@ -790,21 +790,21 @@ export const products: Product[] = [
       },
     ],
     outcomes: [
-      "Nothing reaches an audience without a named person approving it",
-      "Brand voice becomes configuration you edit, not a document you circulate",
-      "Every campaign figure on screen is recomputed from the records it came from",
-      "An opt-out is honoured at the send site, not corrected later in a report",
+      "Nothing reaches audience without person approval",
+      "Brand voice becomes editable configuration",
+      "Campaign figures recomputed from records",
+      "Opt-out honoured at send site",
     ],
     integrations: [
-      "The content seam — read the brand system, write drafts, publish only on approval",
-      "Email — real SMTP when configured; recorded in-process otherwise",
-      "sales1 — a form submit composes a CRM lead, idempotent by email; attribution reads sales1 live",
-      "finance1 — recorded campaign cost goes to the payables gate. market1 moves no money.",
+      "Content seam — brand system, drafts, publish-on-approval",
+      "Email — real SMTP or recorded in-process",
+      "sales1 — form submits compose CRM lead; attribution reads live",
+      "finance1 — campaign cost to payables gate. market1 moves no money.",
     ],
     suiteFit:
-      "market1 is the demand source: qualified audiences and event registrations into sales1, campaign spend into finance1's payables — where the money leg terminates, never inside market1. Attribution then reads that lead's opportunity back out of sales1.",
+      "Demand source: qualified audiences into sales1, campaign spend to finance1's payables. Attribution reads lead's opportunity back from sales1.",
     trust:
-      "Three policies sit on market1's write path. Review-on-publish returns approval unconditionally. Ad-free refuses outright, with no approver to appeal to, when a payload carries an ad placement or paid media. Truthful refuses a body containing any marker in a fixed list — best, #1, guaranteed, world-class, revolutionary, miracle, risk-free, no.1 — matched case-insensitively. That last one is a word list, not a semantic classifier, and we describe it as one. The runtime does not rely on an agent asking: publish, schedule-social and send-newsletter are declared consequential and forced to a human even when neither the spec nor the policy requested it. On the connector, ad-free is structural rather than promised — there is no ad-placement operation to call, and a test asserts the live operation set matches a reviewed list, so a new operation fails until a person reviews it.",
+      "Three policies on write path. Review-on-publish, ad-free refusal, truthful-claim gate. No ad-placement operation available. Publish, schedule-social, send-newsletter forced to human.",
     workforce: {
       registered: 16,
       launchWave: 4,
