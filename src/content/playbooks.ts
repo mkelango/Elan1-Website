@@ -469,7 +469,7 @@ const SOURCES: PlaybookSource[] = [
   {
     slug: "agent-evidence-playbook",
     title: "The Evidence Pack: certifying an agent",
-    desc: "What has to exist before an agent is certified, how to tell a structural declaration check from a behaviour battery on sight, which agents actually carry one, and what to do with a verdict of not measurable.",
+    desc: "What must exist before an agent is certified, and how to tell a structural check from a behaviour battery.",
     audience: "Eval owners, internal audit, platform leads",
     delivery: "outline-on-this-page",
     outcome:
