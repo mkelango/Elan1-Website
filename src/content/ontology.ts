@@ -344,7 +344,7 @@ export const ONTOLOGY_NOT_YET: NotYet[] = [
   {
     claim: "The declared shape is not complete.",
     detail:
-      "Fewer than half of the declared object types name a value domain for their lifecycle field. Those that do not are unchecked. The platform's own note on this is the right one to publish: an absent domain is a known gap, not a permission — and closing the gap is work, not wording.",
+      "Fewer than half of the declared object types name a value domain for any of their fields. The fields of those that do not are unchecked. The platform's own note on this is the right one to publish: an absent domain is a known gap, not a permission — and closing the gap is work, not wording.",
   },
   {
     claim: "There are no database foreign keys.",
