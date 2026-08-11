@@ -291,7 +291,7 @@ export const solutions: Solution[] = [
       "A prohibited rating factor gets caught at quote, then re-enters through a mid-term endorsement or a renewal that nobody re-checked.",
       "A diagnosis, an ICD code or a prescription travels along with the claim into the invoice, the investigation project and the dashboard, because nothing at the boundary is looking at field names.",
     ],
-    composedOfNote: "insure1 composes service1, finance1, sales1, insight1 and project1 — the pack's composes: field verbatim, with sales1 appearing there under its code identity, customer1. What it adds is the payer record layer none of them own: fifteen object types spanning policyholder, product, quote, policy, claim, underwriting, premium invoice, endorsement, renewal and five attestation records, surfaced across nine console screens. The division of labour is deliberate: money is finance1's, the distribution lead is sales1's, the grievance case is service1's and is opened through service1's own governed writer (insure1 raises an error rather than bypass it), the SIU investigation is project1's, and the published metric is insight1's. insure1 does not rebuild service resolution, deflection or CSAT, and it does not rebuild receivables ageing, dunning tiers or collections — it computes the one thing neither can express, which is whether coverage is still in force.",
+    composedOfNote: "insure1 composes service1, finance1, sales1, insight1, project1; adds payer record: policyholder, product, quote, policy, claim, underwriting, premium, endorsement, renewal, attestations.",
     ownRecords: [
       "Policyholder",
       "Product",
