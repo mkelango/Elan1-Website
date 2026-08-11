@@ -558,7 +558,7 @@ const SOURCES: PlaybookSource[] = [
     audience: "Integration owners, enterprise architects",
     delivery: "outline-on-this-page",
     outcome:
-      "A decision record per seam — live, modelled, or not at all — carrying the declared operations, the consequential ones, the grant approver and the credential owner, written down before the build starts.",
+      "A decision per seam: live, modelled, or not at all. Declared operations, consequential flags, grant approver, credential owner.",
     accent: "#46cdd6",
     steps: [
       {
