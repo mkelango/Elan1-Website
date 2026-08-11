@@ -720,7 +720,7 @@ export const solutions: Solution[] = [
       "OEE, yield and scrap rate typed into a review deck are assertions. The same three numbers derived from job cards, downtime windows and signed inspections are a record you can hand to an auditor.",
       "A factory that stores a worker's fingerprint, or where they live, has taken on a DPDP and Factories Act exposure it never needed in order to run a shift.",
     ],
-    composedOfNote: "manufacture1 composes five built suite apps — supply1, finance1, project1, service1 and insight1 — writing into each through that app's OWN governed writer rather than reaching across the boundary, and adds the shop-floor reference layer none of them owns: recipe and multi-level BOM, batch and lot genealogy, machine and lock-out state, advisory operation, inspection and template, NCR and corrective action, quality procedure, and certificate of analysis.",
+    composedOfNote: "manufacture1 composes supply1, finance1, project1, service1, insight1; adds shop-floor record: recipe, BOM, batch, lot genealogy, machine, operation, inspection, NCR, CoA, attestations.",
     ownRecords: [
       "Recipe",
       "Batch",
