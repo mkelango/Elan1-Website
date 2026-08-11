@@ -761,32 +761,32 @@ export const products: Product[] = [
       {
         title: "content — the content studio",
         description:
-          "One agent writes the assets, long and short form, per channel. Its draft reaches an audience only after a named person approves the publish.",
+          "Writes assets per channel. Draft reaches audience only after person approves.",
       },
       {
         title: "brand_compliance_judge — the pre-publish pass",
         description:
-          "Runs before write-back and asks three questions: on-brand, within the compliance lines, truthful and original. A pass queues the work for human approval; a fail regenerates twice, then escalates. It declares no tools at all.",
+          "Runs before write: on-brand, within compliance, truthful. Pass queues for approval; fail regenerates twice.",
       },
       {
         title: "Journeys, broadcasts and organic social",
         description:
-          "Journeys, broadcasts and posts to channels you own. At the send site the platform re-checks for banned claims, skips anyone opted out, and records the count actually dispatched.",
+          "Posts to owned channels. Platform re-checks banned claims, skips opted-out.",
       },
       {
         title: "audience_builder — segments and lead scoring",
         description:
-          "Criteria-defined audiences over real sales1 fields, and lead scores from four recorded signals. A score is never written back onto the lead.",
+          "Criteria-defined audiences over sales1 fields. Scores from four signals. Never written back.",
       },
       {
         title: "growth_analyst — attribution, funnels, budgets, experiments",
         description:
-          "Reads the grounded chain: a campaign's form stamps its id on the lead, that lead converts, that opportunity wins. Pipeline, won revenue, drop-off and A/B winners on real deals. Read and analyse only — it writes nothing.",
+          "Grounded chain: campaign stamps id on lead, lead converts, opportunity wins.",
       },
       {
         title: "creative_variants — variants without the ad buy",
         description:
-          "Generates channel-spec creative variants at volume. Renamed from its ad-oriented original deliberately: there is no ad-placement operation for it to call.",
+          "Generates channel-spec variants. No ad-placement operation available.",
       },
     ],
     outcomes: [

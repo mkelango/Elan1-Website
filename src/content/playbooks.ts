@@ -321,7 +321,7 @@ const SOURCES: PlaybookSource[] = [
   {
     slug: "vertical-guides",
     title: "Vertical Guides (by industry)",
-    desc: "How to read an industry pack the way an auditor would — the wedge on the write path, the refusals it fires, the seams that are modelled, and the four questions that separate a real vertical claim from a themed demo.",
+    desc: "The wedge on the write path, the refusals it fires, and the four questions that separate a real vertical claim from a themed demo.",
     audience: "Industry & function owners",
     delivery: "outline-on-this-page",
     outcome: `A per-pack read you can check against your own controls: what the pack refuses when a record is written, which of the ${factValue(
