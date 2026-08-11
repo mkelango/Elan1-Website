@@ -56,7 +56,7 @@ export const ASSISTANT_CAPABILITIES: AssistantCapability[] = [
   {
     title: "Grounded in your records, and it says when it isn't",
     description:
-      "Answers are computed from your own systems of record rather than recalled, and an answer it cannot ground is declined rather than produced. It does not reach the open web and does not read across tenants. Retrieval over an uploaded knowledge corpus is a declared seam on the router, not a live path in the answer today — so a cited document answer is not something to expect yet.",
+      "Answers computed from your systems; refuses what it cannot ground. No web access, no cross-tenant reads.",
   },
   {
     title: "Injection-screened by construction",
