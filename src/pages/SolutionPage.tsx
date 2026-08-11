@@ -110,7 +110,6 @@ export default function SolutionPage() {
                   </ul>
                 </>
               )}
-              <p className="mt-6 border-t border-line pt-5 text-sm leading-relaxed text-slate">{sol.starterEngagement}</p>
             </div>
           </div>
           <div>
@@ -124,6 +123,23 @@ export default function SolutionPage() {
             </div>
           </div>
         </div>
+
+        {/*
+          The same pack as one picture. This was its own band with its own heading, which restated
+          in prose what the drawing already says — so it closes the section it illustrates instead.
+        */}
+        {diagram && (
+          <div className="mx-auto mt-16 max-w-4xl border-t border-line pt-14">
+            <Reveal>
+              <DiagramEmbed
+                src={diagram}
+                title={`${sol.name} — solution map`}
+                accent={a}
+                caption="WHO we serve, WHAT we deploy, HOW we deliver — and the governance running through it. Click to expand."
+              />
+            </Reveal>
+          </div>
+        )}
       </Section>
 
       {/* Governance signature — the hero of each vertical */}
