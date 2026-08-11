@@ -820,11 +820,11 @@ export const solutions: Solution[] = [
       "Fixed Launchpad fee, then per-lease/seat pricing plus agent1 builds. Illustrative; not legal, real-estate, or financial advice.",
     wedge: "Money tethered to certified construction, recomputed at write not stored. Escrow withdrawal measured against certified %. Milestones cannot be demanded until stage is certified by named professional.",
     problem: [
-      "A construction-linked payment plan is only as honest as the stage behind it. When the instalment figure is typed at demand time, a buyer can be billed for a slab that has not been poured, each demand individually plausible.",
-      "RERA lets a promoter draw from escrow in proportion to certified completion. Hold that proportion in a stored field and the ceiling becomes editable by whoever can patch the record.",
-      "A listing flagged for steering or for assured returns gets cleared by a later write that never mentions the copy, because the flag was re-asserted instead of re-derived.",
-      "Aadhaar, PAN and passport numbers arrive under a dozen spellings, and a hand-off that widens by one field carries them into a billing or an analytics record.",
-      "Cancellation is the moment a promoter's interest and a buyer's are most directly opposed, and it is exactly where the forfeiture number gets typed.",
+      "Construction-linked payment plans are only as honest as the stage behind them.",
+      "Stored escrow proportions become editable by whoever can patch the record.",
+      "Listing flags get cleared by writes that don't mention the copy.",
+      "Identifier variants leak into billing and analytics records.",
+      "Cancellation is where promoter and buyer interests collide and forfeiture gets typed.",
     ],
     composedOfNote: "realestate1 composes sales1, finance1, project1, service1, insight1; adds RERA record: project, unit, party, booking, escrow, construction stage, payment milestone, cancellation, document, possession, snag, attestations.",
     ownRecords: [
