@@ -327,34 +327,34 @@ export interface Correction {
 
 export const CORRECTIONS: Correction[] = [
   {
-    heard: "“elan1 is SOC 2 and ISO 27001 certified.”",
+    heard: “”elan1 is SOC 2 and ISO 27001 certified.””,
     accurate:
-      "Neither certification is held today, and no third-party penetration-test report is on file. What exists is the control set those audits examine — the hash-chained audit trail, row-level tenant isolation, access control, encryption at rest, continuous control monitoring — plus the readiness assessment and gap analysis in code. The control mapping is recorded as underway and not certified.",
+      “Not certified today. Controls exist; certification mapping is underway.”,
   },
   {
-    heard: "“One button stops everything.”",
+    heard: “”One button stops everything.””,
     accurate:
-      "One admin action suspends an app's entire agent fleet, immediately, non-destructively and on the audit trail. The platform also carries a clause that would refuse that app's direct system-of-record writes while it is suspended — but it is registered without the rollout reference the clause reads, so in the shipped wiring it does not fire. The kill-switch stops agents; a direct write through another path is not what it holds.",
+      “Stops agent fleet. Direct writes through other paths are not stopped.”,
   },
   {
-    heard: "“elan1 integrates with Salesforce, SAP and your ERP.”",
+    heard: “”elan1 integrates with Salesforce, SAP and your ERP.””,
     accurate:
-      "Connectors are typed, least-privilege seams, and a registered one ships as a modelled adapter until credentials and an audited grant are configured — at which point it becomes live. Beside those sits a separate credential-gated catalogue of declared seams, and beside that the MCP servers. Treat a named integration as scope to agree rather than a switch to flip, and ask which of the three tiers it sits in.",
+      “Connectors are modelled adapters until credentials are configured.”,
   },
   {
-    heard: "“The agents run the business autonomously.”",
+    heard: “”The agents run the business autonomously.””,
     accurate:
-      "They research, draft, score and propose; the consequential end routes to a named human, and the approval token is bound to both the action and a content hash of the exact payload that person reviewed, then spent on use — so it cannot be replayed on anything else. Some writes are immediate rather than gated, and the product pages name which ones. Where autonomy is granted it is granted by a person and bounded: an agent cannot widen its own envelope.",
+      “They propose; consequential actions route to named humans for approval.”,
   },
   {
-    heard: "“Its agents are certified, so they have been tested for how they behave.”",
+    heard: “”Agents are certified, so they behave safely.””,
     accurate:
-      "Read the tier, not the badge. The default agent certification is a structural declaration check — it tests what the agent declares about its tier, tools and gates. A behaviour battery that probes what the model actually says covers a named handful of agents, and where a vertical declares a safety dimension its certification must additionally survive an adversarial battery scored on block rate and false positives together.",
+      “Default cert is structural. Behaviour batteries cover named agents only.”,
   },
   {
-    heard: "“run1 guarantees uptime.”",
+    heard: “”run1 guarantees uptime.””,
     accurate:
-      "run1 ships no service-level machinery. An availability commitment is a contract term to agree, not something the platform measures for you. We publish no latency, throughput or availability figures at all — not as an omission, but because we will not put a number in front of a reader that we cannot reproduce on someone else's data and deployment.",
+      “No SLA machinery. Availability is a contract term, not a platform promise.”,
   },
 ];
 
