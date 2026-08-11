@@ -310,11 +310,10 @@ const SOURCES: PlaybookSource[] = [
       },
     ],
     notCovered: [
-      "Legal advice, or an opinion on whether a particular deployment satisfies a specific regulation in your jurisdiction.",
-      "A certification. Readiness tooling is not attestation, and no framework certification is held.",
-      "Your policy content. The platform evaluates declared policy tags; what your policy says is your risk function's work and should stay there.",
-      "Model safety research. A behaviour battery probes one agent against its own stated boundary; it is not a general evaluation of a model.",
-      "Penetration-test findings. The third-party log exists and holds none yet, and we would rather say so than imply a clean result.",
+      "Legal advice or regulatory certification.",
+      "Your policy content — the platform evaluates policy tags; content is your risk function's work.",
+      "Model safety research. Behaviour batteries test one agent's boundary, not the model in general.",
+      "Penetration-test findings. The log exists and holds none yet.",
     ],
   },
 
