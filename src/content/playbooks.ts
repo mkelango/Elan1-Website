@@ -442,10 +442,10 @@ const SOURCES: PlaybookSource[] = [
       },
       {
         title: "Meter what you can compute, and say what you cannot",
-        body: "Model usage on the governed runtime is metered inside the platform. Infrastructure is not: there is no compute meter, so a self-hosted deployment's compute lands on your cloud bill and sits outside this model entirely. Non-model actions that pass through the meter — a channel send, for instance — are recorded under a name the rate card has no entry for, so they arrive unpriced by construction. Put those sentences in the model, next to the total, rather than presenting an all-in figure the platform cannot compute.",
+        body: "Model usage is metered; infrastructure is not. Non-model actions arrive unpriced. State boundaries on the same page as the total.",
         decision:
           "Where the boundary of your cost model sits, stated on the same page as the total.",
-        trap: "An all-in figure assembled from one metered part and one guessed part, with the join invisible.",
+        trap: "An all-in figure assembled from metered and guessed parts, with the join invisible.",
       },
       {
         title: "Keep illustrative figures out of the arithmetic",
