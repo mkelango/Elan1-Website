@@ -123,7 +123,7 @@ export const solutions: Solution[] = [
     industry: "Banking & capital markets",
     tagline: "Money leaves on a signature, not on a schedule.",
     challenge:
-      "elan1's RBI / NPCI-aligned commercial and SME banking system of record: fifteen object types, balances recomputed from the transaction ledger, and a write path that refuses a sanctioned beneficiary, an over-balance wire, an unverified-KYC debit, and a loan the RBI classification could never see.",
+      "RBI/NPCI-aligned banking system where balances are recomputed from ledger, and writes are refused for sanctioned beneficiaries, over-balance transfers, unverified-KYC debits, and unclassifiable loans.",
     composedOf: ["finance1", "insight1", "project1", "sales1", "service1"],
     accent: ACCENT.clay,
     useCases: [
