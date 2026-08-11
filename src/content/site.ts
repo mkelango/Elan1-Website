@@ -317,11 +317,14 @@ export const NAV: NavItem[] = [
         ],
       },
       {
-        heading: "Community",
+        heading: "Learn & Connect",
         links: [
           { label: "Events", href: "/resources/events", desc: "Conferences and networking events" },
           { label: "Webinars", href: "/resources/webinars", desc: "Live learning sessions" },
           { label: "Case Studies", href: "/resources/case-studies", desc: "Real customer success stories" },
+          { label: "Training", href: "/resources/academy", desc: "Self-paced modules and certification" },
+          { label: "Certification", href: "/resources/academy", desc: "Professional agent builder certification" },
+          { label: "Bootcamps", href: "/resources/academy", desc: "Intensive training and workshops" },
         ],
       },
       {
@@ -332,14 +335,7 @@ export const NAV: NavItem[] = [
           { label: "Connectors", href: "/platform/connectors", desc: "50+ MCP connectors" },
         ],
       },
-      {
-        heading: "Academy",
-        links: [
-          { label: "Training", href: "/resources/academy", desc: "Self-paced modules and certification" },
-          { label: "Certification", href: "/resources/academy", desc: "Professional agent builder certification" },
-          { label: "Bootcamps", href: "/resources/academy", desc: "Intensive training and workshops" },
-        ],
-      },
+
     ],
     featured: {
       title: "Start with a Discovery Sprint",
