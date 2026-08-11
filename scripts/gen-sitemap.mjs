@@ -91,6 +91,9 @@ for (const { slug, home } of servicesWithHome()) routes.add(`/${home}/${slug}`);
 for (const s of slugsFrom("initiatives.ts")) routes.add(`/solutions/initiatives/${s}`);
 for (const s of slugsFrom("insights.ts")) routes.add(`/resources/insights/${s}`);
 for (const s of slugsFrom("usecases.ts")) routes.add(`/agentic/${s}`);
+// The comparison set. /compare itself is NOT listed: it redirects to the first entry, and a URL
+// that 301s must never appear in a sitemap — check:redirects fails the build on exactly that.
+for (const s of slugsFrom("compare.ts")) routes.add(`/compare/${s}`);
 
 const today = new Date().toISOString().slice(0, 10);
 const priority = (p) => (p === "/" ? "1.0" : p.split("/").length <= 2 ? "0.8" : "0.6");
