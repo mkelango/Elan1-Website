@@ -241,7 +241,7 @@ const SOURCES: PlaybookSource[] = [
   {
     slug: "governance-playbook",
     title: "The Governance Playbook",
-    desc: "The operating model written in mechanisms that already exist — which actions gate, who may approve them, what the audit chain will and will not hold, and where we would tell your auditor a control is declared rather than enforced.",
+    desc: "Which actions gate, who approves, what the audit holds, and where controls are declared not enforced.",
     audience: "Risk, compliance, security leaders",
     delivery: "outline-on-this-page",
     outcome:
