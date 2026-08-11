@@ -472,13 +472,13 @@ export const COMPARISONS: Comparison[] = [
       description:
         "Established suites are systems of record with decades of depth and an ecosystem elan1 does not have. The difference is where the agent sits. An honest comparison with real concessions.",
     },
-    headline: "Both sides own the record. Only one puts the agent inside the writer.",
+    headline: "Both own records; we put agent inside writer.",
     subhead:
-      "This is the fair fight, and we are the newcomer in it. An established suite has functional depth and an implementation ecosystem we cannot match. What differs is whether the agent sits beside the record as an assistant, or on the write path as a governed actor.",
+      "Fair fight; we are newcomer. They have depth/ecosystem we cannot match. Difference: agent beside record (assistant) or inside write (governed).",
     theirModel:
-      "SAP, Odoo, Frappe and ERPNext are systems of record, and they have been for a long time. They carry functional depth accumulated over decades — statutory reporting and country localisations, industry-specific modules, the edge cases discovered by tens of thousands of implementations — plus workflow, approval and change-logging machinery that predates the current generation of agents and was designed for a person at a screen. The open-source members of that list are self-hostable and forkable, with the entry cost and the transparency that implies. Their AI generally arrives as an assistant or copilot layer alongside the record: it drafts, summarises, explains and suggests, and hands the consequential step to the suite's own workflow.",
+      "SAP, Odoo, Frappe, ERPNext: systems of record for decades. Statutory, localization, tax, industry from thousands of implementations. Workflow/approval predate agents, designed for screen. Open-source self-hostable/forkable. AI as assistant: drafts, suggests, hands consequential to suite.",
     ourModel:
-      `elan1 was built the other way round: the governed writer came first and the applications were built thin on top of it. ${factValue("suiteApps")} applications and ${factValue("verticalPacks")} industry packs share one core holding identity, policy, the approval gate, the hash-chained audit, the skills registry, the connector fabric and per-tenant cost metering. An agent is not a layer added later — it is a caller that meets the same writer a person meets, which is why an approval can be bound to a payload hash and an audit entry can carry the policy that fired. The trade is honest and it goes both ways: we have the write path, and they have twenty years of functional edge cases we have not met yet.`,
+      `elan1 built writer-first. ${factValue("suiteApps")} apps, ${factValue("verticalPacks")} packs share core: identity, policy, approval, audit, skills, connectors, metering. Agent meets same writer as person—approval binds payload hash, audit carries policy. We have write path; they have 20 years edge cases.`,
     dimensions: [
       {
         dim: "Where the record lives",
