@@ -70,6 +70,8 @@ const STATIC = [
   ["/products/category/compass1", "/products/category/compass"],
   // Two pages on one subject; the Company page is the one that was rewritten.
   ["/partners", "/company/partners"],
+  // The comparison index has no page of its own — it lands on the first entry.
+  ["/compare", "/compare/agentforce"],
   ["/services", "/platform"],
   ["/platform/approach", "/what-is-agentic-transformation"],
   ["/academy", "/resources/academy"],
