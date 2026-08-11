@@ -299,47 +299,6 @@ export const NAV: NavItem[] = [
     },
   },
   {
-    /**
-     * PROOF — the Customers menu every comparator runs, replaced by the one elan1 can honestly
-     * fill. There are no nameable customers, and an empty "Customer stories" row advertises the
-     * absence louder than no row at all. Do NOT add one until a named, consented design partner
-     * exists; when one does, it is a single row here and nothing else about this menu changes.
-     *
-     * "See it refuse" leads because it is the most differentiated thing on the site. A comparator
-     * that sits on top of someone else's record has nothing to refuse with — the refusal demo is
-     * a capability, not a claim, and content/proof.ts already holds the scripts.
-     */
-    label: "Proof",
-    href: "/resources/proof",
-    mega: [
-      {
-        heading: "See it refuse",
-        links: [
-          { label: "Governed patterns", href: "/resources/proof", desc: "The agent stopped, the policy that fired, and the refusal it raised — verbatim", accent: "#3fae6b" },
-          { label: "Trust Center", href: "/trust", desc: "Principles, governance signatures, security and certification posture", accent: "#e0656d" },
-          { label: "What elan1 is NOT", href: "/what-elan1-is-not", desc: "The limits, published — including the ones that cost us", accent: "#8a8f98" },
-          { label: "Diagram register", href: "/resources/diagrams", desc: "Every blueprint, what ships behind it, and what we withhold" },
-        ],
-      },
-      {
-        heading: "Compare",
-        links: [
-          { label: "vs Salesforce Agentforce", href: "/compare/agentforce", desc: "They govern the call inside Salesforce's record; elan1 owns the record" },
-          { label: "vs Microsoft Copilot", href: "/compare/copilot", desc: "A copilot suggests; elan1 acts under a gate" },
-          { label: "vs Glean", href: "/compare/glean", desc: "Enterprise search and context, vs enterprise ontology and a governed write" },
-          { label: "vs SAP · Odoo · Frappe", href: "/compare/erp-suites", desc: "AI-native by construction, vs AI bolted onto a 1990s data model" },
-          { label: "vs building it yourself", href: "/compare/build-it-yourself", desc: "What a builder platform makes you re-implement" },
-        ],
-      },
-    ],
-    featured: {
-      title: "An agent tried to move money it wasn't allowed to move.",
-      body: "Here is the policy that stopped it, the person who was asked, and the receipt. Every comparison on this site concedes where the other side leads — a comparison with no concessions is marketing.",
-      href: "/resources/proof",
-      cta: "See it refuse",
-    },
-  },
-  {
     label: "Resources",
     href: "/resources",
     mega: [
