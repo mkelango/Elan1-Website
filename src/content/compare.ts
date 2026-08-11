@@ -759,8 +759,10 @@ export const COMPARE_ASSESSED_ON = "2026-08-09";
  * knowledge are stated rather than left for them to assume away.
  */
 export const COMPARE_DISCLOSURE =
-  `These comparisons describe publicly documented product architecture as it stood on ${COMPARE_ASSESSED_ON}, ` +
-  "read from each vendor's own documentation rather than from an analyst summary. elan1 has no " +
+  `These comparisons describe each product's publicly documented architecture as we understood it on ${COMPARE_ASSESSED_ON}. ` +
+  "No vendor reviewed a word of it, nothing here was checked against a running instance of their " +
+  "product, and the left-hand column is our reading of someone else's design rather than a quotation " +
+  "from it. elan1 has no " +
   "access to any competitor's private roadmap, no visibility into an unreleased build, and no " +
   "benchmark run in a customer environment — which is why no percentage, no time-to-value figure " +
   "and no total-cost number appears anywhere on this page. Nobody measured them. Product " +
