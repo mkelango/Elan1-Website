@@ -1316,32 +1316,32 @@ export const products: Product[] = [
       {
         title: "signal_scout and the governed apply",
         description:
-          "The scout is always-on and read-only. Applying its suggestion is a separate agent, gated at every autonomy level because it is registered consequential, and not in the launch wave.",
+          "Scout always-on, read-only. Apply is separate agent, gated, consequential.",
       },
       {
         title: "Autopilot — an autonomy envelope with a ceiling and a cap",
         description:
-          "A human arms an envelope per mission with a severity ceiling and a per-cycle cap. Inside it an agent applies with no per-move gate; ceiling and spent cap are re-checked every move.",
+          "Envelope per mission with ceiling and cap. Ceiling and cap re-checked every move.",
       },
       {
         title: "foresight_analyst — trajectory, risk and a labelled what-if",
         description:
-          "Projects each mission forward from its own baseline, target and logged beats. Projections are clamped to the target and labelled model estimates; an escape reports the portfolio ungrounded.",
+          "Projects each mission from baseline and target. Clamped, labelled estimates.",
       },
       {
         title: "portfolio_strategist — breakthroughs, plays and bets",
         description:
-          "Which missions are at a positive inflection, and how each bet stands — computed from that mission's own foresight, never asserted. A settled bet cannot be re-settled.",
+          "Which missions at inflection. Bet status computed from foresight.",
       },
       {
         title: "Goal-to-action routing",
         description:
-          "On a predicted miss, the routing endpoint names the app that owns the lever and the gate. goal1 hands over a proposal. Two of the six mission categories have a route today.",
+          "On predicted miss, names owning app and gate. goal1 hands proposal.",
       },
       {
         title: "pulse_coach — the daily beat",
         description:
-          "A daily pulse and leader briefing from the mission numbers: what moved, and whether an agent or a human moved it, as a first-class field on every pulse.",
+          "Daily pulse and briefing. What moved and who moved it.",
       },
     ],
     outcomes: [
