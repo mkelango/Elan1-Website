@@ -162,7 +162,7 @@ export const WHAT_FOLLOWS: Consequence[] = [
   },
   {
     title: "Consequence is derived from what an agent holds",
-    body: "Whether an action needs a person is not a box an author remembers to tick. An agent holding a money or commit tool is raised to a human gate by what its blueprint carries, live, as it is authored. An advisory blueprint that holds a control-system connector does not compile — the build raises rather than warns, and three industry packs run through that guard every time they import.",
+    body: "Whether an action needs a person is not a box an author remembers to tick. An agent holding a money or commit tool is raised to a human gate by what its blueprint carries, live, as it is authored. An advisory blueprint holding a control-system connector does not compile: the build raises rather than warns, and three industry packs run through that guard every time they import.",
   },
   {
     title: "Nothing is on because it exists",
