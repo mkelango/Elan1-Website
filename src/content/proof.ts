@@ -250,15 +250,9 @@ export const PROOF: CaseStudy[] = [
     industry: "Across the suite",
     domain: "Agent autonomy",
     app: "enterprise1 · the wave gate",
-    before:
-      "An AI rollout that ships as one switch is all-or-nothing: the assistant is live for everyone the day it ships, and the only way to stop a misbehaving one is to stop the product — which is why, in practice, it does not get stopped. Turning the capability back on afterwards means reconstructing by hand what was enabled before the incident.",
-    after: `Enablement is per tenant and per function, and the gate runs before an agent acts rather than after it decides — a function outside the tenant's enabled set is refused first, and the refusal is audited. Platform-wide, ${factValue(
-      "agentsRegistered",
-    )} agents are registered and ${factValue(
-      "agentsEnabled",
-    )} are enabled in the current wave: the remainder are deliberately off, not missing. One admin action suspends an app's whole agent fleet immediately — an incident stop does not wait in an approval queue — and preserves the enabled set, so resuming restores the exact prior wave. It survives a restart. Lifting it expands access again, so lifting it is the part that needs a human approval. Reading the same wave state, enterprise1's rollout advisor flags agents registered but enabled nowhere, enabled functions naming no agent, and apps left suspended after an incident. It flags and never acts.`,
-    guarantee:
-      "The gate refuses by name and distinguishes an incident stop from a configuration gap, so an operator reading the log can tell them apart: \"{app}.{function} not enabled for tenant {tenant}\" · \"{app} is SUSPENDED (incident kill-switch) for tenant {tenant}\". Stated limits, both load-bearing. First, the stop halts that app's agent fleet; it does not, as the control plane is wired today, also refuse the app's direct system-of-record writes — the generic write policy carrying that clause is registered without the rollout reference the clause reads, so the clause cannot fire in the shipped configuration, and only a test wires it. Second, enabling a function and lifting a stop are a human's approval, and the advisor carries no assure1 Trust Mark: certifying a registered agent writes a lifecycle record bound to a content hash of its definition, which is the generic structural declaration check, and no behaviour battery is registered for it.",
+    before: "All-or-nothing rollout; incident stop requires product halt.",
+    after: "Per-tenant per-function enablement. Incident stop preserves prior wave.",
+    guarantee: "\"{app}.{function} not enabled for tenant {tenant}\" · \"{app} is SUSPENDED (incident)\" · enabling requires human approval.",
     registeredAgent: "rollout.advisor",
     accent: ACCENT.clayDeep,
   },
