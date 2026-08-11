@@ -886,15 +886,15 @@ export const products: Product[] = [
     hero: {
       headline: "Analytics where the number is computed, not asserted.",
       subhead:
-        `Metrics, reports and dashboards computed live from ${INSIGHT_SOURCES_WORD} sibling systems of record at the moment you run them. insight1 keeps no business records and holds no write access to another app's record — and a human reviews every publish.`,
+        `Metrics, reports, dashboards computed live from ${INSIGHT_SOURCES_WORD} sibling systems at run time. Holds no business records, no write access. Human reviews every publish.`,
       primaryCta: "Book a demo",
       secondaryCta: "See it live",
     },
     problem: [
-      "The number in the deck was typed once and has been true ever since.",
-      "Two teams answer the same question two ways, because each has its own definition.",
-      "A dashboard reports a figure it cannot show you the working for.",
-      "The alert fires on a metric nobody checked was still computable.",
+      "Deck number typed once, true ever since.",
+      "Two teams answer same question two ways.",
+      "Dashboard reports figure with no working shown.",
+      "Alert fires on uncomputable metric.",
     ],
     capabilities: [
       {
