@@ -13,6 +13,7 @@ const cards = [
   { category: "Browse by type", t: "eBooks", b: "Comprehensive industry guides for planning agentic transformation.", href: "/resources/ebooks", accent: "#7c6cf0", live: true },
   
   // Tools & References
+  { category: "Tools & References", t: "Blog", b: "Agentic transformation, thought through — on-brand, ad-free insights on strategy and governance.", href: "/resources/insights", accent: "#df8c64", live: true },
   { category: "Tools & References", t: "ROI calculator", b: "Size the value, lite — a band-aware, illustrative estimate.", href: "/for/scaleup", accent: "#d39a3a", live: true },
   { category: "Tools & References", t: "Glossary", b: "The agentic vocabulary, defined plainly. Searchable.", href: "/resources/glossary", accent: "#22b8c4", live: true },
   
