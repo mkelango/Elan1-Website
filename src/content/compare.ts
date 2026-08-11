@@ -690,12 +690,12 @@ export const COMPARISONS: Comparison[] = [
     whenToPickThem:
       "Build it yourself, not elan1, if you have the engineering capacity to own these controls and the discipline to write the tests that could actually fail — and especially if the governed surface is one workflow rather than a business, or if owning the source is a hard requirement.",
     ourLimits: [
-      "Everything on this page is buildable. We are not claiming otherwise, and a vendor telling you these controls are out of reach is telling you something untrue.",
-      "elan1 is not open source and not self-hostable today, so \"read the code you run\" is not an answer we can give you.",
-      "You adopt our data model, our category structure and our definition of a consequential action. That is the real price of not building.",
-      "No SOC 2 and no ISO 27001 certification is held today, so buying does not currently shortcut your own certification work either.",
-      "No named customers. The operational-experience argument for buying rather than building is weaker for us than it will be in two years, and we would rather say that than imply otherwise.",
-      "Coverage of the governed write path is not universal here either. A build-time check counts the mutating handlers that still reach a store directly and freezes the count as a ceiling that may only fall.",
+      "Everything buildable; we don't claim otherwise.",
+      "Not open source, not self-hostable. No \"read code you run.\"",
+      "You adopt our model, structure, consequential definition. Real price of not building.",
+      "No SOC 2, no ISO 27001; buying doesn't shortcut your cert work.",
+      "No named customers. Operational-experience argument weaker for us than in two years.",
+      "Write-path coverage not universal; mutating handlers counted and capped.",
     ],
     proofPoints: [
       {
