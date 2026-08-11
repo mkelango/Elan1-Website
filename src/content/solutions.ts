@@ -389,7 +389,7 @@ export const solutions: Solution[] = [
       "The retail1 Launchpad: a fast flagship (listing factory or demand dashboard) live in 4–6 weeks.",
     pricingNote:
       "Fixed Launchpad fee, then per-seat/usage product pricing. Illustrative; not financial advice.",
-    wedge: "The MRP cap enforced on the write path from BOTH directions, against the EFFECTIVE record rather than the payload. A price_rule create/update resolves stored ∪ payload and refuses a sale price above the sku's MRP — so PATCH {\"status\":\"active\"} on a stale draft, which carries no sale_price, still re-runs the cap. And the other side: a sku update that LOWERS mrp beneath a live active rule is refused and names the rules in the way (:16201-16214), because the alternative is a platform that knows a live price breaches MRP and leaves it selling.",
+    wedge: "MRP cap enforced from both directions on effective record. Status-only PATCH re-runs the check; lowering MRP below active rules is refused.",
     problem: [
       "Legal Metrology makes MRP a legal ceiling on the sale price, but the ceiling and the price live on two different records. Systems check the price against the ceiling. Almost nothing checks the ceiling against the prices already selling underneath it — so you lower an MRP and quietly put a live price out of compliance.",
       "A markdown is a claim about a 'was' price. If the anchor itself sits above MRP, the discount computed off it is a dark pattern under the CPA 2019 guidance — a saving measured against a number nothing verified.",
