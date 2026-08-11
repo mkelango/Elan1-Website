@@ -21,7 +21,7 @@ export const services: Service[] = [
     tagline: "People plan it; the platform enforces it.",
     promise:
       "Turn agentic ambition into a sequenced roadmap with enforcement built in.",
-    whoFor: "For leaders deciding where agents go first, who want the plan and the mechanism that will hold it in the same conversation. strategy1 is delivered by people, not software: there is no strategy1 app to log into.",
+    whoFor: "Leaders sequencing where agents go first. No strategy1 app — delivered by people.",
     accent: ACCENT.clay,
     offerings: [
       {
