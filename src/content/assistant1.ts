@@ -38,7 +38,7 @@ export const ASSISTANT_SPINE: { step: string; name: string; body: string }[] = [
   {
     step: "03",
     name: "Propose",
-    body: "When you ask for something consequential, the assistant drafts it as a proposal you can read — what it would change, where, and on whose authority. Nothing has happened yet at this point.",
+    body: "Consequential requests drafted as read-only proposals; nothing written yet.",
   },
   {
     step: "04",
