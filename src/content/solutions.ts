@@ -233,7 +233,7 @@ export const solutions: Solution[] = [
     industry: "Insurance",
     tagline: "A human signs every claim decision. The record decides what is payable.",
     challenge:
-      "insure1 is the payer record layer — policyholder, product, quote, policy, claim, underwriting, premium, endorsement, renewal — sitting under the suite apps that already run the service desk and the ledger. Approve, deny and pay are three separate human decisions. Coverage in force and coverage remaining are computed from the record at the moment of approval, and the write is refused when they do not hold.",
+      "Payer record layer where approve, deny, pay are separate human decisions; coverage in force and remaining are computed at approval and refusals block when they don't hold.",
     composedOf: ["finance1", "insight1", "project1", "sales1", "service1"],
     accent: ACCENT.cyan,
     useCases: [
