@@ -61,17 +61,16 @@ export const CAREERS_HERO = {
  */
 export const NO_OPEN_LIST = {
   title: "We are not publishing a list of roles.",
-  body:
-    "No open role is recorded anywhere in the source of this site, so none is rendered here. We would rather show you an empty board than a title, a team and a city we cannot back — a careers page is read by people making decisions about their livelihood, and a role that turns out to be aspirational costs them something real. When there is a role we can name, scope and be held to, it will appear here. Until then, the whole process is an introduction.",
+  body: "No recorded roles means none listed here. When we have one we can verify, it appears here. Until then, introduce yourself.",
 };
 
 /** The straight answers, so nobody has to guess what the silence above means. */
 export const WHAT_THIS_PAGE_WILL_NOT_TELL_YOU: string[] = [
-  "Whether we are hiring today. That changes; this page does not change with it. Ask us and we will tell you where things actually stand.",
-  "How many people work here, or which office a role would sit in. We publish no headcount, and we will not attach a city to a role that does not exist.",
-  "What anything pays, or what equity looks like. An indicative range we could not hold to would be worse than the silence.",
-  "What the benefits are, or what the interview process consists of, before there is a role to attach either to.",
-  "When a particular role might open. We are not going to put a date on a decision that has not been taken.",
+  "Whether we're hiring today.",
+  "Headcount or office locations.",
+  "Salary, equity, or benefits.",
+  "Interview process details.",
+  "Timelines on opening roles.",
 ];
 
 /**
@@ -79,7 +78,7 @@ export const WHAT_THIS_PAGE_WILL_NOT_TELL_YOU: string[] = [
  * intention, because a response-time promise is exactly the kind of thing this page must not make.
  */
 export const REPLY_POSTURE =
-  "We would rather tell you there is nothing open than leave you waiting on a maybe. Treat that as an intention about how we would like to behave, not as a service level you can hold us to — this page makes no promise about when, or whether, you hear back.";
+  "We'd rather say nothing than leave you waiting. No service level promised here.";
 
 /* ————————————————————————————————————————————————————————————————————————————————————————————
  * THE STANDARD — the actual content of the job, and the most self-selecting thing here.
