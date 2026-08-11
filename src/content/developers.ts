@@ -195,10 +195,9 @@ export const DEV_SURFACES: DevSurface[] = [
     name: "K2 · runtime",
     what:
       "The agent runtime, with two entry points: run and resume. A spec goes in, a result comes out, and the result's status is one of four values — completed, awaiting_approval, rejected, error. A human gate is a value in the response you resume against later, not an exception to catch.",
-    status: "available",
-    href: "/platform/built-on-claude",
+    status: "preview",
     note:
-      "That four-value status is why a governed write is straightforward to integrate: your code branches on awaiting_approval instead of discovering the gate through a failure.",
+      `That four-value status is why a governed write is straightforward to integrate: your code branches on awaiting_approval instead of discovering the gate through a failure. The governed write path this runtime sits on is described on the governance page; the runtime's own signatures are not documented anywhere on this site yet, which is why this row does not link. ${PREVIEW_NOTE}`,
   },
   {
     id: "k3",
