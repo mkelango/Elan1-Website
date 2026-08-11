@@ -376,10 +376,10 @@ export const WHAT_WE_CANNOT_PROVIDE: string[] = [
 
 /** Where the company actually is, so a piece is not written around an assumption. */
 export const WHERE_THINGS_STAND: string[] = [
-  "Everything the site claims describes what the software does, checked against its own source. None of it describes what it has done for a customer, because there is not one to describe.",
-  "The limits are published as a named list on the engineering page rather than summarised away — data residency declared but not enforced by routing, no certification held, no penetration-test report on file, single-region deployment, and the capabilities that are built but wired to nothing in production, named individually.",
-  "Where a property is not yet true, the platform measures the gap and freezes the measurement as a ceiling that may fall and may never rise. “Every write is governed” is published as a direction with a ratchet on it, not as a fact.",
-  "If a capability on your requirements list is one of the unwired ones, that is scope to agree — and we would rather you print that than let a diagram imply it is switched on.",
+  “Site claims describe the software, not customer results.”,
+  “Limits published: no cert, no pen test, single-region, explicit unwired features.”,
+  “Gaps measured and frozen as ceilings. Aspirational features named.”,
+  “Unwired capabilities are scope to agree before deployment.”,
 ];
 
 /* ————————————————————————————————————————————————————————————————————————————————————————————
