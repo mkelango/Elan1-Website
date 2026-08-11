@@ -175,13 +175,13 @@ const SOURCES: PlaybookSource[] = [
       },
       {
         title: "Make wave one advisory by construction",
-        body: `The platform stages its own enablement the same way. Across the tree, ${factValue(
+        body: `The platform stages its own enablement the same way: ${factValue(
           "agentsEnabled",
         )} of ${factValue(
           "agentsRegistered",
-        )} registered agent functions are on in the current wave; the remainder are deliberately off, which is a sequencing decision rather than a gap. Independently of the wave, an action the platform declares consequential stops at the human approval gate whichever wave it sits in — so "enabled" is not the same word as "unattended". The corollary is the sharp one, and the governance playbook takes it apart: an action nobody declared consequential does not stop. Copy the shape anyway — wave one should be able to be wrong without anything leaving the building.`,
+        )} registered agent functions are on in the current wave; the rest are deliberately off — a sequencing decision, not a gap. A consequential action stops at the human approval gate whichever wave it sits in, so "enabled" is not "unattended". The corollary is the sharp one, and the governance playbook takes it apart: an action nobody declared consequential does not stop. Copy the shape — wave one should be able to be wrong without anything leaving the building.`,
         decision:
-          "Which drafting functions produce output a human already reviews today — those are your candidates.",
+          "Which drafting functions produce output a human already reviews today.",
         trap: "Enabling a function that both drafts and commits because it arrives as one feature. Split it, or wave one is not advisory.",
       },
       {
