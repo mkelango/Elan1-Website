@@ -456,12 +456,12 @@ const SOURCES: PlaybookSource[] = [
       },
     ],
     notCovered: [
-      "A price list, or any commercial terms.",
-      "Billing advice. The rate card is illustrative and says so in its own source; a metered figure is an operating signal, not an invoice.",
-      "Infrastructure and compute cost modelling. The platform has no compute meter, so an all-in number is not something it can produce.",
-      "Savings claims. Routing computes a price delta from a rate card; nothing has been measured in a customer environment.",
+      "Price list or commercial terms.",
+      "Billing advice. The rate card is illustrative.",
+      "Infrastructure and compute cost modelling.",
+      "Savings claims. Nothing has been measured in a customer environment.",
       "Self-hosted or open-weight model economics.",
-      "Procurement or financial advice. Nothing here is either.",
+      "Procurement or financial advice.",
     ],
   },
 
