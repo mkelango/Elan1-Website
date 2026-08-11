@@ -662,7 +662,7 @@ export const COMPARISONS: Comparison[] = [
         them:
           "A rule in your code, usually on the request handler, and usually correct until someone adds a second path to the same action.",
         us:
-          "In the writer, where every path converges: \"segregation of duties — {principal} requested approval '{id}' and cannot also approve it; a different approver is required\". The administrator role does not bypass it, because segregation of duties is a control and not a permission — a role that can override it has removed it.",
+          "In the approval gate, where every path converges — and armed per write rather than globally, which is the part worth copying: the writer flags the write maker-checker, and the gate then refuses a same-principal sign-off. \"segregation of duties — {principal} requested approval '{id}' and cannot also approve it; a different approver is required\". The administrator role does not bypass it, because segregation of duties is a control and not a permission — a role that can override it has removed it. Stated limit: two writes carry the flag today, the payment release and the commerce refund; an unflagged approval is unaffected.",
       },
     ],
     whereTheyLead: [
