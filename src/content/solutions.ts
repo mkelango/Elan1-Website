@@ -496,11 +496,11 @@ export const solutions: Solution[] = [
       "Fixed Launchpad fee, then per-seat/usage pricing plus a run1 retainer. Illustrative; not financial advice.",
     wedge: "Auto-network-change refused before row exists. Write path reads effective action basis (payload or stored), preventing status-only PATCH bypass.",
     problem: [
-      "The order, the circuit, the SLA and the incident that breached it usually live in four systems, so the availability number a carrier quotes and the records that would justify it are never the same object.",
-      "The dangerous automation in a carrier is not a wrong answer, it is a confident action: an agent that suspends an enterprise leased line on a false-positive DDoS signal takes the customer's connectivity down with it.",
-      "An SLA nobody has measured reads as an SLA that was met, and a circuit with no SLA on record reads as a circuit inside its service level — the absence of a measurement gets published as a result.",
-      "Subscriber identity and behaviour — IMSI, IMEI, ICCID, call-detail records, a location trace, intercept content — travel sideways the moment a telecom record is handed to a finance or analytics system.",
-      "Activation runs ahead of verification: a circuit goes live for an enterprise account whose CAF status nobody checked, and a number or IP block gets allocated twice.",
+      "Order, circuit, SLA, incident live in separate systems; availability metrics cannot be grounded.",
+      "Confident automation can suspend customer connectivity on false-positive signals.",
+      "Unmeasured SLAs read as met; absent measurements get published as results.",
+      "Subscriber identity and call-detail records leak into finance and analytics systems.",
+      "Activation runs ahead of KYC verification; resources get double-allocated.",
     ],
     composedOfNote: "telco1 composes service1, finance1, sales1, project1, insight1; adds carrier record: account, product, circuit, service order, SLA, incident, OSS resource, usage, service credit, attestations.",
     ownRecords: [
