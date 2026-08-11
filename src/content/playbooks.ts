@@ -329,12 +329,10 @@ const SOURCES: PlaybookSource[] = [
     steps: [
       {
         title: "Start from what a pack is: configuration over one core",
-        body: `The ${factValue(
-          "verticalPacks",
-        )} industry packs are configuration over the same core and the same apps rather than forked application code, and each carries its own governance signature — the written statement of what it refuses and why. The consequence worth planning around cuts both ways: a control won in one vertical is available to the others, and so is a weakness. It also means an industry requirement met by configuration is maintainable, while one met by a fork is a second product.`,
+        body: `The ${factValue("verticalPacks")} packs are configuration over the same core, not forked code. A control won in one vertical is available to all.`,
         decision:
-          "Whether your requirement is genuinely industry-specific, or a general control you can state once and reuse.",
-        trap: "Asking for a fork. A fork ends the property that made the pack worth buying.",
+          "Is your requirement genuinely industry-specific, or a general control?",
+        trap: "Asking for a fork — it ends the property that made the pack worth buying.",
       },
       {
         title: "Ask the four questions of any vertical claim",
