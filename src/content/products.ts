@@ -333,32 +333,32 @@ export const products: Product[] = [
       {
         title: "close — month-end close, drafted",
         description:
-          "Checklist, accruals, journal drafts and grounded flux narratives on the period-close event. Close tasks form a dependency graph — a task naming an incomplete dependency cannot complete — and the period will not lock while a gating task or reconciliation is open. The agent drafts; a different human posts.",
+          "Checklist, accruals, journal drafts. Tasks form dependency graph. Agent drafts; human posts.",
       },
       {
         title: "ap — capture, three-way match, payment run",
         description:
-          "Deterministic extraction — there is no OCR or vision model here, and document AI is a declared future seam, not a shipped one. No bill reaches matched without a three-way match against its supply1 order.",
+          "Deterministic extraction. No bill matched without three-way match to supply1 order.",
       },
       {
         title: "ar and credit_control — cash in",
         description:
-          "Cash application allocates a remittance down a labelled ladder — reference, exact amount, oldest first — and each receipt is a draft. Collections stage overdue invoices into a dunning ladder.",
+          "Cash allocation by reference, amount, oldest-first. Collections via dunning ladder.",
       },
       {
         title: "treasury and reconciliation — the cash position, computed",
         description:
-          "The book balance from statement movements against the cash account's ledger balance, plus a 13-week direct forecast. One unmatched line returns uncertified. Read-only.",
+          "Book balance from statement movements. 13-week forecast. Read-only.",
       },
       {
         title: "compliance — India statutory, assembled from the ledger",
         description:
-          "GSTR-1 and GSTR-3B built from the ledger's GST invoices rather than keyed in, plus GSTR-2B, e-invoice IRN, e-way bills and TDS. Filing is human-approved and residency-bound to India.",
+          "GSTR-1, GSTR-3B from GST invoices. E-invoice, e-way bills, TDS.",
       },
       {
         title: "Assets and depreciation — a finance1 module, not a second app",
         description:
-          "The asset lives in finance1's ledger and depreciates on its engine, with a tie-out register. An asset reported from a different ledger than it depreciates into is how the two stop agreeing.",
+          "Asset lives in ledger, depreciates on engine. Tie-out register included.",
       },
     ],
     outcomes: [
