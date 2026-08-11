@@ -538,7 +538,7 @@ export const solutions: Solution[] = [
       "A network resource can only be assigned from 'available' (it is '{current}') — a number / IP / SIM is never double-allocated (resource integrity)",
       "Cannot publish a network metric with no underlying records (ungrounded)",
     ],
-    evals: "SEVEN eval sets / NINE cases, and pack.yaml and the server now declare the identical seven;. (1) telco1.grounding — a field check(\"grounded\") with measured by=\"the grounding measure\", so a tenant with no published metric scores NOT-MEASURABLE rather than passing over an empty sample.",
+    evals: "Seven sets, nine cases: grounding (1), network safety (1), resource integrity (1), data safety (1), critical infra security (1), engine never acts (1), seam clean (2).",
     seo: {
       title: "telco1 — the agent plans the network, a human acts | elan1",
       description:
