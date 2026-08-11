@@ -339,7 +339,7 @@ export const solutions: Solution[] = [
     industry: "Retail & e-commerce",
     tagline: "The MRP ceiling holds at the write, not at review.",
     challenge:
-      "retail1 is the merchandising and integrity layer over commerce1's storefront, built for an India-first omnichannel merchant. A sale price above the sku's Maximum Retail Price is refused by the governed writer — from both directions — and the same check is recomputed on the price that actually crossed into the storefront.",
+      "Merchandising and integrity layer where sale price above Maximum Retail Price is refused from both directions and recomputed at storefront seam.",
     composedOf: ["commerce1", "insight1", "market1", "sales1", "service1", "supply1"],
     accent: ACCENT.gold,
     useCases: [
