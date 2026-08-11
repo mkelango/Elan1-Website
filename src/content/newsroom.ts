@@ -222,11 +222,11 @@ export const TYPOGRAPHY: { role: string; face: string; note: string }[] = [
 ];
 
 export const WORDMARK_RULES: string[] = [
-  "Keep clear space around the wordmark of at least the height of the “1”.",
-  "Use it on paper or on obsidian. Do not place it on a photograph without a solid panel behind it.",
-  "Do not recolour it, outline it, stretch it, add effects, or rebuild it in another typeface.",
-  "The clay dot is part of the mark. Do not remove it or change its colour.",
-  "There is no separate icon or logomark — the wordmark is the mark. If you need a square avatar, ask rather than cropping one out of it.",
+  “Clear space: at least the height of the “1”.”,
+  “Use on paper or obsidian only.”,
+  “Do not recolour, stretch, or rebuild.”,
+  “The clay dot is part of the mark.”,
+  “No separate icon — wordmark is the mark.”,
 ];
 
 /** What we can actually send you, and what does not exist. */
