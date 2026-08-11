@@ -1345,22 +1345,21 @@ export const products: Product[] = [
       },
     ],
     outcomes: [
-      "A portfolio that reads live between reviews, briefed from the mission numbers",
-      "Autonomy granted per mission with a ceiling and a spend-down cap, and withdrawable",
-      "A recorded rationale behind each signal decision, on the hash-chained audit",
-      "A clear split between what an agent may do immediately and what waits for a person",
+      "Portfolio reads live between reviews",
+      "Autonomy per mission with ceiling and cap",
+      "Signal decision rationale on audit chain",
+      "Clear split: immediate agent actions vs human-gated",
     ],
     integrations: [
-      "The knowledge seam — declared as a tool on all nine goal1 agents",
-      "The analytics seam — declared by the scout, the foresight analyst and the strategist",
-      "enterprise1 — approvals, the hash-chained audit, the autonomy ladder and the wave gate",
-      "finance1 and supply1 — routing targets; goal1 proposes, the sibling's own gate acts",
-      "The connectors goal1 declares are modelled adapters, not live integrations",
+      "Knowledge seam — declared on all 9 agents",
+      "Analytics seam — scout, analyst, strategist",
+      "enterprise1 — approvals, audit, autonomy, wave gate",
+      "finance1 and supply1 — routing targets",
     ],
     suiteFit:
-      "goal1 runs in-process inside enterprise1 — there is no separate goal1 service. It has no system of record of its own: the portfolio is one governed key-value blob per tenant, bound to the caller's tenant on every read and write. Where a mission needs a lever goal1 does not own, the routing endpoint names the owning app and its gate — the only two of six mission categories with a route today, firing only for a mission foresight predicts will miss. goal1 writes nothing to a sibling and commits nothing; a launch-readiness test asserts it.",
+      "Runs in-process inside enterprise1. Portfolio is one governed blob per tenant. No separate goal1 service. Writes nothing to sibling.",
     trust:
-      "Autonomy here is granted, not seized. Arming an envelope refuses a critical ceiling outright, and eligibility re-checks the ceiling and the spent cap before every in-envelope move; outside it, the request falls back to the approval gate. Applying a signal out of envelope, retiring a mission or the North Star, arming or raising an envelope, disbanding a crew and cancelling a bet are registered consequential. Most other writes — creating a mission, logging a pulse, aligning to the North Star, running a play, placing a bet — are immediate: policy-evaluated and audited, but not human-approved. We would rather state that than claim more. The Trust Mark is checked against the live store rather than asserted: the conformity snapshot verifies every envelope respects its ceiling, every projection is clamped to its target, and no mission pulls toward a North Star that does not exist; any failure refuses the mark. Portfolio figures shown in the product are illustrative, and projections are labelled projections.",
+      "Autonomy granted, not seized. Arming envelope refuses critical ceiling. Apply out-of-envelope, retire mission, disburse crew: consequential. Most writes immediate, policy-evaluated, audited.",
     workforce: {
       registered: 9,
       launchWave: 6,
