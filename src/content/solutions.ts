@@ -62,7 +62,7 @@ export const solutions: Solution[] = [
       "The health1 Launchpad: one flagship workflow (typically prior-authorization) live and under the governance gates, in 4–6 weeks.",
     pricingNote:
       "Fixed Launchpad fee, then per-seat/volume product pricing plus an assure1 governance retainer. Illustrative; not medical, legal, or financial advice.",
-    wedge: "A clinical note whose OWN TEXT asserts a diagnosis, a prescription or a treatment decision cannot reach signed. The write path refuses: \"decision-support only — this note asserts a diagnosis or prescription, so it cannot be signed into the record. A clinician writes the clinical decision; the scribe drafts.\".",
+    wedge: "A clinical note asserting a diagnosis, prescription or treatment decision cannot reach signed. Write path refusal: \"decision-support only — this note asserts a diagnosis or prescription, so it cannot be signed into the record. A clinician writes the clinical decision; the scribe drafts.\"",
     problem: [
       "An ambient scribe that drafts well is a liability if nothing between the draft and the record stops a generated line being signed as a clinical decision.",
       "Consent lives upstream as a checkbox, not as a condition re-evaluated when a clinical row is created — or amended months later.",
