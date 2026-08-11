@@ -167,35 +167,35 @@ export const services: Service[] = [
     offerings: [
       {
         title: "Trust Marks, eval-gated at one door",
-        description: "A mark can only be created by one function, and it refuses four ways: an eval run it cannot find, a run that scored zero cases, a run that did not pass, and a run belonging to another tenant. \"An empty battery is not evidence, no Trust Mark.\" The mark stores a run id; the case counts are resolved from the eval store at read time, so the console shows what was scored — not that something was.",
+        description: "One function creates marks. Refuses: no eval, zero cases, failed run, wrong tenant.",
       },
       {
         title: "Evals authored as data — and a third state",
-        description: "Author a suite from a small declarative set of checks (contains · equals · nonempty · min_len · max_count · is_true · regex · judge); the compiler refuses to publish one that cannot run — no assertions, an unknown check, a missing value, or a judge criterion with no grader wired. A case with nothing to score reports \"not measurable — insufficient evidence on this tenant (this is NOT a pass)\", and a battery in which nothing was measurable did not pass: it did not run.",
+        description: "Declarative checks: contains, equals, regex, judge. Compiler enforces before publish.",
       },
       {
         title: "Adversarial floor under the safety wedge",
-        description: "Where a vertical declares a safety dimension, its certification path first runs a fixed corpus of paraphrase, synonym and obfuscation attacks through the live classifiers, and refuses the mark below a full block rate with zero false positives. Declaring a dimension that cannot be tested is itself a refusal: \"a dimension that is NAMED but cannot be tested is an error, not a pass.\" The console reports whether the classifier was the deterministic guard or a live model — it never calls one the other.",
+        description: "Safety dimensions run paraphrase/obfuscation attacks. Zero false positives required.",
       },
       {
         title: "Drift, re-verify, revocation",
-        description: "Agents, skills, connectors, the grounding corpus and composed packs each carry a re-verify that revokes certification when the content hash drifts from the certified hash or a fresh eval fails — and one sweep runs them all, counting a broken entity as errored rather than clean. Withdrawing a mark is itself a governed action that queues for a human signature; the revocation is soft, so the audit keeps the history and a fresh passing eval can re-issue.",
+        description: "Hash drift or failed eval revokes mark. Soft revocation keeps history.",
       },
       {
         title: "Marks pinned to the model they were earned on",
-        description: "A mark records the model id its evidence was scored under. When the runtime moves to a different model, the mark reads stale — not certified — because a score is evidence about the model it ran on. A sweep re-runs each certified agent's battery against the model the runtime would actually use; a lower score revokes the certification and demotes that agent's autonomy, and a battery that could not be scored reports not-measurable rather than a pass.",
+        description: "Mark records model ID. Model upgrade triggers re-verify and possible revocation.",
       },
       {
         title: "The coverage register — a denominator, not a to-do list",
-        description: "An improvement queue has no denominator: an empty one and an estate where nothing was ever measured look identical. The register lists every subject that should hold a mark — certified, drifted, revoked, stale, never scored — with the cases behind each, computed at read from the roster, the mark store and the eval store. Nothing is stored and nothing is capped. Uncertified is reported as unknown, not as failing, and the assurance advisor counts itself in the denominator.",
+        description: "Register lists all marks: certified, drifted, revoked, stale, never scored.",
       },
       {
         title: "Evidence a third party can recompute",
-        description: "The audit chain is re-hashed and re-walked on every read rather than displaying a stored verdict. A compliance receipt can be verified offline from its own contents — chain, digest, and an optional signature — with no access to the running platform. The evidence pack assembles the sources into one tenant-scoped artifact where each row carries its own measured state, and \"a row with measured=false carries verdict=null: it means we did not measure it, never that it is fine.\"",
+        description: "Audit chain re-hashed on every read. Compliance receipt verifies offline.",
       },
       {
         title: "The assurance engagement — what people do, not software",
-        description: "Writing your governance signature, mapping controls to a framework, standing up the eval batteries that will gate your marks, closing a readiness gap, and running an external auditor's evidence requests are work our people do alongside yours. The platform holds the record and enforces the gates; the judgement calls are an engagement. elan1 is not a certification body and holds no third-party certification of its own.",
+        description: "Governance signature, control mapping, eval batteries, readiness. Our people + yours.",
       },
     ],
     engagementModel:
