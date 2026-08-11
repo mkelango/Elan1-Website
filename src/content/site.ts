@@ -324,18 +324,6 @@ export const NAV: NavItem[] = [
         ],
       },
       {
-        // elan1 is MCP-native and the site never said so — a differentiator left on the floor while
-        // every comparator ships a Developers surface. Only routes that exist are linked; anything
-        // that ships with the developer preview is stated as text on the page, never as a link,
-        // because a developer who hits a 404 does not come back.
-        heading: "Build",
-        links: [
-          { label: "Developers", href: "/developers", desc: "The SDK contract, the MCP connector fabric, and the core surfaces" },
-          { label: "Connectors", href: "/platform/connectors", desc: "Typed, least-privilege seams — credential-gated, never pre-connected" },
-          { label: "Engineering & readiness", href: "/platform/engineering", desc: "Identity, isolation, audit, retention, DR — and the limits, stated" },
-        ],
-      },
-      {
         // DERIVED — the learn-surface pillars from services.ts (Academy). The top-level Academy menu
         // is gone; training is something you come to Resources to do.
         heading: "Academy",
