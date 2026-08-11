@@ -239,13 +239,13 @@ export const ONTOLOGY_LAYERS: OntologyLayer[] = [
   {
     id: "connector-seam",
     name: "The connector seam",
-    what: "An external system's naming is not your record model, and pretending otherwise is how a field means two things. At the seam, a connector maps a canonical object and field model onto each system's native naming — an account's name is Salesforce's Account.Name, a worker's is Workday's legalName, an incident's summary is ServiceNow's short_description. The agent speaks canonical; the connector speaks the vendor's dialect; the translation is the connector's entire value.",
+    what: "Connector maps canonical model to vendor native naming; agent speaks canonical, connector speaks vendor dialect.",
     howItShips:
-      "Five such systems are declared as configuration of one connector rather than as five integrations, which is the same argument the packs make one layer up. Every call through the fabric is scope-checked against what the connector actually exposes and audited by operation and argument keys rather than argument values, and credentials are references unsealed only at the tool boundary.",
+      "Five systems declared as one connector config. Calls scope-checked; credentials sealed until tool boundary.",
     verified:
-      "The mapping tables are declared in the connector module and readable in one sitting. The offline transport is a real in-memory store, and it is the only transport that ships — so what is verified here is the mapping, not a connection.",
+      "Mapping tables declared in connector module. Offline in-memory transport is only shipped transport.",
     limit:
-      "These are declared seams, not live integrations you inherit, and they are not among the connectors registered on the boot fabric today. Connecting one is a transport, then credentials, then an audited grant — an operator's step, and not a switch we have already flipped. The connectors page states which tier each connector is in and does not round the catalog up into the registered count.",
+      "Declared seams, not live integrations. Not registered on boot fabric. Requires transport + credentials + grant.",
     seeAlso: { label: "Connectors — the MCP fabric", href: "/platform/connectors" },
     accent: ACCENT.gold,
   },
