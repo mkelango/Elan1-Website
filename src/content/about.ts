@@ -254,7 +254,7 @@ export const LAYER_ORDER = ["platform", "products", "solutions"] as const;
 export const LAYERS_IN_ORDER = LAYER_ORDER.map((k) => LAYERS[k]);
 
 export const LAYERS_LEDE =
-  "One control plane, the apps that run on it, and the industry configurations that tune them. The order matters more than the count: the platform is what holds the gate, and an app or an industry pack is configuration over one core rather than a fork of it. That is a claim about where the code lives, not about how well it behaves — the approval gate, the audit chain and the rollout gate an industry pack runs against are the same code the suite runs against, because there is no second copy to diverge.";
+  "One control plane, the apps that run on it, and the industry configurations that tune them. The platform holds the gate; an app or an industry pack is configuration over one core rather than a fork of it. That is a claim about where the code lives, not about how well it behaves — the approval gate, the audit chain and the rollout gate an industry pack runs against are the same code the suite runs against.";
 
 /* ————————————————————————————————————————————————————————————————————————————————————————————
  * THE STANDARD WE HOLD THIS WEBSITE TO. This is the values section, written as rules with
