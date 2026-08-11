@@ -231,9 +231,9 @@ export const WORDMARK_RULES: string[] = [
 
 /** What we can actually send you, and what does not exist. */
 export const ASSET_NOTES: string[] = [
-  "The wordmark is typographic — set in the display face with a clay dot on the 1. Ask and we will send a vector file for print.",
-  "The diagrams on the site are ours and are drawn to be read at small sizes. Ask before reprinting one and we will send a clean version rather than a screenshot.",
-  "For a portrait to run with an interview, ask. We will not send you a stock image of people who do not work here.",
+  "Wordmark is typographic. Ask for vector files for print.",
+  "Diagrams are ours. Ask for clean versions before reprinting.",
+  "No stock images. Ask for interview portraits.",
 ];
 
 /* ————————————————————————————————————————————————————————————————————————————————————————————
