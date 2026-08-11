@@ -51,7 +51,7 @@ export const ASSISTANT_CAPABILITIES: AssistantCapability[] = [
   {
     title: "It holds no business writer",
     description:
-      "assistant1 owns one record of its own — the conversation — and holds no writer for a business system of record. A consequential move on your data is handed to the app that owns it, and that app applies its own approval gate. The bridge is deliberately narrow: sales1, people1 and finance1 expose a governed proposer today, and every other app is read-only from a conversation.",
+      "Owns only conversation record; routes writes through app's own approval gate.",
   },
   {
     title: "Grounded in your records, and it says when it isn't",
