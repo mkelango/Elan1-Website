@@ -208,10 +208,10 @@ const SOURCES: PlaybookSource[] = [
       },
       {
         title: "Rehearse the stop, and know exactly what it stops",
-        body: "The incident kill-switch overrides the enabled set for an app: while it is on, every function of that app is refused at the gate, the switch is written to the audit chain, and it survives a restart — a stop a redeploy silently lifts is not a stop. The enabled set is preserved, so lifting the switch restores the exact prior wave rather than forcing somebody to reconstruct it, because a stop that costs you your configuration is a stop people avoid. Know its edge as precisely as its reach: it halts that app's agent fleet, and it does not, as the control plane is wired today, also refuse that app's direct system-of-record writes. The generic rule that would do that is registered in production without the reference to the rollout registry its clause needs, so the clause cannot fire; only a test wires it. Rehearse against the fleet stopping, and verify the write path yourself rather than assuming the switch covers it.",
+        body: "The kill-switch overrides the enabled set: every function of that app is refused, written to audit, survives restart. It preserves the enabled set so resuming restores the exact prior wave. It halts the agent fleet. It does not also refuse direct writes to the app's store — verify that path separately.",
         decision:
           "The named people who can suspend, and the sentence that authorises them to do it without asking first.",
-        trap: "Treating suspension as an escalation. If it needs a meeting, it will not happen during the incident.",
+        trap: "Treating it as an escalation. If it needs a meeting, it will not happen in an incident.",
       },
       {
         title: "Keep the business case arguable",
