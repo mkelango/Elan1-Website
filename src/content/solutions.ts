@@ -1038,11 +1038,11 @@ export const solutions: Solution[] = [
       "Fixed Launchpad fee, then per-asset/site pricing plus an assure1 retainer and run1 operations. Illustrative; not engineering, safety, or financial advice.",
     wedge: "Green attribute derived from meter, never supplied. REC can only issue against grounded, uncertified generation; on issuance, source is stamped to prevent double-count.",
     problem: [
-      "The question a grid operator asks about AI is not whether it can decide. It is what stops it from acting. An instruction that reads as advice and an instruction that trips a breaker are the same string until something refuses one of them — and refuses it on the write that only changes which asset the instruction points at.",
-      "A green attribute is only as honest as the meter behind it. When the certified quantity is a number in a payload, a certificate can be issued against generation that was never metered, or against generation that has already been certified once.",
-      "Net-metering money is arithmetic over metered export and a published tariff. In most stacks the amount arrives as a supplied figure with nothing tying it back to the register, and a tariff record that exists but carries no rates prices real energy at zero.",
-      "Reliability indices get reported out of a spreadsheet that no longer agrees with the outage log, so the operating dashboard and the filing drift apart without anyone deciding that they should.",
-      "Prosumer data is the easiest thing to leak, and the leak is permanent: a consumer name or a consumption trace copied once into the finance or analytics system of record.",
+      "An instruction to trip a breaker is the same string as advice until something refuses the auto-dispatch.",
+      "Green attributes typed as payloads can exceed metered generation or double-count.",
+      "Net-metering amounts as supplied figures have no link back to the register.",
+      "Reliability indices from spreadsheets drift from the outage log.",
+      "Prosumer consumption data is the easiest thing to leak to finance and analytics.",
     ],
     composedOfNote: "energy1 composes supply1, finance1, sales1, service1, project1, insight1; adds DER record: asset, site, meter, generation, dispatch, REC, tariff, settlement, attestations.",
     ownRecords: [
