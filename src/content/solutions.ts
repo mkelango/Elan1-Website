@@ -753,7 +753,7 @@ export const solutions: Solution[] = [
       "Cannot issue a certificate of analysis for a batch with {n} OPEN non-conformance(s) — an earlier pass does not survive an unresolved NCR. Close it (a human's decision) first.",
       "Cannot issue a certificate of analysis: this batch's most recent signed inspection FAILED — an earlier passing inspection does not overrule a later attested failure. Remediate and re-inspect.",
     ],
-    evals: "NINE eval sets, TWELVE cases — verified by running the governance signature('manufacture1') against the live catalog: grounding (1) · machine_safety (1) · quality_integrity (1) · worker_data_safety (1) · ot_it_separation (1) · quality_closed_loop (2) · capa_never_autonomous (1) · engine_never_acts_for_the_human (2) · worker_data_seam_clean (2). The same nine are declared in the pack and on the server, and a pack test asserts set(pack.evals) == set(signature.eval sets) so the pack's certify door and a governed endpoint cannot grade different batteries — they once did, and the pack's door silently skipped the entire safety battery (ADR-0643).",
+    evals: "Nine sets, twelve cases: grounding (1), machine safety (1), quality integrity (1), worker data safety (1), OT/IT separation (1), quality closed loop (2), CAPA (1), engine never acts (2), seam clean (2).",
     seo: {
       title: "manufacture1 — governed shop-floor records for manufacturing | elan1",
       description:
