@@ -213,12 +213,12 @@ export const OTHER_DOORS: { label: string; href: string; body: string }[] = [
   {
     label: "Press and analysts",
     href: "/company/newsroom",
-    body: "The press kit is already public: boilerplate, how the name is written, brand assets, the facts you may attribute, and a straight list of what we cannot give you.",
+    body: "Press kit: boilerplate, naming, assets, attributable facts, limits.",
   },
   {
     label: "Partnering",
     href: "/partners",
-    body: "Delivery, technology and advisory partners have their own route, and it asks the questions we would ask anyway.",
+    body: "Delivery, tech, and advisory partner routes.",
   },
   {
     label: "Working here",
