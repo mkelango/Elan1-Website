@@ -1044,7 +1044,7 @@ export const solutions: Solution[] = [
       "Reliability indices get reported out of a spreadsheet that no longer agrees with the outage log, so the operating dashboard and the filing drift apart without anyone deciding that they should.",
       "Prosumer data is the easiest thing to leak, and the leak is permanent: a consumer name or a consumption trace copied once into the finance or analytics system of record.",
     ],
-    composedOfNote: "energy1 composes six suite apps — supply1 for parts and fuel planning, finance1 for the ledger, sales1 for the DER inquiry pipeline, service1 for outage cases, project1 for major-outage restoration and insight1 for published metrics — and adds the layer none of them owns: the DER, meter, generation, certificate, tariff and settlement genealogy, the grid-safety write gate over it, and the derives that make a green attribute and a net-metering amount computed rather than typed.",
+    composedOfNote: "energy1 composes supply1, finance1, sales1, service1, project1, insight1; adds DER record: asset, site, meter, generation, dispatch, REC, tariff, settlement, attestations.",
     ownRecords: [
       "Der asset",
       "Site",
