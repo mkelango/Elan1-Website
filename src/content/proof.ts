@@ -154,12 +154,9 @@ export const PROOF: CaseStudy[] = [
     industry: "Across the suite",
     domain: "Publishing",
     app: "market1",
-    before:
-      "Generated copy goes live on a schedule. The superlative that broke an advertising rule is found by a customer; the broadcast that went out twice is found by the audience; and paid placement sits one integration away from being the default answer to a slow quarter.",
-    after:
-      "Publishing an asset is a human's action by policy. The truthfulness check reads the record's own title and body rather than a flag on the request, so an asset cannot declare itself compliant. A post that has already published cannot publish again, and a broadcast that has already sent cannot send again — both are refused before the approval gate, because re-sending is not a decision anyone should be asked to make. Paid media is refused as a category by market1's own registered policy rather than switched off in configuration.",
-    guarantee:
-      "market1's publish policy allows and requires a person — \"a human reviews this asset before publish\" — and the governed write refuses independently of it: \"blocked — banned/misleading claim(s) in the post: {claims}\" · \"social post already published — a post publishes once\" · \"broadcast already sent — a broadcast can only be sent once\" · \"ad placement / paid media is not permitted (ad-free)\". Stated limit: the claim check is lexical over the record's text. It catches the banned phrasing, not every way of implying it — which is why the human review sits above it rather than behind it.",
+    before: "Generated copy auto-publishes on schedule; no ban-check; duplicates possible.",
+    after: "Human-approved only. Record reads body not flags. Idempotent. Ad-free.",
+    guarantee: "\"banned/misleading claim(s) in post: {claims}\" · \"social post already published\" · \"ad placement not permitted\". Limit: lexical check catches phrasing not implications.",
     registeredAgent: "market1.social_publisher",
     accent: ACCENT.violet,
   },
