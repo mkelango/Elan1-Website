@@ -107,9 +107,9 @@ export const COMPARISONS: Comparison[] = [
       description:
         "An honest architectural comparison: Salesforce is a system of record, Agentforce is agents over it, and elan1 is a governed system of record with the approval gate on the write. Where Agentforce leads, and when to pick it.",
     },
-    headline: "Agents over the CRM record, or the approval gate inside the writer.",
+    headline: "Agents over CRM, or approval gate inside the writer.",
     subhead:
-      "This is the comparison where the usual line — \"they sit on top of someone else's record\" — is simply wrong, so we do not make it. Salesforce is a system of record. The real question is which records, and what stands between an agent's intent and the row.",
+      "They own customer records; we govern all writes. Real question: which records and what controls the write.",
     theirModel:
       "Agentforce is Salesforce's agent layer over the Salesforce platform. An agent is assembled from topics and actions, and the actions are the platform's own primitives — Flows, Apex, and APIs reached through MuleSoft — grounded in Data Cloud and run through the Einstein Trust Layer, which handles prompt defence, data masking and zero-retention handling with the model provider and records prompts and responses for review. Inside a Salesforce estate the customer record genuinely is Salesforce's, with twenty years of permission model, sharing rules, sandboxes and release tooling underneath it. So the honest axis is not whether they own a record. It is which records they own — the customer domain — and what the control on the write into them is.",
     ourModel:
