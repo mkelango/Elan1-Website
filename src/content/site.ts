@@ -122,7 +122,84 @@ const productCategoryColumns: NavColumn[] = categories.map((c) => ({
   ],
 }));
 
+/**
+ * TOP-LEVEL ORDER IS AN ARGUMENT, NOT AN ALPHABET.
+ *
+ * Platform leads. The wedge is architectural — elan1 owns the system of record and governs the
+ * WRITE, where a comparator sits on top of someone else's record and governs the CALL. A visitor
+ * who understands the governed write path then understands why the apps differ. Leading with
+ * Products invites "so it's another CRM", which is the one reading that makes the rest of the site
+ * unnecessary.
+ *
+ * Proof replaces the Customers menu every comparator runs. elan1 has no nameable customers, and a
+ * Customers menu with no customers advertises the absence. Proof is the stronger play in a trust
+ * sale anyway, and it converts into Customers later by adding one row — never before a named,
+ * consented partner exists.
+ *
+ * Pricing is a top-level plain link (no mega). It was buried inside the Products mega, three
+ * hovers from the homepage, which is where a buyer looks first and finds nothing.
+ */
 export const NAV: NavItem[] = [
+  {
+    label: "Platform",
+    href: "/platform",
+    mega: [
+      {
+        // Five columns. Every href below resolves to a route that exists in App.tsx today —
+        // checked in both directions. Sub-capabilities that have no page of their own (the policy
+        // engine, the approval gate, the audit chain, token metering, wave rollout) live in a
+        // `desc` rather than as a link to nowhere: a nav entry is a promise that a page exists.
+        heading: "The control plane",
+        links: [
+          { label: "enterprise1", href: "/platform/enterprise1", desc: "Governance, identity, audit and wave rollout for every app", accent: "#b9603f" },
+          { label: "assistant1", href: "/platform/assistant1", desc: "The governed central assistant — it proposes, the app decides", accent: "#5ad1c0" },
+          { label: "agent1", href: "/platform/agent1", desc: "The studio where a governed agent is built, evaluated and compiled", accent: "#7c6cf0" },
+        ],
+      },
+      {
+        // NEW. Context is what an agent READS; an ontology is the typed structure a WRITE is
+        // validated against. A retrieval graph makes answers better — an ontology makes writes
+        // refusable. Deliberately NOT "Enterprise Context": that is a competitor's term, and
+        // second place in someone else's word is worth nothing.
+        heading: "Enterprise Ontology",
+        links: [
+          { label: "The record model", href: "/platform/enterprise-ontology", desc: "Typed objects across the systems of record — what a write is validated against", accent: "#2f6df0" },
+          { label: "Connectors — MCP-native", href: "/platform/connectors", desc: "Typed, least-privilege seams; credential-gated, never pre-connected" },
+          { label: "Verticals are config, not forks", href: "/platform/verticals-are-config", desc: "Ten industries, zero forked application code" },
+        ],
+      },
+      {
+        heading: "Trust & governance",
+        links: [
+          { label: "assure1", href: "/platform/assure1", desc: "Evals, evidence packs and the Trust Mark", accent: "#e0656d" },
+          { label: "Governance — three layers", href: "/platform/governance", desc: "The policy engine, the approval gate, and the hash-chained audit" },
+          { label: "Trust Center", href: "/trust", desc: "Principles, governance signatures, security and certification posture" },
+        ],
+      },
+      {
+        heading: "Operate",
+        links: [
+          { label: "run1", href: "/platform/run1", desc: "Operations, token metering and FinOps, eval-gated model migration", accent: "#3fae6b" },
+          { label: "Engineering & readiness", href: "/platform/engineering", desc: "Identity, isolation, audit, retention, DR — and the limits, stated" },
+          { label: "Platform overview", href: "/platform", desc: "How the control plane and the pillars fit" },
+        ],
+      },
+      {
+        heading: "Build & prove",
+        links: [
+          { label: "strategy1", href: "/platform/strategy1", desc: "The fixed-scope engagement that plans and lands the work", accent: "#df8c64" },
+          { label: "Built on Claude", href: "/platform/built-on-claude", desc: "Why Claude-native depth wins" },
+          { label: "Why elan1 vs builders", href: "/platform/why-elan1", desc: "Run your business on agents — not just build one" },
+        ],
+      },
+    ],
+    featured: {
+      title: "Everyone audits the call. elan1 audits the record.",
+      body: "A comparator's agent sits on top of your system of record and logs that it called an API. elan1 owns the record — so the audit shows the row before, the policy that fired, the person who approved, and the hash chain proving nothing was edited after.",
+      href: "/platform/governance",
+      cta: "See how governance works",
+    },
+  },
   {
     label: "Products",
     href: "/products",
@@ -133,7 +210,7 @@ export const NAV: NavItem[] = [
         links: [
           { label: "The 1 Suite overview", href: "/products", desc: "Five categories, one platform" },
           { label: "Agentic apps vs. copilots", href: "/what-is-agentic-transformation", desc: "Why apps that act beat tools that wait" },
-          { label: "Pricing", href: "/pricing", desc: "How the plans and the metered usage work" },
+          { label: "The record model", href: "/platform/enterprise-ontology", desc: "The typed structure every app writes through" },
         ],
       },
     ],
