@@ -139,7 +139,7 @@ function pillarLink(slug: string, desc?: string): NavLink {
       `site.ts: no platform pillar "${slug}" in services.ts — the Platform mega would ship a dead link.`,
     );
   }
-  return { label: s.name, href: servicePath(s), desc: desc ?? s.tagline, accent: s.accent };
+  return { label: s.name, href: servicePath(s), desc: desc ?? s.tagline };
 }
 
 /**
@@ -270,7 +270,6 @@ export const NAV: NavItem[] = [
             label: s.name,
             href: `/solutions/${s.slug}`,
             desc: s.industry,
-            accent: s.accent,
           })),
           {
             label: "More industries",
