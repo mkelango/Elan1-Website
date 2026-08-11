@@ -900,32 +900,32 @@ export const products: Product[] = [
       {
         title: "analyst — ask your data",
         description:
-          "A plain-English ask is mapped to a known source app and aggregation, then run live. An ask it cannot ground comes back as \"could not ground the question to a known source app\".",
+          "Plain-English ask mapped to source app and aggregation, run live. Cannot ground: stated.",
       },
       {
         title: "data_steward — the semantic metric layer",
         description:
-          "One governed definition per metric — source app, aggregation, field, filter, target — so a dashboard tile and an agent answer resolve to the same thing. An uncomputable value returns a stated reason.",
+          "One definition per metric. Dashboard tile and agent answer resolve same.",
       },
       {
         title: "anomaly_watch and narrator — findings with evidence",
         description:
-          "An hourly baseline over a metric's real period series, banded by severity, with the evidence attached. An alert on a metric that will not compute sends nothing.",
+          "Hourly baseline over period series, banded by severity. Alert on uncomputable sends nothing.",
       },
       {
         title: "forecast — a projection, labelled as one",
         description:
-          "A least-squares trend with a residual band and an in-sample error figure. Labelled a projection, never actual data, and it refuses under three periods.",
+          "Least-squares trend with residual band and error. Labelled projection. Refuses under three periods.",
       },
       {
         title: "Reports, dashboards and scheduled delivery",
         description:
-          "The report author and dashboard builder draft; the digest scheduler and dashboard publisher require approval before anything reaches an audience.",
+          "Draft then approval before audience reach.",
       },
       {
         title: "grounded_truth_judge — the pre-publish check",
         description:
-          "Checks each figure ties to a governed metric over a real record, that a forecast is labelled a projection, and that a share's row-level scope — a real filter merged into the query, not a display toggle — has not been widened. A failure flags for review instead of publishing.",
+          "Figures tie to governed metric. Forecast labelled projection. Row-level scope not widened.",
       },
     ],
     outcomes: [
