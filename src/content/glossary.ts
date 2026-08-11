@@ -292,8 +292,8 @@ export const GLOSSARY: Term[] = [
   {
     term: "Idempotency key",
     category: "The write path",
-    def: "A caller-supplied key that makes a repeated request execute once. It works at two levels here. On the wire, a request header is read at the one chokepoint every governed consequential action passes through, so a client re-posting after a timeout gets the stored prior result rather than a second execution. In the apps it is a precondition: finance1 blocks a money action with no key outright, and supply1 refuses a purchase-order submit without one — a replay returns the original receipt and orders nothing.",
-    why: "A request still waiting for approval was never recorded as executed, so a re-post during the pending window behaves as a fresh request rather than returning a result that does not exist yet. Without the header the mechanism is inert and behaviour is unchanged.",
+    def: "A caller-supplied key that makes a repeated request execute once. On the wire, a request header is read at the one chokepoint every governed consequential action passes through, so a client re-posting after a timeout gets the stored prior result rather than a second execution. In the apps it is a precondition: finance1 blocks a money action with no key outright, and supply1 refuses a purchase-order submit without one — a replay returns the original receipt and orders nothing.",
+    why: "A request still waiting for approval was never recorded as executed, so a re-post during the pending window behaves as a fresh request. Without the header the mechanism is inert and behaviour is unchanged.",
     see: ["Consequential action"],
   },
   {
