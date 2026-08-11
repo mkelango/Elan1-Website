@@ -504,22 +504,22 @@ export const products: Product[] = [
       },
     ],
     outcomes: [
-      "Buying you can reconstruct: an approved supplier, an approver and an idempotency key",
-      "Replenishment that traces to a computed projection — and an honest \"not enough history\" when there is none",
-      "One stock truth across warehouses, because the write refuses what would break it",
-      "Inventory value re-derivable by replaying the ledger — the record the match reads",
+      "Buying reconstructible: approved supplier, approver, idempotency key",
+      "Replenishment traces to computed projection; honest \"not enough history\" when true",
+      "One stock truth across warehouses",
+      "Inventory value re-derivable by replaying ledger",
     ],
     integrations: [
-      "The inventory seam — stock, demand signals, draft orders and reorder points",
-      "The supplier seam — reads plus idempotent, human-approved commitments",
-      "E-procurement — a fetched catalog row becomes real pricing only through the governed writer",
-      "WMS / 3PL — a fetched count becomes a record only through the governed reconciliation writer",
-      "In-suite: finance1 for the three-way match, service1 for recalls, commerce1 for stock truth",
+      "Inventory seam — stock, demand signals, orders, reorder points",
+      "Supplier seam — reads plus idempotent commitments",
+      "E-procurement — catalog row becomes real only via governed writer",
+      "WMS/3PL — count becomes record only via governed reconciliation",
+      "finance1 three-way match, service1 recalls, commerce1 stock",
     ],
     suiteFit:
-      "supply1 is the stock-truth system the rest of the suite reads against. finance1's three-way match runs against the supply1 order and its receipt; a commerce1 replenishment lands as a draft against an already-approved vendor, and submitting stays supply1's human-approved step. The retail1, manufacture1 and energy1 packs compose supply1's own agents as configuration, not forks.",
+      "supply1 is stock-truth system. finance1's three-way match runs against supply1 order and receipt. commerce1 replenishment drafts to approved vendor; submitting stays supply1's human step.",
     trust:
-      "Approved-vendor-only is a check on the write: a purchase order naming a supplier that is not approved, or is blocked or suspended, is refused at the system of record. The same check guards subcontract and blanket orders, and awarding an RFQ or sourcing a requisition passes through it. Submitting is a separate decision — the store refuses with \"no autonomous commitment — a PO is human-approved\", and refuses again without an idempotency key; a replay returns the original receipt and orders nothing. Beyond the refusals listed here, the write path also blocks a transfer beyond available-to-promise, a return beyond the net received, a defect above the inspected sample, and a second allocation of a serial. The Trust Mark is gated on an eight-set eval battery scored against live records, and drift auto-revokes it. Figures are decision support, not advice.",
+      "Approved-vendor check on write. PO naming unapproved supplier refused. Submitting separate decision; requires idempotency key. Replay returns original receipt, orders nothing.",
     workforce: {
       registered: 9,
       launchWave: 3,
