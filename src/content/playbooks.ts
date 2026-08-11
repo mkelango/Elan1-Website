@@ -381,11 +381,11 @@ const SOURCES: PlaybookSource[] = [
       },
     ],
     notCovered: [
-      "Regulatory certification or legal sign-off for your jurisdiction. Nothing here is legal, medical or financial advice.",
-      "Industries outside the shipped packs. A vertical we do not ship is a configuration project scoped on its own terms — there is nothing to read here for it, and nothing to download.",
-      "Country-specific statutory content beyond what the packs already model.",
-      "Your data model. The pack brings its record types; mapping yours onto them is Discovery work and is usually where the time goes.",
-      "A comparison with other vendors' industry offerings. We describe what elan1 does and leave the rest of the market to you.",
+      "Regulatory certification or legal sign-off.",
+      "Industries outside the shipped packs.",
+      "Country-specific statutory content beyond what the packs model.",
+      "Your data model mapping — that is Discovery work.",
+      "Comparison with other vendors' industry offerings.",
     ],
   },
 
