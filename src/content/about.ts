@@ -171,7 +171,7 @@ export const WHAT_FOLLOWS: Consequence[] = [
     // in a stat strip and turns into nonsense inside a sentence that already supplies the nouns.
     // Composing two factLines here produced "69 enabled in the current wave of 155 agents
     // registered" — a sentence nobody wrote and nobody proof-read, because it only exists at render.
-    body: `Enablement is staged per tenant, function by function, and a run of a function outside the enabled set is refused before it acts, with the app and the tenant named in the refusal. Across the platform, ${factValue("agentsEnabled")} of the ${factValue("agentsRegistered")} registered agent functions are switched on in the current wave; the remainder are deliberately off, which is the control rather than a gap. A rollout order stops being a promise in a deck and becomes a state the control plane holds.`,
+    body: `Enablement is staged per tenant, function by function, and a run outside the enabled set is refused before it acts, with the app and the tenant named in the refusal. Across the platform, ${factValue("agentsEnabled")} of the ${factValue("agentsRegistered")} registered agent functions are switched on in the current wave; the rest are deliberately off, which is the control rather than a gap. A rollout order becomes a state the control plane holds rather than a promise in a deck.`,
   },
   {
     title: "The record is append-only in the database, not in the API",
