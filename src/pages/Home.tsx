@@ -13,6 +13,7 @@ import { categories, appsOf, categorizedAppSlugs, numberWord } from "../content/
 import { solutions, primarySolutions, secondarySolutions } from "../content/solutions";
 import { services, platformPillars, resourcePillars, servicePath } from "../content/services";
 import { SHIFT, METHOD, FLYWHEEL, WHY_WIN, HOW_WE_WORK, REGIONS } from "../content/site";
+import { PROOF, proofBadge, GOVERNED_PATH_SCOPE } from "../content/proof";
 
 const ALL_TAGS = [
   ...services.map((s) => s.name),
