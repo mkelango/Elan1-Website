@@ -64,11 +64,11 @@ export const solutions: Solution[] = [
       "Fixed Launchpad fee, then per-seat/volume product pricing plus an assure1 governance retainer. Illustrative; not medical, legal, or financial advice.",
     wedge: "A clinical note asserting a diagnosis, prescription or treatment decision cannot reach signed. Write path refusal: \"decision-support only — this note asserts a diagnosis or prescription, so it cannot be signed into the record. A clinician writes the clinical decision; the scribe drafts.\"",
     problem: [
-      "An ambient scribe that drafts well is a liability if nothing between the draft and the record stops a generated line being signed as a clinical decision.",
-      "Consent lives upstream as a checkbox, not as a condition re-evaluated when a clinical row is created — or amended months later.",
-      "Eligibility verdicts, scrub statuses and quality rates get typed into fields, so nothing downstream can tell a computed number from an asserted one.",
-      "\"Nothing matched\" and \"we could not look\" arrive as the same green tick: a lab result with no recorded reference range is not abnormal, and reads as normal.",
-      "Clinical detail drifts sideways into billing, delivery and analytics as hand-offs widen, and nothing recomputes the boundary to notice.",
+      "Generated clinical notes can be signed as decisions without a write path to stop it.",
+      "Consent gets checked once, not re-evaluated when records are created or amended.",
+      "Eligibility verdicts and quality rates typed into fields cannot be distinguished from computed ones.",
+      "Empty lab result reference ranges read as normal rather than unknown.",
+      "Clinical detail drifts into billing and analytics with no boundary recompute.",
     ],
     composedOfNote: "health1 composes finance1, project1, insight1; adds its own 25-type clinical record, FHIR/ABDM/X12 connectors, and care_advisor agent.",
     ownRecords: [
