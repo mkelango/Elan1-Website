@@ -64,9 +64,23 @@
 //   · serve-time redaction AND its production callers ................ same file (`redact_pii_chunks`),
 //       called from core/elan1_core/fabric_connectors.py and apps/enterprise1's service1 router
 //   · canonical ↔ native mapping at the seam ......................... core/elan1_core/sor_connectors.py
-//   · that the schema registry has exactly TWO consumers ............. grep across apps/ + core/: the
-//       writer and the integrity sweep. No HTTP endpoint, no screen. This is why `ONTOLOGY_NOT_YET`
-//       can say "no ontology API" as a fact rather than as modesty.
+//   · ⚠️ the SoR connectors ship ONE transport, the in-memory one .... same file. The module's own comment
+//       names `HttpSorTransport` as "the cred-gated drop-in"; NO SUCH CLASS EXISTS anywhere in the tree,
+//       and the single production construction is `sor_connector("salesforce", FakeSorTransport())` in
+//       enterprise1's wave-2 router, unwrapped. Same species as the `_referential_gate_mode` docstring
+//       below: a comment that describes an intention in the present tense. Do not re-publish it.
+//   · the schema REGISTRY's consumers ................................ `SOR_SCHEMAS` / `schema_for` are
+//       imported in exactly two places — the governed writer and the integrity sweep. But the SDK's
+//       `*_OBJECT_TYPES` tuples UNDERNEATH the registry have more readers: enterprise1's `sordata.py`
+//       derives every app workspace snapshot from the same tuples, and that snapshot is served over HTTP
+//       and rendered on a screen. So "no ontology API" is a fact about the MODEL — no endpoint returns a
+//       type's declared values, and `STATUS_DOMAINS` has no reader outside the write path — and NOT a
+//       claim that a type name never reaches a screen. The wider version was in an earlier draft of
+//       `ONTOLOGY_NOT_YET` and was false. Do not restore it.
+//   · /api/knowledge-graph EXISTS .................................... apps/enterprise1/.../routers/
+//       knowledge_graph.py, 22 lines, returning a fixed handful of demo entities identical for every
+//       tenant. "There is no graph you can query" was therefore too absolute — the endpoint is findable
+//       in a minute — so the claim is scoped to a graph OVER YOUR BUSINESS, which is the true one.
 // ─────────────────────────────────────────────────────────────────────────────────────────────
 
 import { ACCENT } from "./types";
