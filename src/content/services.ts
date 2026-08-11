@@ -98,31 +98,31 @@ export const services: Service[] = [
     offerings: [
       {
         title: "Bespoke agent builds, as typed blueprints",
-        description: "We author your agents as AgentBlueprints and compile them through agent1's build_agent into /sdk AgentSpecs — the same shape every agent on the platform has, with no app forked to hold them. Three vertical packs (energy1, telco1, edu1) already compile their bespoke agents this way at import time, so a blueprint that breaks a guarantee fails the build rather than a review.",
+        description: "Typed blueprints compile as AgentSpecs. Breaks guarantee, fails build.",
       },
       {
         title: "The advisory guarantee, enforced at compile time",
-        description: "Mark a blueprint advisory and it may hold none of the six control-system connectors. The compiler raises: \"advisory agent … may not hold control-system connectors … — OT actions are taken by humans\". Its instructions are stamped \"ADVISORY ONLY: recommend and explain; a human operator/technician/crew takes any physical or control-system action\" — stamped idempotently, so republishing does not churn the content hash and silently revoke the agent's Trust Mark.",
+        description: "Advisory agents cannot hold control-system connectors. Compiler enforces it.",
       },
       {
         title: "A builder where the gate updates as you type",
-        description: "The Studio console in enterprise1 is a structured canvas — name, instructions, model policy, K3 tool chips, K4 skills, policy tags — validated through the real compiler on every change. Holding a money or commit tool raises the agent to a human-approval gate; advisory plus a control connector shows REFUSED live. Consequence is derived from what the blueprint actually carries, not from whether the author remembered to tick a box.",
+        description: "Studio validates blueprint on every change. Money tools auto-raise to human gate.",
       },
       {
         title: "Test, publish, deploy — with a refusal in the middle",
-        description: "Run the draft through the governed runtime and read the step trace: runtime, governance decision, approval state, each real audit event with its hash, then the metered token cost. Publish refuses without a passing eval for that agent in that tenant — \"no passing eval for this agent — run the test first (no eval, no publish)\" — and publishing is itself a human approval. The Trust Mark mints first; the deploy runs after it.",
+        description: "Publish gate requires passing eval. Trust Mark mints before deploy.",
       },
       {
         title: "Rules as governed Skills, not pasted prompts",
-        description: "Encode your rules as K4 Skills: versioned, content-hashed, resolvable by semver range, with lineage instead of forks. The publish gate refuses a shared skill that embeds a raw sensitive value, and refuses a body carrying an affirmative prompt-injection claim — \"a skill is injected verbatim into every agent that resolves it\". On a real-model deployment the runtime's certification gate cannot be switched off by configuration.",
+        description: "K4 Skills versioned and hashed. Publish gate refuses raw secrets and injections.",
       },
       {
         title: "Connectors granted to the op, not to the system",
-        description: "A connector grant resolves against the ops the connector actually declares; asking for one it does not expose raises rather than widening the grant. MCP is real in both directions — a stdio JSON-RPC client, and a governed MCP server that returns a consequential tool call as an error requiring approval, so an external client cannot self-approve over the wire.",
+        description: "Grants resolve to declared ops. External clients cannot self-approve.",
       },
       {
         title: "The agent SDLC — what happens after it ships",
-        description: "Nine endpoints read the live agent registry and name what a human should look at: every certified agent whose body drifted from the hash it was certified at, a prioritized reverify worklist, retirement candidates, an autonomy-promotion readiness check, and a per-agent critique. Each one flags and transitions nothing — certifying, reverifying, deprecating and raising autonomy are each a human's approval.",
+        description: "Registry tracks drift, reverify, retirement, autonomy readiness. Human approves all.",
       },
     ],
     engagementModel:
