@@ -14,6 +14,8 @@ const cards = [
   
   // Tools & References
   { category: "Tools & References", t: "Blog", b: "Agentic transformation, thought through — on-brand, ad-free insights on strategy and governance.", href: "/resources/insights", accent: "#df8c64", live: true },
+  { category: "Tools & References", t: "Webinars", b: "Live and recorded sessions on agentic transformation and enterprise AI.", href: "/resources/webinars", accent: "#5ad1c0", live: true },
+  { category: "Tools & References", t: "Events", b: "Join us at industry conferences and exclusive events.", href: "/resources/events", accent: "#3fae6b", live: true },
   { category: "Tools & References", t: "ROI calculator", b: "Size the value, lite — a band-aware, illustrative estimate.", href: "/for/scaleup", accent: "#d39a3a", live: true },
   { category: "Tools & References", t: "Glossary", b: "The agentic vocabulary, defined plainly. Searchable.", href: "/resources/glossary", accent: "#22b8c4", live: true },
   

@@ -317,6 +317,8 @@ export const NAV: NavItem[] = [
         heading: "Tools & References",
         links: [
           { label: "Blog", href: "/resources/insights", desc: "Agentic transformation insights, ad-free" },
+          { label: "Webinars", href: "/resources/webinars", desc: "Live and recorded learning sessions" },
+          { label: "Events", href: "/resources/events", desc: "Industry conferences and exclusive events" },
           { label: "ROI calculator", href: "/for/scaleup", desc: "Size the value, lite" },
           { label: "Glossary", href: "/resources/glossary", desc: "The agentic vocabulary" },
         ],
