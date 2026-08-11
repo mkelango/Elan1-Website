@@ -34,15 +34,15 @@ export const products: Product[] = [
     hero: {
       headline: "From first touch to paid invoice. The commitments stop at a person.",
       subhead:
-        "A CRM system of record — 29 object types — with thirteen sales agents and a verification judge on top. Closed Won, a commission payout, a renewal and an order release each stop at a human approval.",
+        "29 object types, 13 sales agents, a verification judge. Closed Won, commission payout, renewal, order release — all stop at human approval.",
       primaryCta: "Book a demo",
       secondaryCta: "See it live",
     },
     problem: [
-      "Reps retype what the CRM knows, and the record still drifts from the call.",
-      "Quote totals, discounts and commissions are typed by hand. No number traces to a record.",
-      "The forecast rolls up from the fields the rep edits — the same guess twice.",
-      "Drafting outreach with AI is easy. Letting it near a discount is not.",
+      "Reps retype, records drift from calls.",
+      "Quote totals, discounts, commissions are typed by hand.",
+      "Forecast rolled up from edited fields — the same guess twice.",
+      "AI drafting easy. AI near discounts — not.",
     ],
     capabilities: [
       {
