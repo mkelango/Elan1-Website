@@ -228,12 +228,12 @@ const SOURCES: PlaybookSource[] = [
       },
     ],
     notCovered: [
-      "A business case with our numbers in it. Nothing here has been measured in a customer environment, so the model carries your assumptions, labelled, with the arithmetic shown rather than the conclusion asserted.",
-      "Change management, internal communications and training design. Academy covers the operator, approver and administrator paths on their own terms.",
-      "Data migration and master-data cleanup — usually the longest pole in the tent, and scoped separately for that reason.",
-      "An incident procedure that assumes the kill-switch also stops direct system-of-record writes. It stops the agent fleet; the rule that would cover the write path is registered without the reference its clause needs, so it does not fire.",
-      "Which functions your tenant should enable second. That depends on your records and your approvers, and it is a Discovery conversation rather than a document.",
-      "Any comparison with another vendor's adoption framework.",
+      "A business case with elan1 numbers — nothing has been measured in a customer environment.",
+      "Change management, communications and training design.",
+      "Data migration and master-data cleanup.",
+      "An incident procedure that assumes the kill-switch also stops direct system-of-record writes.",
+      "Which functions your tenant should enable second.",
+      "Comparison with another vendor's adoption framework.",
     ],
   },
 
