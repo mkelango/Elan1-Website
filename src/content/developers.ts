@@ -215,9 +215,8 @@ export const DEV_SURFACES: DevSurface[] = [
       "A registry with three calls — publish, resolve, list. A rule, a tone or a process is published once and resolved by any app by id and version, instead of being forked into each one. There are currently " +
       factValue("skills") +
       " reusable skills across the platform.",
-    status: "available",
-    href: "/platform/built-on-claude",
-    note: `The publish/resolve/list signatures are part of the versioned contract. ${PREVIEW_NOTE}`,
+    status: "preview",
+    note: `The publish/resolve/list signatures are part of the versioned contract. No page on this site documents the registry's calls yet, which is why this row does not link. ${PREVIEW_NOTE}`,
   },
   {
     id: "k5",
