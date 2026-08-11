@@ -818,7 +818,7 @@ export const solutions: Solution[] = [
       "The realestate1 Launchpad: lease abstraction live in 4–6 weeks.",
     pricingNote:
       "Fixed Launchpad fee, then per-lease/seat pricing plus agent1 builds. Illustrative; not legal, real-estate, or financial advice.",
-    wedge: "Money is tethered to physically certified construction, and the tether is RECOMPUTED at the moment of the write rather than stored. An escrow withdrawal is measured against deposited × Σ(percent of CERTIFIED stages) − withdrawn, computed inside the validator via the escrow check,; the stored certified field is an explicitly-labelled display mirror the gate never reads. The same certification governs the buyer side: a milestone linked to a construction stage cannot move to demanded until that stage is certified, and a stage can only be certified by a NAMED engineer, architect or chartered accountant.",
+    wedge: "Money tethered to certified construction, recomputed at write not stored. Escrow withdrawal measured against certified %. Milestones cannot be demanded until stage is certified by named professional.",
     problem: [
       "A construction-linked payment plan is only as honest as the stage behind it. When the instalment figure is typed at demand time, a buyer can be billed for a slab that has not been poured, each demand individually plausible.",
       "RERA lets a promoter draw from escrow in proportion to certified completion. Hold that proportion in a stored field and the ceiling becomes editable by whoever can patch the record.",
