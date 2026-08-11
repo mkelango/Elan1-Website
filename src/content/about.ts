@@ -66,7 +66,7 @@ export const ABOUT_HERO = {
   kicker: "Company · About",
   title: "The hard part is the moment it writes.",
   subtitle:
-    "Getting an agent to act stopped being the difficult half. elan1 exists for the instant afterwards — where a draft becomes a payment, a payslip, a message a customer has already read. We put the gate in that path rather than beside it. Everything else on this site follows from that.",
+    "The hard part is not the draft. It is when the draft becomes a record. We put the gate on that write path, not beside it.",
   /** Rendered as the hero's meta line. Three states, no adjectives. */
   meta: "One belief · the mechanisms it forces · what is not true yet",
 } as const;
