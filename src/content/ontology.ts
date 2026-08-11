@@ -84,7 +84,7 @@
 // ─────────────────────────────────────────────────────────────────────────────────────────────
 
 import { ACCENT } from "./types";
-import { factValue } from "./platform-facts";
+import { PLATFORM_FACTS, factValue } from "./platform-facts";
 import { PROOF, GOVERNED_PATH_SCOPE, type CaseStudy } from "./proof";
 
 /* ————————————————————————————————————————————————————————————————————————
