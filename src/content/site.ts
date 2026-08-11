@@ -314,23 +314,29 @@ export const NAV: NavItem[] = [
         ],
       },
       {
-        heading: "Tools & References",
+        heading: "Help Center",
         links: [
-          { label: "Blog", href: "/resources/insights", desc: "Agentic transformation insights, ad-free" },
-          { label: "Webinars", href: "/resources/webinars", desc: "Live and recorded learning sessions" },
-          { label: "Events", href: "/resources/events", desc: "Industry conferences and exclusive events" },
-          { label: "ROI calculator", href: "/for/scaleup", desc: "Size the value, lite" },
+          { label: "Guides", href: "/resources/guides", desc: "Step-by-step howtos and best practices" },
+          { label: "Whitepapers", href: "/resources/whitepapers", desc: "Technical insights and research" },
+          { label: "Reports", href: "/resources/reports", desc: "Market analysis and case studies" },
+          { label: "Blog", href: "/resources/insights", desc: "Agentic transformation insights" },
           { label: "Glossary", href: "/resources/glossary", desc: "The agentic vocabulary" },
         ],
       },
       {
-        heading: "Academy",
+        heading: "Community",
         links: [
-          ...resourcePillars.map((s) => ({
-            label: s.name,
-            href: servicePath(s),
-            desc: s.tagline,
-          })),
+          { label: "Events", href: "/resources/events", desc: "Conferences and networking events" },
+          { label: "Webinars", href: "/resources/webinars", desc: "Live learning sessions" },
+          { label: "Slack Community", href: "/resources/community", desc: "Connect with 2000+ builders" },
+        ],
+      },
+      {
+        heading: "Developers",
+        links: [
+          { label: "API Documentation", href: "/platform/engineering", desc: "Complete API reference with examples" },
+          { label: "SDKs", href: "/platform/engineering", desc: "Python, JavaScript, Go, Java" },
+          { label: "Connectors", href: "/platform/connectors", desc: "50+ MCP connectors" },
         ],
       },
     ],
