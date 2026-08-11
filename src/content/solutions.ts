@@ -647,7 +647,7 @@ export const solutions: Solution[] = [
       "Cannot publish a scheme metric with no underlying records (ungrounded)",
       "\"field '{k}' looks like {why} and must not be stored here (PII minimisation / DPDP) — gov1 references identity, never copies it\", called with app=\"gov1\" at",
     ],
-    evals: "SEVEN named eval sets, NINE scored cases, run as one battery by the shared conformity engine; the Trust Mark is mint-on-pass and auto-revoked on drift, and certify requires the admin role. The sets, mirrored by the server’s own list: gov1.grounding (1 case), gov1.official_decides (1), gov1.equity_no_disparate_impact (1), gov1.citizen_data_safety (1), gov1.transparency_rti (1), gov1.engine_never_acts_for_the_human (2 — a phrase floor plus a live autonomous-action-claim classifier), gov1.citizen_data_seam_clean (2 — the recomputed seam invariant plus handoffs_gated).",
+    evals: "Seven sets, nine cases: grounding (1), official decides (1), equity (1), citizen data safety (1), transparency (1), engine never acts (2), seam clean (2).",
     seo: {
       title: "gov1 — governed entitlement delivery for the public sector | elan1",
       description:
