@@ -132,12 +132,10 @@ function sentenceWord(n: number): string {
 
 /** How the name is written. Getting this wrong is the most common press error for a brand like this. */
 export const NAME_RULES: string[] = [
-  "elan1 — one word, all lowercase, no space before the 1. Never “Elan1”, “Elan 1”, “ELAN1” or “élan1”.",
-  "Lowercase even at the start of a sentence. If that reads awkwardly, rewrite so the name is not first.",
-  "Lowercase in an all-caps headline, a standfirst or a byline too. A house style that capitalises everything is the most common way the name gets broken in print.",
-  "The product names follow the same rule: sales1, service1, finance1, supply1, people1, market1, insight1, project1, commerce1, goal1, enterprise1, assistant1.",
-  "The suite is “the 1 Suite” — the numeral, a space, then a capital S. Not “1suite”, “One Suite” or “the elan1 Suite”.",
-  "The trailing 1 marks something you run. Groupings and content surfaces are written in plain English — Revenue, Academy, Insights.",
+  “elan1 — one word, all lowercase, no space before the 1.”,
+  “Lowercase even at the start of a sentence.”,
+  “The suite is “the 1 Suite” — numeral, space, capital S.”,
+  “The trailing 1 marks something you run. Groupings are plain English.”,
 ];
 
 /* ————————————————————————————————————————————————————————————————————————————————————————————
