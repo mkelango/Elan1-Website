@@ -71,7 +71,7 @@ export const ASSISTANT_CAPABILITIES: AssistantCapability[] = [
   {
     title: "One thread across the suite",
     description:
-      "Topics span apps, so a question about a customer can carry the same context through sales, service and finance, with facts you pin staying pinned rather than re-explained each session.",
+      "Topics span apps; pinned facts stay pinned across conversations.",
   },
   {
     title: "Built for the channels, live in the console",
