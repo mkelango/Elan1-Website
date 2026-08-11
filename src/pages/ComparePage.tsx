@@ -126,7 +126,10 @@ export default function ComparePage() {
         <SectionHead
           kicker="Dimension by dimension"
           title="Where the record lives, and what stands in front of it."
-          lede="Six or seven axes, each one a question a buyer is actually asking. The left column describes their architecture; the right names the mechanism on ours, with its stated limit where there is one."
+          // DERIVED, not typed. The hand-written version said "six or seven"; every entry carries
+          // seven rows and build-it-yourself carries eight, so the page miscounted itself on the one
+          // page whose whole argument is that a number should come from the thing it describes.
+          lede={`${cmp.dimensions.length} axes, each one a question a buyer is actually asking. The left column describes their architecture; the right names the mechanism on ours, with its stated limit where there is one.`}
         />
 
         {/* Table at lg and up. */}
