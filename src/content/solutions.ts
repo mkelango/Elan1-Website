@@ -768,7 +768,7 @@ export const solutions: Solution[] = [
     industry: "Real estate & construction",
     tagline: "Money moves with the building.",
     challenge:
-      "realestate1 is elan1's India-first RERA and DPDP system of record for new-project developer sales — project, unit, booking, escrow, construction stage, payment milestone, cancellation, document, possession, snag and sales metric — with the money rules recomputed at the moment of the write.",
+      "RERA and DPDP record for new-project developer sales where money rules are recomputed at write time, escrow capped by certified construction.",
     composedOf: ["finance1", "insight1", "project1", "sales1", "service1"],
     accent: ACCENT.gold,
     useCases: [
