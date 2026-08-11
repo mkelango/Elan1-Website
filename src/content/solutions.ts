@@ -444,7 +444,7 @@ export const solutions: Solution[] = [
     industry: "Telecommunications",
     tagline: "A human acts on the network.",
     challenge:
-      "telco1 holds the B2B carrier reference layer the suite apps do not — enterprise account, circuit, service order, SLA, incident, OSS resource pool, metered usage and SLA service credit — behind a write path that reads the effective action basis on every write, refuses a plan to actuate the network, and gates activation on a KYC-verified account.",
+      "B2B carrier reference layer where write path refuses auto-network changes, reads effective action basis on every write, and gates activation on KYC verification.",
     composedOf: ["finance1", "insight1", "project1", "sales1", "service1"],
     accent: ACCENT.violet,
     useCases: [
