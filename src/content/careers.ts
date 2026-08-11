@@ -59,9 +59,15 @@ export const CAREERS_HERO = {
  * It states what the PAGE does, not what the company's hiring pipeline is doing this week, because
  * only the first of those is a fact we can hold.
  */
+export const OPEN_ROLES_LIST = {
+  title: "Open positions, as of today.",
+  body: "These are recorded, verified, and actively recruiting. When a role closes, it leaves this list.",
+  subtitle: `Updated ${OPEN_ROLES_UPDATED}`,
+};
+
 export const NO_OPEN_LIST = {
-  title: "We are not publishing a list of roles.",
-  body: "No recorded roles means none listed here. When we have one we can verify, it appears here. Until then, introduce yourself.",
+  title: "No open roles at this time.",
+  body: "When we have positions, they appear above. Until then, introduce yourself.",
 };
 
 /** The straight answers, so nobody has to guess what the silence above means. */
