@@ -178,14 +178,14 @@ export const products: Product[] = [
     hero: {
       headline: "The service desk where the agent drafts and a person sends.",
       subhead:
-        "Its own service-desk system of record — 19 object types — with eleven agents that summarise, triage, score and draft. A reply is queued, never sent; a refund, an account change or a close is refused at the data layer without a human approval.",
+        "19 object types, 11 agents that summarise, triage, score, draft. Reply queued, never sent. Refund, account change, close require human approval.",
       primaryCta: "Book a demo",
     },
     problem: [
-      "A deflection bot answers confidently with no source, and the customer pays.",
-      "Support numbers are stored counters, so the dashboard stops matching the case book.",
-      "An AI reply that can send itself leaves you nowhere to stand when it is wrong.",
-      "The complaint queue is rebuilt in every other system — disputes, grievances, returns.",
+      "Deflection bot answers confidently with no source.",
+      "Support numbers stored as counters, dashboard drifts from case book.",
+      "AI reply that sends itself — no recourse when wrong.",
+      "Complaint queue rebuilt in every system.",
     ],
     capabilities: [
       {
