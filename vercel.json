@@ -52,6 +52,11 @@
       "permanent": true
     },
     {
+      "source": "/compare",
+      "destination": "/compare/agentforce",
+      "permanent": true
+    },
+    {
       "source": "/concept",
       "destination": "/what-is-agentic-transformation",
       "permanent": true
