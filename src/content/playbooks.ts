@@ -348,9 +348,9 @@ const SOURCES: PlaybookSource[] = [
       },
       {
         title: "Check whether the number is computed or accepted",
-        body: "What separates a governed vertical from a themed form is recomputation at the boundary: an eligibility verdict derived from the patient's coverage, an available balance recomputed from the transaction ledger rather than read from a stored field, a quality-measure rate counted from the underlying care plans. A payload that supplies one of those values does not get to keep it, because the derive fires on every write. Apply the test to whichever number your regulator would ask about first.",
+        body: "A governed vertical recomputes at the boundary: eligibility from coverage, balance from ledger, not from the payload. Apply this to whichever number your regulator would ask about first.",
         decision: "The one number in your process that must never be typed.",
-        trap: "A field that looks computed on screen and is stored from the request — the two are indistinguishable in a demo and completely different in an audit.",
+        trap: "A field that looks computed on screen but is stored from the request.",
       },
       {
         title: "Separate the seam from the badge",
