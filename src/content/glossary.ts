@@ -179,8 +179,8 @@ export const GLOSSARY: Term[] = [
     term: "Agent",
     category: "The idea",
     usage: "narrowed",
-    def: `Software that pursues a goal over several steps, picks its own tools, and finishes by writing to a record. On elan1 an agent is a typed specification in a central registry — instruction, model policy, tool grant, policy tags, autonomy tier, and whether it verifies itself before writing back — not a prompt pasted into a box. Across the ${SUITE_APPS} suite apps ${SUITE_AGENTS} agents are declared and ${SUITE_LAUNCH_WAVE} are enabled in the launch wave; platform-wide the registry holds ${factValue("agentsRegistered")} with ${factValue("agentsEnabled")} enabled.`,
-    why: "Narrower than the industry's usage. If it only produces text there is nothing to govern — every mechanism in this glossary exists because the last step touches a record.",
+    def: `A typed specification that pursues a goal, picks its own tools, and writes to a record. On elan1: ${SUITE_APPS} suite apps have ${SUITE_AGENTS} declared, ${SUITE_LAUNCH_WAVE} enabled.`,
+    why: "Narrower than the industry. If it only produces text there is nothing to govern.",
     see: ["Blueprint", "Autonomy tier", "Governed writer"],
   },
   {
