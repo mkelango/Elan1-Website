@@ -449,7 +449,7 @@ const SOURCES: PlaybookSource[] = [
       },
       {
         title: "Keep illustrative figures out of the arithmetic",
-        body: "Seeded demo figures in the platform are wrapped in a type that refuses to render — turning one into text raises, and a walk over an outgoing payload raises if one slipped through — so a demo number cannot be printed as a computed answer even by accident. Hold your own model to the same discipline: label every assumption, keep it visibly separate from the metered inputs, and show the arithmetic. It makes the model arguable, which is the only condition under which it survives a finance review.",
+        body: "Demo figures are wrapped in a type that refuses to render. Label every assumption, separate from metered inputs, show the arithmetic.",
         decision:
           "Which inputs are metered and which are assumed, marked as such inside the model itself.",
         trap: "An assumption that hardens into a fact by being copied into a slide.",
