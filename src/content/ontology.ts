@@ -224,16 +224,16 @@ export const ONTOLOGY_LAYERS: OntologyLayer[] = [
   {
     id: "knowledge-grounding",
     name: "Knowledge and grounding",
-    what: "The corpus an agent cites is governed as a registered artifact rather than as a folder someone dropped documents into: a declared manifest with an owner and a residency binding, a content hash computed over the documents themselves, and a certification that is eval-gated — the corpus must actually retrieve, must be clean of raw personal and health identifiers, must be free of injected instructions, and must be bound to a region.",
+    what: "Corpus governed as registered artifact: declared manifest, content hash, eval-gated certification with PII/PHI scan.",
     howItShips:
-      "Re-verification re-runs the scan over the current corpus, so ingesting one leaky document revokes the mark as drift instead of waiting for a review cycle. And because a certificate describes a corpus at a moment while retrieval happens continuously, the same scan runs again at serve time: a leaky chunk is redacted in place on its way to the agent, keeping its source and its score so the agent still learns that a source existed. Redacted rather than dropped — dropping it silently would hide that anything was withheld.",
+      "Re-verification revokes mark as drift. Serve-time redaction withholds leaky chunks in place.",
     verified:
-      "The serve-time redaction is not a test-only path: it is called from the knowledge connector on the shared fabric and from the customer-service retrieval routes. It was added precisely because certification-time scanning left retrieval unguarded between sweeps.",
+      "Serve-time redaction production path in knowledge connector and service retrieval routes.",
     refusals: [
-      "[withheld at retrieval — this source contains raw PII/PHI or poisoned content and cannot be cited until the corpus is cleaned]",
+      "[withheld at retrieval — source contains raw PII/PHI or poisoned content]",
     ],
     limit:
-      "This governs what an agent may cite; it is not the record model, and the two are deliberately kept apart. Personal data belongs in the system of record under its own consent and minimisation gates, never in the grounding corpus — which is why the corpus scan treats a raw identifier as a defect rather than as content.",
+      "Governs agent citation only, not record model. PII belongs in SoR under consent gates, never corpus.",
     accent: ACCENT.green,
   },
   {
