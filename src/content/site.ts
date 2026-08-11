@@ -198,7 +198,6 @@ export const NAV: NavItem[] = [
           pillarLink("assure1", "Evals, evidence packs and the Trust Mark"),
           { label: "Governance — three layers", href: "/platform/governance", desc: "The policy engine, the approval gate, and the hash-chained audit" },
           { label: "Governed patterns", href: "/resources/proof", desc: "Before / after, and the guarantee each one carries" },
-          { label: "Trust Center", href: "/trust", desc: "Principles, governance signatures, security and certification posture" },
         ],
       },
       {
