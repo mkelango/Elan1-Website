@@ -218,8 +218,8 @@ export const GLOSSARY: Term[] = [
     term: "assistant1",
     category: "The idea",
     usage: "elan1",
-    def: "The governed central assistant — the conversational way into the suite. It screens every inbound message for prompt injection, grounds its answers in your own records and declines the ones it cannot ground, and holds no writer for a business system of record: a consequential request is drafted as a proposal and handed to the app that owns the record, which applies its own approval gate. A governed proposer exists today in sales1, people1 and finance1; from a conversation, everything else is read-only.",
-    why: "It is a platform citizen rather than one of the suite apps, which is what stops a conversation from becoming a side door around a control an app enforces.",
+    def: "The governed central assistant — the conversational way into the suite. It screens every inbound message for prompt injection, grounds answers in your own records and declines what it cannot ground, and holds no writer for a business system of record: a consequential request is drafted as a proposal for the app that owns the record, which applies its own approval gate. A governed proposer exists today in sales1, people1 and finance1; from a conversation, everything else is read-only.",
+    why: "A platform citizen rather than a suite app — which is what stops a conversation becoming a side door around a control an app enforces.",
     see: ["Prompt-injection screen", "Cite-or-refuse", "Governed writer"],
   },
   {
