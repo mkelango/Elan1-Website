@@ -318,7 +318,7 @@ export const GLOSSARY: Term[] = [
     category: "The write path",
     usage: "elan1",
     def: "The exact sentence the platform returns when it declines to do something, quoted verbatim across this site rather than paraphrased. \"no autonomous money — a payment is human-approved.\" \"no active patient consent — a clinical record requires consent.\" \"release exceeds the remaining commitment — refusing to over-commit.\"",
-    why: "We quote refusals instead of counting them. Three independent attempts to count how many refusals the platform has produced three different totals, which meant the number had no agreed definition and no business on a public page. A refusal you can read proves more than a total you cannot check.",
+    why: "We quote refusals instead of counting them: three independent attempts to total them produced three different numbers, so the count has no agreed definition and no business on a public page. A refusal you can read proves more than a total you cannot check.",
     see: ["Governed writer", "Wedge"],
   },
 
