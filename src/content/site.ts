@@ -324,7 +324,6 @@ export const NAV: NavItem[] = [
           { label: "Case Studies", href: "/resources/case-studies", desc: "Real customer success stories" },
           { label: "Training", href: "/resources/academy", desc: "Self-paced modules and certification" },
           { label: "Certification", href: "/resources/academy", desc: "Professional agent builder certification" },
-          { label: "Bootcamps", href: "/resources/academy", desc: "Intensive training and workshops" },
         ],
       },
       {
