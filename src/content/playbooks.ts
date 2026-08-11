@@ -195,9 +195,9 @@ const SOURCES: PlaybookSource[] = [
       },
       {
         title: "Decide what wave one will be judged on before it runs",
-        body: "Choose the evidence in advance: the eval battery the workflow will be scored by, the approval queue somebody will actually work, and the audit export you will read. Promotion to production is gated on a passing eval run, and an app whose battery has never been scored is refused rather than waved through — not-measurable is a refusal, and the refusal names the blocking apps. Most eval coverage sits where you would want it, in the per-app and per-pack batteries scored at certification. What is thinner is the behaviour battery, the probe that grades what an agent actually says rather than what it declares; that is covered separately below. Either way, if your first workflow has no battery, writing one is a scheduled task rather than paperwork.",
+        body: "Choose the eval battery in advance: the cases, the approval queue, the audit export. Not-measurable is a refusal — promotion is gated on passing. If you have no battery, writing one is work before enablement, not after.",
         decision: "Who writes the eval battery, and when it lands relative to the enablement date.",
-        trap: "Meeting the promotion gate with nothing scored and reading the refusal as a platform problem rather than a missing battery.",
+        trap: "Meeting the gate with nothing scored and reading the refusal as a platform gap.",
       },
       {
         title: "Name wave two before you turn on wave one",
