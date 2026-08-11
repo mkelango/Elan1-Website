@@ -701,24 +701,25 @@ export const COMPARISONS: Comparison[] = [
       {
         title: "The bind, the consume, and the second gate",
         body:
-          "A content hash over the action's arguments is stored with the approval request; on resume, approved plus same-action plus matching payload hash are checked together, then the token is spent. Each condition closes a specific hole: an approval for one action authorising another, one for one record authorising a different one, and a token spent twice. Both implementations run the identical checks — because fixing a stub does not travel to a copy of the stub, and the weaker of two guards over the same rule is the one that survives review.",
+          "Hash over action arguments stored with request; resume checks approved+same-action+matching-hash together then spends. Each closes hole. Both implementations identical—fixing stub doesn't travel to copy.",
         patternId: "money-release",
       },
       {
         title: "The append-only property is the database's, not the application's",
         body:
-          "A trigger raises on UPDATE and DELETE against the audit table for everyone, including the table owner, and the store exposes no mutation path at all. When a defect once minted events pointing at the wrong predecessor, the rows could not be repaired — the trigger is correct and applies to everyone — so the damage is declared instead: a signed, append-only marker naming the tenant, the first affected event and a frozen digest over the exact observed break set. Add damage, remove damage, or hide a real tamper inside the window, and the digest stops matching.",
+          "Trigger on UPDATE/DELETE for everyone (owner included); no mutation path exposed. Defect once minted wrong predecessor—rows couldn't repair, trigger correct so damage declared. Add/remove/hide and digest stops matching.",
+        patternId: "money-release",
       },
       {
         title: "A promotion gate that can refuse, and a mark that can be revoked",
         body:
-          "\"eval '{id}' did not pass — no Trust Mark\" · \"eval '{id}' scored ZERO cases — an empty battery is not evidence, no Trust Mark\" · \"eval '{id}' belongs to another tenant — no cross-tenant Trust Mark\". Re-running a battery revokes a mark that no longer passes, as drift. The third refusal is the one worth copying if you build: a cross-tenant run is exactly the shape that looks like evidence and is not.",
+          "\"did not pass—no Mark\" · \"scored ZERO—not evidence, no Mark\" · \"other tenant—no cross-tenant Mark\". Re-run revokes drifted. Cross-tenant run looks like evidence but isn't.",
         patternId: "agent-enablement",
       },
       {
         title: "Enablement, suspension, and the restart",
         body:
-          "A function outside a tenant's enabled set is refused before it acts: \"{app}.{function} not enabled for tenant {tenant}\". A suspend overrides the whole set at once and says so in its own refusal text: \"{app} is SUSPENDED (incident kill-switch) for tenant {tenant}\". It preserves the enabled set and survives a restart, so resuming restores the exact prior wave rather than an empty one.",
+          "Function outside enabled set refused: \"{app}.{function} not enabled\". Suspend overrides all, says so in refusal text. Preserves enabled set, survives restart, restores prior wave.",
         patternId: "agent-enablement",
       },
     ],
