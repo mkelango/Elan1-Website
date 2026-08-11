@@ -41,21 +41,40 @@ function Hero() {
               <span className="h-1.5 w-1.5 rounded-full bg-green" /> The agentic transformation company · Built on Claude
             </span>
           </Reveal>
+          {/*
+            🚨 THE HERO LEADS WITH A REFUSAL, AND THAT IS THE POINT.
+            Every comparable platform's homepage shows an agent DOING something. An agent doing
+            something is table stakes and proves nothing — the reader has seen a demo before. An
+            agent being STOPPED is the thing a platform can only show if it owns the record the
+            write lands in, which is the whole architectural wedge. It is also the most
+            differentiated thirty seconds available to this company.
+
+            🚨 WHAT THIS HEADLINE DELIBERATELY DOES NOT SAY. The brief for this rewrite proposed
+            "Everyone else audits the call. elan1 audits the record." The second half is true and
+            provable. The first half is an unsourced absolute about every competitor on the market,
+            which is the exact class of claim the rest of this site forbids — and it would be the
+            single most prominent sentence on the property. So the contrast is carried by SPECIFICITY
+            instead: a concrete refusal nobody else can stage beats a generalisation about others.
+            If you are tempted to put the competitor clause back, note that VS_LEGACY was removed
+            from this same page for the same reason. See HOW_WE_WORK in content/site.ts.
+          */}
           <Reveal delay={0.06}>
-            <h1 className="display mt-6 text-5xl text-ink sm:text-6xl lg:text-[4.6rem]">
-              Add 1.
-              <br />
-              Become <span className="relative whitespace-nowrap text-clayDeep">the one
+            <h1 className="display mt-6 text-4xl text-ink sm:text-5xl lg:text-[3.9rem]">
+              An agent tried to move money it{" "}
+              <span className="relative whitespace-nowrap text-clayDeep">wasn't allowed
                 <svg className="absolute -bottom-2 left-0 w-full" height="10" viewBox="0 0 200 10" preserveAspectRatio="none" aria-hidden>
                   <path d="M2 7C40 2 160 2 198 7" stroke="#df8c64" strokeWidth="3" fill="none" strokeLinecap="round" />
                 </svg>
-              </span>.
+              </span>{" "}
+              to move.
             </h1>
           </Reveal>
           <Reveal delay={0.12}>
             <p className="lede mt-7 max-w-xl">
-              elan1 turns startups, scaleups, and enterprises into agentic organizations. From AI ambition to
-              an agent in production — governed on the write path, and enabled one function at a time.
+              Here is the policy that stopped it, the person who was asked, and the receipt. elan1
+              owns the system of record your agents write into — so the audit is not a log saying we
+              called an API. It is the row before, the rule that fired, and a hash chain showing
+              nothing was edited after.
             </p>
           </Reveal>
           <Reveal delay={0.18}>
