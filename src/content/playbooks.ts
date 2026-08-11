@@ -473,7 +473,7 @@ const SOURCES: PlaybookSource[] = [
     audience: "Eval owners, internal audit, platform leads",
     delivery: "outline-on-this-page",
     outcome:
-      "An evidence pack per agent — the definition, the battery, the passing run, the fingerprint, the model it was scored on, and the list of claims not attested — plus the ability to say which of two very different checks earned a given Trust Mark.",
+      "An evidence pack per agent: definition, battery, passing run, fingerprint, model, and not-attested claims.",
     accent: "#a394ff",
     steps: [
       {
