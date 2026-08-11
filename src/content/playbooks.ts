@@ -160,7 +160,7 @@ const SOURCES: PlaybookSource[] = [
   {
     slug: "agentic-transformation-roadmap",
     title: "The Agentic Transformation Roadmap",
-    desc: "Sequencing agent enablement so \"not yet\" is a state the control plane holds — the first function, the shape of wave one, and the stop you rehearse before you need it.",
+    desc: "Staging agent enablement with a control plane that refuses functions not yet enabled.",
     audience: "CEOs, CIOs, transformation leads",
     delivery: "outline-on-this-page",
     outcome:
