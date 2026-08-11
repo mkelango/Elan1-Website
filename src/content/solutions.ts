@@ -397,7 +397,7 @@ export const solutions: Solution[] = [
       "Stock the system believes in is not stock a person counted. The gap between them is shrinkage — and in most catalogs there is no object type where a physical count and the system figure sit side by side.",
       "Catalog, price and stock hand off to a storefront, to campaigns and to analytics. Each hand-off is a place the integrity check can quietly stop applying, and asserting that it still applies is not the same as recomputing it.",
     ],
-    composedOfNote: "retail1 composes six built apps — sales1, commerce1, supply1, market1, service1 and insight1 — and adds the layer none of them own: a thirteen-object merchandising and integrity system of record where the MRP ceiling, the markdown window, available-to-promise and the physical count are enforced at the governed write before anything crosses into a storefront, a campaign, a case or a dashboard. It does not re-own the storefront, it does not re-own sourcing, and it moves no money: a refund is posted as a commerce1 payment, a reorder is a supply1 purchase order raised through supply1's gate, and a return opens a service1 case through service1's writer.",
+    composedOfNote: "retail1 composes sales1, commerce1, supply1, market1, service1, insight1; adds merchandising record: SKU, price rule, inventory, store, offer, RMA, cycle count, attestations.",
     ownRecords: [
       "Sku",
       "Price rule",
