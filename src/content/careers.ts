@@ -51,7 +51,7 @@ export const CAREERS_HERO = {
   kicker: "Company · careers",
   title: "Working at elan1.",
   subtitle:
-    "There is no list of open roles on this page. What there is instead is an unusually specific account of how the work is done here — enough that you can tell, before you write to us, whether you would want to.",
+    "No open roles listed here. Instead: how the work is done, so you can decide if you want to.",
 };
 
 /**
