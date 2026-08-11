@@ -354,8 +354,8 @@ const SOURCES: PlaybookSource[] = [
       },
       {
         title: "Separate the seam from the badge",
-        body: "A connector can be registered and callable and still be a modelled adapter: real interface, real governance, deterministic behaviour, and no external call until an endpoint and credentials are configured. Some packs say this about their own seams — an interop connector that reads a live endpoint when one is configured and the pack's own record otherwise, and reports which mode it is in. Plan the go-live around which seams have to be live for the first workflow to mean anything, and let the rest stay modelled on purpose.",
-        decision: "The seams that must be live on day one, versus the ones that can stay modelled.",
+        body: "A modelled adapter: real interface, real governance, deterministic behaviour, no external call without credentials. Plan go-live around which seams must be live.",
+        decision: "Seams that must be live on day one, versus ones that can stay modelled.",
         trap: "Reading an industry-standard name on a seam as evidence of a live connection.",
       },
       {
