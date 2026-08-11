@@ -714,11 +714,11 @@ export const solutions: Solution[] = [
       "Fixed Launchpad fee, then per-site/seat pricing plus agent1 builds and a run1 retainer. Illustrative; not engineering, safety, or financial advice.",
     wedge: "IT never writes to OT. Operation classified on every create/update against effective command. Auto-actuation, interlock bypass, or control-system writes are refused.",
     problem: [
-      "The recall call is the test. A supplier says lot MOH-2406-A is contaminated: either you can name the batches that consumed it, or the honest recall is everything you ever shipped.",
-      "A criterion written as prose ('pH 6.5-7.5') invites a result recorded as a measurement ('8.9'). Software that reads a non-empty string as truthy scores that as a pass — and the certificate it then issues prints the evidence that the batch failed.",
-      "The line between the planning system and the control system is the one boundary a plant cannot get wrong, and 'write the setpoint straight to the PLC' arrives looking like an ordinary instruction.",
-      "OEE, yield and scrap rate typed into a review deck are assertions. The same three numbers derived from job cards, downtime windows and signed inspections are a record you can hand to an auditor.",
-      "A factory that stores a worker's fingerprint, or where they live, has taken on a DPDP and Factories Act exposure it never needed in order to run a shift.",
+      "Lot genealogy gaps mean recalls become 'everything we ever shipped'.",
+      "Criteria written as prose invite results recorded as measurements scored as passes.",
+      "The boundary between planning and control systems is the one boundary a plant cannot get wrong.",
+      "OEE typed into reviews are assertions; derived from records are auditable.",
+      "Storing worker biometrics or addresses creates unnecessary DPDP exposure.",
     ],
     composedOfNote: "manufacture1 composes supply1, finance1, project1, service1, insight1; adds shop-floor record: recipe, BOM, batch, lot genealogy, machine, operation, inspection, NCR, CoA, attestations.",
     ownRecords: [
