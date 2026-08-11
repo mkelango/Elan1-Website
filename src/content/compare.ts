@@ -600,13 +600,13 @@ export const COMPARISONS: Comparison[] = [
       description:
         "You can build every control elan1 ships. Here is the specific list — payload-bound approvals, a hash-chained audit enforced by the database, per-tenant wave enablement, eval-gated promotion, segregation of duties in the writer — and when building is the right call.",
     },
-    headline: "You can build all of this. Here is exactly what \"all of this\" is.",
+    headline: "You can build all this; here's exactly what.",
     subhead:
-      "Not the demo — the demo is a weekend. This is the list of controls that turns a working agent into one a regulated business will let near its ledger, written out so you can price it honestly rather than discover it in month five.",
+      "Not demo (weekend). Controls to let regulated business near ledger. Price honestly or discover month five.",
     theirModel:
-      "An agent framework, a model provider, your own database and your own team. LangGraph, CrewAI, an agent SDK, or a graph you wrote yourself. The frameworks are good now and improving quickly: durable execution, checkpointing, human-in-the-loop interrupts, tracing and eval tooling all ship in the box. You get exactly the system you specify, with no vendor between you and it, no licence, no roadmap but yours, and no data in anyone else's tenancy.",
+      "Framework, provider, DB, team. LangGraph, CrewAI, SDK, or your graph. Durable, checkpointing, interrupts, tracing, eval. Exactly your system, no vendor, no license, your roadmap, your tenancy.",
     ourModel:
-      "elan1 is the same decision, already taken, with the controls already written and the tests that can fail already in the suite. The honest framing is not that these controls are impossible to build — they are not, and we built them — but that each one has a subtle version that looks finished and is not. Every item below exists because a plausible-looking implementation of it was wrong here first, and the fix is the part that is hard to discover.",
+      "elan1: same decision, controls written, tests fail ready. Each control has subtle wrong version. Every item below was wrong here first; fix is hard to discover.",
     dimensions: [
       {
         dim: "Where the record lives",
