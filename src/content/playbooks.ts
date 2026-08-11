@@ -342,9 +342,9 @@ const SOURCES: PlaybookSource[] = [
       },
       {
         title: "Read the refusals, not the feature list",
-        body: "A pack's real boundary is the sentence it returns when it declines, so we quote those whole rather than trimming them to fit. health1 refuses a clinical write with \"no active patient consent — a clinical record requires consent (DPDP/ABDM/HIPAA)\", and refuses an interop call from outside the region with \"{connector_id}: residency — this endpoint serves 'in' only; a call from '{ctx.region}' is refused (cross-border PHI is not allowed)\", where the braces are values the platform fills in at runtime. retail1 refuses a sale price above the item's maximum retail price from both directions, appends a refusal event to the chain, and writes no record. bank1 drafts rather than executes a scheduled debit and says why: \"a standing instruction DRAFTS a debit; a human authorizes it (K5) and the sanctions / balance / KYC gates run at execute\". Ask for the refusal list first — it is shorter than the capability list and considerably more honest.",
+        body: "A pack's real boundary is the sentence it returns when it declines. Ask for the refusal list first — it is shorter than the capability list and more honest.",
         decision: "The three refusals your industry would consider non-negotiable.",
-        trap: "Reading a refusal as a limitation. In a regulated workflow the refusal is the product.",
+        trap: "Reading a refusal as a limitation. In regulated workflow the refusal is the product.",
       },
       {
         title: "Check whether the number is computed or accepted",
