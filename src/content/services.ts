@@ -66,7 +66,7 @@ export const services: Service[] = [
       "A shipped proof of value (if scoped)",
     ],
     whyElan1:
-      "strategy1 is the one pillar here that is people rather than software — no strategy1 app, no strategy1 agent, no strategy1 screen. What makes the plan worth more than a document is that it is written against gates that already exist and that you will be handed: a function you have not enabled is refused before it runs, a consequential step waits for a named human, and both of those decisions land on an append-only, hash-chained log you can export.",
+      "People, not software. A plan worth more than a deck because the gates enforcing it already exist.",
     outcomes: [
       "A roadmap whose sequence maps to per-tenant, per-function enablement — so \"not this wave\" is a state the control plane enforces, not a promise in a deck",
       "A value model built from your assumptions, labelled illustrative, with the arithmetic shown rather than asserted",
