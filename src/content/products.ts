@@ -1205,22 +1205,22 @@ export const products: Product[] = [
       },
     ],
     outcomes: [
-      "A sale reconciles the same way whether rung at a till, placed online or imported",
-      "Money movement carries an approval record and a hash-chained audit event, not a chat thread",
-      "Pricing, fraud and merchandising work arrives as a proposal with its floor stated",
-      "A stock shortfall becomes a drafted purchase order procurement owns, not an auto-buy",
+      "Sale reconciles same whether till, online, or imported",
+      "Money movement carries approval record and audit event",
+      "Pricing, fraud, merchandising work arrives as proposal with floor",
+      "Stock shortfall drafts to supply1's reorder",
     ],
     integrations: [
-      "The commerce seam — capture, refund, void, publish and price override are consequential on the connector itself, so the runtime refuses them mid-loop",
-      "Payments — the delegated capture and refund seam; it takes an order id and an amount",
-      "Marketplace — Amazon, Flipkart, ONDC and Meesho modelled as kinds; fetch-only, and an order becomes real through commerce1's own grounded writer",
-      "finance1 — an approved capture posts a receivable with computed GST, idempotent per order",
-      "supply1 — a below-reorder row drafts a purchase order to an approved, active vendor",
+      "Commerce seam — capture, refund, void, publish consequential on connector",
+      "Payments — delegated capture and refund seam",
+      "Marketplace — Amazon, Flipkart, ONDC, Meesho modelled",
+      "finance1 — approved capture posts receivable with GST",
+      "supply1 — below-reorder drafts to approved vendor",
     ],
     suiteFit:
-      "commerce1 imports no other app; the core orchestrates. The sell side settles into finance1's receivables and an approved return into its payables — commerce1 approves the return at its own gate, but the money leg terminates at finance1's. A stockout drafts into supply1's reorder: commerce1 flags, supply1 owns the buy. Under the retail1 pack, retail1 mirrors a governed price into the storefront but never re-owns it.",
+      "Sells side settles to finance1 receivables. Approved return to payables. Stockout drafts to supply1 reorder.",
     trust:
-      "The write path refuses before it reviews — the blocks listed here are enforced at the record, not asked of the agent. What is not refused outright is gated: setting an order paid or refunded, approving a return, closing a till, redeeming loyalty points or gift-card balance, any delete. The runtime holds the same line independently — a consequential connector operation cannot run mid-loop and is forced to a human even where an agent's spec did not ask for one. There is no card data to lose: the payment record carries an order id, an amount, a method and a kind. Two limits stated plainly. The oversell guard reads commerce1's availability ledger, so a product with no inventory row at that location is untracked and the guard does not apply there. And a fraud score flags an order when it is placed; because a capture is a human approval anyway, that flag is a signal on the review rather than a second automatic block.",
+      "Write path refuses before review. Blocks at record level. Set order paid/refunded, approve return, close till, redeem loyalty/gift-card: all gated.",
     workforce: {
       registered: 13,
       launchWave: 8,
