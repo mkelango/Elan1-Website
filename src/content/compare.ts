@@ -118,51 +118,51 @@ export const COMPARISONS: Comparison[] = [
       {
         dim: "Where the record lives",
         them:
-          "In Salesforce, for the customer domain — accounts, opportunities, cases, and whatever the org has modelled on the platform. The ledger, the stock position, the batch genealogy and the payroll generally live in other systems reached through integration.",
+          "Salesforce: accounts, opportunities, cases. Ledger, stock, batch, payroll in other systems via integration.",
         us:
-          `Natively, across ${factValue("systemsOfRecord")} systems of record and ${factValue("objectTypes")} typed object types — the pipeline, the ledger, the stock, the case, the project and the batch in one store, each behind its own governed writer. That is what makes a cross-application move a governed step rather than an integration.`,
+          `${factValue("systemsOfRecord")} systems natively with ${factValue("objectTypes")} types; cross-app moves are governed steps, not integration.`,
       },
       {
         dim: "What the audit proves",
         them:
-          "The agent's own trail — which topic ran, which action it invoked, the prompt and the response captured by the Trust Layer — alongside the platform's field history and setup audit trail on the objects that changed.",
+          "Topic ran, action invoked, prompt/response via Trust Layer, field history and setup audit.",
         us:
-          "The record before the change, the policy that fired, the human who approved it, and a hash chain over the events: each entry hashes the one before it, per tenant, so the chain can be recomputed offline to show nothing was altered afterwards. Append-only is enforced at the database by a trigger that raises on UPDATE and DELETE — including for the table owner — and a uniqueness constraint over the tenant and the predecessor hash means the chain cannot fork.",
+          "Record before, policy fired, approver, hash chain per tenant offline-recomputable. Database trigger on UPDATE/DELETE (table owner included); chain cannot fork.",
       },
       {
         dim: "Whether a refusal is demonstrable",
         them:
-          "Guardrails are expressed as topic scope, action permissions and the platform's own validation and sharing rules — configuration an administrator can show you in the org.",
+          "Topic scope, action permissions, validation/sharing rules shown by admin in org.",
         us:
-          "As a string you can ask us to raise, live, in a demo. The governed writer declines the write, appends a refused event to the chain, and persists nothing: \"pricing integrity: sale price {sale} exceeds MRP {mrp} (Legal Metrology)\". The test we invite you to apply to us, and to them: ask to see the refusal, not the policy.",
+          "String raised live: \"pricing integrity: sale price exceeds MRP (Legal Metrology)\". Ask for refusal, not policy.",
       },
       {
         dim: "How a vertical is delivered",
         them:
-          "Industry Clouds are a real and deep product line — a sector data model, flows and layouts, licensed alongside the core platform and extended by a large partner base.",
+          "Industry Clouds: data model, flows, layouts, partner-extended.",
         us:
-          `${factValue("verticalPacks")} industry packs run as configuration over the same built applications: the pack adds the records no horizontal app owns, its own refusals and a governance signature, and forks nothing. A fix in a shared application reaches every industry that composes it rather than reaching one branch and waiting.`,
+          `${factValue("verticalPacks")} packs as config, adds records no app owns, owns no resolution engine. Fix reaches all verticals composing it.`,
       },
       {
         dim: "Who approves a consequential write",
         them:
-          "A person, through the platform's approval processes and permission model, configured per object and per flow by an administrator.",
+          "Person via platform approval/permission, configured per object/flow.",
         us:
-          "A person, through one gate in the writer, and the approval is what executes rather than what is filed. Where a writer flags a write maker-checker — releasing a payment, and a commerce refund, are the two that carry it today — segregation of duties holds in the same gate: \"segregation of duties — {principal} requested approval '{id}' and cannot also approve it; a different approver is required\". The administrator role does not lift it, because it is a control rather than a permission.",
+          "Person at one writer gate; approval executes not files. Maker-checker flags segregate duty in same gate. Admin does not lift.",
       },
       {
         dim: "What happens on rollback or incident",
         them:
-          "Deactivate the agent or the topic and roll the change back through sandboxes and the platform's release tooling — mature machinery, operated by administrators who already know it.",
+          "Deactivate agent/topic, rollback via sandbox release tooling.",
         us:
-          "One admin action suspends an application's entire agent fleet immediately. It does not queue for approval, it preserves the enabled set so resuming restores the exact prior wave, and it survives a restart. Stated limit, and it is a real one: the stop halts that application's agent fleet; as the control plane is wired today it does not also refuse that application's direct writes to its own system of record.",
+          "One admin action suspends fleet immediately, preserves enabled set, survives restart. Stops agents, not direct writes.",
       },
       {
         dim: "How an agent reaches production",
         them:
-          "Through the platform's own change management — build in a sandbox, test, deploy, and govern access with permission sets.",
+          "Sandbox build, test, deploy, permission sets govern access.",
         us:
-          `Through an eval gate and a staged wave. A Trust Mark is refused over a battery that scored nothing — \"eval '{id}' scored ZERO cases — an empty battery is not evidence, no Trust Mark\" — over a run that did not pass, and over another tenant's run; re-running the battery revokes a mark that no longer passes. Enablement is then per tenant and per function: ${factValue("agentsRegistered")} agents are registered and ${factValue("agentsEnabled")} are enabled in the current wave, and a function outside a tenant's set is refused by name before it acts.`,
+          `Eval gate and staged wave. Mark refused if battery scored nothing, did not pass, or different tenant. ${factValue("agentsRegistered")} registered, ${factValue("agentsEnabled")} enabled.`,
       },
     ],
     whereTheyLead: [
