@@ -561,12 +561,29 @@ function TrustGlobal() {
 export default function Home() {
   useSeo("elan1 — The Agentic Transformation Company | Built on Claude", "elan1 turns startups, scaleups, and enterprises into agentic organizations — number one in their field. Add 1. Become the one.");
   return (
+    /*
+      SECTION ORDER IS THE ARGUMENT, IN THE ORDER A BUYER ASKS IT.
+        Hero        — an agent gets stopped. The one thing a platform on top of someone else's
+                      record cannot stage.
+        Shift       — why agentic at all.
+        Pillars     — what it runs on. Moved ABOVE the suite deliberately: leading with ten apps
+                      invites "so it's another CRM", and the architecture is the wedge.
+        Suite       — the apps, now read as consequences of the architecture rather than a catalog.
+        Solutions   — and tuned to your regulator.
+        Proof       — the refusals, from proof.ts.
+        Method      — how an engagement runs.
+        Flywheel    — how it compounds.
+        WhyWin      — how we work, stated about us only.
+        VsBuilders  — and against the build-it-yourself option.
+        Trust       — the posture, honestly scoped.
+    */
     <>
       <Hero />
       <Shift />
+      <PillarsSection />
       <SuiteGrid />
       <SolutionsRow />
-      <PillarsSection />
+      <ProofBand />
       <Method />
       <Flywheel />
       <WhyWin />
