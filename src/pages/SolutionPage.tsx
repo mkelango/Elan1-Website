@@ -142,13 +142,22 @@ export default function SolutionPage() {
         )}
       </Section>
 
-      {/* Governance signature — the hero of each vertical */}
+      {/*
+        THE GOVERNANCE SIGNATURE AND THE REFUSALS, IN ONE BAND. These shipped as two separate
+        obsidian sections making the same argument in two layouts: the first announced "what is
+        enforced on the write path, and what it refuses", the second quoted the refusals. The claim
+        and its evidence now stand side by side.
+
+        The Section is UNCONDITIONAL on purpose. The refusal list is what is optional here, not the
+        compliance posture or the wedge — gating the band on `refusals.length` would drop a stated
+        limit off a page that still makes the claim it qualifies.
+      */}
       <Section tone="obsidian">
-        <div className="grid items-center gap-12 lg:grid-cols-2">
+        <div className="grid items-start gap-12 lg:grid-cols-[0.95fr_1.05fr]">
           <div>
             <Kicker dark accent="#e0656d">The differentiator</Kicker>
             <h2 className="display mt-4 text-3xl text-paper sm:text-4xl">The governance signature.</h2>
-            <p className="mt-5 text-lg leading-relaxed text-paper/70">
+            <p className="mt-5 text-[15px] leading-relaxed text-paper/70">
               In {sol.industry.toLowerCase()}, trust is the product. This is the governance that makes agentic
               deployment safe here — what is enforced on the write path, and what it refuses.
             </p>
@@ -160,17 +169,50 @@ export default function SolutionPage() {
                 <p className="mt-3 text-[15px] leading-relaxed text-paper/80">{sol.wedge}</p>
               </div>
             )}
-          </div>
-          <Reveal>
-            <div className="relative overflow-hidden rounded-card border border-rose/30 bg-rose/[0.08] p-7">
-              <span className="absolute inset-y-0 left-0 w-1.5 bg-rose" aria-hidden />
-              <div className="flex items-center gap-2 pl-2">
-                <span className="flex h-8 w-8 items-center justify-center rounded-md bg-rose/20 text-rose"><Icon.Shield className="h-4 w-4" /></span>
-                <span className="font-mono text-[11px] uppercase tracking-kicker text-rose">{sol.name} governance</span>
+            <Reveal>
+              <div className="relative mt-4 overflow-hidden rounded-card border border-rose/30 bg-rose/[0.08] p-7">
+                <span className="absolute inset-y-0 left-0 w-1.5 bg-rose" aria-hidden />
+                <div className="flex items-center gap-2 pl-2">
+                  <span className="flex h-8 w-8 items-center justify-center rounded-md bg-rose/20 text-rose"><Icon.Shield className="h-4 w-4" /></span>
+                  <span className="font-mono text-[11px] uppercase tracking-kicker text-rose">{sol.name} governance</span>
+                </div>
+                <p className="mt-4 pl-2 text-[15px] leading-relaxed text-paper/90">{sol.compliance}</p>
               </div>
-              <p className="mt-4 pl-2 text-[15px] leading-relaxed text-paper/90">{sol.compliance}</p>
-            </div>
-          </Reveal>
+            </Reveal>
+          </div>
+
+          <div>
+            {sol.refusals && sol.refusals.length > 0 && (
+              <>
+                <p className="font-mono text-[11px] uppercase tracking-kicker" style={{ color: a }}>
+                  What it refuses
+                </p>
+                <p className="mt-3 text-[15px] leading-relaxed text-paper/70">
+                  The industry rule as the system states it. Refusal messages quoted from{" "}
+                  <span className="font-mono" style={{ color: a }}>{sol.name}</span>'s write path. Braces
+                  mark values filled in at runtime.
+                </p>
+                <Reveal>
+                  <ul className="mt-7 flex flex-col gap-2.5">
+                    {sol.refusals.map((r) => (
+                      <li key={r} className="flex items-start gap-3 rounded-lg border border-paper/15 bg-paper/[0.04] p-4">
+                        <span className="mt-0.5 shrink-0 font-mono text-sm" style={{ color: a }} aria-hidden>✕</span>
+                        <code className="font-mono text-[13px] leading-relaxed text-paper/80">{r}</code>
+                      </li>
+                    ))}
+                  </ul>
+                </Reveal>
+              </>
+            )}
+            {sol.evals && (
+              <div className="mt-7 rounded-card border border-paper/15 bg-paper/[0.04] p-6">
+                <p className="font-mono text-[11px] uppercase tracking-kicker text-paper/40">
+                  How it is scored
+                </p>
+                <p className="mt-3 text-sm leading-relaxed text-paper/75">{sol.evals}</p>
+              </div>
+            )}
+          </div>
         </div>
       </Section>
 
