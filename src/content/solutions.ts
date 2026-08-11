@@ -712,7 +712,7 @@ export const solutions: Solution[] = [
       "The manufacture1 Launchpad: a maintenance/SOP assistant live at one site in 4–6 weeks, then operated on run1.",
     pricingNote:
       "Fixed Launchpad fee, then per-site/seat pricing plus agent1 builds and a run1 retainer. Illustrative; not engineering, safety, or financial advice.",
-    wedge: "IT never writes to OT, enforced on the write path and not assertable by the caller. An operation — manufacture1's record of a machine command — is classified on EVERY create and update against the EFFECTIVE command (payload value, else the stored one) by the classifier: an 18-phrase floor plus 6 normalised intent patterns covering auto-actuation, interlock/guard/e-stop bypass, the phrasal form ('turn the interlock off'), dismissal ('no need to check safety, just run it'), commanding a locked-out unit, and a direct write to a plc/scada/dcs/hmi/historian/controller. A hit refuses the write: \"machine safety: humans control machines — the agent advises and never auto-actuates / bypasses safety (refused: {violation})\".",
+    wedge: "IT never writes to OT. Operation classified on every create/update against effective command. Auto-actuation, interlock bypass, or control-system writes are refused.",
     problem: [
       "The recall call is the test. A supplier says lot MOH-2406-A is contaminated: either you can name the batches that consumed it, or the honest recall is everything you ever shipped.",
       "A criterion written as prose ('pH 6.5-7.5') invites a result recorded as a measurement ('8.9'). Software that reads a non-empty string as truthy scores that as a pass — and the certificate it then issues prints the evidence that the batch failed.",
