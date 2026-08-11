@@ -563,12 +563,10 @@ const SOURCES: PlaybookSource[] = [
     steps: [
       {
         title: "Say which tier each seam is in, out loud",
-        body: `The connector surface has three tiers and they are not interchangeable. ${factValue(
-          "connectors",
-        )} connectors are registered and callable on the fabric. A separate curated catalog holds enterprise systems as declared seams that do nothing at all until credentials and an approved grant exist. A third tier bridges MCP servers and exposes the platform as one. Registered and callable is still not the same as live: connectors ship as deterministic modelled adapters and reach an external system only once an endpoint and credentials are wired. The governance is identical either way; the connection is not.`,
+        body: `Three tiers: ${factValue("connectors")} registered and callable; curated enterprise systems as declared seams; MCP bridge. Registered ≠ live: connectors ship as modelled and reach external systems only with credentials.`,
         decision:
-          "The tier, and the live-or-modelled status, of every seam your first workflow touches.",
-        trap: "Reading a familiar system's name on a list as evidence that it is connected.",
+          "The tier and live-or-modelled status of every seam your first workflow touches.",
+        trap: "Reading a familiar system's name as evidence it is connected.",
       },
       {
         title: "Declare the operations before you ask for a credential",
