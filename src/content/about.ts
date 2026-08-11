@@ -290,7 +290,7 @@ export const EDITORIAL_RULES: EditorialRule[] = [
   },
   {
     title: "An absence is never rendered as a pass",
-    body: "A case with nothing to score reports not measurable, and a battery in which nothing was measurable did not pass — it did not run. A control with no automated evidence reports unknown and is flagged for a human rather than filled in. An evidence row that was not measured carries no verdict, which means we did not measure it, not that it is fine.",
+    body: "A case with nothing to score reports not measurable, and a battery in which nothing was measurable did not pass — it did not run. A control with no automated evidence reports unknown and is flagged for a human rather than filled in. An unmeasured row carries no verdict: we did not measure it, not that it is fine.",
     href: "/platform/assure1",
     linkLabel: "The certification gate",
   },
