@@ -38,7 +38,9 @@
 //
 // 🚨 QUOTES ARE VERBATIM. Every string in `refusals` was read out of the platform tree on 2026-08-09,
 // with its lowercase first letter and its punctuation intact. A `{placeholder}` marks a value the
-// platform fills in at the moment of refusal — the same convention content/proof.ts uses. If a refusal
+// platform fills in at the moment of refusal — the same convention content/proof.ts uses — and it is
+// named for WHAT IT HOLDS rather than for the variable that holds it, because an internal variable
+// abbreviation is not reader-facing copy. The fixed text between the braces is exact. If a refusal
 // changes upstream, change it here or delete it. Never paraphrase one into something that sounds
 // better; the whole persuasive force of a refusal is that a reader can ask to see it raised.
 //
