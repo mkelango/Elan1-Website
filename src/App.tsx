@@ -111,8 +111,20 @@ export default function App() {
           <Route path="/platform/enterprise-ontology" element={<EnterpriseOntology />} />
           <Route path="/platform/:slug" element={<ServicePage home="platform" />} />
 
-          {/* Trust */}
+          {/* Trust, and the page that publishes the limits. /what-elan1-is-not is deliberately
+              top-level rather than nested under /trust: it is linked from the Proof menu, the
+              footer and the Trust Center, and a buyer who is sent the URL should not have to read
+              a path to work out whose page it is. */}
           <Route path="/trust" element={<Trust />} />
+          <Route path="/what-elan1-is-not" element={<WhatElan1IsNot />} />
+
+          {/* Comparisons. Each carries a "where they lead" section — a comparison with no
+              concessions reads as marketing and loses the technical buyer. */}
+          <Route path="/compare" element={<Navigate to="/compare/agentforce" replace />} />
+          <Route path="/compare/:slug" element={<ComparePage />} />
+
+          {/* The developer surface. elan1 is MCP-native and the site never said so. */}
+          <Route path="/developers" element={<Developers />} />
 
           {/* Academy — RETIRED */}
           <Route path="/academy" element={<Navigate to="/resources/academy" replace />} />
