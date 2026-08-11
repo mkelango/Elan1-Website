@@ -433,11 +433,11 @@ export const COMPARISONS: Comparison[] = [
     whenToPickThem:
       "Choose Glean, not elan1, if your problem is that nobody can find anything — retrieval and answers across a large, heterogeneous estate — and you want it solved without moving a record, replacing a system or changing a process.",
     ourLimits: [
-      "elan1's retrieval is over its own record and its own governed knowledge corpus. It is not an index of your whole estate and does not pretend to be.",
-      "No SOC 2 and no ISO 27001 certification is held today.",
-      "No named customers and no published deployments.",
-      `${factValue("connectors")} connectors, registered and callable — a far smaller catalog than a retrieval-first vendor whose entire product depends on connecting to everything.`,
-      "Where a knowledge answer is served, personal-data redaction runs at serve time; the eval battery that scores it is a different check from the serve path, and both are in the path deliberately rather than one standing in for the other.",
+      "Retrieval is own record/corpus only; not whole-estate index.",
+      "No SOC 2, no ISO 27001 today.",
+      "No named customers, no published deployments.",
+      `${factValue("connectors")} connectors; smaller catalog than retrieval-first vendor.`,
+      "Knowledge redaction at serve time; eval battery different check from serve path, both deliberate.",
     ],
     proofPoints: [
       {
