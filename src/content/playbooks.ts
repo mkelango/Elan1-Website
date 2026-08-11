@@ -402,10 +402,10 @@ const SOURCES: PlaybookSource[] = [
     steps: [
       {
         title: "Meter before you tune, and scope the meter honestly",
-        body: "Agent runs on the governed runtime are metered along three dimensions — tenant, app and model — and their cost is computed platform-side from an illustrative rate card keyed to the three routing tiers, rather than taken from a figure the model reports. The rate card is illustrative and is not billing advice; the platform labels it that way in its own source, twice, and we are not going to un-label it here. Runs are traced with the tenant, app, principal and request identifier correlated, so a cost line can be walked back to the run that produced it. Two scoping sentences belong in your model beside the total: metering covers the governed runtime path, and it is not a claim that every model call in the platform is metered.",
+        body: "Agent runs are metered by tenant, app, and model. Cost is computed from an illustrative rate card, not from model reports. Metering covers the governed runtime path only.",
         decision:
           "The unit you will report on — per tenant, per app, or per workflow — and who receives it.",
-        trap: "Reading a metered figure as a bill. It is computed from an illustrative card, on the paths that route through the meter.",
+        trap: "Reading a metered figure as a bill. It is illustrative and only covers metered paths.",
       },
       {
         title: "Price the token classes separately",
