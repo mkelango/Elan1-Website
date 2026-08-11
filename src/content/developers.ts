@@ -361,10 +361,11 @@ export const CORE_SURFACES: DevSurface[] = DEV_SURFACES.filter(IS_CORE_SURFACE);
 export const BUILD_SURFACES: DevSurface[] = DEV_SURFACES.filter((s) => !IS_CORE_SURFACE(s));
 
 /** How many rows carry each status — computed, so the page can never quote a stale tally. */
-export const DEV_STATUS_COUNTS: Record<DevStatus, number> = DEV_SURFACES.reduce(
-  (acc, s) => ({ ...acc, [s.status]: acc[s.status] + 1 }),
-  { available: 0, preview: 0, planned: 0 } as Record<DevStatus, number>,
-);
+export const DEV_STATUS_COUNTS: Record<DevStatus, number> = {
+  available: DEV_SURFACES.filter((s) => s.status === "available").length,
+  preview: DEV_SURFACES.filter((s) => s.status === "preview").length,
+  planned: DEV_SURFACES.filter((s) => s.status === "planned").length,
+};
 
 export interface McpPoint {
   title: string;
