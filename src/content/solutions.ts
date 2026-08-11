@@ -826,7 +826,7 @@ export const solutions: Solution[] = [
       "Aadhaar, PAN and passport numbers arrive under a dozen spellings, and a hand-off that widens by one field carries them into a billing or an analytics record.",
       "Cancellation is the moment a promoter's interest and a buyer's are most directly opposed, and it is exactly where the forfeiture number gets typed.",
     ],
-    composedOfNote: "realestate1 composes five built apps unchanged — customer1, finance1, project1, service1 and insight1 — and adds its own RERA and DPDP system of record on top. An inquiry opens a sales1 CRM lead; a confirmed booking and a demanded instalment post finance1 AR invoices through finance1's own governed writer; an approved cancellation posts the AP refund; a registered document opens a project1 closing project; a snag opens a service1 case through service1's writer; a published sales metric pushes a grounded insight1 record. What realestate1 adds is the layer between them: the RERA gate on marketing, the 70% escrow ring-fence, the certified-completion ceiling, the construction-linked payment plan, and the capped refund.",
+    composedOfNote: "realestate1 composes sales1, finance1, project1, service1, insight1; adds RERA record: project, unit, party, booking, escrow, construction stage, payment milestone, cancellation, document, possession, snag, attestations.",
     ownRecords: [
       "Project",
       "Unit",
