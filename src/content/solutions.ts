@@ -876,7 +876,7 @@ export const solutions: Solution[] = [
     industry: "Education",
     tagline: "Guides the learner. Refuses to do the work.",
     challenge:
-      "edu1 is a governed higher-education system of record — learners, terms, attendance, fee plans, grades and Academic Bank of Credits entries — and it puts its own tutoring agent's output through the same write path a human-typed one goes through. A response that does the student's work, or names another learner alongside a grade, does not persist.",
+      "Higher-education record where tutoring agent output passes through the same write path as human input; responses that do the student's work are refused.",
     composedOf: ["finance1", "insight1", "project1", "sales1", "service1"],
     accent: ACCENT.green,
     useCases: [
