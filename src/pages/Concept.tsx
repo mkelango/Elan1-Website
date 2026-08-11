@@ -6,7 +6,7 @@ import { useSeo, SITE_URL } from "../lib/seo";
 import { PageHero, Section } from "../components/blocks";
 import { SectionHead, Reveal, Icon, Kicker } from "../components/primitives";
 import { CTASection } from "../components/CTASection";
-import { SHIFT, HOW_WE_WORK } from "../content/site";
+import { HOW_WE_WORK } from "../content/site";
 
 const PATH = "/what-is-agentic-transformation";
 
