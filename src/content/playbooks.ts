@@ -428,10 +428,10 @@ const SOURCES: PlaybookSource[] = [
       },
       {
         title: "Set a budget so the ceiling is yours",
-        body: "A per-tenant budget lets the router downshift as the budget burns: past a soft threshold the tier drops one step, and past the hard threshold it moves to the cheapest tier. The budget check is a downshift only — it chooses between the tier the caller asked for and a cheaper one, so a budget can lower the tier and has no path to raise it. The saving is computed from the price delta rather than asserted. A tenant with no configured budget falls back to a documented illustrative default, which is a reason to set a real one rather than inherit a number chosen to make a demo interesting.",
+        body: "A per-tenant budget lets the router downshift: soft threshold drops one tier, hard threshold moves to cheapest. Budget can only lower tier, never raise it.",
         decision:
           "The budget per tenant, and which workloads may downshift versus which must refuse instead.",
-        trap: "Leaving the fallback in place and reading it later as a ceiling somebody chose.",
+        trap: "Leaving the illustrative fallback in place and reading it later as a ceiling.",
       },
       {
         title: "Gate every cost-down migration on the same battery",
