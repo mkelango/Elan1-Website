@@ -163,7 +163,9 @@ export function Footer() {
             <Link to="/trust" className="hover:text-ink">Terms</Link>
             <Link to="/trust" className="hover:text-ink">Security</Link>
             <Link to="/trust" className="hover:text-ink">Trust Center</Link>
-            <Link to="/trust" className="hover:text-ink">Responsible AI</Link>
+            {/* The limits page sits in the legal strip on purpose — it renders on every page, and a
+                vendor that publishes what it is not should not make you hunt for it. */}
+            <Link to="/what-elan1-is-not" className="hover:text-ink">What we are not</Link>
           </div>
           <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-6">
             <RegionSwitcher />
