@@ -929,22 +929,22 @@ export const products: Product[] = [
       },
     ],
     outcomes: [
-      "One governed definition per metric, shared by the dashboards and the agents",
-      "A figure that cannot be computed arrives as a stated reason, not a plausible number",
-      "Anomalies and projections arrive as findings, and stay findings until a person acts",
-      "What was published, who approved it and what it was computed from is on the audit chain",
+      "One definition per metric, shared by dashboards and agents",
+      "Uncomputable figure arrives as stated reason",
+      "Anomalies and projections stay findings until person acts",
+      "Publish record, approver, computation on audit chain",
     ],
     integrations: [
-      "Eight sibling systems of record, read in place: sales1, service1, finance1, supply1, people1, market1, project1 and commerce1",
-      "The analytics seam — insight1's own connector, with three consequential operations",
-      "Email — send-only scope for scheduled digests",
-      "Report export as spreadsheet and PDF; a digest can attach the grounded report",
-      "Governed flows into finance1 and supply1 through the platform orchestrator",
+      "Eight sibling systems read in place",
+      "Analytics seam — insight1's own connector",
+      "Email — send-only for digests",
+      "Report export as spreadsheet and PDF",
+      "Governed flows to finance1 and supply1",
     ],
     suiteFit:
-      `insight1 reads ${INSIGHT_SOURCES_WORD} sibling systems of record and holds no write access to any of them — every record it writes is its own. Where a finding needs an action it proposes into the owning app's queue, and both legs gate there: insight1 moves no money and commits no purchase. Industry packs push their published measures back as insight1 records rather than keeping analytics of their own.`,
+      `Reads ${INSIGHT_SOURCES_WORD} siblings, holds no write access. Every record it writes is its own. Proposes into owning app's queue. Moves no money, commits no purchase.`,
     trust:
-      "Publishing is the governed action. Publishing a dashboard is refused without an explicit human approval, and arming a digest, an alert or a share is consequential too. Raising an agent's autonomy level does not change that. The Trust Mark is scored against a six-set battery — grounding, no fabrication, publish review, data-scope safety, forecast honesty, and the engine never acting for the human. One scope limit stated plainly: a metric naming a source app outside the eight known systems of record is refused on save, but a metric saved with no source app at all passes that particular check — the grounding refusal that matters happens at compute time, where a value that cannot be derived returns no number and a reason.",
+      "Publish is governed action, requires explicit approval. Arming digest, alert, share consequential. Metric with unknown source app refused on save.",
     workforce: {
       registered: 11,
       launchWave: 4,
