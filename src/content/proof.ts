@@ -264,12 +264,9 @@ export const PROOF: CaseStudy[] = [
     industry: "Healthcare",
     domain: "Clinical & regulated writes",
     app: "health1 · finance1 + project1 + insight1",
-    before:
-      "An ambient scribe drafts well, and nothing between the draft and the record stops a generated line being signed as a clinical decision. Consent lives upstream as a checkbox taken once, rather than as a condition re-evaluated at the moment a clinical row is created — or amended, months later, after the patient withdrew it.",
-    after:
-      "The note's safety status is recomputed from its effective text on every write, so supplying the status in the payload changes nothing, and amending an already-signed note into a diagnosis meets the same refusal. The classifier reads intent and is negation-aware, so declining to diagnose is not diagnosing, and it matches the verb rather than the noun, so a scribe documenting the prescription a clinician actually issued is not blocked. A write to a record type declared as protected health information is refused without an active consent for the resolved patient — on create and on update — and the read side refuses before it reads anything.",
-    guarantee:
-      "Two refusals sit between a draft and the record, both on the governed write path, so they hold for a human typist, for the pack's own advisor and for a live model: \"decision-support only — this note asserts a diagnosis or prescription, so it cannot be signed into the record. A clinician writes the clinical decision; the scribe drafts.\" · \"no active patient consent — a clinical record requires consent (DPDP/ABDM/HIPAA)\". Stated limits: health1 is provider-side decision support and does not adjudicate as a payer; the interoperability layer says which mode it is in — the FHIR gateway reads a live endpoint when one is configured, while the consent manager and the eligibility, claim and prior-authorisation flows are modelled adapters over health1's own record until credentials are wired, with no external call; none of this is a regulatory certification, and nothing here is medical advice.",
+    before: "Scribe drafts; nothing stops auto-sign. Consent taken once upstream.",
+    after: "Status recomputed per write. Negation-aware classifier. Active consent required.",
+    guarantee: "\"decision-support only — note asserts diagnosis, cannot be signed\" · \"no active patient consent — clinical record requires consent\".",
     trustMark: "health1.patient_access_support",
     accent: ACCENT.green,
   },
