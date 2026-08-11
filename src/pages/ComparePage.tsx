@@ -121,14 +121,18 @@ export default function ComparePage() {
         </Reveal>
       </Section>
 
-      {/* The dimensions. Scrolls inside its own container; stacks below lg. */}
+      {/*
+        The dimensions. Scrolls inside its own container; stacks below lg.
+
+        THE AXIS COUNT IS DERIVED, NOT TYPED. The first draft of this lede read "six or seven axes":
+        every entry carries seven rows and build-it-yourself carries eight, so the page miscounted
+        itself — on the one page whose whole argument is that a number should come from the thing it
+        describes. `cmp.dimensions.length` cannot drift from the rows rendered underneath it.
+      */}
       <Section tone="mist">
         <SectionHead
           kicker="Dimension by dimension"
           title="Where the record lives, and what stands in front of it."
-          // DERIVED, not typed. The hand-written version said "six or seven"; every entry carries
-          // seven rows and build-it-yourself carries eight, so the page miscounted itself on the one
-          // page whose whole argument is that a number should come from the thing it describes.
           lede={`${cmp.dimensions.length} axes, each one a question a buyer is actually asking. The left column describes their architecture; the right names the mechanism on ours, with its stated limit where there is one.`}
         />
 
