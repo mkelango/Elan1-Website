@@ -611,30 +611,30 @@ export const COMPARISONS: Comparison[] = [
       {
         dim: "Where the record lives",
         them:
-          "Wherever you put it — your schema, your migrations, your ownership. Total control, and a data model that fits your business exactly rather than a vendor's idea of it.",
+          "Your schema, migrations, ownership. Total control, model fits business.",
         us:
-          `${factValue("systemsOfRecord")} systems of record and ${factValue("objectTypes")} typed object types, already modelled, each behind a writer that is the only sanctioned path in. The cost is that it is our data model. The benefit is that the gate has somewhere to live on day one.`,
+          `${factValue("systemsOfRecord")} systems, ${factValue("objectTypes")} types. Our model; gate lives day one.`,
       },
       {
         dim: "What the audit proves",
         them:
-          "Whatever you write, at whatever fidelity you choose. An application-level append-only log is a morning's work; making it survive an operator with database credentials is a different piece of work.",
+          "Whatever you write. App-level append-only is morning; surviving operator DB creds is different work.",
         us:
-          "A hash chain per tenant, plus two properties that are not application code. A database trigger raises on UPDATE and DELETE against the audit table, including for the table owner, so deletion is not a permission anyone can be granted. A uniqueness constraint over the tenant and the predecessor hash means the chain cannot fork into two plausible histories. And row-level security is forced, so the policy applies to the table owner too — the database, not the query author, decides which rows a session can see.",
+          "Hash chain per tenant. Trigger on UPDATE/DELETE (owner included). Uniqueness constraint prevents fork. RLS forced; DB decides rows.",
       },
       {
         dim: "Whether a refusal is demonstrable",
         them:
-          "Your guards, your strings, your tests. The hard part is not writing the guard — it is writing a test that could have failed, which is a discipline rather than a library.",
+          "Your guards, strings, tests. Hard part: test that could fail, not writing guard.",
         us:
-          "Refusals are the deliverable, and the scar tissue is published with them. A guard whose name states a property and whose body measures a correlate — a substring, a regex, a named list, an absent key — is the dominant defect species we have found in our own code, and it passes review every time. So a guard here is tested against the property, and a second guard over the same rule is diffed against the first rather than assumed equal to it.",
+          "Refusals are deliverable. Guard name/body mismatch (substring/regex/list) is dominant defect; we test against property, diff two guards over same rule.",
       },
       {
         dim: "How a vertical is delivered",
         them:
-          "A branch, a module, or a set of conditionals — and then the question of whether a fix in the shared path reaches all of them.",
+          "Branch, module, or conditionals. Fix shared path reaches all?",
         us:
-          `${factValue("verticalPacks")} packs as configuration over the same applications, adding records, refusals and a governance signature and forking nothing. The reason that matters is maintenance, not elegance: a fix in a shared application reaches every industry that composes it rather than reaching one branch and waiting.`,
+          `${factValue("verticalPacks")} packs config, fork nothing. Fix shared app reaches every composing industry.`,
       },
       {
         dim: "Who approves a consequential write",
