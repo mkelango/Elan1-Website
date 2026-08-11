@@ -143,24 +143,24 @@ export interface BringItem {
  */
 export const WHAT_TO_BRING: BringItem[] = [
   {
-    title: "One workflow, end to end",
-    body: "From what triggers it to what it changes. Name the step where money moves, a commitment is made, or a customer sees something — that is the step that becomes a human approval gate, and naming it is what decides whether this is a short conversation or a long one.",
+    title: “One workflow, end to end”,
+    body: “From trigger to output. Name the approval point.”,
   },
   {
-    title: "Who approves that step today, by name",
-    body: "A human approval gate needs a human. The approval token is bound both to the action and to a content hash of the exact payload that person reviewed, then spent — so it cannot be reused on a different amount. If nobody owns that approval today, that is the more useful finding, and it surfaces in the first hour rather than the last week.",
+    title: “Who approves it today”,
+    body: “By name. Defines your governance gate.”,
   },
   {
-    title: "Which systems hold the records",
-    body: "Connectors ship as modelled adapters until credentials are wired, so naming your systems tells us which seams need a native adapter or an MCP connector pointed at your own server, and what an audited grant would have to cover. A grant resolves against the operations a connector actually declares, so an over-broad one fails rather than quietly widening.",
+    title: “Which systems hold the records”,
+    body: “Tells us which connectors and grants you need.”,
   },
   {
-    title: "What your regulator asks you to show",
-    body: "Bring the evidence request itself, not the framework’s name. It decides what your governance signature has to carry and what an evidence pack has to assemble — and it is the point in the conversation where you should hear our gaps rather than our controls. No SOC 2 and no ISO 27001 certification is held today, and data residency is declared per tenant rather than enforced.",
+    title: “What your regulator asks you to show”,
+    body: “Shapes your governance signature.”,
   },
   {
-    title: "What you would refuse to automate",
-    body: "Worth as much as the list of what you want automated, and rarely asked for. The enabled set is the list of what may run at all; a function outside it is refused before it acts, and the refusal lands on the audit chain as a blocked run. “Never” is a state the control plane holds, not a paragraph in a policy document.",
+    title: “What you refuse to automate”,
+    body: “The “never” list. A control plane state.”,
   },
 ];
 
