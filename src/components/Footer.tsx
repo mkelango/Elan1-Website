@@ -87,6 +87,7 @@ const cols: {
       { label: "Partners", href: "/company/partners" },
       { label: "Newsroom", href: "/company/newsroom" },
       { label: "Pricing", href: "/pricing" },
+      { label: "Developers", href: "/developers" },
       { label: "Trust Center", href: "/trust" },
       { label: "Contact", href: "/contact" },
     ],
