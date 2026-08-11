@@ -312,12 +312,9 @@ export const PROOF: CaseStudy[] = [
     industry: "Retail & D2C",
     domain: "Regulated pricing",
     app: "retail1 · commerce1 + supply1",
-    before:
-      "The maximum retail price is a field on the product; the promotion engine is a different system. The illegal price is discovered at the till, or by a regulator, and the correction is a support ticket. Two overlapping promotions on the same item mean the price depends on which rule the query happened to read first.",
-    after:
-      "The cap is refused from both directions. A sale price above the printed maximum is refused — and lowering that maximum under a price the store is already selling at is refused too, naming the active rules to reprice first, because the alternative is a platform that knows a live price is illegal and leaves it selling. Two active price windows for the same item cannot overlap: one item, one price, at any instant.",
-    guarantee:
-      "Verbatim: \"pricing integrity: sale price {sale} exceeds MRP {mrp} (Legal Metrology)\" · \"pricing integrity: MRP {new} is below {n} ACTIVE price rule(s) selling at {prices} — lowering it would put a live price above MRP (Legal Metrology). Reprice those rules first.\" · \"this window overlaps ACTIVE price rule {id} ({window}) for the same sku — one sku, one price, at any instant. End or re-window that rule first.\" The same check is recomputed on the price that actually crossed into the storefront, so the guard is not only on the record a merchandiser edits.",
+    before: "MRP field separate from promotion engine. Overlapping promos allowed.",
+    after: "Sale price capped at MRP. MRP lowering refused if live price above. No overlaps.",
+    guarantee: "\"sale price {sale} exceeds MRP {mrp}\" · \"MRP lowering would put live price above MRP\" · \"window overlaps active rule\".",
     trustMark: "retail1.merchandising_review",
     accent: ACCENT.gold,
   },
