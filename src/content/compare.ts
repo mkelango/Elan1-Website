@@ -290,22 +290,22 @@ export const COMPARISONS: Comparison[] = [
       {
         title: "Distribution — it is already in the tenant",
         body:
-          "For an enormous number of organisations Copilot arrives with no new vendor, no new procurement cycle and no new security review, inside applications people already have open. Nothing in an architecture argument outweighs being there already, and we are not going to claim it does.",
+          "No new vendor, procurement, or security review. Already in apps people use. Architecture argument cannot outweigh presence.",
       },
       {
         title: "Grounding in the work graph is genuinely hard to beat",
         body:
-          "Mail, documents, chats, meetings and the permissions already attached to them. For \"what did we decide, who owns it, and where is the deck\", that corpus beats anything that has to be connected first — including ours.",
+          "Mail, documents, chats, meetings with permissions. \"What did we decide?\" corpus beats connected alternatives.",
       },
       {
         title: "The governance surface is one your security team already operates",
         body:
-          "Entra, Purview, DLP policies, environments, the admin centre, conditional access. Those are not new tools to learn, new consoles to staff or a new audit scope to negotiate. A second platform, ours included, is a second everything.",
+          "Entra, Purview, DLP, conditional access already known. No new tools, consoles, audit scope. Second platform = second everything.",
       },
       {
         title: "A connector catalog and a low-code builder with real reach",
         body:
-          "Power Platform's connector catalog and Copilot Studio put a very wide surface in front of people who are not engineers, backed by a Microsoft support contract. That combination has few equals.",
+          "Power Platform connectors and Copilot Studio for non-engineers, backed by Microsoft support. Few equals.",
       },
     ],
     whenToPickThem:
