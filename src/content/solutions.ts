@@ -662,7 +662,7 @@ export const solutions: Solution[] = [
     industry: "Manufacturing & engineering",
     tagline: "The agent advises. A person moves the machine.",
     challenge:
-      "manufacture1 is the elan1 pack for process and batch manufacturing: thirty shop-floor object types — recipe, batch, lot genealogy, machine operation, inspection, NCR, certificate of analysis — under a write path that refuses to write into a control system, and a lot trace that answers the recall call. It composes supply1, finance1, project1, service1 and insight1, writing into each through that app's own governed writer.",
+      "Shop-floor manufacturing record where write path refuses control-system writes, lot genealogy enables recall queries, and OT/IT separation is enforced.",
     composedOf: ["finance1", "insight1", "project1", "service1", "supply1"],
     accent: ACCENT.cyan,
     useCases: [
