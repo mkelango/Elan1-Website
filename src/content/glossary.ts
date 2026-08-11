@@ -285,7 +285,7 @@ export const GLOSSARY: Term[] = [
     term: "Maker-checker (segregation of duties)",
     category: "The write path",
     aka: ["SoD", "four eyes", "segregation of duties"],
-    def: "On an approval flagged for it, the principal who requested the action cannot be the one who approves it, and the refusal names both. The administrator role does not bypass this, because it is implemented inside the approval gate as a control rather than as a permission. Approvals not flagged for it are unaffected, so single-person flows still resolve.",
+    def: "On an approval flagged for it, the principal who requested the action cannot be the one who approves it, and the refusal names both. The administrator role does not bypass this: it sits inside the approval gate as a control rather than as a permission. Approvals not flagged for it are unaffected, so single-person flows still resolve.",
     why: "In finance1 the drafter cannot approve their own entry. In service1 an approved refund posts to finance1 and terminates at finance1's maker-checker gate — service1 never moves money.",
     see: ["Human approval gate", "Cross-app saga"],
   },

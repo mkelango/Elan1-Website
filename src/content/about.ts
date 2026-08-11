@@ -278,7 +278,7 @@ export const EDITORIAL_RULES: EditorialRule[] = [
   },
   {
     title: "A capability carries the state it is actually in",
-    body: "Enforced, declared but not yet consulted, or built but not yet wired. Most readiness pages have one state, present, which is how a rule that is implemented and never called ends up reading as a rule that is enforced. Ours are labelled, the uncomfortable ones included, and the limits are collected in one section rather than scattered where they are easiest to miss.",
+    body: "Enforced, declared but not yet consulted, or built but not yet wired. Most readiness pages have one state, present, which is how a rule that is implemented and never called ends up reading as enforced. Ours are labelled, the uncomfortable ones included, and the limits are collected in one section rather than scattered.",
     href: "/platform/engineering",
     linkLabel: "The readiness checklist, including the gaps",
   },
