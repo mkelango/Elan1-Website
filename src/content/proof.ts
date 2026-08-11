@@ -238,13 +238,9 @@ export const PROOF: CaseStudy[] = [
     industry: "Across the suite",
     domain: "Publishing",
     app: "insight1",
-    before:
-      "The tile reads a stored counter. When the rows underneath it are filtered, archived, or never arrived, the number stays where it was and keeps being reported. \"Nothing matched\" and \"we could not look\" arrive on the screen as the same figure, and only one of them is a finding.",
-    after: `insight1 computes at read and stores no metric of its own. It holds no write access to another app's system of record: its only connector grants are its own analytics store and a send-only email connector, and every record it writes is its own — a metric, a report, a dashboard, an insight. It reads ${factValue(
-      "insightSourceApps",
-    )} sibling systems of record, which is a named set and deliberately not every app. Where a finding needs an action, insight1 proposes rather than acts: a grounded receivables anomaly routes to finance1's payables, a demand projection routes to supply1's reorder, and in both cases the record lands in that app, written by that app, through that app's own human approval gate. insight1 moves no money and commits no purchase.`,
-    guarantee:
-      "Grounding is a refusal, not a caveat printed under the chart: \"human approval required to publish a dashboard\" · \"metric not grounded ({reason})\" · \"report not grounded ({reason}) — nothing to export\" · \"could not ground the ask — a human rephrases; the copilot never guesses a query\". The pattern this closes is the one where an empty result and an unread source produce the same green number. Stated limit: what keeps insight1 out of a sibling's record is its grant scope, not a test that fails if it wrote one — and what it does ship on its own authority is a draft. Publishing numbers to an audience is human-reviewed.",
+    before: "Stored counter persists; nothing-matched and unread arrive identical.",
+    after: `Computes at read, read-only to sibling SoRs. Proposes, never acts. No money moves.`,
+    guarantee: "\"human approval required to publish dashboard\" · \"metric not grounded ({reason})\" · empty result distinguished from unread source.",
     registeredAgent: "insight1.dashboard_publisher",
     accent: ACCENT.blue,
   },
