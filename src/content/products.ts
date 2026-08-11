@@ -1302,15 +1302,15 @@ export const products: Product[] = [
     hero: {
       headline: "Goals that move on a daily beat, not a quarterly review.",
       subhead:
-        "One operating cadence — a North Star, missions, weekly sprints, a daily pulse, and detected signals a human triages. Nine agents draft, project and propose; applying a signal needs a human approval unless a person has armed that mission's Autopilot envelope.",
+        "North Star, missions, sprints, daily pulse, signals. 9 agents draft, project, propose. Signal apply needs approval unless Autopilot armed.",
       primaryCta: "Book a demo",
       secondaryCta: "See it live",
     },
     problem: [
-      "The goal document is authored once and is stale before the quarter is out.",
-      "Progress lives in slides and spreadsheets nobody updates between reviews.",
-      "Nothing connects a goal to the agents and systems that would actually move it.",
-      "When the plan changes, the decision and the reasoning behind it go unrecorded.",
+      "Goal document authored once, stale before quarter out.",
+      "Progress in slides and spreadsheets, not updated between reviews.",
+      "Goal not connected to agents and systems that move it.",
+      "Plan changes go unrecorded.",
     ],
     capabilities: [
       {
