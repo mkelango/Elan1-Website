@@ -311,11 +311,11 @@ export const COMPARISONS: Comparison[] = [
     whenToPickThem:
       "Choose Copilot, not elan1, if the work you want to change is knowledge work over M365 content — drafting, summarising, finding, meeting follow-up — rather than consequential writes into a business record, and your governance requirement is satisfied by Entra, Purview and DLP.",
     ourLimits: [
-      "No SOC 2 and no ISO 27001 certification is held today, and no third-party penetration-test report is on file.",
-      "No named customers, no case studies, no reference calls.",
-      `A ${factValue("connectors")}-connector catalog against a marketplace measured in four figures — and several of ours default to a modelled adapter and reach an external system only once an endpoint is configured, which the connectors page names rather than leaves for you to discover.`,
-      "No presence in the productivity surface. elan1 does not draft your email, summarise your meeting or live in your document — and it should not be evaluated as if it wanted to.",
-      "Data residency is declared per tenant rather than enforced by routing, and the deployment is single-region today. The trust surface publishes that as data so a console cannot render the declaration as enforcement.",
+      "No SOC 2, no ISO 27001, no third-party pen test report.",
+      "No named customers, no case studies, no references.",
+      `${factValue("connectors")} connectors vs. marketplace in four figures; some default modelled.`,
+      "No productivity surface. Does not draft email, summarise meetings, live in documents.",
+      "Residency declared, not enforced; single-region deployment today.",
     ],
     proofPoints: [
       {
