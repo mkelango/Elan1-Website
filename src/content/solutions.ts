@@ -494,7 +494,7 @@ export const solutions: Solution[] = [
       "The telco1 Launchpad: customer-lifecycle / service automation live in 4–6 weeks, then operated at scale on run1.",
     pricingNote:
       "Fixed Launchpad fee, then per-seat/usage pricing plus a run1 retainer. Illustrative; not financial advice.",
-    wedge: "AN AUTO-NETWORK-CHANGE IS REFUSED BEFORE A ROW EXISTS — and it is checked against the EFFECTIVE action basis, not the payload. On every create and update of a service_order, circuit or incident, the telecom write path reads action_basis from the payload when present and otherwise from the STORED record, then runs the classifier over it. That closes the payload-keyed hole: a status-only PATCH — which IS the network act — cannot skip the check by simply omitting the field.",
+    wedge: "Auto-network-change refused before row exists. Write path reads effective action basis (payload or stored), preventing status-only PATCH bypass.",
     problem: [
       "The order, the circuit, the SLA and the incident that breached it usually live in four systems, so the availability number a carrier quotes and the records that would justify it are never the same object.",
       "The dangerous automation in a carrier is not a wrong answer, it is a confident action: an agent that suspends an enterprise leased line on a false-positive DDoS signal takes the customer's connectivity down with it.",
