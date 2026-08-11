@@ -303,10 +303,10 @@ const SOURCES: PlaybookSource[] = [
       },
       {
         title: "Put the declared-not-enforced list in the risk register on day one",
-        body: "Some controls are implemented and exercised without a production path consulting them yet, and this site labels those rather than rounding them up. Five to carry from the first day. The incident kill-switch halts an app's agent fleet, and does not also refuse that app's direct system-of-record writes: the generic rule that would do that is registered without the reference to the rollout registry its clause needs, so the clause cannot fire, and only a test wires it. Residency is declared and recorded rather than enforced by a router — no production read path, connector or storage layer consults it — and where it does bite it bites locally, at health1's interop connectors, which refuse a call from outside the India region. run1 ships no service-level machinery: paging routes to your own tool and the rotation is a human responsibility. A derived guard walks the mutating request handlers reachable from the application's routers — the denominator comes from the filesystem and the syntax tree rather than a list somebody maintains — and counts the ones that reach a system of record through a direct store call, with a smaller subset showing no governed writer anywhere in the handler at all; both are held as ceilings that may fall and may never rise, which makes \"every write is governed\" a direction with a mechanism behind it rather than a finished fact. And no framework certification is held.",
+        body: "Five controls: The kill-switch stops the agent fleet, not direct writes. Residency is declared, not routed. run1 ships no SLA machinery. Derived guards count direct writes to stores; these are ceilings that may fall, never rise. No framework certification is held.",
         decision:
-          "Which of these limits are acceptable for your first workflow, and which must close before a second one is scoped.",
-        trap: "Hearing a labelled limit as a disclosure that cancels the controls around it. The labels are the reason the rest of the list is worth reading.",
+          "Which limits are acceptable for your first workflow, which must close before a second one is scoped.",
+        trap: "Reading a labelled limit as disclosure that cancels surrounding controls. Labels are why the list is worth reading.",
       },
     ],
     notCovered: [
