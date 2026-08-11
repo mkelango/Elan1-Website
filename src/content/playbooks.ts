@@ -189,9 +189,9 @@ const SOURCES: PlaybookSource[] = [
       },
       {
         title: "Split the workflow at the commitment",
-        body: "Everything up to the commitment is draftable; the commitment is a gate. In service1, an agent drafts a reply and a person sends it. sales1 draws the line between advancing a deal stage — an immediate governed write — and marking it Closed Won, a revenue commitment that waits for a person. Draw the line for your workflow and name the role on the far side of it.",
+        body: "Everything up to the commitment is draftable; the commitment is a gate. In service1 an agent drafts, a person sends. In sales1 the line is between stage-advance and Closed Won. Draw it and name the approving role.",
         decision: "Where the line falls, and which role holds approval authority for it.",
-        trap: "Leaving the line implicit. An unnamed gate becomes whoever happens to be nearest the screen.",
+        trap: "Leaving it implicit — an unnamed gate becomes whoever is nearest the screen.",
       },
       {
         title: "Decide what wave one will be judged on before it runs",
