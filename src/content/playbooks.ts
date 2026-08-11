@@ -360,12 +360,10 @@ const SOURCES: PlaybookSource[] = [
       },
       {
         title: "Follow the composition, and check whose writer runs",
-        body: `A pack composes suite apps rather than rebuilding them: a grievance opens a service1 case, a disbursement posts a finance1 payable. The property to check is that each write goes through the target app's own governed writer, so the target's gate holds even though another app started the move — and where a sibling declines, the pack raises rather than routing around it. That is what stops a vertical becoming a way to write into finance without finance's controls. insight1 is the counter-example worth knowing, because it is the one app that composes without writing: it reads a named set of ${factValue(
-          "insightSourceApps",
-        )} sibling record stores — not every app — and holds no write access to any of them, its own grants being its analytics store and a send-only email seam. Where a finding needs an action it proposes into the owning app's approval queue rather than writing there itself.`,
+        body: `Each write uses the target app's owned writer — the target's gate holds. insight1 is the exception: it composes without writing, reads ${factValue("insightSourceApps")} sibling stores, proposes actions back.`,
         decision:
           "Which sibling apps your first vertical workflow will write into, and who owns each of their gates.",
-        trap: "Assuming a cross-app step inherits the caller's approval. Each step keeps its own.",
+        trap: "Assuming a cross-app step inherits the caller's approval.",
       },
       {
         title: "Look for the case that could have failed",
