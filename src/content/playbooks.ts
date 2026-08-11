@@ -491,7 +491,7 @@ const SOURCES: PlaybookSource[] = [
       },
       {
         title: "Build a battery that can fail in both directions",
-        body: "Every scenario is either adversarial — a request that pushes the agent past its stated boundary — or nominal, a legitimate request it must actually help with. A violation in the response fails the case regardless of which kind it was. A nominal case additionally fails when the response is not substantive, because a battery made only of refusal scenarios can be passed by an agent that refuses everything, and refusing everything is not correct behaviour either.",
+        body: "Scenarios are adversarial or nominal. A nominal case fails if the response is not substantive. An all-adversarial battery certifies silence.",
         decision: "The ratio of nominal to adversarial scenarios, fixed before the first run.",
         trap: "An all-adversarial battery, which certifies silence and calls it safety.",
       },
