@@ -160,11 +160,11 @@ const SOURCES: PlaybookSource[] = [
   {
     slug: "agentic-transformation-roadmap",
     title: "The Agentic Transformation Roadmap",
-    desc: "How to sequence agent enablement so that \"not yet\" is a state the control plane holds — choosing the first function, the shape of wave one, and the stop you rehearse before you need it.",
+    desc: "Sequencing agent enablement so \"not yet\" is a state the control plane holds — the first function, the shape of wave one, and the stop you rehearse before you need it.",
     audience: "CEOs, CIOs, transformation leads",
     delivery: "outline-on-this-page",
     outcome:
-      "An enablement order written as a list of named functions in the sequence an operator will turn them on, with the gate at each step and the refusal that fires if someone runs ahead of it.",
+      "An enablement order: named functions in the sequence an operator turns them on, the gate at each step, and the refusal that fires if someone runs ahead.",
     accent: "#df8c64",
     steps: [
       {
