@@ -928,11 +928,11 @@ export const solutions: Solution[] = [
       "Fixed Launchpad fee, then per-teacher/subscription pricing. Illustrative; not educational or compliance advice.",
     wedge: "Agent output refused by system of record. Two semantic classifiers run on tutoring responses: does it do the student's work? Does it name another learner's grades? Refusals are enforced at write.",
     problem: [
-      "An AI tutor's safety lives in the sentence it just produced. A system prompt, an instruction file and a policy PDF all sit upstream of that sentence, and none of them reads it.",
-      "A pass mark that arrives as a field on a request is a credential nobody computed — and a credential is the thing an academic record exists to protect.",
-      "An attendance percentage stored as a number can drift from the marks it claims to summarise, and every at-risk signal reading it inherits the drift.",
-      "Student data leaks as prose, not as a column: naming a classmate's grade in a tutoring reply touches no protected field at all.",
-      "A term everyone agrees is \"closed\" stays writable until something refuses the write.",
+      "AI tutor safety lives in the sentence produced; system prompts sit upstream and don't read output.",
+      "Pass marks from requests are credentials nobody computed.",
+      "Stored attendance percentages drift from the marks they summarise.",
+      "Student data leaks as prose, not column violations.",
+      "Closed terms stay writable until something refuses the write.",
     ],
     composedOfNote: "edu1 composes sales1, finance1, project1, service1, insight1; adds education record: learner, course, academic term, enrollment, assignment, attendance, fee structure, tutoring session, grade, credit, attestations.",
     ownRecords: [
