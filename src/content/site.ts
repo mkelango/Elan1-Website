@@ -176,11 +176,12 @@ export const NAV: NavItem[] = [
         ],
       },
       {
-        // NEW. Context is what an agent READS; an ontology is the typed structure a WRITE is
-        // validated against. A retrieval graph makes answers better — an ontology makes writes
-        // refusable. Deliberately NOT "Enterprise Context": that is a competitor's term, and
-        // second place in someone else's word is worth nothing.
-        heading: "Enterprise Ontology",
+        // Governed Enterprise Action: the GAM (Governed Action Model) positions the governance
+        // and action layers as the headline, not the ontology substrate. The ontology is the
+        // foundation (L2 Deterministic/Structural layer), but naming ourselves after the substrate
+        // cedes the interesting half (governance, action, proof) to competitors. We own the
+        // governed write path, not the ontology inferred from documents.
+        heading: "Governed Enterprise Action",
         links: [
           { label: "The record model", href: "/platform/enterprise-ontology", desc: "Typed objects across the systems of record — what a write is validated against" },
           { label: "Connectors — MCP-native", href: "/platform/connectors", desc: "Typed, least-privilege seams; credential-gated, never pre-connected" },
