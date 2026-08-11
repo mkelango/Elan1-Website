@@ -566,25 +566,25 @@ export const COMPARISONS: Comparison[] = [
       {
         title: "A commitment to an unapproved supplier is refused by name",
         body:
-          "On a purchase order and on a blanket release alike, so a standing agreement cannot be used to route future spend to a vendor you have blocked. A release is measured against the quantity already released cumulatively rather than the line in front of you, and the registered commitment policy returns no allowance at all without an idempotency key: \"a commitment requires an idempotency_key (no double-ordering)\".",
+          "On PO and blanket release. Standing agreement cannot route future spend to blocked vendor. Release cumulative, no allowance without idempotency_key: \"commitment requires idempotency_key (no double-ordering)\".",
         patternId: "procurement-commitment",
       },
       {
         title: "A batch cannot complete on material that was never issued",
         body:
-          "And a certificate of analysis is refused over an open non-conformance or a later failed inspection — an earlier pass survives neither. An inspection criterion must carry a verdict a person reached, because the write path refuses to infer from a measurement whether it is in spec. A derive that would have to infer refuses instead.",
+          "CoA refused if open non-conformance or later failed. Inspection must carry verdict person reached; write path refuses infer from measurement. Derive that would infer refuses.",
         patternId: "lot-genealogy",
       },
       {
         title: "A live price above the printed maximum is refused from both directions",
         body:
-          "The sale above the cap is refused, and so is lowering the cap under a price the store is already selling at — naming the active rules to reprice first, because the alternative is a platform that knows a live price is illegal and leaves it selling. The same check is recomputed on the price that actually crossed into the storefront.",
+          "Sale above cap refused. Lowering cap under selling price refused—must reprice active rules first. Same check on storefront price.",
         patternId: "price-ceiling",
       },
       {
         title: "An industry is configuration, and the hand-off keeps the target's gate",
         body:
-          `${factValue("verticalPacks")} packs over one core, and ${factValue("crossAppSagas")} cross-application workflows in which each step evaluates the receiving application's own gate. A grievance opens a real service case through service1's governed writer, and the composing pack raises an error rather than writing a case row itself when that gate refuses.`,
+          `${factValue("verticalPacks")} packs, ${factValue("crossAppSagas")} workflows evaluate receiving gate. Grievance opens real service1 case via its writer; pack errors if gate refuses.`,
       },
     ],
   },
