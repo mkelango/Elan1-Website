@@ -324,9 +324,7 @@ const SOURCES: PlaybookSource[] = [
     desc: "The wedge on the write path, the refusals it fires, and the four questions that separate a real vertical claim from a themed demo.",
     audience: "Industry & function owners",
     delivery: "outline-on-this-page",
-    outcome: `A per-pack read you can check against your own controls: what the pack refuses when a record is written, which of the ${factValue(
-      "suiteApps",
-    )} suite apps it composes and through whose writer, and four questions to put to any vertical claim — including ours.`,
+    outcome: `A per-pack read: what it refuses, which apps it composes, and four questions to audit any vertical claim.`,
     accent: "#2f6df0",
     steps: [
       {
