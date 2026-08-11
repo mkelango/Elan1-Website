@@ -215,9 +215,9 @@ const SOURCES: PlaybookSource[] = [
       },
       {
         title: "Keep the business case arguable",
-        body: "Nothing here has been measured in a customer environment, and the platform holds the same line in code: a seeded illustrative figure is wrapped in a type that refuses to render — turning it into text raises rather than printing it — so a demo number has no silent path onto a page as a computed answer. Build the value model from your own operating assumptions, label it illustrative, and show the arithmetic instead of the conclusion. After go-live one line gets firmer: agent runs on the governed runtime are metered per tenant, per app and per model, and priced platform-side from an illustrative rate card. Firmer is not the same as billable — the FinOps playbook below sets out exactly how far that number goes.",
+        body: "Nothing has been measured. Build the value model from your own assumptions, label it illustrative, show the arithmetic. Metered figures are illustrative too — see the FinOps playbook for what they cover and what they do not.",
         decision: "Whose assumptions the model uses, and who is allowed to change them.",
-        trap: "A number that reaches a board pack without its assumptions attached, and comes back a year later as a commitment.",
+        trap: "A number reaching a board pack without its assumptions, becoming a commitment.",
       },
       {
         title: "Hand over an order, not a system",
