@@ -309,7 +309,7 @@ export const GLOSSARY: Term[] = [
     category: "The write path",
     usage: "elan1",
     aka: ["K7"],
-    def: `A named, enforceable policy set applied by the core rather than bolted on — clinical safety, approved-vendor-only, segregation of duties, separation of operational technology from IT. The platform registers ${factValue("governanceSignatures")} of them: one per vertical, per suite app and per control-plane surface. Where a pack has one, its own agents derive their policy tags from it rather than hand-writing them, so the signature and the agent cannot drift apart. A signature is also where an app declares the eval sets its Trust Mark is scored against.`,
+    def: `A named, enforceable policy set applied by the core rather than bolted on — clinical safety, approved-vendor-only, segregation of duties, separation of operational technology from IT. The platform registers ${factValue("governanceSignatures")} of them: one per vertical, per suite app and per control-plane surface. Where a pack has one, its agents derive their policy tags from it rather than hand-writing them, so signature and agent cannot drift apart. A signature is also where an app declares the eval sets its Trust Mark is scored against.`,
     why: "health1's care advisor takes its policy tags from the health1 signature. sales1's is written down as \"the agent proposes, a human commits\".",
     see: ["Policy tag", "Industry pack"],
   },
