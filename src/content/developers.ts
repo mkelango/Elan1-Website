@@ -443,22 +443,17 @@ export const DEV_BOUNDARIES: string[] = [
   "No performance, latency, throughput or uptime figure appears on this page, because none has been measured in a customer environment.",
 ];
 
-/** The stat strip. Every value comes from platform-facts.ts — nothing here is hand-typed. */
+/**
+ * The stat strip. Every platform census figure comes from platform-facts.ts; the contract's arity is
+ * DERIVED from CORE_SURFACES above rather than typed, so adding or removing a surface moves the
+ * number on the page in the same edit. Nothing here is hand-typed.
+ */
 export const DEV_STATS: { value: string; label: string }[] = [
-  { value: "8", label: "core surfaces in the contract" },
+  { value: String(CORE_SURFACES.length), label: "core surfaces in the contract" },
   { value: factValue("connectors"), label: "connectors registered and callable" },
   { value: factValue("agentsRegistered"), label: "agents registered" },
   { value: factValue("skills"), label: "reusable skills" },
 ];
-
-/**
- * `8` above is the ONE number on this page not drawn from platform-facts.ts, and it is defensible
- * for a reason the others are not: it is not a census of a growing tree, it is the fixed arity of a
- * versioned contract. Adding a ninth surface is a major version bump with a recorded decision — the
- * kind of change that would bring someone back to this file anyway. If that ever happens and this
- * still says 8, the contract's own version number will have moved first.
- */
-export const DEV_SURFACE_COUNT = 8;
 
 export const DEVELOPERS_SEO = {
   title: "Developers — MCP-native, contract-first | elan1",
