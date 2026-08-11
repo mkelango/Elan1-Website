@@ -317,6 +317,8 @@ export const NAV: NavItem[] = [
         heading: "Help Center",
         links: [
           { label: "Guides", href: "/resources/guides", desc: "Step-by-step howtos and best practices" },
+          { label: "Playbooks", href: "/resources/playbooks", desc: "Implementation guides from discovery to scale" },
+          { label: "Templates", href: "/resources/templates", desc: "Pre-built agent templates" },
           { label: "Whitepapers", href: "/resources/whitepapers", desc: "Technical insights and research" },
           { label: "Reports", href: "/resources/reports", desc: "Market analysis and case studies" },
           { label: "Blog", href: "/resources/insights", desc: "Agentic transformation insights" },
@@ -328,6 +330,7 @@ export const NAV: NavItem[] = [
         links: [
           { label: "Events", href: "/resources/events", desc: "Conferences and networking events" },
           { label: "Webinars", href: "/resources/webinars", desc: "Live learning sessions" },
+          { label: "Case Studies", href: "/resources/case-studies", desc: "Real customer success stories" },
           { label: "Slack Community", href: "/resources/community", desc: "Connect with 2000+ builders" },
         ],
       },
@@ -337,6 +340,14 @@ export const NAV: NavItem[] = [
           { label: "API Documentation", href: "/platform/engineering", desc: "Complete API reference with examples" },
           { label: "SDKs", href: "/platform/engineering", desc: "Python, JavaScript, Go, Java" },
           { label: "Connectors", href: "/platform/connectors", desc: "50+ MCP connectors" },
+        ],
+      },
+      {
+        heading: "Academy",
+        links: [
+          { label: "Training", href: "/resources/academy", desc: "Self-paced modules and certification" },
+          { label: "Certification", href: "/resources/academy", desc: "Professional agent builder certification" },
+          { label: "Bootcamps", href: "/resources/academy", desc: "Intensive training and workshops" },
         ],
       },
     ],

@@ -46,6 +46,9 @@ const ResourceEvents = lazy(() => import("./pages/ResourceEvents"));
 const ResourceHelpCenter = lazy(() => import("./pages/ResourceHelpCenter"));
 const ResourceCommunity = lazy(() => import("./pages/ResourceCommunity"));
 const ResourceDevelopers = lazy(() => import("./pages/ResourceDevelopers"));
+const ResourceTemplates = lazy(() => import("./pages/ResourceTemplates"));
+const ResourceCaseStudies = lazy(() => import("./pages/ResourceCaseStudies"));
+const ResourcePlaybooks = lazy(() => import("./pages/ResourcePlaybooks"));
 const UseCasesIndex = lazy(() => import("./pages/UseCases").then(m => ({ default: m.default })));
 const UseCasePage = lazy(() => import("./pages/UseCases").then(m => ({ default: m.UseCasePage })));
 const Learn = lazy(() => import("./pages/Learn"));
@@ -151,6 +154,9 @@ export default function App() {
           <Route path="/resources/help-center" element={<ResourceHelpCenter />} />
           <Route path="/resources/community" element={<ResourceCommunity />} />
           <Route path="/resources/developers" element={<ResourceDevelopers />} />
+          <Route path="/resources/templates" element={<ResourceTemplates />} />
+          <Route path="/resources/case-studies" element={<ResourceCaseStudies />} />
+          <Route path="/resources/playbooks" element={<ResourcePlaybooks />} />
           <Route path="/resources/diagrams" element={<DiagramLibrary />} />
           <Route path="/resources/proof" element={<Proof />} />
           <Route path="/resources/glossary" element={<Glossary />} />
