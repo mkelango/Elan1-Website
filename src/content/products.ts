@@ -1021,15 +1021,15 @@ export const products: Product[] = [
     hero: {
       headline: "A client bill you can trace back to an approved hour.",
       subhead:
-        "Plans, resourcing, timesheets, RAID, Earned Value and the per-project P&L on its own work system of record — 22 object types, one append-only trail. Twelve agents plan, resource, track and draft; the moves that touch a client or the ledger stop for a named human.",
+        "22 object types, append-only trail. 12 agents plan, resource, track, draft. Client-facing or ledger-touching moves stop for human.",
       primaryCta: "Book a demo",
       secondaryCta: "See it live",
     },
     problem: [
-      "The plan is a spreadsheet nobody re-baselines, so there is nothing to measure against.",
-      "Time is logged late, to the wrong project, or to none — and the bill inherits the error.",
-      "Overrun and slippage surface at the month-end review, after the margin has gone.",
-      "Billing is a manual reconciliation between timesheets, rate cards and the ledger.",
+      "Plan is spreadsheet, never re-baselined.",
+      "Time logged late, wrong project, or not at all.",
+      "Overrun and slippage found at month-end review.",
+      "Billing is manual reconciliation.",
     ],
     capabilities: [
       {
