@@ -142,12 +142,9 @@ export const PROOF: CaseStudy[] = [
     industry: "Across the suite",
     domain: "Procurement",
     app: "supply1 · finance1",
-    before:
-      "An agent finds a cheaper supplier and raises the order. The approved-vendor list is a spreadsheet somebody maintains, the blanket agreement's ceiling lives in a contract PDF, and a second click during a slow response creates a second order. Over-receipt is caught, if it is caught, by the person matching the invoice weeks later.",
-    after:
-      "supply1's registered commitment policy answers the same way every time it is consulted: allowed, and a human approves it. Beneath that, the governed write path checks who the money is going to — a supplier off the approved-vendor list is refused by name, on a purchase order and on a blanket release alike, so a standing agreement cannot be used to route future spend to a vendor you have blocked. A release is measured against the quantity already released cumulatively, not against the line in front of you, and receiving more than was ordered is refused.",
-    guarantee:
-      "The idempotency requirement and the approval both come from supply1's registered commitment policy, which returns no allowance at all without a key: \"a commitment requires an idempotency_key (no double-ordering)\". Then, on the write itself, verbatim: \"supplier '{name}' is not on the approved-vendor list (approved={approved}, status={status}) — PO refused\" · \"releasing {qty} against blanket_order '{id}' would bring total released to {total}, exceeding its cap_qty ({cap})\" · \"receiving {qty} would bring total received to {total}, exceeding the PO's ordered qty ({ordered})\" · \"cannot publish a procurement metric with no underlying committed POs (ungrounded)\".",
+    before: "Agent orders from cheaper supplier; no vendor approval or idempotency.",
+    after: "Approved-vendor-only write. Idempotent. Measured cumulatively. No overreceipt.",
+    guarantee: "\"supplier not on approved-vendor list — PO refused\" · \"commitment requires idempotency_key (no double-ordering)\" · coverage governed path only.",
     registeredAgent: "supply1.procurement",
     accent: ACCENT.green,
   },
