@@ -111,38 +111,53 @@ function Hero() {
                 <span className="h-2.5 w-2.5 rounded-full bg-rose/70" />
                 <span className="h-2.5 w-2.5 rounded-full bg-gold/70" />
                 <span className="h-2.5 w-2.5 rounded-full bg-green/70" />
-                <span className="ml-2 font-mono text-[11px] text-paper/50">agent · sales1 · live</span>
+                <span className="ml-2 font-mono text-[11px] text-paper/50">agent · finance1.ap · governed write</span>
                 <Link
-                  to="/demo"
+                  to="/resources/proof"
                   className="ml-auto font-mono text-[11px] text-clay underline-offset-2 hover:underline"
                 >
-                  Try it →
+                  See it refuse →
                 </Link>
               </div>
+              {/*
+                🚨 THE REFUSAL STRING BELOW IS VERBATIM FROM THE PLATFORM'S APPROVAL GATE.
+                It is quoted in content/proof.ts under the `money-release` pattern, read out of the
+                platform tree with its lowercase first letter and its {placeholders} intact. Do NOT
+                paraphrase it, tidy its grammar, or strengthen it for rhythm — the entire persuasive
+                value is that a regulated buyer can ask to see this exact string raised, and a
+                paraphrase is a refusal we invented. If it changes upstream, change it in proof.ts
+                first and copy from there.
+              */}
               <div className="space-y-3 p-5 font-mono text-[13px]">
-                <p className="text-paper/50">{"// account research agent"}</p>
+                <p className="text-paper/50">{"// accounts-payable agent · release a supplier payment"}</p>
                 <div className="rounded-lg bg-white/[0.04] p-3 text-paper/80">
-                  → Researching <span className="text-clay">Acme Corp</span>… 14 signals found
+                  → Matched invoice <span className="text-clay">INV-40817</span> to PO and receipt
                 </div>
                 <div className="rounded-lg bg-white/[0.04] p-3 text-paper/80">
-                  → Drafting outreach, grounded in account context
+                  → Drafted the release, requested approval
                 </div>
-                <div className="flex items-center gap-2 rounded-lg border border-clay/30 bg-clay/[0.08] p-3 text-paper">
-                  <Icon.Shield className="h-4 w-4 text-clay" />
-                  <span className="text-paper/80">Awaiting rep approval before send</span>
+                <div className="rounded-lg border border-rose/40 bg-rose/[0.10] p-3">
+                  <span className="flex items-center gap-2 text-rose">
+                    <Icon.Shield className="h-4 w-4" />
+                    <span className="font-semibold">refused at the write</span>
+                  </span>
+                  <span className="mt-1.5 block leading-relaxed text-paper/80">
+                    segregation of duties — {"{principal}"} requested approval '{"{id}"}' and cannot
+                    also approve it; a different approver is required
+                  </span>
                 </div>
                 <motion.div
                   className="flex items-center gap-2 text-green"
                   animate={{ opacity: [0.4, 1, 0.4] }}
                   transition={{ duration: 2, repeat: Infinity }}
                 >
-                  <span className="h-1.5 w-1.5 rounded-full bg-green" /> human-in-the-loop · audited
+                  <span className="h-1.5 w-1.5 rounded-full bg-green" /> routed to a second human · on the audit chain
                 </motion.div>
               </div>
             </div>
             <div className="absolute -bottom-4 -left-4 rounded-xl border border-line bg-surface px-4 py-3 shadow-card">
-              <p className="font-mono text-[10px] uppercase tracking-wide text-muted">Before it sends</p>
-              <p className="display text-xl text-ink">A person approves</p>
+              <p className="font-mono text-[10px] uppercase tracking-wide text-muted">Not a setting</p>
+              <p className="display text-xl text-ink">A refusal</p>
             </div>
           </div>
         </Reveal>
