@@ -181,7 +181,7 @@ export const solutions: Solution[] = [
       "A balance that is stored rather than derived drifts from the ledger beneath it, and the payment approved against it was approved against a number nobody recomputed.",
       "Customer identifiers travel with a hand-off. A PAN or an Aadhaar ends up in a CRM lead or a ledger posting that nobody ever classified as a banking record.",
     ],
-    composedOfNote: "bank1 composes five built apps, each verifiable in the shipped server: sales1 takes the CRM lead an account-opening inquiry becomes, finance1 takes every settlement leg (account-opening receivable, payment and disbursement payables, EMI receipt, deposit interest), service1 takes the dispute case, project1 takes the escalated dispute's fraud investigation, and insight1 takes the published banking metric. Each hand-off goes through the target app's own governed writer. What bank1 adds on top is the banking record none of them holds: customer and KYC, account, transaction ledger, payment, loan, credit assessment, EMI schedule, term deposit, standing instruction, and the five attestation types behind them.",
+    composedOfNote: "bank1 composes sales1, finance1, service1, project1, insight1; adds banking record: customer, KYC, account, transaction ledger, payment, loan, credit assessment, EMI schedule, term deposit, standing instruction, attestations.",
     ownRecords: [
       "Customer",
       "Account",
