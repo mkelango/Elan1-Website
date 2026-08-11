@@ -289,10 +289,10 @@ const SOURCES: PlaybookSource[] = [
       },
       {
         title: "Write the erasure runbook against what the chain actually stores",
-        body: "The audit records field keys rather than raw values, and that is what makes an erasure request compatible with an immutable log. Erasure keeps the record shell and clears the declared personal fields, with a shape matcher as the ceiling so an unexpected spelling of a sensitive field name is still caught. Connector calls are recorded the same way — the operation and its argument keys, never the argument values.",
+        body: "The audit records field keys, not raw values. Erasure keeps the shell and clears declared personal fields. The shape matcher is a ceiling over the declaration, not a replacement.",
         decision:
           "Which fields your deployment declares as personal, and who revisits that list when a new object type lands.",
-        trap: "Assuming the shape matcher covers a field nobody declared. It is a ceiling over the declaration, not a replacement for it.",
+        trap: "Assuming the shape matcher covers undeclared fields. It is a ceiling, not a replacement.",
       },
       {
         title: "Read a not-measurable verdict as an unread instrument",
