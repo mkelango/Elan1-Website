@@ -555,7 +555,7 @@ export const solutions: Solution[] = [
     industry: "Public sector",
     tagline: "An official decides every entitlement. The write path refuses the ones that would slip past.",
     challenge:
-      "gov1 is a configuration pack over built apps, not a fork of them. It adds the public service-delivery record no horizontal app owns — citizen, scheme, application, benefit, appropriation, RTI request, re-verification — and puts refusals in front of the write, so an approval that exceeds a sanction, rests on a prohibited ground, or names an unverified citizen cannot be recorded at all.",
+      "Public service-delivery record where write path refusals block approvals that exceed sanction, rest on prohibited grounds, or name unverified citizens.",
     composedOf: ["finance1", "insight1", "project1", "sales1", "service1"],
     accent: ACCENT.rose,
     useCases: [
