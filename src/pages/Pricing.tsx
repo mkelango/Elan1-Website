@@ -4,7 +4,6 @@ import { useSeo } from "../lib/seo";
 import { PageHero, Section } from "../components/blocks";
 import { SectionHead, Reveal, Icon } from "../components/primitives";
 import { CTASection } from "../components/CTASection";
-import { VsBuildersBand } from "../components/VsBuildersBand";
 import { BANDS } from "../content/bands";
 import { PLAN_SHAPES, METERED, INCLUDED_VS_EXTRA, PRICE_FLOOR, CURRENCY } from "../content/plans";
 
@@ -54,6 +53,26 @@ export default function Pricing() {
               </div>
             </Reveal>
           ))}
+        </div>
+
+        {/* Merged in from the former standalone "Pricing models · by layer" band: it restated the
+            three steps above (fixed Launchpad fee → subscription → run1/assure1 retainers) in a
+            second layout. Both illustrative/not-financial-advice disclaimers are carried verbatim. */}
+        <div className="mt-16 border-t border-line pt-12">
+          <span className="font-mono text-[11px] uppercase tracking-kicker text-clayDeep">Pricing models · by layer</span>
+          <h3 className="display mt-3 text-2xl text-ink">The model depends on the layer.</h3>
+          <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-slate">
+            The right model depends on what you're buying and your size. Everything here is illustrative — not financial advice.
+          </p>
+          <div className="mt-8 overflow-hidden rounded-card border border-line bg-surface">
+            {models.map(([t, b], i) => (
+              <div key={t} className={`grid grid-cols-1 gap-1 px-6 py-5 sm:grid-cols-[200px_1fr] ${i < models.length - 1 ? "border-b border-line" : ""}`}>
+                <span className="font-display font-bold text-ink">{t}</span>
+                <span className="text-sm text-slate">{b}</span>
+              </div>
+            ))}
+          </div>
+          <p className="mt-6 font-mono text-xs text-muted">Enterprise = contact us for a custom quote. Forward-looking figures are illustrative planning constructs.</p>
         </div>
       </Section>
       <Section tone="mist">
@@ -149,19 +168,10 @@ export default function Pricing() {
           ))}
         </div>
       </Section>
+      {/* tone="mist", not "paper": the removed "Pricing models · by layer" band was the mist band
+          that used to sit between "By company size" and this one. Without the alternation the two
+          paper sections butt together and read as one long band with two headings. */}
       <Section tone="mist">
-        <SectionHead kicker="Pricing models" title="By layer." lede="The right model depends on what you're buying and your size. Everything here is illustrative — not financial advice." />
-        <div className="mt-10 overflow-hidden rounded-card border border-line bg-surface">
-          {models.map(([t, b], i) => (
-            <div key={t} className={`grid grid-cols-1 gap-1 px-6 py-5 sm:grid-cols-[200px_1fr] ${i < models.length - 1 ? "border-b border-line" : ""}`}>
-              <span className="font-display font-bold text-ink">{t}</span>
-              <span className="text-sm text-slate">{b}</span>
-            </div>
-          ))}
-        </div>
-        <p className="mt-6 font-mono text-xs text-muted">Enterprise = contact us for a custom quote. Forward-looking figures are illustrative planning constructs.</p>
-      </Section>
-      <Section tone="paper">
         <SectionHead kicker="Questions buyers ask" title="Straight answers." lede="The objections that come up most — and how elan1 handles them." />
         <div className="mx-auto mt-10 max-w-3xl divide-y divide-line overflow-hidden rounded-card border border-line bg-surface">
           {faqs.map(([q, a], i) => (
@@ -180,7 +190,9 @@ export default function Pricing() {
           More on the difference — <Link to="/platform/why-elan1" className="link-underline">Why elan1 vs builders</Link> · <Link to="/platform/governance" className="link-underline">How governance works</Link>
         </p>
       </Section>
-      <VsBuildersBand />
+      {/* The <VsBuildersBand /> cross-link band was dropped here: the FAQ band directly above already
+          links Why elan1 vs builders and How governance works, and answers the builders question in
+          its first row. The band still renders on Home. */}
       <CTASection title="Get a quote sized to you." primary={{ label: "Get a custom quote", href: "/contact" }} />
     </>
   );

@@ -207,6 +207,20 @@ export default function ConnectorsPage() {
               title="What is not switched on."
               lede="Stated plainly, in the platform's own terms, because a connector page is the easiest place in this category to overclaim."
             />
+            <p className="mt-6 text-[15px] leading-relaxed text-slate">
+              The grant, the policy check and the audit entry are the same wherever the call comes
+              from. They are approved and reviewed in{" "}
+              <Link to="/platform/enterprise1" className="text-clayDeep hover:underline">
+                enterprise1
+              </Link>{" "}
+              — the catalog, the grant matrix, the credential vault and the audit trail — and they hold
+              for{" "}
+              <Link to="/platform/assistant1" className="text-clayDeep hover:underline">
+                assistant1
+              </Link>{" "}
+              too, which grounds on these connectors and holds no writer of its own, so a conversation
+              cannot outrank a grant.
+            </p>
           </div>
           <Reveal>
             <div className="rounded-card border border-line bg-surface p-7">
@@ -216,53 +230,6 @@ export default function ConnectorsPage() {
                 would rather you find them here than in week three of a deployment.
               </p>
             </div>
-          </Reveal>
-        </div>
-      </Section>
-
-      {/* Where it sits */}
-      <Section tone="mist">
-        <SectionHead
-          kicker="How it fits"
-          title="One fabric. One place the access is decided."
-          lede="Connectors are one of the eight core surfaces every app in the suite inherits — the grant, the policy check and the audit entry are the same wherever the call comes from."
-        />
-        <div className="mt-10 grid gap-4 sm:grid-cols-2">
-          <Reveal>
-            <Link
-              to="/platform/enterprise1"
-              className="group flex h-full flex-col rounded-card border border-line bg-surface p-7 shadow-card transition-all hover:-translate-y-1 hover:shadow-lift"
-            >
-              <span className="font-mono text-base font-semibold text-ink">enterprise1</span>
-              <p className="mt-3 font-display text-lg font-bold leading-snug text-ink">
-                Where a grant is approved and reviewed.
-              </p>
-              <p className="mt-3 text-sm leading-relaxed text-slate">
-                The catalog, the grant matrix, the credential vault and the audit trail — the console
-                an administrator actually works in.
-              </p>
-              <span className="mt-auto pt-5 inline-flex items-center gap-1.5 text-sm font-medium text-clayDeep opacity-0 transition-opacity group-hover:opacity-100">
-                Explore enterprise1 <Icon.Arrow className="h-4 w-4" />
-              </span>
-            </Link>
-          </Reveal>
-          <Reveal delay={0.06}>
-            <Link
-              to="/platform/assistant1"
-              className="group flex h-full flex-col rounded-card border border-line bg-surface p-7 shadow-card transition-all hover:-translate-y-1 hover:shadow-lift"
-            >
-              <span className="font-mono text-base font-semibold text-ink">assistant1</span>
-              <p className="mt-3 font-display text-lg font-bold leading-snug text-ink">
-                What reaches through the seam.
-              </p>
-              <p className="mt-3 text-sm leading-relaxed text-slate">
-                The governed assistant grounds on these connectors — and still holds no writer of its
-                own, so a conversation cannot outrank a grant.
-              </p>
-              <span className="mt-auto pt-5 inline-flex items-center gap-1.5 text-sm font-medium text-clayDeep opacity-0 transition-opacity group-hover:opacity-100">
-                Explore assistant1 <Icon.Arrow className="h-4 w-4" />
-              </span>
-            </Link>
           </Reveal>
         </div>
       </Section>

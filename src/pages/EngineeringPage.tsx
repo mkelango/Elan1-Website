@@ -21,6 +21,9 @@ const ACCENT = "#2f6df0";
 
 const STATE_ORDER: ControlState[] = ["enforced", "declared", "unwired"];
 
+/** Derived, never hand-counted: the heading below states this number. */
+const CONTROL_COUNT = ENGINEERING_GROUPS.reduce((n, g) => n + g.controls.length, 0);
+
 /** Muted, non-alarming state chips — the label carries the meaning, not the colour. */
 const STATE_STYLE: Record<ControlState, string> = {
   enforced: "border-line bg-mist text-ink",
@@ -132,40 +135,66 @@ export default function EngineeringPage() {
         </div>
       </Section>
 
-      {/* The controls, grouped */}
-      {ENGINEERING_GROUPS.map((g, gi) => (
-        <Section key={g.id} tone={gi % 2 === 0 ? "paper" : "mist"}>
-          <SectionHead kicker={`0${gi + 1} — ${g.id}`} title={g.title} lede={g.lede} />
-          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {g.controls.map((c, i) => (
-              <Reveal key={c.title} delay={(i % 3) * 0.06}>
-                <div className="card card-hover flex h-full flex-col">
-                  <div className="flex items-start gap-3">
-                    <span
-                      className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg"
-                      style={{ background: `${ACCENT}1a`, color: ACCENT }}
-                    >
-                      <Icon.Shield className="h-4 w-4" />
-                    </span>
-                    <h3 className="font-display text-base font-bold leading-snug text-ink">{c.title}</h3>
-                  </div>
-                  <p className="mt-3 text-sm leading-relaxed text-slate">{c.body}</p>
-                  <div className="mt-auto pt-5">
-                    <span
-                      className={`inline-flex w-fit items-center rounded-full border px-2.5 py-1 font-mono text-[9px] uppercase tracking-kicker ${STATE_STYLE[c.state]}`}
-                    >
-                      {CONTROL_STATES[c.state].label}
-                    </span>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </Section>
-      ))}
+      {/* The controls — ONE band, the groups as sub-heads inside it.
+          This map used to emit one full-width <Section> per group, so a page with four written
+          sections rendered twelve bands of identical weight and the reader lost the thread by the
+          third. The groups are now sub-heads under a single heading: same controls, same honest
+          state chip on every one, one scroll region with a hierarchy. */}
+      <Section tone="paper">
+        {/* Every number and the list are DERIVED from the roster below — a hand-written “eight
+            groups, …” here would drift the moment the content layer gains or drops one. The claim
+            "every one with its state named" is about the CONTROLS (a group carries no state), and
+            it is structural: `state` is required on EngineeringControl, so a control cannot render
+            without one. */}
+        <SectionHead
+          kicker="The controls"
+          title={`${ENGINEERING_GROUPS.length} groups, ${CONTROL_COUNT} controls — every one with its state named.`}
+          lede={ENGINEERING_GROUPS.map((g) => g.title).join(" · ")}
+        />
+        <div className="mt-14 space-y-16">
+          {ENGINEERING_GROUPS.map((g, gi) => (
+            <div key={g.id} className={gi > 0 ? "border-t border-line pt-14" : undefined}>
+              <span className="font-mono text-[11px] uppercase tracking-kicker" style={{ color: ACCENT }}>
+                {`${String(gi + 1).padStart(2, "0")} — ${g.id}`}
+              </span>
+              <h3 className="mt-3 font-display text-2xl font-bold leading-tight text-ink sm:text-3xl">
+                {g.title}
+              </h3>
+              <p className="mt-3 max-w-3xl text-[15px] leading-relaxed text-slate">{g.lede}</p>
+              <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {g.controls.map((c, i) => (
+                  <Reveal key={c.title} delay={(i % 3) * 0.06}>
+                    <div className="card card-hover flex h-full flex-col">
+                      <div className="flex items-start gap-3">
+                        <span
+                          className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg"
+                          style={{ background: `${ACCENT}1a`, color: ACCENT }}
+                        >
+                          <Icon.Shield className="h-4 w-4" />
+                        </span>
+                        <h4 className="font-display text-base font-bold leading-snug text-ink">
+                          {c.title}
+                        </h4>
+                      </div>
+                      <p className="mt-3 text-sm leading-relaxed text-slate">{c.body}</p>
+                      <div className="mt-auto pt-5">
+                        <span
+                          className={`inline-flex w-fit items-center rounded-full border px-2.5 py-1 font-mono text-[9px] uppercase tracking-kicker ${STATE_STYLE[c.state]}`}
+                        >
+                          {CONTROL_STATES[c.state].label}
+                        </span>
+                      </div>
+                    </div>
+                  </Reveal>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </Section>
 
       {/* Evidence you can ask for */}
-      <Section tone="paper">
+      <Section tone="mist">
         <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
             <SectionHead
@@ -173,6 +202,18 @@ export default function EngineeringPage() {
               title="Ask to be shown, not told."
               lede="Every item here maps to a surface that already exists, so a technical review can be a working session rather than a slide read-through."
             />
+            <p className="mt-6 text-[15px] leading-relaxed text-slate">
+              These controls are not a security module bolted onto the suite — they are the core each
+              app is built on. They are operated in{" "}
+              <Link to="/platform/enterprise1" className="text-clayDeep hover:underline">
+                enterprise1
+              </Link>
+              , the console an administrator and an auditor both work in, and they exist to protect{" "}
+              <Link to="/platform/governance" className="text-clayDeep hover:underline">
+                the governance model
+              </Link>
+              : identity, policy, human approval on a consequential action, then the audit record.
+            </p>
           </div>
           <Reveal>
             <div className="rounded-card border border-line bg-surface p-7 shadow-card">
@@ -182,53 +223,6 @@ export default function EngineeringPage() {
                 the page is written to be re-checked against the code, not taken on trust.
               </p>
             </div>
-          </Reveal>
-        </div>
-      </Section>
-
-      {/* Where this sits */}
-      <Section tone="mist">
-        <SectionHead
-          kicker="How it fits"
-          title="One control plane underneath every app."
-          lede="These controls are not a security module bolted onto the suite — they are the core each app is built on, which is why they hold the same way in every one."
-        />
-        <div className="mt-10 grid gap-4 sm:grid-cols-2">
-          <Reveal>
-            <Link
-              to="/platform/enterprise1"
-              className="group flex h-full flex-col rounded-card border border-line bg-surface p-7 shadow-card transition-all hover:-translate-y-1 hover:shadow-lift"
-            >
-              <span className="font-mono text-base font-semibold text-ink">enterprise1</span>
-              <p className="mt-3 font-display text-lg font-bold leading-snug text-ink">
-                Where these controls are operated.
-              </p>
-              <p className="mt-3 text-sm leading-relaxed text-slate">
-                Identity, audit, rollout, retention and the trust surface — the console an administrator
-                and an auditor both work in.
-              </p>
-              <span className="mt-auto pt-5 inline-flex items-center gap-1.5 text-sm font-medium text-clayDeep opacity-0 transition-opacity group-hover:opacity-100">
-                Explore enterprise1 <Icon.Arrow className="h-4 w-4" />
-              </span>
-            </Link>
-          </Reveal>
-          <Reveal delay={0.06}>
-            <Link
-              to="/platform/governance"
-              className="group flex h-full flex-col rounded-card border border-line bg-surface p-7 shadow-card transition-all hover:-translate-y-1 hover:shadow-lift"
-            >
-              <span className="font-mono text-base font-semibold text-ink">the governance model</span>
-              <p className="mt-3 font-display text-lg font-bold leading-snug text-ink">
-                What happens before a write lands.
-              </p>
-              <p className="mt-3 text-sm leading-relaxed text-slate">
-                Identity, policy, human approval on a consequential action, then the audit record — the
-                spine these controls exist to protect.
-              </p>
-              <span className="mt-auto pt-5 inline-flex items-center gap-1.5 text-sm font-medium text-clayDeep opacity-0 transition-opacity group-hover:opacity-100">
-                Read the model <Icon.Arrow className="h-4 w-4" />
-              </span>
-            </Link>
           </Reveal>
         </div>
       </Section>

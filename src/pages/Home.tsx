@@ -5,7 +5,6 @@ import { useSeo } from "../lib/seo";
 import { Reveal, Kicker, SectionHead, Icon } from "../components/primitives";
 import { Section } from "../components/blocks";
 import { CTASection } from "../components/CTASection";
-import { VsBuildersBand } from "../components/VsBuildersBand";
 import { BrandImage } from "../components/BrandImage";
 import { pageImage } from "../content/images";
 import { products } from "../content/products";
@@ -423,98 +422,8 @@ function ProofBand() {
   );
 }
 
-function Method() {
-  return (
-    <Section tone="paper">
-      <SectionHead kicker="The method" title="Discover → Expand. With gates that earn trust." lede="A repeatable path from opportunity to a scaled, governed result — with named gates where a human signs off before the next phase starts." />
-      <ol className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-6">
-        {METHOD.map((m, i) => (
-          <Reveal as="li" key={m.name} delay={i * 0.05} className="relative">
-            <div className="h-full rounded-card border border-line bg-surface p-5">
-              <div className="flex items-center justify-between">
-                <span className="font-mono text-xs text-clayDeep">{m.step}</span>
-                {m.gate && <span className="rounded-full bg-rose/12 px-2 py-0.5 font-mono text-[10px] font-bold text-rose">{m.gate}</span>}
-              </div>
-              <h3 className="mt-3 font-display text-base font-bold text-ink">{m.name}</h3>
-              <p className="mt-1.5 text-xs leading-relaxed text-slate">{m.body}</p>
-            </div>
-          </Reveal>
-        ))}
-      </ol>
-    </Section>
-  );
-}
 
-function Flywheel() {
-  return (
-    <Section tone="obsidian">
-      <div className="grid items-center gap-14 lg:grid-cols-2">
-        <div>
-          <SectionHead kicker="The flywheel" title="How value compounds." lede="Each turn makes the next easier. Land a service, expand into a product, deepen with a solution — and every certified result compounds trust." dark />
-          <div className="mt-9">
-            <Link to="/platform/flywheel" className="btn-ghost-dark">See the flywheel <Icon.Arrow className="h-4 w-4" /></Link>
-          </div>
-        </div>
-        <div className="grid gap-4 sm:grid-cols-2">
-          {FLYWHEEL.map((f, i) => (
-            <Reveal key={f.label} delay={i * 0.08}>
-              <div className="h-full rounded-card border border-lineDark bg-white/[0.03] p-6">
-                <span className="flex h-9 w-9 items-center justify-center rounded-lg font-mono text-sm font-bold" style={{ background: `${f.accent}22`, color: f.accent }}>
-                  {i + 1}
-                </span>
-                <h3 className="mt-4 font-display text-lg font-bold text-paper">{f.label}</h3>
-                <p className="mt-1.5 text-sm leading-relaxed text-paper/60">{f.body}</p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </Section>
-  );
-}
 
-function WhyWin() {
-  return (
-    <Section tone="paper">
-      <SectionHead
-        kicker="How we work"
-        title="A working agent, and the gate it had to pass."
-        lede="What an engagement with us actually produces, and where the control sits. Stated about us — draw your own comparison."
-        align="center"
-      />
-      <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {WHY_WIN.map((w, i) => (
-          <Reveal key={w.metric} delay={i * 0.06}>
-            <div className="h-full rounded-card border border-line bg-surface p-6 text-center">
-              <p className="display text-2xl text-clayDeep">{w.metric}</p>
-              <p className="mt-2 text-sm leading-relaxed text-slate">{w.label}</p>
-            </div>
-          </Reveal>
-        ))}
-      </div>
-
-      <Reveal delay={0.1}>
-        <div className="mt-10 overflow-hidden rounded-card border border-line bg-surface">
-          <div className="border-b border-line bg-mist/60 px-6 py-3 font-mono text-[11px] uppercase tracking-wide text-muted">
-            How we work
-          </div>
-          {HOW_WE_WORK.map((r) => (
-            <div
-              key={r.dim}
-              className="grid gap-2 border-b border-line px-6 py-5 text-sm last:border-0 sm:grid-cols-[minmax(0,0.9fr)_minmax(0,2.1fr)] sm:gap-6"
-            >
-              <span className="font-medium text-ink">{r.dim}</span>
-              <span className="flex items-start gap-2 leading-relaxed text-slate">
-                <Icon.Check className="mt-0.5 h-4 w-4 shrink-0 text-green" />
-                <span>{r.body}</span>
-              </span>
-            </div>
-          ))}
-        </div>
-      </Reveal>
-    </Section>
-  );
-}
 
 function TrustGlobal() {
   return (
@@ -584,10 +493,6 @@ export default function Home() {
       <SuiteGrid />
       <SolutionsRow />
       <ProofBand />
-      <Method />
-      <Flywheel />
-      <WhyWin />
-      <VsBuildersBand />
       <TrustGlobal />
       <CTASection />
     </>

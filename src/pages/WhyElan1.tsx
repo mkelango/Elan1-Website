@@ -262,7 +262,7 @@ export default function WhyElan1() {
         <div className="mt-16 grid gap-10 border-t border-line pt-14 lg:grid-cols-2 lg:items-center">
           <div>
             <Kicker accent="#e0656d">Provable, not asserted</Kicker>
-            <h2 className="display mt-4 text-2xl text-ink sm:text-3xl">The moat is governance you can hand to a regulator.</h2>
+            <h3 className="display mt-4 text-2xl text-ink sm:text-3xl">The moat is governance you can hand to a regulator.</h3>
             <p className="lede mt-5 text-slate">
               A human approves consequential actions. The decision lands on a hash-chained audit that recomputes. Export a
               compliance receipt — a tamper-evident, offline-verifiable record of what passed through the governed path. Tamper

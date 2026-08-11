@@ -321,8 +321,9 @@ export default function EnterpriseOntology() {
         <Reveal>
           <p className="mt-10 max-w-3xl text-[15px] leading-relaxed text-paper/70">
             We would rather publish this list than let a good name do work it has not earned. The
-            argument at the top of the page survives every line of it — the components are real, they
-            are in the write path, and they are the reason a refusal is possible at all.
+            argument at the top of the page survives every line of it — the components are real, each
+            is named where it actually sits, and the ones standing on the write path are the reason a
+            refusal is possible at all.
           </p>
         </Reveal>
       </Section>
@@ -346,7 +347,7 @@ export default function EnterpriseOntology() {
               href: "/platform/verticals-are-config",
               label: "packs",
               title: "A vertical is a manifest.",
-              body: "The ten industry packs, one of them printed in full — and what the pack validator does not check.",
+              body: "The ten industry packs, one of them printed with only its comments trimmed — and what the pack validator does not check.",
             },
             {
               href: "/platform/governance",

@@ -9,7 +9,7 @@
 import { Link } from "react-router-dom";
 import { useSeo } from "../lib/seo";
 import { PageHero, Section } from "../components/blocks";
-import { SectionHead, Reveal, Icon, Kicker } from "../components/primitives";
+import { SectionHead, Reveal, Icon } from "../components/primitives";
 import { CTASection } from "../components/CTASection";
 import { AbstractHero } from "../components/BrandImage";
 import { platformPillars, servicePath } from "../content/services";
@@ -208,36 +208,6 @@ export default function PlatformOverview() {
               </Link>
             </Reveal>
           ))}
-        </div>
-      </Section>
-
-      <Section tone="obsidian">
-        <div className="grid items-start gap-12 lg:grid-cols-[0.9fr_1.1fr]">
-          <div>
-            <Kicker>How the layers fit</Kicker>
-            <h2 className="mt-4 font-display text-3xl font-bold leading-tight text-paper sm:text-4xl">
-              Products on top. Platform underneath.
-            </h2>
-          </div>
-          <Reveal>
-            <div className="space-y-3">
-              {[
-                { k: "Products", v: "The five categories you run your business on — revenue, service1, trade, works, compass.", to: "/products" },
-                { k: "Platform", v: `What they run on and who governs them — enterprise1, plus ${platformPillars.map((p) => p.name).join(", ")}.`, to: "/platform" },
-                { k: "Solutions", v: "The same suite, configured for your industry.", to: "/solutions" },
-                { k: "Resources", v: "Learn it and prove it — insights, proof, and the Academy that certifies your people.", to: "/resources" },
-              ].map((r) => (
-                <Link
-                  key={r.k}
-                  to={r.to}
-                  className="flex items-start gap-4 rounded-card border border-paper/15 bg-paper/[0.04] p-5 transition-colors hover:border-paper/30"
-                >
-                  <span className="font-mono text-sm font-semibold text-clay">{r.k}</span>
-                  <span className="text-sm leading-relaxed text-paper/70">{r.v}</span>
-                </Link>
-              ))}
-            </div>
-          </Reveal>
         </div>
       </Section>
 

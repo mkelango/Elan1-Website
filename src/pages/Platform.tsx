@@ -1,8 +1,7 @@
 // pages/Platform.tsx — the approach pages: agentic transformation model, the "1" philosophy, the flywheel, built on Claude.
-import { Link } from "react-router-dom";
 import { useSeo } from "../lib/seo";
 import { PageHero, Section } from "../components/blocks";
-import { SectionHead, Reveal, Icon, Kicker } from "../components/primitives";
+import { Reveal, Icon, Kicker } from "../components/primitives";
 import { CTASection } from "../components/CTASection";
 import { FLYWHEEL } from "../content/site";
 

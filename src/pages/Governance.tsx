@@ -1,9 +1,15 @@
 // pages/Governance.tsx — the governance explainer: three layers of defense-in-depth, made legible.
 // The public version of the launch storyboard's "governance arc."
+import { Link } from "react-router-dom";
 import { useSeo } from "../lib/seo";
 import { PageHero, Section, GovernanceSpine } from "../components/blocks";
 import { SectionHead, Reveal, Icon, Kicker } from "../components/primitives";
 import { CTASection } from "../components/CTASection";
+// The cross-link below states a COUNT of vertical signatures and where they are quoted FROM. Both
+// are read from the same typed roster the destination page renders, so this page cannot drift out
+// of step with it — and the provenance matches PackRow.signature's own definition ("verbatim
+// `description=` on the pack's GovernancePack in the governance catalog"), not "the manifests".
+import { PACK_ROWS } from "../content/verticals-config";
 
 const ACCENT = "#e0656d";
 
@@ -165,6 +171,17 @@ export default function Governance() {
             </Reveal>
           ))}
         </div>
+        <Reveal delay={0.1}>
+          <p className="mt-8 max-w-3xl text-[15px] leading-relaxed text-slate">
+            Each vertical leads with the governance its regulator expects — clinical sign-off in health1,
+            model-risk governance in bank1, fair-decisioning checks in insure1, assist-never-actuate in
+            manufacture1 and energy1. Same engine, configured as a pack:{" "}
+            <Link to="/platform/verticals-are-config" className="text-clayDeep hover:underline">
+              all {PACK_ROWS.length} signatures, quoted from the catalog the manifests name
+            </Link>
+            .
+          </p>
+        </Reveal>
       </Section>
 
       {/* The lifecycle of a governed action */}
@@ -213,32 +230,6 @@ export default function Governance() {
             label="Audit chain · verified"
             text="✓ VERIFIED — chain intact, digest matches. This is what a regulator sees: an offline-verifiable record of every agent action. The difference between 'trust us' and 'verify it yourself.'"
           />
-        </div>
-      </Section>
-
-      {/* Per-vertical signatures */}
-      <Section tone="mist">
-        <SectionHead
-          kicker="Governance signatures"
-          title="Different industries, different proof of trust."
-          lede="Each vertical leads with the governance its regulator expects — the same engine, configured as a pack."
-        />
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {[
-            ["health1", "Clinical sign-off on every clinical action; HIPAA-class privacy.", "#3fae6b"],
-            ["bank1", "Model-risk governance, verified-data sourcing, human sign-off.", "#df8c64"],
-            ["gov1", "Sovereignty, data residency, transparency and explainability.", "#e0656d"],
-            ["insure1", "Fair-decisioning checks; human adjudication on denials.", "#22b8c4"],
-            ["manufacture1", "Assist, never actuate; safety steps flagged; IP protected.", "#7c6cf0"],
-            ["energy1", "Safety-critical controls; assist, never actuate; reliability + audit.", "#b9603f"],
-          ].map(([name, body, accent], i) => (
-            <Reveal key={name} delay={(i % 3) * 0.05}>
-              <div className="h-full rounded-card border border-line bg-surface p-6">
-                <span className="font-mono text-base font-semibold" style={{ color: accent }}>{name}</span>
-                <p className="mt-3 text-sm leading-relaxed text-slate">{body}</p>
-              </div>
-            </Reveal>
-          ))}
         </div>
       </Section>
 

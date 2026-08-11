@@ -140,6 +140,49 @@ export default function About() {
             </div>
           </Reveal>
         </div>
+
+        {/* The three layers, folded up into the orientation band. It was a section of its own whose
+            three cards link to /platform, /products and /solutions — the top three items of the
+            main navigation, so as a band it was a second copy of the nav wearing a heading. The
+            LEDE is the part that was not a restatement (configuration over one core, not a fork),
+            so it is kept in full and the links are kept with it.
+
+            🚨 THIS HEADING IS AN h2, NOT AN h3, AND THE MERGE IS WHY. The orientation block above it
+            opens with a Kicker and a display PARAGRAPH — deliberately, because ABOUT_DESCRIPTOR is a
+            sentence rather than a title — so this band carries no h2 of its own. Demoting this one to
+            h3 to signal subordination made it the FIRST heading after the hero's h1, and h1 → h3 is a
+            skipped level: the page's outline told a screen reader the orientation band was nested
+            under something that was never announced. The visual size lives in the class list, not in
+            the tag, so it still reads as a sub-head while the outline stays h1 → h2 → h3. */}
+        <div className="mt-16 border-t border-line pt-14">
+          <Kicker accent={ACCENT}>The shape of it</Kicker>
+          <h2 className="display mt-4 text-2xl text-ink sm:text-3xl">One company, three layers.</h2>
+          <p className="mt-5 max-w-3xl text-[15px] leading-relaxed text-slate">{LAYERS_LEDE}</p>
+          <div className="mt-10 grid gap-4 md:grid-cols-3">
+            {LAYERS_IN_ORDER.map((l, i) => (
+              <Reveal key={l.label} delay={i * 0.06}>
+                <Link
+                  to={l.href}
+                  className="group block h-full rounded-card border border-line bg-surface p-7 transition-all hover:-translate-y-1 hover:shadow-card"
+                >
+                  <span
+                    className="block h-2.5 w-2.5 rounded-full"
+                    style={{ background: l.accent }}
+                    aria-hidden
+                  />
+                  <span className="mt-4 block font-mono text-[11px] uppercase tracking-kicker text-muted">
+                    {l.tag}
+                  </span>
+                  <h3 className="mt-2 font-display text-xl font-bold text-ink">{l.label}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-slate">{l.blurb}</p>
+                  <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-clayDeep opacity-0 transition-opacity group-hover:opacity-100">
+                    Explore <Icon.Arrow className="h-4 w-4" />
+                  </span>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
+        </div>
       </Section>
 
       {/* THE ARGUMENT — the reason the page exists */}
@@ -195,17 +238,18 @@ export default function About() {
             </Reveal>
           ))}
         </div>
-      </Section>
 
-      {/* The refusals — derived from the product pages, never re-typed here */}
-      <Section tone="mist">
-        <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr]">
+        {/* The refusals, in the same band as the mechanisms they belong to. These were two
+            sections making one point at two altitudes: here is what the belief forces, and here is
+            the platform saying it out loud. The quoted refusals are the most differentiated content
+            on this page and every one of them still renders — derived from the product pages, never
+            re-typed — but they now read as the evidence under the claim rather than as a band a
+            reader meets cold. */}
+        <div className="mt-16 grid gap-10 border-t border-line pt-14 lg:grid-cols-[0.85fr_1.15fr]">
           <div>
-            <SectionHead
-              kicker="The evidence"
-              title={REFUSALS_TITLE}
-              lede={REFUSALS_NOTE}
-            />
+            <Kicker accent={ACCENT}>The evidence</Kicker>
+            <h3 className="display mt-4 text-2xl text-ink sm:text-3xl">{REFUSALS_TITLE}</h3>
+            <p className="mt-5 text-[15px] leading-relaxed text-slate">{REFUSALS_NOTE}</p>
           </div>
           <Reveal>
             <div className="space-y-3">
@@ -223,35 +267,6 @@ export default function About() {
               ))}
             </div>
           </Reveal>
-        </div>
-      </Section>
-
-      {/* The shape of the company — derived from site.ts LAYERS */}
-      <Section tone="paper">
-        <SectionHead kicker="The shape of it" title="One company, three layers." lede={LAYERS_LEDE} />
-        <div className="mt-12 grid gap-4 md:grid-cols-3">
-          {LAYERS_IN_ORDER.map((l, i) => (
-            <Reveal key={l.label} delay={i * 0.06}>
-              <Link
-                to={l.href}
-                className="group block h-full rounded-card border border-line bg-surface p-7 transition-all hover:-translate-y-1 hover:shadow-card"
-              >
-                <span
-                  className="block h-2.5 w-2.5 rounded-full"
-                  style={{ background: l.accent }}
-                  aria-hidden
-                />
-                <span className="mt-4 block font-mono text-[11px] uppercase tracking-kicker text-muted">
-                  {l.tag}
-                </span>
-                <h3 className="mt-2 font-display text-xl font-bold text-ink">{l.label}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate">{l.blurb}</p>
-                <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-clayDeep opacity-0 transition-opacity group-hover:opacity-100">
-                  Explore <Icon.Arrow className="h-4 w-4" />
-                </span>
-              </Link>
-            </Reveal>
-          ))}
         </div>
       </Section>
 
@@ -342,13 +357,18 @@ export default function About() {
             </div>
           </Reveal>
         </div>
-      </Section>
 
-      {/* The names */}
-      <Section tone="mist">
-        <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr]">
+        {/* The names, folded into the record. Both bands answer the same question — what this
+            company says about itself, and under what rule — and the naming one was the smallest
+            band on the page carrying its own full-width heading. NOT_PUBLISHED above it is
+            untouched: it is the refusal this page exists to render. */}
+        <div className="mt-16 grid gap-10 border-t border-line pt-14 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
-            <SectionHead kicker="The names" title="Why some things end in 1 and some do not." lede={NAMING_LEDE} />
+            <Kicker accent={ACCENT}>The names</Kicker>
+            <h3 className="display mt-4 text-2xl text-ink sm:text-3xl">
+              Why some things end in 1 and some do not.
+            </h3>
+            <p className="mt-5 text-[15px] leading-relaxed text-slate">{NAMING_LEDE}</p>
           </div>
           <Reveal>
             <div className="rounded-card border border-line bg-surface p-7 shadow-card">

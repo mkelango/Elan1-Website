@@ -37,8 +37,6 @@ import {
   INTRODUCE_ASKS,
   INTRODUCE_NOTE
 } from "../content/careers";
-import { BrandImage } from "../components/BrandImage";
-import { pageImage } from "../content/images";
 import {
   PARTNERS_INTRO,
   PARTNERS_SEO,
@@ -175,7 +173,10 @@ export function Careers() {
         </div>
       </Section>
 
-      {/* What the work actually is. */}
+      {/* What the work actually is — AND, in the same band, the limits this site already publishes
+          about it. These were two adjacent sections; the second one carried the qualifier for the
+          first one's claim, which is exactly the band a reader skips. Claim and qualifier now share
+          a section, and WE_PUBLISH_OUR_LIMITS is still rendered in full — it is protected content. */}
       <Section tone="paper">
         <SectionHead
           kicker="The work"
@@ -195,18 +196,14 @@ export function Careers() {
             </Reveal>
           ))}
         </div>
-      </Section>
 
-      {/* The evidence that the habit is real, rather than a claim that it is. */}
-      <Section tone="mist">
-        <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr]">
+        <div className="mt-16 grid gap-10 border-t border-line pt-14 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
-            <SectionHead
-              kicker="Stated limits"
-              title="The part most companies leave out."
-              lede={LIMITS_LEDE}
-              accent={CAREERS_ACCENT}
-            />
+            <Kicker accent={CAREERS_ACCENT}>Stated limits</Kicker>
+            <h3 className="display mt-4 text-2xl text-ink sm:text-3xl">
+              The part most companies leave out.
+            </h3>
+            <p className="mt-5 text-[15px] leading-relaxed text-slate">{LIMITS_LEDE}</p>
             <Reveal delay={0.1}>
               <p className="mt-6 text-sm leading-relaxed text-muted">
                 Each of these already appears elsewhere on this site, on the page that sells the thing
@@ -232,15 +229,19 @@ export function Careers() {
         </div>
       </Section>
 
-      {/* Self-selection, written to be equally useful in both directions. */}
-      <Section tone="paper">
+      {/* Self-selection AND the introduction, in one band. They were two sections telling the reader
+          the same thing in sequence — decide whether this suits you, then write — and the second's
+          layout repeated the first's. Both lists survive intact: READ_THIS_TWICE_IF carries stated
+          limits (single-region, unwired capabilities, no cohort, no pen-test report) and is not
+          droppable, so it is a column here rather than a band of its own. */}
+      <Section tone="mist">
         <SectionHead
           kicker="Before you write"
-          title="Worth knowing which way this cuts."
-          lede="This is a specific way to work. It suits some engineers and irritates others, and we would rather you find that out here than three months in."
+          title="There is nothing to apply to. Write anyway."
+          lede={INTRODUCE_LEDE}
           accent={CAREERS_ACCENT}
         />
-        <div className="mt-12 grid gap-4 lg:grid-cols-2">
+        <div className="mt-12 grid gap-4 lg:grid-cols-3">
           <Reveal>
             <div className="h-full rounded-card border border-line bg-surface p-7">
               <div className="flex items-center gap-2">
@@ -279,33 +280,8 @@ export function Careers() {
               </ul>
             </div>
           </Reveal>
-        </div>
-      </Section>
-
-      {/* The introduction — the only process this page describes, described precisely. */}
-      <Section tone="mist">
-        <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr]">
-          <div>
-            <SectionHead
-              kicker="Introduce yourself"
-              title="There is nothing to apply to. Write anyway."
-              lede={INTRODUCE_LEDE}
-              accent={CAREERS_ACCENT}
-            />
-            <Reveal delay={0.1}>
-              <p className="mt-6 text-sm leading-relaxed text-muted">{ACADEMY_NOTE}</p>
-            </Reveal>
-            <Reveal delay={0.15}>
-              <Link
-                to="/resources/academy"
-                className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-clayDeep hover:underline"
-              >
-                Read the curriculum <Icon.Arrow className="h-4 w-4" />
-              </Link>
-            </Reveal>
-          </div>
-          <Reveal>
-            <div className="rounded-card border border-line bg-surface p-7">
+          <Reveal delay={0.12}>
+            <div className="h-full rounded-card border border-line bg-surface p-7">
               <p className="font-mono text-[11px] uppercase tracking-kicker text-muted">Useful to send</p>
               <div className="mt-5">
                 <TickList items={INTRODUCE_ASKS} accent={CAREERS_ACCENT} />
@@ -316,6 +292,17 @@ export function Careers() {
             </div>
           </Reveal>
         </div>
+        <Reveal delay={0.1}>
+          <div className="mt-6 max-w-3xl rounded-card border border-line bg-surface/60 p-7">
+            <p className="text-sm leading-relaxed text-muted">{ACADEMY_NOTE}</p>
+            <Link
+              to="/resources/academy"
+              className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-clayDeep hover:underline"
+            >
+              Read the curriculum <Icon.Arrow className="h-4 w-4" />
+            </Link>
+          </div>
+        </Reveal>
       </Section>
 
       <CTASection
@@ -330,9 +317,13 @@ export function Careers() {
 }
 
 /* ——————————————————————————————————————————————————————————————————————————————————————————————
- * ⚠️ ORIGINAL, UNTOUCHED — see the merge note at the top of this file. A concurrent pass is
- * rewriting this export against a new content/partners.ts. Do not treat the version below as the
- * Careers pass's opinion of the Partners page; it is here so the module compiles.
+ * ⚠️ The "ORIGINAL, UNTOUCHED / a concurrent pass is rewriting this" note that used to sit here was
+ * describing a rewrite that has since landed: this export renders the honest content/partners.ts.
+ * It was removed rather than left standing, because a stale warning reads as a live one.
+ *
+ * What this export has had done to it since is SECTION COUNT ONLY — seven bands to five, by moving
+ * blocks between sections. No copy was authored here and no content module was touched. Read the
+ * merge note at the top of the file before regenerating either export.
  * —————————————————————————————————————————————————————————————————————————————————————————————— */
 
 export function Partners() {
@@ -409,6 +400,50 @@ export function Partners() {
             </Reveal>
           ))}
         </div>
+
+        {/* Certified talent — the People track's supply question, answered where that track is
+            described rather than five bands further down. The Resources nav sends "Certified talent"
+            to this page, so the anchor moves here with the content and the reader finds it after one
+            scroll instead of six. The mechanism NEVER ships without the limit.
+
+            `scroll-mt-28` is load-bearing after the move, not decoration. The anchor used to sit on
+            the <Section> element, whose `py-20 sm:py-28` shell padding absorbed the sticky nav for
+            free; on a mid-section div with `pt-14` it does not, so a deep link to #talent would have
+            parked the kicker and the rule under the header. "Existing deep links still resolve" has
+            to mean the reader can SEE what they landed on. */}
+        <div id={TALENT_ANCHOR} className="mt-16 scroll-mt-28 border-t border-line pt-14">
+          <Kicker accent={PARTNER_ACCENT}>Certified talent</Kicker>
+          <h3 className="display mt-4 text-2xl text-ink sm:text-3xl">
+            A matching mechanism, not a bench.
+          </h3>
+          <p className="mt-5 max-w-3xl text-[15px] leading-relaxed text-slate">{TALENT.intro}</p>
+          <div className="mt-10 grid gap-4 lg:grid-cols-2">
+            <Reveal>
+              <div className="h-full rounded-card border border-line bg-surface p-7">
+                <p className="font-mono text-[11px] uppercase tracking-kicker text-muted">The mechanism</p>
+                <p className="mt-3 text-[15px] leading-relaxed text-ink">{TALENT.mechanism}</p>
+              </div>
+            </Reveal>
+            <Reveal delay={0.06}>
+              <div className="h-full rounded-card border border-clayDeep/30 bg-clay/[0.06] p-7">
+                <p className="font-mono text-[11px] uppercase tracking-kicker text-clayDeep">The limit</p>
+                <p className="mt-3 text-[15px] leading-relaxed text-ink">{TALENT.limit}</p>
+                <p className="mt-5 text-sm leading-relaxed text-slate">
+                  The certification paths behind it, what each one attests and what it deliberately
+                  does not, are on the{" "}
+                  <Link to="/resources/academy/learn" className="text-clayDeep hover:underline">
+                    Academy learning hub
+                  </Link>
+                  , and the programme itself is at{" "}
+                  <Link to="/resources/academy" className="text-clayDeep hover:underline">
+                    Academy
+                  </Link>
+                  .
+                </p>
+              </div>
+            </Reveal>
+          </div>
+        </div>
       </Section>
 
       {/* The door — the refusals, quoted. */}
@@ -441,12 +476,20 @@ export function Partners() {
         </div>
       </Section>
 
-      {/* The lifecycle. */}
+      {/* The lifecycle.
+
+          ⚠️ The title used to read "Four steps, and the refusal that guards each one." It is not
+          true of the list beneath it and never was: LIFECYCLE[0] (Submit) carries `refusal: null` —
+          correctly, because submitting is the step that installs, grants and lists nothing, so there
+          is no gate for it to fail — and the JSX renders the refusal box conditionally. A reader
+          therefore met a heading promising four guarded steps above a grid showing three refusal
+          quotes and one card without. Pre-dates the section merge; it is a page-authored absolute
+          over a list that contradicts it, which is exactly what this page claims not to do. */}
       <Section tone="paper">
         <SectionHead
           kicker="Submit · certify · list · install"
-          title="Four steps, and the refusal that guards each one."
-          lede="A contribution moves forward only by passing something. Nothing here advances on a status field being set."
+          title="Four steps, and the refusals that guard them."
+          lede="A contribution moves forward only by passing something. Nothing here advances on a status field being set — and the one step that quotes no refusal is the first, because submitting installs nothing, grants nothing and lists nothing."
         />
         <ol className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {LIFECYCLE.map((s, i) => (
@@ -510,47 +553,13 @@ export function Partners() {
         </Reveal>
       </Section>
 
-      {/* Certified talent — the Resources nav lands here. */}
-      <Section tone="paper" id={TALENT_ANCHOR}>
-        <div className="grid items-start gap-12 lg:grid-cols-[0.9fr_1.1fr]">
-          <div>
-            <SectionHead
-              kicker="Certified talent"
-              title="A matching mechanism, not a bench."
-              lede={TALENT.intro}
-            />
-          </div>
-          <div className="flex flex-col gap-4">
-            <Reveal>
-              <div className="rounded-card border border-line bg-surface p-7">
-                <p className="font-mono text-[11px] uppercase tracking-kicker text-muted">The mechanism</p>
-                <p className="mt-3 text-[15px] leading-relaxed text-ink">{TALENT.mechanism}</p>
-              </div>
-            </Reveal>
-            <Reveal delay={0.06}>
-              <div className="rounded-card border border-clayDeep/30 bg-clay/[0.06] p-7">
-                <p className="font-mono text-[11px] uppercase tracking-kicker text-clayDeep">The limit</p>
-                <p className="mt-3 text-[15px] leading-relaxed text-ink">{TALENT.limit}</p>
-                <p className="mt-5 text-sm leading-relaxed text-slate">
-                  The certification paths behind it, what each one attests and what it deliberately
-                  does not, are on the{" "}
-                  <Link to="/resources/academy/learn" className="text-clayDeep hover:underline">
-                    Academy learning hub
-                  </Link>
-                  , and the programme itself is at{" "}
-                  <Link to="/resources/academy" className="text-clayDeep hover:underline">
-                    Academy
-                  </Link>
-                  .
-                </p>
-              </div>
-            </Reveal>
-          </div>
-        </div>
-      </Section>
-
-      {/* The limits. */}
-      <Section tone="mist">
+      {/* THE HONEST CLOSE — the limits and how to start, in one band rather than two.
+          They were adjacent, and their content interleaves: "no commercial terms are published" and
+          "we will not publish a tier, a fee or a revenue share" are the same fact stated twice, once
+          per band. Both lists are rendered in full — they are the page's protected limits — and the
+          duplicate inline "Start a conversation" button is gone, because the CTA below it is the
+          same control with the same destination. */}
+      <Section tone="paper">
         <SectionHead
           kicker="Honest limits"
           title="What this programme is not, yet."
@@ -566,27 +575,20 @@ export function Partners() {
             </Reveal>
           ))}
         </div>
-      </Section>
 
-      {/* Starting a conversation. */}
-      <Section tone="paper">
-        <div className="grid gap-12 lg:grid-cols-2">
+        <div className="mt-16 grid gap-10 border-t border-line pt-14 lg:grid-cols-2">
           <div>
-            <SectionHead
-              kicker="Start here"
-              title="What to send, and what happens next."
-              lede="There is no application portal and no queue. A partner conversation starts with a person, and the useful version of it starts with the seam."
-            />
-            <div className="mt-10">
+            <Kicker accent={PARTNER_ACCENT}>Start here</Kicker>
+            <h3 className="display mt-4 text-2xl text-ink sm:text-3xl">
+              What to send, and what happens next.
+            </h3>
+            <p className="mt-5 text-[15px] leading-relaxed text-slate">
+              There is no application portal and no queue. A partner conversation starts with a
+              person, and the useful version of it starts with the seam.
+            </p>
+            <div className="mt-8">
               <TickList items={HOW_TO_START} accent={PARTNER_ACCENT} />
             </div>
-            <Reveal>
-              <div className="mt-10">
-                <Link to="/contact" className="btn-primary">
-                  Start a conversation <Icon.Arrow className="h-4 w-4" />
-                </Link>
-              </div>
-            </Reveal>
           </div>
           <Reveal delay={0.06}>
             <div className="rounded-card border border-line bg-surface p-7">

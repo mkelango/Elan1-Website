@@ -15,7 +15,7 @@
 // it, config packs with a typed contract, an MCP connector fabric, a knowledge fabric with lifecycle
 // governance. elan1 does NOT have them assembled, named and shipped as one product called an
 // "ontology engine". There is no ontology runtime, no ontology editor, no ontology API, and no graph
-// to query. Naming a thing before assembling it is precisely the over-claiming the rest of this site
+// over the customer's business to query. Naming a thing before assembling it is precisely the over-claiming the rest of this site
 // forbids — and it is the easier mistake to make here than anywhere else on the site, because the
 // name is good and the parts are real.
 //
@@ -147,7 +147,7 @@ export const ONTOLOGY_FRAME = {
    * into a product.
    */
   organising:
-    "Enterprise Ontology is what we call the idea that organises the five capabilities below. It is not a product you buy, a runtime you configure, an editor you open or an API you call. This platform ships no ontology engine, and there is no graph here to query. What it ships is a typed record model, a writer that validates against it, a typed pack contract, a governed knowledge corpus and a mapped connector seam — each of which is in the platform today, and each of which is named below so you can check it. The frame is ours. The parts are the platform's.",
+    "Enterprise Ontology is what we call the idea that organises the five capabilities below. It is not a product you buy, a runtime you configure, an editor you open or an API you call. This platform ships no ontology engine, and there is no graph over your business here to query. What it ships is a typed record model, a writer that validates against it, a typed pack contract, a governed knowledge corpus and a mapped connector seam — each of which is in the platform today, and each of which is named below so you can check it. The frame is ours. The parts are the platform's.",
 
   /** Why the distinction is worth a page rather than a paragraph. */
   why: "An agent that drafts is judged by its answers, so the work is in retrieval. An agent that writes to a system of record is judged by what it left behind, and nothing about retrieval can stop it leaving the wrong thing. The moment an agent is allowed to act, the question stops being what it can see and becomes what the store will accept — and that question has no answer at all unless the store knows what shape its records are meant to be.",
@@ -249,13 +249,13 @@ export const ONTOLOGY_LAYERS: OntologyLayer[] = [
   {
     id: "connector-seam",
     name: "The connector seam",
-    what: "An external system's naming is not your record model, and pretending otherwise is how a field means two things. At the seam, a connector maps a canonical object and field model onto each system's native naming — an account's name is Salesforce's `Account.Name`, a worker's is Workday's `legalName`, an incident's summary is ServiceNow's `short_description`. The agent speaks canonical; the connector speaks the vendor's dialect; the translation is the connector's entire value.",
+    what: "An external system's naming is not your record model, and pretending otherwise is how a field means two things. At the seam, a connector maps a canonical object and field model onto each system's native naming — an account's name is Salesforce's Account.Name, a worker's is Workday's legalName, an incident's summary is ServiceNow's short_description. The agent speaks canonical; the connector speaks the vendor's dialect; the translation is the connector's entire value.",
     howItShips:
       "Five such systems are declared as configuration of one connector rather than as five integrations, which is the same argument the packs make one layer up. Every call through the fabric is scope-checked against what the connector actually exposes and audited by operation and argument keys rather than argument values, and credentials are references unsealed only at the tool boundary.",
     verified:
-      "The mapping tables are declared in the connector module and readable in one sitting. The offline transport is a real in-memory store, so the translation is verifiable without holding an account anywhere; the HTTP transport is the credential-gated drop-in beside it.",
+      "The mapping tables are declared in the connector module and readable in one sitting. The offline transport is a real in-memory store, and it is the only transport that ships — so what is verified here is the mapping, not a connection.",
     limit:
-      "These are declared seams, not live integrations you inherit. Connecting one is credentials plus an audited grant, and that is an operator's step, not a switch we have already flipped. The connectors page states which tier each connector is in and does not round the catalog up into the registered count.",
+      "These are declared seams, not live integrations you inherit, and they are not among the connectors registered on the boot fabric today. Connecting one is a transport, then credentials, then an audited grant — an operator's step, and not a switch we have already flipped. The connectors page states which tier each connector is in and does not round the catalog up into the registered count.",
     seeAlso: { label: "Connectors — the MCP fabric", href: "/platform/connectors" },
     accent: ACCENT.gold,
   },
@@ -346,9 +346,9 @@ export const ONTOLOGY_NOT_YET: NotYet[] = [
       "The type declarations have exactly two consumers in the platform: the governed writer that validates against them, and the integrity sweep that reads them to know what a record id could refer to. Nothing serves them over HTTP and no screen renders them. If a schema service is what your architecture needs, that is something to build, and we would rather say so than let a page imply it already exists.",
   },
   {
-    claim: "There is no graph you can query.",
+    claim: "There is no graph over your business to query.",
     detail:
-      "The core carries an entity and relationship grounding module, and its own description is the accurate one — a small deterministic catalog standing in for a graph store. It is not a knowledge graph over your business, nothing on this page depends on it, and no claim here should be read as one.",
+      "The core carries an entity and relationship grounding module, and its own description is the accurate one — a small deterministic catalog standing in for a graph store: a fixed handful of demo entities and their edges, the same for every tenant, behind one read-only endpoint. So there is something to call. It is not a knowledge graph over your business, nothing on this page depends on it, and no claim here should be read as one.",
   },
   {
     claim: "There is no ontology editor, and a free-form field is still free-form.",

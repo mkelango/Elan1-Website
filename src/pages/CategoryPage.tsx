@@ -12,7 +12,7 @@ import {
 } from "../content/categories";
 import { solutions, solutionsComposing } from "../content/solutions";
 import { useSeo } from "../lib/seo";
-import { PageHero, Section, GovernanceSpine, Crumb } from "../components/blocks";
+import { PageHero, Section, Crumb } from "../components/blocks";
 import { SectionHead, Reveal, Icon, Kicker } from "../components/primitives";
 import { AbstractHero } from "../components/BrandImage";
 import { CTASection } from "../components/CTASection";
@@ -233,11 +233,29 @@ export default function CategoryPage() {
       {/* How they compose */}
       <Section tone="paper">
         <div className="grid items-start gap-12 lg:grid-cols-2">
-          <SectionHead
-            kicker="How they compose"
-            title={apps.length === 1 ? "Where it sits in the suite." : "They are one category because they share a record."}
-            lede=""
-          />
+          <div>
+            <SectionHead
+              kicker="How they compose"
+              title={apps.length === 1 ? "Where it sits in the suite." : "They are one category because they share a record."}
+              lede=""
+            />
+            {/*
+              The backbone note, kept from a "governance signature" band that has been removed: that
+              band's GovernanceSpine printed category.gate.kind and category.gate.body — the same two
+              strings the gate section one scroll above already publishes in full, with the refusals
+              that evidence them. This paragraph was the only thing in it that said something new.
+            */}
+            <Reveal>
+              <p className="mt-7 text-sm leading-relaxed text-muted">
+                Every app in {category.name} runs on{" "}
+                <Link to="/platform/enterprise1" className="text-clayDeep hover:underline">
+                  enterprise1
+                </Link>
+                , the control plane that carries identity, policy, audit and rollout for the whole suite. enterprise1
+                is the backbone the categories stand on — not a sixth category, and not the five bundled together.
+              </p>
+            </Reveal>
+          </div>
           <Reveal>
             <p className="text-[15px] leading-relaxed text-slate">{category.composition}</p>
             {/* DERIVED from each solution's own composedOf — never a hand-written count. A prior
@@ -311,55 +329,33 @@ export default function CategoryPage() {
         </Section>
       )}
 
-      {/* Compass's own page: state the inverse — it lives in all four */}
-      {isCompass && (
-        <Section tone="mist">
-          <SectionHead
-            kicker="Cross-cutting by design"
-            title="Compass is also inside the other four."
-            lede="If compass reads as a standalone silo, the information architecture is wrong. insight1 serves finance and HR analytics as directly as it serves sales; goal1 watches whichever number the mission is built on."
-          />
-          <div className="mt-10 grid gap-4 sm:grid-cols-2">
-            {others.map((c, i) => (
-              <Reveal key={c.slug} delay={(i % 2) * 0.06}>
-                <Link
-                  to={`/products/category/${c.slug}`}
-                  className="group flex h-full flex-col rounded-card border border-line bg-surface p-6 shadow-card transition-all hover:-translate-y-1 hover:shadow-lift"
-                >
-                  <span className="flex items-center gap-2">
-                    <span className="h-2.5 w-2.5 rounded-full" style={{ background: c.accent }} />
-                    <span className="font-mono text-base font-semibold text-ink">{c.name}</span>
-                  </span>
-                  <p className="mt-3 text-sm leading-relaxed text-slate">{c.compassNote}</p>
-                </Link>
-              </Reveal>
-            ))}
-          </div>
-        </Section>
-      )}
+      {/*
+        THE REST OF THE SUITE — one band, whose framing switches on the compass page.
 
-      {/* Governance signature */}
-      <Section tone="paper">
-        <GovernanceSpine
-          text={`${category.gate.kind}. ${category.gate.body}`}
-          label={`${category.name} · governance signature`}
+        This was two sections printing the SAME four categories: "Compass is also inside the other
+        four" (each card showing that category's compassNote) and, immediately after it, "the other
+        categories" (the same four links again). The compass argument is kept — it is the whole point
+        of the category, and the compassNote is the only place it is written per category — but it now
+        rides on the cards that were already going to render.
+
+        TONE ALTERNATES RATHER THAN REPEATS. The `paper` governance-signature band that used to sit
+        between this one and the cross-cutting band above it has been removed as a restatement of
+        the gate — correctly, but it was also the thing keeping two `mist` bands apart on the four
+        non-compass pages, where two mist bands in a row read as one long band with a stray heading
+        in the middle. On compass the cross-cutting band does not render at all (compass has no
+        compassNote of its own), so there the band above is `paper` and this one takes mist.
+      */}
+      <Section tone={isCompass ? "mist" : "paper"}>
+        <SectionHead
+          kicker={isCompass ? "Cross-cutting by design" : "The rest of the suite"}
+          title={isCompass ? "Compass is also inside the other four." : "The other categories."}
+          lede={
+            isCompass
+              ? "If compass reads as a standalone silo, the information architecture is wrong. insight1 serves finance and HR analytics as directly as it serves sales; goal1 watches whichever number the mission is built on."
+              : ""
+          }
         />
-        <Reveal>
-          <p className="mt-6 text-sm leading-relaxed text-muted">
-            Every app in {category.name} runs on{" "}
-            <Link to="/platform/enterprise1" className="text-clayDeep hover:underline">
-              enterprise1
-            </Link>
-            , the control plane that carries identity, policy, audit and rollout for the whole suite. enterprise1 is
-            the backbone the categories stand on — not a sixth category, and not the five bundled together.
-          </p>
-        </Reveal>
-      </Section>
-
-      {/* The other categories */}
-      <Section tone="mist">
-        <SectionHead kicker="The rest of the suite" title="The other categories." lede="" />
-        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className={`mt-10 grid gap-4 sm:grid-cols-2 ${isCompass ? "" : "lg:grid-cols-4"}`}>
           {others.map((c, i) => (
             <Reveal key={c.slug} delay={(i % 4) * 0.05}>
               <Link
@@ -370,8 +366,10 @@ export default function CategoryPage() {
                   <span className="h-2.5 w-2.5 rounded-full" style={{ background: c.accent }} />
                   <span className="font-mono text-sm font-semibold text-ink">{c.name}</span>
                 </span>
-                <p className="mt-2 text-sm leading-snug text-slate">{c.positioning}</p>
-                <p className="mt-3 font-mono text-[11px] text-muted">{c.apps.join(" · ")}</p>
+                <p className="mt-2 text-sm leading-relaxed text-slate">
+                  {isCompass ? c.compassNote : c.positioning}
+                </p>
+                <p className="mt-auto pt-3 font-mono text-[11px] text-muted">{c.apps.join(" · ")}</p>
               </Link>
             </Reveal>
           ))}

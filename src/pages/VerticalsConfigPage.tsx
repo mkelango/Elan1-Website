@@ -70,7 +70,9 @@ export default function VerticalsConfigPage() {
         }
       />
 
-      {/* The shape of a pack */}
+      {/* The shape of a pack — and one real one, in the same band. The list of shape facts and the
+          artifact were making the same point ("a vertical is a small file") in two consecutive
+          layouts; the artifact is the stronger of the two, so it leads and the counts follow it. */}
       <Section tone="obsidian">
         <div className="grid items-start gap-12 lg:grid-cols-[0.95fr_1.05fr]">
           <div>
@@ -87,47 +89,21 @@ export default function VerticalsConfigPage() {
               that manifest.
             </p>
             <p className="mt-4 text-[15px] leading-relaxed text-paper/70">
-              The manifest is typed. Its own definition in the framework says it plainly: a pack is config
-              that composes built apps. Which is why the count that matters below is the last one.
+              Beside this is one real manifest, comments trimmed and nothing else changed. It composes
+              five built apps, carries a four-policy signature scored by a nine-set eval battery, and
+              defines two flagship workflows — one driven by its own advisory agent, one by supply1's
+              gated reorder agent.
             </p>
-          </div>
-          <Reveal>
-            <div className="space-y-3">
-              {PACK_SHAPE.map((s) => (
-                <div key={s.label} className="rounded-card border border-paper/15 bg-paper/[0.04] p-5">
-                  <div className="flex items-baseline gap-3">
-                    <span className="font-display text-base font-bold text-paper">{s.label}</span>
-                    <span className="ml-auto font-mono text-sm font-semibold" style={{ color: ACCENT }}>
-                      {s.value}
-                    </span>
-                  </div>
-                  <p className="mt-2 text-sm leading-relaxed text-paper/65">{s.detail}</p>
-                </div>
-              ))}
-            </div>
-          </Reveal>
-        </div>
-      </Section>
-
-      {/* The artifact */}
-      <Section tone="paper">
-        <div className="grid items-start gap-12 lg:grid-cols-[0.85fr_1.15fr]">
-          <div>
-            <SectionHead
-              kicker="The artifact"
-              title="This is a whole industry."
-              lede="One real manifest, comments trimmed and nothing else changed. It composes five built apps, carries a four-policy signature scored by a nine-set eval battery, and defines two flagship workflows — one driven by its own advisory agent, one by supply1's gated reorder agent."
-            />
-            <p className="mt-6 text-sm leading-relaxed text-muted">
-              Note the second workflow. It names{" "}
-              <span className="font-mono text-slate">supply1.reorder</span> — an agent belonging to a suite
-              app, composed by reference. The manufacturing vertical did not get its own copy of
+            <p className="mt-4 text-[15px] leading-relaxed text-paper/70">
+              Note that second workflow. It names{" "}
+              <span className="font-mono text-paper/90">supply1.reorder</span> — an agent belonging to a
+              suite app, composed by reference. The manufacturing vertical did not get its own copy of
               procurement.
             </p>
           </div>
           <Reveal>
-            <div className="overflow-hidden rounded-card border border-line bg-obsidian shadow-lift">
-              <div className="flex items-center gap-2 border-b border-lineDark px-5 py-3">
+            <div className="overflow-hidden rounded-card border border-paper/15 bg-paper/[0.04] shadow-lift">
+              <div className="flex items-center gap-2 border-b border-paper/15 px-5 py-3">
                 <span className="h-2.5 w-2.5 rounded-full" style={{ background: ACCENT }} />
                 <span className="font-mono text-[11px] uppercase tracking-kicker text-paper/50">
                   packs/manufacture1/pack.yaml
@@ -138,6 +114,21 @@ export default function VerticalsConfigPage() {
               </pre>
             </div>
           </Reveal>
+        </div>
+        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {PACK_SHAPE.map((s, i) => (
+            <Reveal key={s.label} delay={(i % 4) * 0.05}>
+              <div className="h-full rounded-card border border-paper/15 bg-paper/[0.04] p-5">
+                <div className="flex items-baseline gap-3">
+                  <span className="font-display text-base font-bold text-paper">{s.label}</span>
+                  <span className="ml-auto font-mono text-sm font-semibold" style={{ color: ACCENT }}>
+                    {s.value}
+                  </span>
+                </div>
+                <p className="mt-2 text-sm leading-relaxed text-paper/65">{s.detail}</p>
+              </div>
+            </Reveal>
+          ))}
         </div>
       </Section>
 
@@ -277,67 +268,35 @@ export default function VerticalsConfigPage() {
             </div>
           </Reveal>
         </div>
-      </Section>
 
-      {/* The payoff */}
-      <Section tone="paper">
-        <div className="grid items-start gap-12 lg:grid-cols-[1fr_0.9fr]">
-          <div>
-            <SectionHead
-              kicker="Why it matters"
-              title="A new industry is a manifest, not a fork."
-              lede="The reason to care is not that packs are small. It is that there is only one copy of the thing that has to be right."
-            />
-            <p className="mt-6 text-[15px] leading-relaxed text-slate">
-              When a vertical forks the application, every governance guarantee has to be re-proved in that
-              fork — and a fix to an approval gate has to be found and re-applied in each one. Here the
-              approval gates, the audit trail, the identity model and the eval batteries are the platform's,
-              and a pack names which of them apply to it.
+        {/* The payoff, folded in here rather than given a band of its own: the argument only lands
+            once the qualification above has been read. */}
+        <Reveal delay={0.1}>
+          <div className="mt-14 max-w-3xl border-t border-line pt-10">
+            <h3 className="font-display text-2xl font-bold leading-tight text-ink sm:text-3xl">
+              A new industry is a manifest, not a fork.
+            </h3>
+            <p className="mt-5 text-[15px] leading-relaxed text-slate">
+              The reason to care is not that packs are small. It is that there is only one copy of the
+              thing that has to be right. When a vertical forks the application, every governance
+              guarantee has to be re-proved in that fork — and a fix to an approval gate has to be found
+              and re-applied in each one. Here the approval gates, the audit trail, the identity model and
+              the eval batteries belong to{" "}
+              <Link to="/platform/enterprise1" className="text-clayDeep hover:underline">
+                enterprise1
+              </Link>
+              , the shared control plane, and a pack names which of them apply to it.
             </p>
             <p className="mt-4 text-[15px] leading-relaxed text-slate">
               That is why the governance story on this site reads identically for a hospital and for a
-              distribution utility. It is the same code path, reached through a different manifest.
+              distribution utility. It is the same code path, reached through a different manifest —{" "}
+              <Link to="/solutions" className="text-clayDeep hover:underline">
+                seen from the industry side
+              </Link>
+              .
             </p>
           </div>
-          <div className="grid gap-4">
-            <Reveal>
-              <Link
-                to="/platform/enterprise1"
-                className="group flex h-full flex-col rounded-card border border-line bg-surface p-7 shadow-card transition-all hover:-translate-y-1 hover:shadow-lift"
-              >
-                <span className="font-mono text-base font-semibold text-ink">enterprise1</span>
-                <p className="mt-3 font-display text-lg font-bold leading-snug text-ink">
-                  The control plane the packs run on.
-                </p>
-                <p className="mt-3 text-sm leading-relaxed text-slate">
-                  Governance, identity, audit and rollout — shared, so a vertical inherits them instead of
-                  re-implementing them.
-                </p>
-                <span className="mt-auto pt-5 inline-flex items-center gap-1.5 text-sm font-medium text-clayDeep opacity-0 transition-opacity group-hover:opacity-100">
-                  Explore enterprise1 <Icon.Arrow className="h-4 w-4" />
-                </span>
-              </Link>
-            </Reveal>
-            <Reveal delay={0.06}>
-              <Link
-                to="/solutions"
-                className="group flex h-full flex-col rounded-card border border-line bg-surface p-7 shadow-card transition-all hover:-translate-y-1 hover:shadow-lift"
-              >
-                <span className="font-mono text-base font-semibold text-ink">the verticals</span>
-                <p className="mt-3 font-display text-lg font-bold leading-snug text-ink">
-                  What each pack looks like in use.
-                </p>
-                <p className="mt-3 text-sm leading-relaxed text-slate">
-                  The industry view of the same ten manifests — the workflows, the wedge, and the sign-off
-                  each one insists on.
-                </p>
-                <span className="mt-auto pt-5 inline-flex items-center gap-1.5 text-sm font-medium text-clayDeep opacity-0 transition-opacity group-hover:opacity-100">
-                  Explore the verticals <Icon.Arrow className="h-4 w-4" />
-                </span>
-              </Link>
-            </Reveal>
-          </div>
-        </div>
+        </Reveal>
       </Section>
 
       <CTASection

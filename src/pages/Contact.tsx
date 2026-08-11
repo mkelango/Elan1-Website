@@ -6,6 +6,14 @@
 //
 // The page's job is not persuasion, it is sequence: what happens next, in what order, what to bring,
 // and what we will not have when you ask for it.
+//
+// STRUCTURE. Five bands: hero + form, what happens next, what to bring, what we will not have, and
+// the other doors. Four surfaces here are load-bearing and stay whatever else is trimmed:
+// FORM_COPY.noTiming (the refused response-time commitment — rendered twice on purpose, under the
+// button and in the success state), the CONFIRMATION.undelivered branch (an absence must never
+// render as a tick), SEGMENT_OPTIONS, derived from content/bands.ts rather than re-typed, and
+// DEMO_NOTE — the "illustrative, no real data" limit that has to travel with every link to /demo,
+// which is what the cut of the ANSWERS_WITHOUT_US grid nearly took with it.
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useSeo } from "../lib/seo";
@@ -23,7 +31,6 @@ import {
   ON_RAMP,
   WHAT_TO_BRING,
   NOT_ON_OFFER,
-  ANSWERS_WITHOUT_US,
   OTHER_DOORS,
   EMAIL_ROUTES,
   SEGMENT_OPTIONS,
@@ -34,6 +41,24 @@ import {
 } from "../content/contact";
 
 const ACCENT = "#df8c64";
+
+/**
+ * 🚨 THE QUALIFIER THAT HAS TO TRAVEL WITH THE DEMO LINK.
+ *
+ * The "answers that do not wait on us" grid that used to sit at the foot of this page carried
+ * "Illustrative, on no real data." beside its /demo card. That grid was cut as a wall of links the
+ * reader had already scrolled past — but the INVITATION outlived it: step 02 says "run a governed
+ * agent yourself, now", and the success state for a "not sure yet" enquiry says "run a governed
+ * agent first". Both linked the demo with nothing attached.
+ *
+ * Every other surface that offers the demo states it — Demo.tsx's own hero ("illustrative and uses
+ * no real data"), the product pages' modelled-adapter note. A contact page whose whole argument is
+ * that the limits are said at the door cannot be the one surface that drops it. Rendered wherever
+ * this page links DEMO_HREF, so a new link to the demo cannot appear here bare.
+ */
+const DEMO_HREF = "/demo";
+const DEMO_NOTE =
+  "Illustrative, and on no real data — the governance is exactly how the platform runs.";
 
 /**
  * The compliance note for a region, resolved from lib/region.ts — the file that already had to be
@@ -60,59 +85,6 @@ export default function Contact() {
       },
     },
   });
-
-  // `receipt` replaces the old boolean `sent`. What the success state may say is derived from what
-  // actually happened to the record, never from the fact that a submit handler ran.
-  const [receipt, setReceipt] = useState<LeadReceipt | null>(null);
-  const [consent, setConsent] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  const [busy, setBusy] = useState(false);
-  const [form, setForm] = useState({
-    name: "",
-    company: "",
-    email: "",
-    segment: SEGMENT_OPTIONS[0],
-    interestId: CONTACT_INTERESTS[0].id,
-    region: REGIONS[0],
-    message: "",
-  });
-
-  const interest = interestById(form.interestId);
-
-  const set =
-    (k: keyof typeof form) =>
-    (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
-      setForm((f) => ({ ...f, [k]: e.target.value }));
-
-  const submit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setError(null);
-    if (!consent) {
-      setError(FORM_COPY.consentError);
-      return;
-    }
-    setBusy(true);
-    try {
-      // consent-gated; no PII in the URL (POST body / local capture).
-      const r = await submitLead(
-        {
-          name: form.name,
-          company: form.company,
-          email: form.email,
-          segment: form.segment,
-          interest: interest.label,
-          region: form.region,
-          message: form.message,
-        },
-        consent,
-      );
-      setReceipt(r);
-    } catch (err) {
-      setError(err instanceof Error ? err.message : FORM_COPY.genericError);
-    } finally {
-      setBusy(false);
-    }
-  };
 
   return (
     <>
@@ -184,135 +156,7 @@ export default function Contact() {
 
           {/* Right: the form */}
           <Reveal delay={0.1}>
-            <div className="rounded-card border border-line bg-surface p-7 shadow-lift sm:p-9">
-              {receipt ? (
-                <div className="flex min-h-[420px] flex-col justify-center">
-                  {receipt.delivered ? (
-                    <>
-                      <span className="flex h-14 w-14 items-center justify-center rounded-full bg-green/15 text-green">
-                        <Icon.Check className="h-7 w-7" />
-                      </span>
-                      <h2 className="display mt-5 text-2xl text-ink">
-                        {CONFIRMATION.heading(form.name.trim().split(" ")[0] ?? "")}
-                      </h2>
-                      <p className="mt-4 text-[15px] leading-relaxed text-slate">{interest.routed}</p>
-                      <p className="mt-4 text-sm leading-relaxed text-muted">{FORM_COPY.noTiming}</p>
-                      <Link
-                        to={interest.meanwhile.href}
-                        className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-clayDeep underline underline-offset-2"
-                      >
-                        {interest.meanwhile.label} <Icon.Arrow className="h-4 w-4" />
-                      </Link>
-                    </>
-                  ) : (
-                    <>
-                      <span className="flex h-14 w-14 items-center justify-center rounded-full bg-rose/15 text-rose">
-                        <Icon.Shield className="h-7 w-7" />
-                      </span>
-                      <h2 className="display mt-5 text-2xl text-ink">{CONFIRMATION.undeliveredHeading}</h2>
-                      <p className="mt-4 text-[15px] leading-relaxed text-slate">{CONFIRMATION.undelivered}</p>
-                      <a
-                        href={`mailto:${BRAND.email}`}
-                        className="mt-6 inline-flex items-center gap-1.5 font-mono text-sm font-semibold text-clayDeep underline underline-offset-2"
-                      >
-                        {BRAND.email} <Icon.Arrow className="h-4 w-4" />
-                      </a>
-                    </>
-                  )}
-                  <button onClick={() => setReceipt(null)} className="btn-ghost mt-8 self-start">
-                    {CONFIRMATION.another}
-                  </button>
-                </div>
-              ) : (
-                <form onSubmit={submit} className="space-y-5">
-                  <div>
-                    <h2 className="font-display text-xl font-bold text-ink">{FORM_COPY.heading}</h2>
-                    <p className="mt-2 text-sm leading-relaxed text-slate">{FORM_COPY.intro}</p>
-                  </div>
-
-                  <div className="grid gap-5 sm:grid-cols-2">
-                    <Field label={FORM_COPY.labels.name}>
-                      <input required value={form.name} onChange={set("name")} className="inp" placeholder="Your name" />
-                    </Field>
-                    <Field label={FORM_COPY.labels.company}>
-                      <input required value={form.company} onChange={set("company")} className="inp" placeholder="Company" />
-                    </Field>
-                  </div>
-
-                  <Field label={FORM_COPY.labels.email}>
-                    <input required type="email" value={form.email} onChange={set("email")} className="inp" placeholder="you@company.com" />
-                  </Field>
-
-                  <div className="grid gap-5 sm:grid-cols-2">
-                    <Field label={FORM_COPY.labels.segment}>
-                      <select value={form.segment} onChange={set("segment")} className="inp">
-                        {SEGMENT_OPTIONS.map((s) => (
-                          <option key={s}>{s}</option>
-                        ))}
-                      </select>
-                    </Field>
-                    <Field label={FORM_COPY.labels.interest}>
-                      <select value={form.interestId} onChange={set("interestId")} className="inp">
-                        {CONTACT_INTERESTS.map((i) => (
-                          <option key={i.id} value={i.id}>
-                            {i.label}
-                          </option>
-                        ))}
-                      </select>
-                    </Field>
-                  </div>
-
-                  <Field label={FORM_COPY.labels.region} note={FORM_COPY.regionNote}>
-                    <select value={form.region} onChange={set("region")} className="inp">
-                      {REGIONS.map((s) => (
-                        <option key={s}>{s}</option>
-                      ))}
-                    </select>
-                    {regionNote(form.region) && (
-                      <span className="mt-1.5 block font-mono text-[11px] text-muted">{regionNote(form.region)}</span>
-                    )}
-                  </Field>
-
-                  <Field label={FORM_COPY.labels.message}>
-                    <textarea
-                      value={form.message}
-                      onChange={set("message")}
-                      rows={4}
-                      className="inp resize-none"
-                      placeholder={FORM_COPY.messagePlaceholder}
-                    />
-                  </Field>
-
-                  <label className="flex items-start gap-2.5 text-sm text-slate">
-                    <input
-                      type="checkbox"
-                      checked={consent}
-                      onChange={(e) => setConsent(e.target.checked)}
-                      className="mt-0.5 h-4 w-4 shrink-0 rounded border-line accent-clayDeep"
-                    />
-                    <span>
-                      {FORM_COPY.consent}{" "}
-                      <Link to="/trust" className="text-clayDeep underline underline-offset-2">
-                        How we handle data
-                      </Link>
-                      .
-                    </span>
-                  </label>
-
-                  {error && (
-                    <p role="alert" className="rounded-lg border border-rose/40 bg-rose/[0.07] px-3 py-2 text-sm text-rose">
-                      {error}
-                    </p>
-                  )}
-
-                  <button type="submit" disabled={busy} className="btn-primary w-full disabled:opacity-60">
-                    {busy ? FORM_COPY.busyLabel : FORM_COPY.submitLabel} <Icon.Arrow className="h-4 w-4" />
-                  </button>
-                  <p className="text-xs leading-relaxed text-muted">{FORM_COPY.privacyFootnote}</p>
-                  <p className="text-xs leading-relaxed text-muted">{FORM_COPY.noTiming}</p>
-                </form>
-              )}
-            </div>
+            <LeadForm />
           </Reveal>
         </div>
       </section>
@@ -335,12 +179,18 @@ export default function Contact() {
                 <p className="mt-2 font-mono text-[11px] uppercase tracking-kicker text-muted">{s.who}</p>
                 <p className="mt-4 flex-1 text-[15px] leading-relaxed text-slate">{s.body}</p>
                 {s.link && (
-                  <Link
-                    to={s.link.href}
-                    className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-clayDeep hover:underline"
-                  >
-                    {s.link.label} <Icon.Arrow className="h-4 w-4" />
-                  </Link>
+                  <>
+                    <Link
+                      to={s.link.href}
+                      className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-clayDeep hover:underline"
+                    >
+                      {s.link.label} <Icon.Arrow className="h-4 w-4" />
+                    </Link>
+                    {/* The demo is an invitation with a limit on it. See DEMO_NOTE. */}
+                    {s.link.href === DEMO_HREF && (
+                      <p className="mt-2 text-xs leading-snug text-muted">{DEMO_NOTE}</p>
+                    )}
+                  </>
                 )}
               </div>
             </Reveal>
@@ -437,42 +287,27 @@ export default function Contact() {
         </div>
       </Section>
 
-      {/* ——— Answers that do not wait on us ——— */}
+      {/* ——— The other doors ———
+          The "answers that do not wait on us" grid that used to open this band linked /demo,
+          /platform/engineering, /trust and /pricing — every one of which this page already links in
+          its body (step 02, the limits band, the consent line, the on-ramp note). It was an
+          explore-more wall of links the reader had just scrolled past. ANSWERS_WITHOUT_US is left in
+          content/contact.ts, now unrendered, for whoever prunes the content layer.
+
+          What the cut nearly took with it: its /demo card was the ONLY place on this page that said
+          the demo is illustrative and runs on no real data, while two surviving links still invite
+          you to run it. That qualifier is now DEMO_NOTE at the top of this file and renders at both.
+          A link roster can be redundant; the limit attached to one of its entries is not. */}
       <Section tone="paper">
         <SectionHead
-          kicker="Before you send anything"
-          title="Answers that do not wait on us."
-          lede="A contact page that makes you wait for the basics is a contact page that never published them."
+          kicker="Other doors"
+          title="If this form is not the right one."
+          lede="Some enquiries have a better route than this page, and each of these asks the questions we would ask anyway."
         />
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {ANSWERS_WITHOUT_US.map((a, i) => (
-            <Reveal key={a.href} delay={i * 0.05}>
-              <Link to={a.href} className="card card-hover flex h-full flex-col justify-between">
-                <div>
-                  <h3 className="font-display text-base font-bold text-ink">{a.label}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-slate">{a.body}</p>
-                </div>
-                <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-clayDeep">
-                  Open <Icon.Arrow className="h-4 w-4" />
-                </span>
-              </Link>
-            </Reveal>
-          ))}
-        </div>
-
-        <div className="mt-14 grid gap-4 border-t border-line pt-12 md:grid-cols-3">
+        <div className="mt-12 grid gap-4 md:grid-cols-3">
           {OTHER_DOORS.map((d, i) => (
             <Reveal key={d.href} delay={i * 0.05}>
-              <div className="flex h-full flex-col rounded-card border border-line bg-surface p-6">
-                <h3 className="font-display text-base font-bold text-ink">{d.label}</h3>
-                <p className="mt-2 flex-1 text-sm leading-relaxed text-slate">{d.body}</p>
-                <Link
-                  to={d.href}
-                  className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-clayDeep hover:underline"
-                >
-                  Go there <Icon.Arrow className="h-4 w-4" />
-                </Link>
-              </div>
+              <DoorCard {...d} cta="Go there" />
             </Reveal>
           ))}
         </div>
@@ -480,6 +315,204 @@ export default function Contact() {
 
       <style>{`.inp{width:100%;border-radius:.75rem;border:1px solid #e7e2d9;background:#fff;padding:.7rem .9rem;font-size:.9rem;color:#0b1220;outline:none;transition:border-color .15s, box-shadow .15s}.inp:focus{border-color:#df8c64;box-shadow:0 0 0 3px rgba(223,140,100,.15)}`}</style>
     </>
+  );
+}
+
+/**
+ * The lead form and its outcome. All of its state lives here because nothing else on the page reads
+ * any of it — `receipt` in particular replaces an older boolean `sent`, so what the success state
+ * may say is derived from what actually happened to the record, never from the fact that a submit
+ * handler ran.
+ */
+function LeadForm() {
+  const [receipt, setReceipt] = useState<LeadReceipt | null>(null);
+  const [consent, setConsent] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [busy, setBusy] = useState(false);
+  const [form, setForm] = useState({
+    name: "",
+    company: "",
+    email: "",
+    segment: SEGMENT_OPTIONS[0],
+    interestId: CONTACT_INTERESTS[0].id,
+    region: REGIONS[0],
+    message: "",
+  });
+
+  const interest = interestById(form.interestId);
+
+  const set =
+    (k: keyof typeof form) =>
+    (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
+      setForm((f) => ({ ...f, [k]: e.target.value }));
+
+  const submit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError(null);
+    if (!consent) {
+      setError(FORM_COPY.consentError);
+      return;
+    }
+    setBusy(true);
+    try {
+      // consent-gated; no PII in the URL (POST body / local capture).
+      const r = await submitLead(
+        {
+          name: form.name,
+          company: form.company,
+          email: form.email,
+          segment: form.segment,
+          interest: interest.label,
+          region: form.region,
+          message: form.message,
+        },
+        consent,
+      );
+      setReceipt(r);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : FORM_COPY.genericError);
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  return (
+    <div className="rounded-card border border-line bg-surface p-7 shadow-lift sm:p-9">
+      {receipt ? (
+        <div className="flex min-h-[420px] flex-col justify-center">
+          {receipt.delivered ? (
+            <>
+              <span className="flex h-14 w-14 items-center justify-center rounded-full bg-green/15 text-green">
+                <Icon.Check className="h-7 w-7" />
+              </span>
+              <h2 className="display mt-5 text-2xl text-ink">
+                {CONFIRMATION.heading(form.name.trim().split(" ")[0] ?? "")}
+              </h2>
+              <p className="mt-4 text-[15px] leading-relaxed text-slate">{interest.routed}</p>
+              <p className="mt-4 text-sm leading-relaxed text-muted">{FORM_COPY.noTiming}</p>
+              <Link
+                to={interest.meanwhile.href}
+                className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-clayDeep underline underline-offset-2"
+              >
+                {interest.meanwhile.label} <Icon.Arrow className="h-4 w-4" />
+              </Link>
+              {/* Same rule as step 02: the demo never gets offered here without its limit. */}
+              {interest.meanwhile.href === DEMO_HREF && (
+                <p className="mt-2 text-xs leading-snug text-muted">{DEMO_NOTE}</p>
+              )}
+            </>
+          ) : (
+            /* An absence must never render as a tick: with no delivery address wired, say so. */
+            <>
+              <span className="flex h-14 w-14 items-center justify-center rounded-full bg-rose/15 text-rose">
+                <Icon.Shield className="h-7 w-7" />
+              </span>
+              <h2 className="display mt-5 text-2xl text-ink">{CONFIRMATION.undeliveredHeading}</h2>
+              <p className="mt-4 text-[15px] leading-relaxed text-slate">{CONFIRMATION.undelivered}</p>
+              <a
+                href={`mailto:${BRAND.email}`}
+                className="mt-6 inline-flex items-center gap-1.5 font-mono text-sm font-semibold text-clayDeep underline underline-offset-2"
+              >
+                {BRAND.email} <Icon.Arrow className="h-4 w-4" />
+              </a>
+            </>
+          )}
+          <button onClick={() => setReceipt(null)} className="btn-ghost mt-8 self-start">
+            {CONFIRMATION.another}
+          </button>
+        </div>
+      ) : (
+        <form onSubmit={submit} className="space-y-5">
+          <div>
+            <h2 className="font-display text-xl font-bold text-ink">{FORM_COPY.heading}</h2>
+            <p className="mt-2 text-sm leading-relaxed text-slate">{FORM_COPY.intro}</p>
+          </div>
+
+          <div className="grid gap-5 sm:grid-cols-2">
+            <Field label={FORM_COPY.labels.name}>
+              <input required value={form.name} onChange={set("name")} className="inp" placeholder="Your name" />
+            </Field>
+            <Field label={FORM_COPY.labels.company}>
+              <input required value={form.company} onChange={set("company")} className="inp" placeholder="Company" />
+            </Field>
+          </div>
+
+          <Field label={FORM_COPY.labels.email}>
+            <input required type="email" value={form.email} onChange={set("email")} className="inp" placeholder="you@company.com" />
+          </Field>
+
+          <div className="grid gap-5 sm:grid-cols-2">
+            {/* Company size — the options are DERIVED from content/bands.ts, never re-typed here. */}
+            <Field label={FORM_COPY.labels.segment}>
+              <select value={form.segment} onChange={set("segment")} className="inp">
+                {SEGMENT_OPTIONS.map((s) => (
+                  <option key={s}>{s}</option>
+                ))}
+              </select>
+            </Field>
+            <Field label={FORM_COPY.labels.interest}>
+              <select value={form.interestId} onChange={set("interestId")} className="inp">
+                {CONTACT_INTERESTS.map((i) => (
+                  <option key={i.id} value={i.id}>
+                    {i.label}
+                  </option>
+                ))}
+              </select>
+            </Field>
+          </div>
+
+          <Field label={FORM_COPY.labels.region} note={FORM_COPY.regionNote}>
+            <select value={form.region} onChange={set("region")} className="inp">
+              {REGIONS.map((s) => (
+                <option key={s}>{s}</option>
+              ))}
+            </select>
+            {regionNote(form.region) && (
+              <span className="mt-1.5 block font-mono text-[11px] text-muted">{regionNote(form.region)}</span>
+            )}
+          </Field>
+
+          <Field label={FORM_COPY.labels.message}>
+            <textarea
+              value={form.message}
+              onChange={set("message")}
+              rows={4}
+              className="inp resize-none"
+              placeholder={FORM_COPY.messagePlaceholder}
+            />
+          </Field>
+
+          <label className="flex items-start gap-2.5 text-sm text-slate">
+            <input
+              type="checkbox"
+              checked={consent}
+              onChange={(e) => setConsent(e.target.checked)}
+              className="mt-0.5 h-4 w-4 shrink-0 rounded border-line accent-clayDeep"
+            />
+            <span>
+              {FORM_COPY.consent}{" "}
+              <Link to="/trust" className="text-clayDeep underline underline-offset-2">
+                How we handle data
+              </Link>
+              .
+            </span>
+          </label>
+
+          {error && (
+            <p role="alert" className="rounded-lg border border-rose/40 bg-rose/[0.07] px-3 py-2 text-sm text-rose">
+              {error}
+            </p>
+          )}
+
+          <button type="submit" disabled={busy} className="btn-primary w-full disabled:opacity-60">
+            {busy ? FORM_COPY.busyLabel : FORM_COPY.submitLabel} <Icon.Arrow className="h-4 w-4" />
+          </button>
+          <p className="text-xs leading-relaxed text-muted">{FORM_COPY.privacyFootnote}</p>
+          {/* The refused promise. It renders here AND in the success state — both on purpose. */}
+          <p className="text-xs leading-relaxed text-muted">{FORM_COPY.noTiming}</p>
+        </form>
+      )}
+    </div>
   );
 }
 
@@ -498,5 +531,24 @@ function Field({
       {note && <span className="mb-2 block text-xs leading-snug text-muted">{note}</span>}
       {children}
     </label>
+  );
+}
+
+/**
+ * The link card at the foot of the page. It took a `cta` because two near-identical grids used to
+ * render here differing only in their call to action; one of them is gone, and the prop stays so the
+ * next roster that needs this card does not fork it again.
+ */
+function DoorCard({ label, body, href, cta }: { label: string; body: string; href: string; cta: string }) {
+  return (
+    <Link to={href} className="card card-hover flex h-full flex-col justify-between">
+      <div>
+        <h3 className="font-display text-base font-bold text-ink">{label}</h3>
+        <p className="mt-2 text-sm leading-relaxed text-slate">{body}</p>
+      </div>
+      <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-clayDeep">
+        {cta} <Icon.Arrow className="h-4 w-4" />
+      </span>
+    </Link>
   );
 }
