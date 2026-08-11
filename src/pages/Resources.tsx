@@ -1,4 +1,4 @@
-// pages/Resources.tsx — insights, diagram library, playbooks, proof, glossary hub.
+// pages/Resources.tsx — Guides, Whitepapers, Reports, eBooks, Tools, Academy.
 import { Link } from "react-router-dom";
 import { useSeo } from "../lib/seo";
 import { PageHero, Section } from "../components/blocks";
@@ -6,28 +6,30 @@ import { SectionHead, Reveal, Icon } from "../components/primitives";
 import { CTASection } from "../components/CTASection";
 
 const cards = [
-  { t: "Diagram library", b: "See the systems we build — the full visual language, browsable.", href: "/resources/diagrams", accent: "#df8c64", live: true },
-  { t: "Insights", b: "Agentic transformation, per layer and per vertical. Reviewed before publish, ad-free.", href: "/resources/insights", accent: "#7c6cf0", live: true },
-  { t: "Use cases", b: "Agentic, by industry × job-to-be-done — generated from the platform's packs.", href: "/agentic", accent: "#2f6df0", live: true },
-  { t: "Playbooks", b: "Published in full, free to read — the roadmap, governance, industry blueprints, FinOps, agent evidence and connector readiness.", href: "/resources/playbooks", accent: "#2f6df0", live: true },
-  { t: "Governed patterns", b: "Before / after, and the guarantee each pattern carries. Filterable by industry.", href: "/resources/proof", accent: "#3fae6b", live: true },
-  { t: "ROI calculator", b: "Size the value, lite — a band-aware, illustrative estimate.", href: "/for/scaleup", accent: "#d39a3a", live: true },
-  { t: "Glossary", b: "The agentic vocabulary, defined plainly. Searchable.", href: "/resources/glossary", accent: "#22b8c4", live: true },
-    // Academy is a Resources-owned pillar (services.ts `home: "resources"`). Its breadcrumb and
-    // the homepage CTA both point here, so the hub must list it or those paths dead-end.
-    { t: "Academy", b: "Training, certification and certified talent — make your people capable of running agents.", href: "/resources/academy", accent: "#7c6cf0", live: true },
+  // Browse by type
+  { category: "Browse by type", t: "Guides", b: "Deep-dive how-tos and best practices for agentic transformation.", href: "/resources/guides", accent: "#df8c64", live: true },
+  { category: "Browse by type", t: "Whitepapers", b: "Technical insights and research on enterprise AI architecture and governance.", href: "/resources/whitepapers", accent: "#5ad1c0", live: true },
+  { category: "Browse by type", t: "Reports", b: "Market analysis, case studies, and research on agentic adoption.", href: "/resources/reports", accent: "#2f6df0", live: true },
+  { category: "Browse by type", t: "eBooks", b: "Comprehensive industry guides for planning agentic transformation.", href: "/resources/ebooks", accent: "#7c6cf0", live: true },
+  
+  // Tools & References
+  { category: "Tools & References", t: "ROI calculator", b: "Size the value, lite — a band-aware, illustrative estimate.", href: "/for/scaleup", accent: "#d39a3a", live: true },
+  { category: "Tools & References", t: "Glossary", b: "The agentic vocabulary, defined plainly. Searchable.", href: "/resources/glossary", accent: "#22b8c4", live: true },
+  
+  // Academy
+  { category: "Academy", t: "Academy", b: "Training and learning for building and running agents at scale.", href: "/resources/academy", accent: "#7c6cf0", live: true },
 ];
 
 export default function Resources() {
-  useSeo("Resources — insights, diagrams, playbooks & proof | elan1", "The elan1 resources hub: the diagram register, insights, playbooks published in full, governed workflow patterns, an estimator, and the agentic glossary.");
+  useSeo("Resources | elan1", "Guides, whitepapers, reports, tools, and training for agentic transformation.");
   return (
     <>
       <PageHero
         kicker="Resources"
         accent="#7c6cf0"
-        title="Learn the agentic playbook."
-        subtitle="Insights, the diagram register, playbooks published in full, the governed patterns and the vocabulary — everything you need to understand agentic transformation and size it for your business, with no form in the way."
-        cta={{ label: "Browse the diagram library", href: "/resources/diagrams", secondary: { label: "Book a demo", href: "/contact" } }}
+        title="Build with confidence."
+        subtitle="Guides, research, tools, and training — everything you need to understand, build, and deploy agents at scale."
+        cta={{ label: "Browse guides", href: "/resources/guides", secondary: { label: "Book a demo", href: "/contact" } }}
       />
       <Section tone="paper">
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

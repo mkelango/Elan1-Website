@@ -196,6 +196,7 @@ export const NAV: NavItem[] = [
         links: [
           pillarLink("assure1", "Evals, evidence packs and the Trust Mark"),
           { label: "Governance — three layers", href: "/platform/governance", desc: "The policy engine, the approval gate, and the hash-chained audit" },
+          { label: "Governed patterns", href: "/resources/proof", desc: "Before / after, and the guarantee each one carries" },
           { label: "Trust Center", href: "/trust", desc: "Principles, governance signatures, security and certification posture" },
         ],
       },
@@ -211,6 +212,7 @@ export const NAV: NavItem[] = [
         heading: "Build & prove",
         links: [
           pillarLink("strategy1", "The fixed-scope engagement that plans and lands the work"),
+          { label: "Agentic use cases", href: "/agentic", desc: "Vertical × use case — what a governed agent does, concretely" },
           { label: "Built on Claude", href: "/platform/built-on-claude", desc: "Why Claude-native depth wins" },
           { label: "Why elan1 vs builders", href: "/platform/why-elan1", desc: "Run your business on agents — not just build one" },
         ],
@@ -303,41 +305,29 @@ export const NAV: NavItem[] = [
     href: "/resources",
     mega: [
       {
-        heading: "Learn",
+        heading: "Browse by type",
         links: [
-          { label: "Insights", href: "/resources/insights", desc: "Agentic transformation, per layer & vertical" },
-          { label: "Diagram library", href: "/resources/diagrams", desc: "See the systems we build" },
-          { label: "Playbooks", href: "/resources/playbooks", desc: "Published in full, no form in the way" },
+          { label: "Guides", href: "/resources/guides", desc: "Deep-dive howtos and best practices" },
+          { label: "Whitepapers", href: "/resources/whitepapers", desc: "Technical insights and research" },
+          { label: "Reports", href: "/resources/reports", desc: "Market analysis and case studies" },
+          { label: "eBooks", href: "/resources/ebooks", desc: "Comprehensive industry guides" },
         ],
       },
       {
-        heading: "Prove",
+        heading: "Tools & References",
         links: [
-          { label: "Governed patterns", href: "/resources/proof", desc: "Before / after, and the guarantee each one carries" },
-          // 🚨 THIS LINK CLOSED A REAL ORPHAN. /agentic and every /agentic/:slug page under it
-          // rendered, sat in the sitemap, and were reachable from NOTHING — a whole programmatic
-          // section with no way in. Nothing failed: an unlinked page type-checks, builds and
-          // renders perfectly. scripts/check-nav.mjs now fails the build on exactly this.
-          { label: "Agentic use cases", href: "/agentic", desc: "Vertical × use case — what a governed agent does, concretely" },
           { label: "ROI calculator", href: "/for/scaleup", desc: "Size the value, lite" },
           { label: "Glossary", href: "/resources/glossary", desc: "The agentic vocabulary" },
         ],
       },
       {
-        // DERIVED — the learn-surface pillars from services.ts (Academy). The top-level Academy menu
-        // is gone; training is something you come to Resources to do.
         heading: "Academy",
         links: [
-          // No `accent` here on purpose. In the Platform menu every pillar carries one, so the dots
-          // read as a set. Here Academy is the only pillar among plain content links, so a lone dot
-          // reads as an accident rather than emphasis.
           ...resourcePillars.map((s) => ({
             label: s.name,
             href: servicePath(s),
             desc: s.tagline,
           })),
-          { label: "Learning hub", href: "/resources/academy/learn", desc: "Courses and certification levels" },
-          { label: "Certified talent", href: "/company/partners", desc: "Hire or augment with certified people" },
         ],
       },
     ],
