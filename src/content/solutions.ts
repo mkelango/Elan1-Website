@@ -607,11 +607,11 @@ export const solutions: Solution[] = [
       "Fixed Launchpad fee aligned to public-sector procurement, then a government contract plus an assure1 governance retainer. Illustrative; not legal or compliance advice.",
     wedge: "Appropriation control refuses rather than caps. Approval exceeding remaining sanction is refused with no reduced amount proposed.",
     problem: [
-      "When a benefit exceeds the sanctioned budget, the tempting fix is to reduce it to fit. The shortfall then lands on the beneficiary instead of on a revised sanction, and nothing in the record says it happened.",
-      "The ground a decision rests on lives in free text that nothing classifies at the moment of the decision, so a corrupt, political or discriminatory basis surfaces — if at all — in an audit months later.",
-      "An RTI deadline stored as 'days left' is right the morning it is written and wrong the next, with no write to trigger a recompute. That is how a statutory clock runs out while the record still looks compliant.",
-      "A disbursed benefit runs on a verification done once, years ago, and nobody owns the question of whether it still holds.",
-      "Attributes a welfare office lawfully decides on — caste category, income band, disability status — get copied into a general-purpose ledger or analytics store, where they stop being an eligibility basis and become a disparate-impact input for people whose work has nothing to do with the scheme.",
+      "Reduced benefits that fit the budget land the shortfall on the beneficiary, not a revised sanction.",
+      "Decision grounds in free text are never classified at the moment of decision.",
+      "Stored RTI deadline 'days left' drifts stale with no recompute trigger.",
+      "Disbursed benefits run on verification done years ago.",
+      "Eligibility attributes leak into general ledgers as disparate-impact inputs.",
     ],
     composedOfNote: "gov1 composes service1, finance1, sales1, project1, insight1; adds entitlement record: citizen, scheme, application, benefit, appropriation, RTI request, re-verification, attestations.",
     ownRecords: [
