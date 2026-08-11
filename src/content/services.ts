@@ -280,35 +280,35 @@ export const services: Service[] = [
     offerings: [
       {
         title: "The incident kill-switch",
-        description: "One admin action suspends an app's entire agent fleet. It is immediate — an incident stop does not wait in an approval queue — and non-destructive: the enabled set is preserved, so resuming restores the exact prior wave. It survives a restart, and it is written to the hash-chained audit trail. Lifting it expands access again, so lifting it needs a human approval. One limit worth stating: the stop halts the agent fleet. The platform also carries a policy that would refuse a suspended app's direct system-of-record writes, and a test proves it fires — but the control plane registers that policy without the rollout reference the clause needs, so in the shipped wiring it does not engage. The kill-switch stops agents; a direct write through another path is not what it holds.",
+        description: "One action stops agent fleet. Immediate, non-destructive, survives restarts.",
       },
       {
         title: "Rollout waves — off until switched on",
-        description: "A function stays disabled for a tenant until an admin enables it, and a run of a disabled function is refused before it acts: \"finance1.ap_ar not enabled for tenant acme\". The baseline wave turns on 69 functions across 31 modules; everything else in the registry is deliberately off, not missing. The rollout view reconciles the two sides at read and names the gaps — agents registered but enabled nowhere, and enabled entries that name no agent.",
+        description: "Functions disabled by default. Admin enables per tenant. Reconciles gaps at read.",
       },
       {
         title: "The trace and the audit trail are the same record",
-        description: "Observability lists every agent run with status, model, latency and priced cost, and opening a run's trace shows its own chain of audit events — there is no second log to reconcile against the governance record. Runs and cost are read from durable stores, so the figures do not reset when a process restarts, and the reliability count is taken over the whole ledger rather than over the page that was fetched.",
+        description: "Runs and cost from durable stores. No second log to reconcile.",
       },
       {
         title: "FinOps computed from a rate card, not a self-report",
-        description: "Token cost is priced from the platform's own per-model rate card, with prompt-cache reads and writes priced as separate parts of the prompt rather than folded into one number. A model with no rate-card entry is logged and counted as unpriced instead of quietly costing zero. Budgets are per tenant and per period, and changing one is a cost decision that routes through the approval gate and lands in the audit trail. Cost-aware downshifting — dropping a tier as burn rises, never raising it — is available and off by default; a deployment opts in.",
+        description: "Token cost from rate card. Unpriced entries logged. Budgets per tenant/period.",
       },
       {
         title: "A model upgrade is treated as an untested deploy",
-        description: "When the underlying model changes, every agent's behaviour changes on unchanged code. run1 re-runs each certified agent's battery against the model the runtime would actually use, with the roster derived from the registry rather than typed. A lower score revokes that agent's Trust Mark and demotes its autonomy, both on the record. An agent with no battery comes back not measurable — we do not read an absent test as a pass. A read-only behaviour diff shows a person the per-case difference before anything is promoted.",
+        description: "Model change triggers re-verify. Lower score revokes mark, demotes autonomy.",
       },
       {
         title: "An improvement queue that proposes and does not act",
-        description: "Failing eval batteries, drifted or revoked marks, agents with no eval history, running A/B experiments, and cost regressions computed from the priced run log — recent runs against earlier ones — are gathered into one worklist, scoped to your tenant and computed at read. Every item links to a governed action a person takes. Nothing on this surface modifies an agent.",
+        description: "Failing batteries, drifted marks, cost regressions in one worklist. Links to actions.",
       },
       {
         title: "An incident procedure that has been rehearsed",
-        description: "A written runbook: severity ladder, roles, notification targets, containment through the kill-switch endpoint, recovery through a restore drill that recomputes the audit chain per tenant against the restored rows, and a blameless review. It carries a control map to SOC 2 CC7.3 and CC7.4 and ISO 27001 A.5.24 to A.5.26, and a drill log that records exercises without back-dating them. It also names its own gaps in the same document — on-call rotation and escalation are your paging tool plus process, not elan1 code. It is a plan and a rehearsal record, not a certification.",
+        description: "Written runbook, drill log, mapped to SOC 2 & ISO 27001. Blameless review.",
       },
       {
         title: "An ops retainer — people, working through your consoles",
-        description: "If you would rather not staff this, elan1 people take the operating seat: watching runs and traces, working the improve queue, running the drift and model-change sweeps, setting waves and budgets, and tuning prompts and skills as the business changes. Everything they do goes through the same governed, audited paths your own operators use, so the record of who changed what does not depend on who was in the chair. Scoped to your systems and volume. It is a retainer of people, not a separate elan1-run service.",
+        description: "elan1 people monitor, tune, and operate. Same audited paths as your team.",
       },
     ],
     engagementModel:
