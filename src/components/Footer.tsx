@@ -70,6 +70,16 @@ const cols: {
     ],
   },
   {
+    // DERIVED from the Proof mega, like Platform and Resources. Proof is the menu that replaced a
+    // Customers column, and the footer is the surface where a missing entry is least visible — so
+    // it is derived rather than re-listed, for exactly the reason the other three are.
+    heading: "Proof",
+    links: [
+      { label: "See it refuse", href: "/resources/proof", group: true },
+      ...navColumnLinks("Proof").filter((l) => l.href !== "/resources/proof"),
+    ],
+  },
+  {
     heading: "Company",
     links: [
       { label: "About", href: "/company/about" },
@@ -77,7 +87,7 @@ const cols: {
       { label: "Partners", href: "/company/partners" },
       { label: "Newsroom", href: "/company/newsroom" },
       { label: "Pricing", href: "/pricing" },
-      { label: "Diagram library", href: "/resources/diagrams" },
+      { label: "Developers", href: "/developers" },
       { label: "Contact", href: "/contact" },
     ],
   },
