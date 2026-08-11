@@ -62,15 +62,15 @@ export const solutions: Solution[] = [
       "The health1 Launchpad: one flagship workflow (typically prior-authorization) live and under the governance gates, in 4–6 weeks.",
     pricingNote:
       "Fixed Launchpad fee, then per-seat/volume product pricing plus an assure1 governance retainer. Illustrative; not medical, legal, or financial advice.",
-    wedge: "A clinical note whose OWN TEXT asserts a diagnosis, a prescription or a treatment decision has no path to signed status. The clinical write path refuses the write: \"decision-support only — this note asserts a diagnosis or prescription, so it cannot be signed into the record. A clinician writes the clinical decision; the scribe drafts.\".",
+    wedge: "A clinical note whose OWN TEXT asserts a diagnosis, a prescription or a treatment decision cannot reach signed. The write path refuses: \"decision-support only — this note asserts a diagnosis or prescription, so it cannot be signed into the record. A clinician writes the clinical decision; the scribe drafts.\".",
     problem: [
-      "An ambient scribe that drafts well is still a liability if nothing between the draft and the record stops a generated line from being signed as a clinical decision.",
-      "Consent tends to live upstream as a checkbox, not as a condition re-evaluated at the moment a clinical row is created — or amended months later.",
-      "Eligibility verdicts, scrub statuses and quality rates get typed into fields, so nothing downstream can tell a number computed from the record apart from a number someone asserted.",
+      "An ambient scribe that drafts well is a liability if nothing between the draft and the record stops a generated line being signed as a clinical decision.",
+      "Consent lives upstream as a checkbox, not as a condition re-evaluated when a clinical row is created — or amended months later.",
+      "Eligibility verdicts, scrub statuses and quality rates get typed into fields, so nothing downstream can tell a computed number from an asserted one.",
       "\"Nothing matched\" and \"we could not look\" arrive as the same green tick: a lab result with no recorded reference range is not abnormal, and reads as normal.",
-      "Clinical detail drifts sideways into billing, delivery and analytics records as hand-offs widen, and nothing recomputes the boundary to notice.",
+      "Clinical detail drifts sideways into billing, delivery and analytics as hand-offs widen, and nothing recomputes the boundary to notice.",
     ],
-    composedOfNote: "health1 composes finance1, project1 and insight1 — a paid claim posts an AR invoice, an activated care plan opens a care-delivery project, a published quality measure lands a grounded insight — and forks no app code; on top it adds its own 25-type clinical system of record, its own FHIR / ABDM / X12 connectors, and its own care_advisor agent.",
+    composedOfNote: "health1 composes finance1, project1 and insight1 — a paid claim posts an AR invoice, an activated care plan opens a care-delivery project, a published quality measure lands a grounded insight — and forks no app code. On top it adds its own 25-type clinical record, its own FHIR / ABDM / X12 connectors, and its own care_advisor agent.",
     ownRecords: [
       "Patient",
       "Practitioner",
