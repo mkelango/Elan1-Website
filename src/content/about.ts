@@ -59,7 +59,7 @@ import { factLine, factValue, PLATFORM_FACTS_COUNTED_ON } from "./platform-facts
 export const ABOUT_SEO = {
   title: "About elan1 — the gate belongs on the write path | elan1",
   description:
-    "elan1 builds governed agentic business applications. The company is built on one belief: the hard part of an agent is not whether it can act, it is the instant a proposal becomes a record — so the gate belongs on the write path rather than in a review layer beside it. The mechanisms that follow from that, the things it stops us from claiming, and what is not true yet.",
+    "elan1 builds governed agentic business applications. The hard part is not whether an agent can act — it is the instant a proposal becomes a record, so the gate belongs on the write path rather than in a review layer beside it. The mechanisms that follow, and what is not true yet.",
 };
 
 export const ABOUT_HERO = {
