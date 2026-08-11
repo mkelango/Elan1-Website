@@ -283,9 +283,9 @@ const SOURCES: PlaybookSource[] = [
       },
       {
         title: "Test the audit chain on an ordinary Tuesday",
-        body: "The chain is per tenant: each event hashes the one before it, and verification recomputes the chain rather than trusting a flag. On Postgres, updates and deletes to the log are blocked by a database trigger, and a uniqueness constraint on the previous-hash column is what stops a tenant's chain forking. Damage that does occur is recorded as a signed, append-only re-baseline marker rather than quietly repaired. Run the verification routinely, so the first time you read its output is not during an audit.",
+        body: "Each event hashes the one before it per tenant. A database trigger blocks updates and deletes. A uniqueness constraint on predecessor hash stops the chain forking. Run verification routinely.",
         decision: "Who runs verification, how often, and where the result is filed.",
-        trap: "Treating immutability as a property you assume. It is a property you can check, which is the stronger position to be in when someone asks.",
+        trap: "Treating immutability as assumption, not a checkable property.",
       },
       {
         title: "Write the erasure runbook against what the chain actually stores",
