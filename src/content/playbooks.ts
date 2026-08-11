@@ -542,11 +542,11 @@ const SOURCES: PlaybookSource[] = [
       },
     ],
     notCovered: [
-      "Red-team methodology. A harness exists in the platform and nothing in production calls it today, so this playbook will not describe one as if it ran.",
-      "General model evaluation or benchmark scores. These batteries probe one agent against one stated boundary and say nothing about a model in general.",
-      "Independent attestation. No framework certification is held; what this produces is your own evidence, assembled to be checkable.",
-      "Prompt engineering. The pack records the instructions verbatim; it does not teach you to write them.",
-      "Any comparison of these batteries with another vendor's evaluation approach.",
+      "Red-team methodology. A harness exists; nothing in production calls it today.",
+      "General model evaluation or benchmark scores.",
+      "Independent attestation. No framework certification is held.",
+      "Prompt engineering. The pack records instructions verbatim.",
+      "Comparison with another vendor's evaluation approach.",
     ],
   },
 
