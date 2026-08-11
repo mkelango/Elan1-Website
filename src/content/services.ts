@@ -275,7 +275,7 @@ export const services: Service[] = [
     tagline: "Agents in production, with a stop button that holds.",
     promise:
       "Every run on the record. One action stops the fleet.",
-    whoFor: "run1 is the operating layer on the enterprise1 control plane — runs and traces, rate-card FinOps, rollout waves, and an incident kill-switch that refuses an app's writes while it is on. Take the consoles and drive them yourself, or put us on a retainer and we drive them with you.",
+    whoFor: "Teams running agents in production. Operate consoles yourself or put us on retainer.",
     accent: ACCENT.cyan,
     offerings: [
       {
