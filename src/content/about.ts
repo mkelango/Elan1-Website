@@ -183,7 +183,7 @@ export const WHAT_FOLLOWS: Consequence[] = [
   },
   {
     title: "A mark is evidence about the model it was earned on",
-    body: "Move the runtime to a different model and every agent's behaviour changes on unchanged code, so the mark reads stale rather than certified. A sweep re-runs each certified agent's battery against the model the runtime would actually use; a lower score revokes the mark and demotes that agent's autonomy, both on the record. An agent with no battery comes back not measurable — an absent test is not read as a pass.",
+    body: "Move the runtime to a different model and every agent's behaviour changes on unchanged code, so a mark reads stale rather than certified. A sweep re-runs each certified agent's battery against the model the runtime would actually use; a lower score revokes the mark and demotes that agent's autonomy, both on the record. An agent with no battery comes back not measurable — an absent test is not read as a pass.",
   },
 ];
 
