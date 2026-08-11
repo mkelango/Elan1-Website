@@ -320,14 +320,14 @@ export const products: Product[] = [
     hero: {
       headline: "The close runs on agents. The money runs through a human.",
       subhead:
-        "A double-entry system of record — 33 object types, 19 console screens, 15 declared agents — that drafts journals, matches statements, captures payables and assembles GST returns from the posted ledger. Releasing a payment is refused without a human approval.",
+        "33 object types, 15 agents draft journals, match statements, capture payables, assemble GST returns. Payment release requires human approval.",
       primaryCta: "Book a demo",
     },
     problem: [
-      "Month-end close is worked by hand, and nobody can prove the period ties out.",
-      "Payables invoices are keyed twice; the duplicate turns up after it is paid.",
-      "Reports are rebuilt in a spreadsheet, so the board deck and the ledger drift apart.",
-      "Finance automation is all-or-nothing: trust it with the payment run, or leave it off.",
+      "Month-end close by hand — nobody proves period ties out.",
+      "Payables invoices keyed twice; duplicate found after paid.",
+      "Reports rebuilt in spreadsheet — board deck drifts from ledger.",
+      "Finance automation is all-or-nothing.",
     ],
     capabilities: [
       {
