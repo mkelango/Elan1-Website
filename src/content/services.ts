@@ -20,7 +20,7 @@ export const services: Service[] = [
     name: "strategy1",
     tagline: "People plan it; the platform enforces it.",
     promise:
-      "A fixed-scope planning engagement that turns an agentic ambition into a sequenced roadmap — and hands it to a control plane that enables it one function at a time, and refuses the rest.",
+      "Turn agentic ambition into a sequenced roadmap with enforcement built in.",
     whoFor: "For leaders deciding where agents go first, who want the plan and the mechanism that will hold it in the same conversation. strategy1 is delivered by people, not software: there is no strategy1 app to log into.",
     accent: ACCENT.clay,
     offerings: [
