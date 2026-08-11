@@ -270,9 +270,9 @@ const SOURCES: PlaybookSource[] = [
       },
       {
         title: "Maker-checker is a tag plus two people",
-        body: "On an approval a writer has flagged for maker-checker, the principal who requested it cannot also approve it. The refusal is assembled at the moment it fires, out of that principal's identifier and that approval's identifier, so it has no fixed wording for us to quote — what it says, in our own words, is that a segregation-of-duties rule stopped this person approving the request they themselves raised, and that a different approver is required. The administrator role does not bypass it, because it is a control rather than a permission. Untagged approvals are unaffected, so single-principal flows still resolve — which means somebody has to decide which actions carry the tag, and that somebody is you.",
+        body: "The requester cannot also approve when flagged for maker-checker. The refusal names the principal and the approval, and says segregation of duties stopped it. The administrator role does not bypass it — it is a control.",
         decision: "Which actions carry the tag, and which role approves each of them.",
-        trap: "Tagging an action for which only one person in a timezone holds the approving role. The queue then stalls on your rota, and the refusal correctly names your own person.",
+        trap: "Tagging an action for which only one person in your timezone holds the approving role.",
       },
       {
         title: "Set the autonomy ceiling before you loosen anything",
