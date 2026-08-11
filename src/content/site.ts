@@ -318,11 +318,11 @@ export const NAV: NavItem[] = [
       {
         heading: "Learn & Connect",
         links: [
-          { label: "Events", href: "/resources/events", desc: "Conferences and networking events" },
-          { label: "Webinars", href: "/resources/webinars", desc: "Live learning sessions" },
           { label: "Case Studies", href: "/resources/case-studies", desc: "Real customer success stories" },
           { label: "Training", href: "/resources/academy", desc: "Self-paced modules and certification" },
           { label: "Certification", href: "/resources/academy", desc: "Professional agent builder certification" },
+          { label: "Webinars", href: "/resources/webinars", desc: "Live learning sessions" },
+          { label: "Events", href: "/resources/events", desc: "Conferences and networking events" },
           { label: "Glossary", href: "/resources/glossary", desc: "The agentic vocabulary" },
         ],
       },
