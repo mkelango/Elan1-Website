@@ -81,6 +81,29 @@ for (const src of [site, footer]) {
   for (const m of src.matchAll(/to=\{`(\/[^`$]*)\$\{/g)) derivedPrefixes.push(m[1]);
 }
 
+// A pillar's href in the nav is `servicePath(s)` — a FUNCTION CALL, not a literal and not a
+// template, so the two scans above cannot see it. Left unhandled, that reads as an orphan and the
+// obvious "fix" is an ORPHAN_OK entry, which would launder a real check into a rubber stamp for
+// every pillar forever. Resolve the calls instead: read the same slug/home pairs out of
+// services.ts that gen-sitemap.mjs reads, and count them as linked only when site.ts actually
+// calls servicePath. If the roster is unreadable, FAIL rather than silently linking nothing.
+if (/href:\s*servicePath\(/.test(site)) {
+  const services = read("src/content/services.ts");
+  const pillars = [
+    ...services.matchAll(
+      /slug:\s*"([a-z0-9-]+)",\s*\n\s*layer:\s*"service",\s*\n\s*home:\s*"(platform|resources)"/g,
+    ),
+  ];
+  const declared = [...services.matchAll(/^    slug:\s*"([a-z0-9-]+)"/gm)].length;
+  if (pillars.length !== declared) {
+    fail.push(
+      `check-nav: read ${pillars.length} pillar home(s) but services.ts declares ${declared}. ` +
+        `A pillar whose home cannot be read would be reported as an orphan it is not.`,
+    );
+  }
+  for (const [, slug, home] of pillars) linked.add(`/${home}/${slug}`);
+}
+
 const isLinked = (path) =>
   linked.has(path) || derivedPrefixes.some((p) => path.startsWith(p) && path.length > p.length);
 
