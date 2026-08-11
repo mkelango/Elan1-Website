@@ -288,12 +288,9 @@ export const PROOF: CaseStudy[] = [
     industry: "Insurance",
     domain: "Money",
     app: "insure1 · service1 + finance1",
-    before:
-      "Coverage state lives on a different screen from the payout button. The sum insured that three earlier claims already consumed is a number somebody is expected to remember, and the approval that authorised the payment is a field on the same request that asks for it.",
-    after:
-      "A claim can only be approved while its policy is in force; a lapsed or cancelled policy is refused, and the refusal says which. What remains of the coverage is computed from the prior claims against the sum insured, so an exhausted policy has nothing left to pay against. Paying requires that a human already approved the claim on the record — an approval read from the request would be the caller supplying its own permission.",
-    guarantee:
-      "Verbatim: \"a claim can only be approved against an ACTIVE policy (coverage grounding — a lapsed / cancelled policy is not in force)\" · \"a claim cannot be paid unless it has been approved by a human first\" · \"policy coverage is exhausted — prior claims have consumed the sum insured (nothing remains to pay against)\". insure1 holds no ledger of its own: a payout posts as a finance1 invoice through the finance record, downstream of that approval, so the adjudication and the money cannot be recorded in two places that disagree. A grievance opens through service1's own governed writer, and insure1 raises an error rather than bypass it if service1 refuses.",
+    before: "Coverage on different screen; sum insured consumed unknown.",
+    after: "Claim approved only while policy active. Coverage computed from prior claims.",
+    guarantee: "\"claim approved against ACTIVE policy only\" · \"claim cannot be paid unless pre-approved by human\" · \"coverage exhausted\".",
     trustMark: "insure1.claims_triage",
     accent: ACCENT.cyan,
   },
