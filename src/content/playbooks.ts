@@ -374,9 +374,9 @@ const SOURCES: PlaybookSource[] = [
       },
       {
         title: "Read the pack's boundary paragraph before its capability list",
-        body: "Each pack states what it is not. health1 is provider-side — it documents, codes, claims and measures, and does not adjudicate as a payer. Several regulatory alignments are carried as a recorded, audited posture rather than as a block, and the packs say which ones. Reading the boundary first saves the discovery in week three where a capability everyone assumed turns out to be a note.",
+        body: "Each pack states what it is not. Reading the boundary first saves discovery in week three.",
         decision:
-          "Whether the stated boundary is compatible with the first workflow, before the build is scoped.",
+          "Whether the stated boundary is compatible with the first workflow, before build is scoped.",
         trap: "Discovering the boundary after the statement of work is signed.",
       },
     ],
