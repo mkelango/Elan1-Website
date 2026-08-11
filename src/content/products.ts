@@ -94,7 +94,7 @@ export const products: Product[] = [
     suiteFit:
       "Demand hub composing both ways: outbound to finance1, project1, supply1, service1; inbound from market1, service1. Each step keeps own approval gate.",
     trust:
-      "The signature is \"the agent proposes, a human commits\", and the Trust Mark is gated on six eval sets. Eight actions carry their own approval: Closed Won, order-to-cash fulfilment, commission payout, subscription renewal, blanket release, a bulk import commit, any agent move on a record, and a discount above the rep's ceiling. The approval token is bound to the action and a content hash of the payload, and is spent on use. Some writes are immediate, and we name them: a stage move below Closed Won, a next step, a risk flag, a note, a lead score or route, a sequence enrollment, a discount within authority. Those still pass policy evaluation and land in the hash-chained audit, which stores field keys rather than raw values so erasure can be honoured.",
+      "Agent proposes, human commits. Eight actions require approval: Closed Won, order-to-cash, commission, renewal, blanket release, bulk import, any agent move, above-ceiling discount. Approval token bound to action and payload hash. Immediate writes named: stage move, next step, risk flag, note, score, route, enrollment, within-authority discount. All audit via hash-chained trail.",
     workforce: {
       registered: 14,
       launchWave: 4,
