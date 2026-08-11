@@ -130,12 +130,9 @@ export const PROOF: CaseStudy[] = [
     industry: "Across the suite",
     domain: "Money",
     app: "finance1 · the approval gate in enterprise1",
-    before:
-      "A finance automation holds ledger credentials, so the moment a rule matches, the money is gone. The evidence that anyone intended it is a chat thread and somebody's memory of saying yes. A retry after a timeout pays twice. And the person who drafted the entry is often the person who released it, because the four-eyes rule lives in a policy document rather than in the call that posts.",
-    after:
-      "Releasing a payment is classified as a consequential write by the platform's governed system-of-record writer, not by the screen that asked for it: on that path the same predicate evaluates policy, routes the release to a second human, and writes the audit entry whether the request arrives from the console, from the API or from an agent. The same writer holds segregation of duties, so the principal who requested the release cannot be the one who approves it — and the approver's own role does not lift it, because it is a control rather than a permission. The approval is bound to the exact action and to a content hash of the payload the reviewer saw, and is consumed on use, so a yes given for one operation cannot be spent on another.",
-    guarantee:
-      "Verbatim, from the approval gate: \"segregation of duties — {principal} requested approval '{id}' and cannot also approve it; a different approver is required\". From finance1's own registered money policy, which returns no allowance at all without a key: \"money action requires an idempotency_key (no double-posting)\" · \"every payment/commitment requires human approval\". Stated limit, and it is the one that matters most on this card: coverage of the governed path is not universal. A build-time check derived from the router tree counts the mutating handlers that still write to a system of record directly, and holds that count as a ceiling that may only fall. A fully governed write is a direction with a ratchet on it, not a finished claim, and we publish the ratchet rather than the slogan.",
+    before: "Automation holds credentials; money leaves on rule match.",
+    after: "Release routes to approval, binds to payload hash, consumed once.",
+    guarantee: "\"segregation of duties — {principal} requested approval and cannot also approve it; a different approver is required\" · \"money action requires idempotency_key\" · coverage is not universal.",
     registeredAgent: "finance1.ap",
     accent: ACCENT.cyan,
   },
