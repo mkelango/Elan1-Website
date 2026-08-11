@@ -355,6 +355,11 @@ export const NAV: NavItem[] = [
         heading: "Prove",
         links: [
           { label: "Governed patterns", href: "/resources/proof", desc: "Before / after, and the guarantee each one carries" },
+          // 🚨 THIS LINK CLOSED A REAL ORPHAN. /agentic and every /agentic/:slug page under it
+          // rendered, sat in the sitemap, and were reachable from NOTHING — a whole programmatic
+          // section with no way in. Nothing failed: an unlinked page type-checks, builds and
+          // renders perfectly. scripts/check-nav.mjs now fails the build on exactly this.
+          { label: "Agentic use cases", href: "/agentic", desc: "Vertical × use case — what a governed agent does, concretely" },
           { label: "ROI calculator", href: "/for/scaleup", desc: "Size the value, lite" },
           { label: "Glossary", href: "/resources/glossary", desc: "The agentic vocabulary" },
         ],
