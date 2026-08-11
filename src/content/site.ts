@@ -189,7 +189,11 @@ export const NAV: NavItem[] = [
         ],
       },
       {
-        heading: "Trust & governance",
+        // Governance & Assurance: separates two layers of the GAM.
+        // assure1 (L4 — Orchestration & Routing): eval harness, evidence packs, trust mark.
+        // Governance (L5 — Action Layer): policy typing (K7), gating (K5), audit (K6).
+        // They work together: prove the reasoning is sound, then enforce policy on the write.
+        heading: "Governance & Assurance",
         links: [
           pillarLink("assure1", "Evals, evidence packs and the Trust Mark"),
           { label: "Governance — three layers", href: "/platform/governance", desc: "The policy engine, the approval gate, and the hash-chained audit" },
