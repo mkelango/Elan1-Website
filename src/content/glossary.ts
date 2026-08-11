@@ -300,7 +300,7 @@ export const GLOSSARY: Term[] = [
     term: "Policy tag",
     category: "The write path",
     usage: "narrowed",
-    def: "A label an agent spec or a writer attaches to an action. At run time each tag resolves to a registered policy that can allow it, route it to a human, or block it. The load-bearing part is what happens to a tag nobody registered: it routes to a human rather than passing, on the principle that an unregistered policy tag must never silently grant autonomy — and a boot-time check catches unregistered tags in a deployment as a second line.",
+    def: "A label an agent spec or a writer attaches to an action. At run time each tag resolves to a registered policy that can allow it, route it to a human, or block it. The load-bearing part is the tag nobody registered: it routes to a human rather than passing — an unregistered policy tag must never silently grant autonomy — and a boot-time check catches unregistered tags in a deployment as a second line.",
     why: "This is the failure mode that would otherwise be invisible. An agent declaring a consequential tag a deployment forgot to wire would run unsupervised, and nothing on any screen would look wrong.",
     see: ["Governance signature", "Consequential action"],
   },
