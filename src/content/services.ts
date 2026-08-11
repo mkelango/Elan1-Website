@@ -320,7 +320,7 @@ export const services: Service[] = [
       "Ongoing tuning and improvement",
     ],
     whyElan1:
-      "Read the limits alongside the mechanisms. run1 ships no service-level agreement and no on-call rotation engine — paging routes to your own tool and the rotation is a human responsibility, stated as a known-open inside the runbook itself. Of the four alert rules, error rate and p95 latency can fire once an OpenTelemetry collector is wired; the audit-tamper and back-pressure rules have no metric producer yet, so a quiet alert there is not a verdict. Horizontal autoscaling is pinned to a single replica until back-pressure is shared, so today the platform scales vertically. High availability, disaster recovery and SRE ship as logic and manifests: the cluster, the multi-region topology and the backups remain an operator step, and the DR panel reports not measurable — every field null, with the reason — until a restore drill has actually left a receipt. The latency numbers we hold ourselves to are an in-process regression ratchet on a dev seed, never a production SLO, and our load-test harness is deliberately not quoted as evidence because it measures the harness. One incident drill has been recorded, a tabletop. Nothing here has been measured in a customer environment.",
+      "No SLA, no built-in paging. Ops responsibility is yours. Nothing here measured in production yet.",
     outcomes: [
       "An app's agent fleet can be halted in one audited action — immediate, non-destructive, and on the audit trail",
       "A function nobody has enabled cannot run — the refusal lands before the agent acts, with the app and tenant named",
