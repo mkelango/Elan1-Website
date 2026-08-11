@@ -296,7 +296,7 @@ export const EDITORIAL_RULES: EditorialRule[] = [
   },
   {
     title: "The limits are published before the capabilities",
-    body: "No SOC 2 and no ISO 27001 certification is held today, and we say so on the page a buyer reads first rather than in a footnote. Data residency is declared and not enforced by routing. Several capabilities are built and not yet wired, and they are named individually so one of them appearing on your requirements list becomes scope to agree rather than a feature to switch on.",
+    body: "No SOC 2 and no ISO 27001 certification is held today, and we say so on the page a buyer reads first rather than in a footnote. Data residency is declared and not enforced by routing. Several capabilities are built and not yet wired, and each is named, so one of them appearing on your requirements list becomes scope to agree rather than a feature to switch on.",
     href: "/platform/engineering",
     linkLabel: "What is not true yet",
   },
