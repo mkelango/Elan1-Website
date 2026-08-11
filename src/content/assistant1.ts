@@ -61,7 +61,7 @@ export const ASSISTANT_CAPABILITIES: AssistantCapability[] = [
   {
     title: "Injection-screened by construction",
     description:
-      "A real classifier — the same engine used across the platform, not a prompt rule — screens every inbound message for override attempts and refuses them as they arrive. It is tested against an adversarial corpus, including paraphrased attempts.",
+      "Real classifier screens every message; tested against adversarial corpus.",
   },
   {
     title: "It watches itself",
