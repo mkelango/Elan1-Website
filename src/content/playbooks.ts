@@ -221,7 +221,7 @@ const SOURCES: PlaybookSource[] = [
       },
       {
         title: "Hand over an order, not a system",
-        body: "strategy1 is a delivery motion performed by people — there is no strategy1 app, agent, screen or endpoint. What leaves a planning engagement is a document set and an enablement order; standing it up is separate work, and enabling each function in the control plane is an audited admin action gated like any other write. Say this in the handover meeting, because a roadmap mistaken for a deployment is the most expensive misunderstanding on offer.",
+        body: "strategy1 is a delivery motion performed by people — no app, agent, screen or endpoint. What leaves is a document and an enablement order. Enabling each function is a separate audited admin action.",
         decision:
           "Who owns the enablement order after handover, and what their first audited action is.",
         trap: "Assuming the roadmap arrives running.",
