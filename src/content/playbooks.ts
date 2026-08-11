@@ -164,7 +164,7 @@ const SOURCES: PlaybookSource[] = [
     audience: "CEOs, CIOs, transformation leads",
     delivery: "outline-on-this-page",
     outcome:
-      "An enablement order: named functions in the sequence an operator turns them on, the gate at each step, and the refusal that fires if someone runs ahead.",
+      "An enablement order with the sequence, gate, and refusals written before the build starts.",
     accent: "#df8c64",
     steps: [
       {
