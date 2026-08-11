@@ -277,8 +277,8 @@ export const GLOSSARY: Term[] = [
     term: "Approval token",
     category: "The write path",
     usage: "elan1",
-    def: "What an approval actually is: a single-use permission bound both to the named action and to a content-hash fingerprint of the exact payload the reviewer saw, and consumed when it is spent. A token approved for one operation cannot be spent on another, cannot be spent twice, and cannot be spent on an edited version of what was shown.",
-    why: "Without the payload fingerprint an approval is a permission to do something roughly like the thing that was reviewed. With it, the approval is evidence about one specific write.",
+    def: "What an approval actually is: a single-use permission bound both to the named action and to a content-hash fingerprint of the exact payload the reviewer saw, consumed when it is spent. It cannot be spent on another operation, spent twice, or spent on an edited version of what was shown.",
+    why: "Without the payload fingerprint an approval is permission to do something roughly like the thing reviewed. With it, the approval is evidence about one specific write.",
     see: ["Content hash", "Human approval gate"],
   },
   {
