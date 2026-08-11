@@ -174,7 +174,7 @@ export const COMPARISONS: Comparison[] = [
       {
         title: "A platform underneath the agents that has been operated at scale for two decades",
         body:
-          "Flow, Apex, the sharing and permission model, sandboxes, release management, and a certified-administrator labour market you can hire from in any city. Agentforce inherits all of it. elan1 inherits none of it, because elan1 is five years younger than the newest thing on that list.",
+          "Flow, Apex, the sharing and permission model, sandboxes, release management, and a certified-administrator labour market you can hire from in any city. Agentforce inherits all of it. elan1 inherits none of it, because every one of those things is older than elan1 is.",
       },
       {
         title: "The Einstein Trust Layer is a serious answer to the model-side risks",
