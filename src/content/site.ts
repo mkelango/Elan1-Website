@@ -213,7 +213,6 @@ export const NAV: NavItem[] = [
         links: [
           pillarLink("strategy1", "The fixed-scope engagement that plans and lands the work"),
           { label: "Agentic use cases", href: "/agentic", desc: "Vertical × use case — what a governed agent does, concretely" },
-          { label: "Built on Claude", href: "/platform/built-on-claude", desc: "Why Claude-native depth wins" },
           { label: "Why elan1 vs builders", href: "/platform/why-elan1", desc: "Run your business on agents — not just build one" },
         ],
       },
