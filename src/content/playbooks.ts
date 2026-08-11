@@ -296,10 +296,10 @@ const SOURCES: PlaybookSource[] = [
       },
       {
         title: "Read a not-measurable verdict as an unread instrument",
-        body: "There are three verdicts, not two: passed, failed, and not measurable. Not measurable is not a pass — at the promotion gate it is a refusal, and the refusal names which apps are blocking. You will meet it where an app has no eval battery, where a readiness assessment collected no evidence at all, and where a re-run after a model change had no battery to score against. In each case the honest reading is that nothing was measured, which is a different sentence from a clean result.",
+        body: "Three verdicts: passed, failed, not-measurable. Not-measurable is not a pass — it is a refusal at the promotion gate naming which apps are blocking.",
         decision:
-          "What your process does with a not-measurable verdict: write the missing battery, or record the function as ineligible for promotion.",
-        trap: "Filing not-measurable next to passed on a dashboard because neither is red. Absence of a finding is not absence of a problem, and this is precisely where that error is made.",
+          "What your process does with not-measurable: write the missing battery, or record the function ineligible.",
+        trap: "Filing not-measurable next to passed on a dashboard because neither is red.",
       },
       {
         title: "Put the declared-not-enforced list in the risk register on day one",
