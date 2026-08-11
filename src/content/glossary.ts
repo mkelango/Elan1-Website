@@ -252,8 +252,8 @@ export const GLOSSARY: Term[] = [
     term: "Consequential action",
     category: "The write path",
     usage: "narrowed",
-    def: "An action whose effect a person would want to have decided: money moving, a message leaving the building, a record committing, access widening. Something becomes consequential two ways. It is declared — a writer, an agent spec or a connector marks the operation — or, on a connector's declared operations, it is derived: an operation whose leading verb is on the platform's danger list (send, publish, pay, refund, capture, transfer, ship, delete, approve and their kin) is forced to a human even where nobody remembered to mark it. The connectors page sets that classifier out in full.",
-    why: "The corollary is published rather than hidden: an operation whose name carries none of those verbs is not auto-gated, and the platform lists the operations that leaves out as a known-open item rather than implying the gap closed.",
+    def: "An action whose effect a person would want to have decided: money moving, a message leaving the building, a record committing, access widening. It becomes consequential two ways. Declared — a writer, an agent spec or a connector marks the operation. Or, on a connector's declared operations, derived: an operation whose leading verb is on the platform's danger list (send, publish, pay, refund, capture, transfer, ship, delete, approve and their kin) is forced to a human even where nobody marked it. The connectors page sets that classifier out in full.",
+    why: "The corollary is published rather than hidden: an operation whose name carries none of those verbs is not auto-gated, and the platform lists what that leaves out as a known-open item rather than implying the gap closed.",
     see: ["Human approval gate", "Immediate write", "Policy tag", "Idempotency key", "Connector"],
   },
   {
