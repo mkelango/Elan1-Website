@@ -934,7 +934,7 @@ export const solutions: Solution[] = [
       "Student data leaks as prose, not as a column: naming a classmate's grade in a tutoring reply touches no protected field at all.",
       "A term everyone agrees is \"closed\" stays writable until something refuses the write.",
     ],
-    composedOfNote: "Pack.yaml's composes: field reads exactly [customer1, finance1, project1, service1, insight1] — customer1 is the app id that ships as sales1 — and each is verifiable in the code: an admissions enquiry opens a sales1 CRM lead, enrolling posts a finance1 tuition invoice and each fee installment posts another, a published failing grade opens a project1 remediation plan, a support request opens a service1 case, and a published learning metric pushes an insight1 record. On top of those five, edu1 adds what they do not hold: its own higher-education record (fifteen object types, from the academic term through attendance and the fee plan to the Academic Bank of Credits entry), one native agent, and the academic-integrity and student-data refusals that run on its write path.",
+    composedOfNote: "edu1 composes sales1, finance1, project1, service1, insight1; adds education record: learner, course, academic term, enrollment, assignment, attendance, fee structure, tutoring session, grade, credit, attestations.",
     ownRecords: [
       "Learner",
       "Course",
