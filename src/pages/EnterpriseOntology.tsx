@@ -206,7 +206,7 @@ export default function EnterpriseOntology() {
                     {l.refusals && (
                       <div>
                         <span className="font-mono text-[10px] uppercase tracking-kicker text-muted">
-                          {l.refusals.length === 1 ? "What it says" : "What it says"}
+                          What it says when it refuses
                         </span>
                         <div className="mt-2 space-y-3">
                           {l.refusals.map((q) => (
