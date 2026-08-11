@@ -603,14 +603,14 @@ export const products: Product[] = [
     hero: {
       headline: "Offers, payslips and raises stop at a person.",
       subhead:
-        "Hiring, time, payroll, performance and compensation on one HR system of record of 40 object types, with 22 declared agents that draft, score and assemble. Extending an offer, approving a payslip and approving a raise each queue for a named human.",
+        "40 object types, 22 agents draft, score, assemble. Offer, payslip approval, raise approval each queue for named human.",
       primaryCta: "Book a demo",
     },
     problem: [
-      "Hiring runs on unstructured notes, and the reason for a rejection is nowhere on record.",
-      "Payroll, leave, attendance and timesheets sit in separate systems, so the figures disagree.",
-      "Comp rounds run in spreadsheets, with no budget check and no justification attached.",
-      "Fairness is asserted in a policy document and never measured against what the system did.",
+      "Hiring runs on unstructured notes — rejection reason not recorded.",
+      "Payroll, leave, attendance, timesheets in separate systems — figures disagree.",
+      "Comp rounds in spreadsheets — no budget check, no justification.",
+      "Fairness asserted, never measured.",
     ],
     capabilities: [
       {
