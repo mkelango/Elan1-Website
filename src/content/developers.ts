@@ -284,7 +284,7 @@ export const DEV_SURFACES: DevSurface[] = [
     id: "mcp-server",
     name: "elan1 exposed as an MCP server",
     what:
-      "The inverse direction, and the part most platforms skip. The core ships a scope-gated MCP server speaking tools/list and tools/call over JSON-RPC 2.0, with the initialize handshake and a newline-delimited stdio loop. The control plane separately publishes its governed agent catalog as an MCP tool manifest, where every tool carries its autonomy level, whether it requires approval, and its approval tier.",
+      "The inverse direction, governed on the same terms as the first. The core ships a scope-gated MCP server speaking tools/list and tools/call over JSON-RPC 2.0, with the initialize handshake and a newline-delimited stdio loop. The control plane separately publishes its governed agent catalog as an MCP tool manifest, where every tool carries its autonomy level, whether it requires approval, and its approval tier.",
     status: "preview",
     note: `Reaching either one needs a tenant and a bearer token; there is no public endpoint. ${PREVIEW_NOTE}`,
   },
