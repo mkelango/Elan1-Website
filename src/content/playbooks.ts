@@ -201,10 +201,10 @@ const SOURCES: PlaybookSource[] = [
       },
       {
         title: "Name wave two before you turn on wave one",
-        body: "\"Later\" has to be something a system holds, or it becomes a negotiation you have every month. The enabled set is per tenant and durable, so the second wave is a list you write now and an operator applies later as an audited admin action. Write both waves and the criterion for moving between them in the same document, so the argument about scope happens once, in a room, with everyone present.",
+        body: "\"Later\" must be something the system holds. Write both waves and the criterion for moving between them in the same document, so the scope argument happens once.",
         decision:
           "The criterion that moves a function from wave two to wave one — a condition, not a date.",
-        trap: "Shipping wave one with wave two undefined, which turns every subsequent request into a fresh negotiation with no precedent.",
+        trap: "Shipping wave one undefined makes every subsequent request a fresh negotiation.",
       },
       {
         title: "Rehearse the stop, and know exactly what it stops",
