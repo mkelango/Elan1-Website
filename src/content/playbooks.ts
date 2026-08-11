@@ -665,13 +665,13 @@ export const confirmationFor = (p: Playbook): string =>
  */
 export const PLAYBOOK_PAGE_COPY = {
   heroSubtitle:
-    "Practical, trust-first playbooks for adopting agents — the roadmap, governance, per-industry blueprints, FinOps, agent evidence and connector readiness. Published in full, free to read, no form in the way.",
+    "Practical playbooks for adopting agents — roadmap, governance, verticals, FinOps, evidence, connectors. Published in full, free to read.",
   contentsHeading: "What the outline covers",
   outcomeHeading: "What you end up holding",
   notCoveredHeading: "What this deliberately does not cover",
   askOpenLabel: "Ask us to walk you through it",
   askIntro:
-    "There is nothing to download — the whole playbook is above. If you would like a person to take you through it against your own workflow, leave your details and one of us will reply.",
+    "There is nothing to download — the whole playbook is above. If you'd like a person to walk you through it, leave your details.",
   askSubmitLabel: "Ask for a walkthrough",
   privacyFootnote: "We only use your details to reply to this request and follow up once.",
 } as const;
