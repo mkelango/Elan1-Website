@@ -250,10 +250,10 @@ const SOURCES: PlaybookSource[] = [
     steps: [
       {
         title: "Learn the spine before you design anything on top of it",
-        body: "A write that goes through the platform's governed writer crosses the same sequence: the caller's identity is resolved, policy is evaluated, a consequential action stops for a human approval, the action runs, and the decision lands on an append-only, hash-chained audit log. Consequential control-plane operations use the same spine — issuing a programmatic key, publishing a skill, erasing a data subject's record. Your operating model should say where your controls attach to that sequence, rather than standing up a parallel one beside it.",
+        body: "Every write: identity, policy, human approval (if consequential), the action, audit entry. Consequential control-plane operations use the same path. Map your controls onto these steps, not beside them.",
         decision:
-          "Which of your existing controls map onto policy, which onto approval, and which onto evidence.",
-        trap: "Building a governance layer above the product that duplicates the approval gate. You end up with two queues, and one of them is decorative.",
+          "Which of your controls map onto policy, which onto approval, which onto evidence.",
+        trap: "Building a parallel approval gate above the product. You end up with two queues.",
       },
       {
         title: "Decide what counts as consequential, in writing",
