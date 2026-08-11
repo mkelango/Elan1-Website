@@ -366,12 +366,12 @@ export const CORRECTIONS: Correction[] = [
  * Stated plainly, because a journalist will ask and the honest answer is better than a dodge.
  */
 export const WHAT_WE_CANNOT_PROVIDE: string[] = [
-  "Customer names, logos or case studies. We do not have customers to name yet, and we will not imply otherwise.",
-  "Outcome statistics. Nothing has been measured in a customer environment, so any figure would be invented.",
-  "Performance figures — latency, throughput or availability. None would survive being reproduced on your shape of data.",
-  "Funding, valuation or headcount figures.",
+  "Customer names, logos or case studies. None yet.",
+  "Outcome statistics. Nothing measured in production.",
+  "Performance figures. None would be reproducible.",
+  "Funding, valuation or headcount.",
   "Analyst recognition or awards.",
-  "A certification date. Certification inside the product is eval-gated and can withhold, and the external certifications are an auditor's to issue — so we name neither a date nor a quarter.",
+  "Certification dates.",
 ];
 
 /** Where the company actually is, so a piece is not written around an assumption. */
