@@ -621,11 +621,11 @@ const SOURCES: PlaybookSource[] = [
       },
     ],
     notCovered: [
-      "Vendor-specific API guidance. The manifest declares operations; the semantics on the far side belong to that vendor's documentation.",
+      "Vendor-specific API guidance.",
       "Network topology, VPN and private-link design.",
-      "A live-integration count you can quote. What is live depends on the credentials your operator wires, and the dated census on the connectors page is the only number that means anything.",
-      "Data migration. A connector is a seam, not a load.",
-      "Any claim about which systems other platforms do or do not reach.",
+      "A live-integration count you can quote.",
+      "Data migration.",
+      "Claims about which systems other platforms reach.",
     ],
   },
 ];
