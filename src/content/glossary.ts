@@ -194,8 +194,8 @@ export const GLOSSARY: Term[] = [
     term: "Copilot",
     category: "The idea",
     usage: "narrowed",
-    def: "An assistive surface inside a screen: it reads, computes and suggests, and a person acts. Each copilot on the product pages carries one of two labels — advisory, which returns a result and writes nothing, or acts-through-a-gate, which proposes and the owning app's approval gate applies before any write.",
-    why: "There is deliberately no third label. A copilot that wrote unguarded would have nowhere to sit in this vocabulary.",
+    def: "An assistive surface: reads, computes, suggests; a person acts. Either advisory (no write) or acts-through-gate.",
+    why: "No third label. Unguarded writes have nowhere to sit here.",
     see: ["Advisory", "Agent"],
   },
   {
