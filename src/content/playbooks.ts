@@ -393,7 +393,7 @@ const SOURCES: PlaybookSource[] = [
   {
     slug: "finops-playbook",
     title: "The Agent FinOps Playbook",
-    desc: "Running agents on a number you can compute — what is metered and what is not, how a tier gets chosen, the places a zero is not free, and why a cost-down model change goes through the same battery as a safety change.",
+    desc: "What is metered, how tiers are chosen, and why cost-down model changes go through the same battery as safety changes.",
     audience: "Finance, platform, operations",
     delivery: "outline-on-this-page",
     outcome:
