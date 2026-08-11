@@ -744,7 +744,13 @@ export const DEFAULT_COMPARISON_SLUG = COMPARISONS[0].slug;
 export const proofPattern = (id?: string) =>
   id ? PROOF.find((p) => p.id === id) : undefined;
 
-/** The date these comparisons were read against each vendor's public documentation. */
+/**
+ * The date the descriptions on this page were last reviewed.
+ *
+ * DELIBERATELY NOT "the date we read each vendor's documentation". That would be a claim about our
+ * own method that a reader cannot check and that nothing in this repository evidences — which is
+ * exactly the shape of claim the rest of this file refuses to make about someone else.
+ */
 export const COMPARE_ASSESSED_ON = "2026-08-09";
 
 /**
