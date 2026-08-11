@@ -12,7 +12,7 @@ export const solutions: Solution[] = [
     industry: "Healthcare & life sciences",
     tagline: "The scribe drafts. The clinician decides. The write path holds the line.",
     challenge:
-      "A 25-type clinical system of record spanning patient access, revenue cycle, documentation, interoperability and population health. A PHI write without an active patient consent is refused. Eligibility verdicts and quality rates are computed, never typed. Every clinical note is re-classified on every write.",
+      "A clinical system where PHI writes without active consent are refused, eligibility verdicts and quality rates are computed, and clinical notes are re-classified on every write.",
     composedOf: ["finance1", "insight1", "project1"],
     accent: ACCENT.green,
     useCases: [
