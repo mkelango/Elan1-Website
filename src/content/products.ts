@@ -1162,15 +1162,15 @@ export const products: Product[] = [
     hero: {
       headline: "Unified commerce where the money move stops at a person.",
       subhead:
-        "Storefront, POS register, imported marketplace orders and subscription renewals against one commerce system of record — 19 object types. Setting an order paid or refunded is consequential on the write path, so it queues for a human before it lands.",
+        "19 object types: storefront, POS, marketplace orders, subscriptions on one system. Setting order paid or refunded queues for human.",
       primaryCta: "Book a demo",
       secondaryCta: "See it live",
     },
     problem: [
-      "Online and in-store keep separate books, so the same sale is reconciled twice.",
-      "Availability is asserted in one system and read in another, so shelf and storefront disagree.",
-      "Refunds and promo exceptions are decided in chat; who approved what lives nowhere.",
-      "Automation that could charge a card is automation nobody will switch on.",
+      "Online and in-store keep separate books.",
+      "Availability asserted one system, read another.",
+      "Refunds and promos decided in chat.",
+      "Nobody will switch on automation that charges.",
     ],
     capabilities: [
       {

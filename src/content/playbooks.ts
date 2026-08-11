@@ -397,7 +397,7 @@ const SOURCES: PlaybookSource[] = [
     audience: "Finance, platform, operations",
     delivery: "outline-on-this-page",
     outcome:
-      "A cost model that separates the metered part from the assumed part on the same page as the total, a routing policy written per task class, and a migration checklist that stops on a verdict of not measurable.",
+      "A cost model separating metered from assumed parts, routing policy per task class, migration checklist on not-measurable verdicts.",
     accent: "#3fae6b",
     steps: [
       {
