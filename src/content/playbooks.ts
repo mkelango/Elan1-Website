@@ -522,10 +522,10 @@ const SOURCES: PlaybookSource[] = [
       },
       {
         title: "Handle a model change as a second kind of drift",
-        body: "The sweep above catches a definition that moved under a fixed model. The opposite case is a byte-identical agent running on a new model — effectively an untested redeploy of the whole surface. A detected model change re-runs the agent's eval and classifies the result as unchanged, clean, regressed, or not measurable. A regression is strictly a lower score across two numbers that both exist; a comparison against nothing is not a regression, and an unknown baseline is not treated as a change at all.",
+        body: "A byte-identical agent on a new model is an untested redeploy. Re-run the eval. Regression = lower score across two existing numbers.",
         decision:
           "Whether a model change is allowed to reach production before the re-run completes.",
-        trap: "Reading \"not regressed\" as \"fine\" when one of the two numbers was missing.",
+        trap: "Reading \"not regressed\" as \"fine\" when one number was missing.",
       },
       {
         title: "Do something specific with not measurable",
