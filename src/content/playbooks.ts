@@ -182,10 +182,10 @@ const SOURCES: PlaybookSource[] = [
       },
       {
         title: "Choose the first workflow by the refusal it needs",
-        body: "Rank candidates on four questions, not on value. Does the work have a system of record, or a spreadsheet? Is there a named human who owns the commitment today? Can you write what the agent must never do as one sentence? Would a wrong answer be visible within a day? Fail the first two and the agent is grounded in nothing; fail the third and there is no gate to build — you cannot govern a boundary you cannot state.",
+        body: "Rank on four questions: Is there a system of record? A named owner? A one-sentence boundary for what the agent must never do? Would failure be visible within a day? Fail any two and the workflow is not ready.",
         decision:
           "The one sentence naming what the agent must never do — written before the build is scoped.",
-        trap: "Picking the highest-value workflow whose record is a shared spreadsheet, then discovering that grounding was the whole project.",
+        trap: "Picking value-first and discovering grounding was the whole project.",
       },
       {
         title: "Split the workflow at the commitment",

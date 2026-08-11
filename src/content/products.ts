@@ -105,12 +105,12 @@ export const products: Product[] = [
       note: "sales1 owns its records rather than syncing someone else's — lead through quote, order, subscription and commission. A create outside the 29 is rejected by name.",
     },
     copilots: [
-      { name: "Conversation intelligence", mode: "acts-through-a-gate", does: "Talk ratio, next steps, risk signals and MEDDIC out of six, from a pasted transcript." },
-      { name: "Deal intelligence", mode: "advisory", does: "Win probability from stage, engagement and age, all three components shown." },
-      { name: "RevOps analytics", mode: "advisory", does: "Win rate, stage mix, deal age, open and won value. Computed at read, nothing stored." },
-      { name: "Lead score and enrich", mode: "acts-through-a-gate", does: "Scores live and shows which criteria matched. Never overwrites a human-set value." },
-      { name: "Guided playbook", mode: "advisory", does: "The playbook for the deal's stage: guidance, never an autonomous move." },
-      { name: "Cadence worklist", mode: "advisory", does: "Steps due, due-first. A send waits for a one-tap confirm." },
+      { name: "Conversation intelligence", mode: "acts-through-a-gate", does: "Talk ratio, next steps, risk signals, MEDDIC from transcript." },
+      { name: "Deal intelligence", mode: "advisory", does: "Win probability from stage, engagement, age." },
+      { name: "RevOps analytics", mode: "advisory", does: "Win rate, stage mix, deal age, values. Computed, never stored." },
+      { name: "Lead score and enrich", mode: "acts-through-a-gate", does: "Scores live, shows matched criteria. Never overwrites human value." },
+      { name: "Guided playbook", mode: "advisory", does: "Stage playbook: guidance only." },
+      { name: "Cadence worklist", mode: "advisory", does: "Due steps, due-first. Send needs confirm." },
     ],
     automations: [
       { name: "account_research", trigger: "cron:nightly", does: "Keeps the 360 account brief current. Read and enrich only." },
