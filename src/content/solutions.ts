@@ -986,7 +986,7 @@ export const solutions: Solution[] = [
     industry: "Energy & utilities",
     tagline: "Humans control the grid. The record controls the number.",
     challenge:
-      "energy1 is a DER, metering and net-metering system of record for India-first renewable and distribution operations. A dispatch that auto-dispatches, overrides protection or targets an isolated asset is refused on every write. A certificate's MWh is derived from the meter reading. A settlement's money is derived from a recorded tariff. None of the three is a field anyone can type.",
+      "DER, metering and net-metering system where auto-dispatches are refused on every write; certificate MWh and settlement money are derived, never typed.",
     composedOf: ["finance1", "insight1", "project1", "sales1", "service1", "supply1"],
     accent: ACCENT.clayDeep,
     useCases: [
