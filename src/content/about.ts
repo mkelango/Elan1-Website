@@ -272,7 +272,7 @@ export interface EditorialRule {
 export const EDITORIAL_RULES: EditorialRule[] = [
   {
     title: "A number comes from one place, with its derivation attached",
-    body: "No page hand-types a platform count. Every figure resolves from a single file that carries how it was counted and the date it was counted, because the alternative has already failed here: a page once ran wrong in both directions at once — understating the apps and the agents by roughly forty percent while overstating the connectors — on the very page meant to establish credibility. And where a count had no agreed definition, because three separate derivations produced three different answers, the number was removed rather than chosen.",
+    body: "No page hand-types a platform count. Every figure resolves from one file carrying how it was counted and when, because the alternative has already failed here: a page once ran wrong in both directions at once — understating the apps and the agents by roughly forty percent while overstating the connectors — on the page meant to establish credibility. Where a count had no agreed definition, because three derivations produced three answers, the number was removed rather than chosen.",
     href: "/company/newsroom",
     linkLabel: "The attributable facts",
   },
