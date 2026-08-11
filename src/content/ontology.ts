@@ -195,17 +195,17 @@ export const ONTOLOGY_LAYERS: OntologyLayer[] = [
   {
     id: "governed-write",
     name: "The validated write",
-    what: "A structure is only worth declaring if something reads it before the record lands. One governed writer stands in front of each system of record and runs the same ordered sequence whether the write arrives from a screen, from the API or from an agent: the shape gate first — the object type, then its declared value domains — followed by derived safety fields computed from the record's own contents, the app's own invariants, natural-key uniqueness, the referential check, and only then policy, the human approval gate where the write is consequential, and the audit entry.",
+    what: "Shape gate first, then derived safety fields, uniqueness, referential check, policy, approval, audit.",
     howItShips:
-      "The order is the argument. The shape gate runs ahead of everything, including the derive, so that a refusal names the caller's own mistake rather than whatever the derive made of it. A derived field is computed from the record rather than accepted from the request, which is the only reason it is worth gating on — an asset cannot declare itself compliant, and a metric cannot declare itself grounded. Uniqueness applies to the business identifier a record carries, not only to the synthetic id. An update that cannot find its target raises rather than quietly creating one: an update never creates.",
+      "Order matters: shape gates all derives. Derived fields read record not request. Update never creates.",
     verified:
-      "Read from the writer itself. The sequence above is the order the checks appear in its write method, each refusal below is that method's own text, and each refusal is written to the audit trail as a blocked decision rather than returned silently to the caller.",
+      "Read from writer: check sequence, refusals logged to audit trail as blocked decisions.",
     refusals: [
-      "{object_type}.{key}={value} already exists (record {id}) — natural key must be unique",
-      "{object_type}.{key}={value} references a {target} that does not exist in {sor} — a governed write may not create a dangling reference",
+      "{object_type}.{key}={value} already exists — natural key must be unique",
+      "{object_type}.{key}={value} references missing {target} — dangling references forbidden",
     ],
     limit:
-      "The referential check is narrowly scoped and says so: it enforces a link only when the target type belongs to the same system of record, because checking a cross-system link against the wrong repository would refuse legitimate writes — those are left to a periodic sweep. Its resting posture audits a new dangling link rather than blocking it, since the current corpus still legitimately creates some; blocking is an operator's opt-in. There are no database foreign keys underneath. This gate is what stands in for them at the moment of writing, and a gate is a weaker thing than a constraint.",
+      "Referential check within same SoR only; audits new dangling links by default. No database FKs.",
     seeAlso: { label: "The governance model", href: "/platform/governance" },
     accent: ACCENT.cyan,
   },
