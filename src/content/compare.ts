@@ -412,22 +412,22 @@ export const COMPARISONS: Comparison[] = [
       {
         title: "The retrieval graph is genuinely excellent, and permission-faithful search is hard",
         body:
-          "Mirroring every source system's access-control lists into an index, keeping them current as they change, and still returning a good ranked answer is one of the harder problems in enterprise software. Glean solved it well and early. Nothing elan1 ships makes that problem easier for anyone else.",
+          "Mirroring ACLs and keeping current with good answers is a hard problem. Glean solved it well early. Nothing we ship makes it easier.",
       },
       {
         title: "They treat agents as things to be governed, and shipped the governance",
         body:
-          "Glean now ships agent governance around its agent builder rather than leaving it as a customer exercise. That is the correct posture and they took it before it was a procurement requirement. We say this plainly because the opposite framing — a retrieval vendor with no governance story — would be untrue.",
+          "Glean ships governance around agents, not leaving it to customer. Correct posture taken early.",
       },
       {
         title: "Breadth of sight, and time to value",
         body:
-          "An index over what you already have produces something people use within weeks, without moving a record or changing a process. It reads across systems elan1 does not connect to and never will, and the value does not depend on adopting a new operating record.",
+          "Index over what you have produces weeks of value; no record move needed. Reads systems we don't connect to.",
       },
       {
         title: "The corpus improves without a migration",
         body:
-          "Every new source connected makes the answers better, and nothing about the source has to change. That compounding curve is very hard to compete with on the retrieval axis, and we do not try to.",
+          "New sources improve answers; nothing on source changes. Compounding curve hard to match on retrieval.",
       },
     ],
     whenToPickThem:
