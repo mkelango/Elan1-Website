@@ -118,7 +118,7 @@ export const THESIS: ThesisMovement[] = [
   {
     n: "01",
     title: "Getting an agent to act is no longer the difficult half.",
-    body: "Frontier models, an agent SDK, tool protocols and reusable skills turned “can it plan, call a tool and finish the job” into ordinary engineering. A convincing demonstration that drafts, reconciles, reorders or books is now a short piece of work. That shift is real, and it is genuinely not what this company is about.",
+    body: "Frontier models, an agent SDK, tool protocols and reusable skills turned “can it plan, call a tool and finish the job” into ordinary engineering. A demonstration that drafts, reconciles or reorders is now a short piece of work. That shift is real, and it is not what this company is about.",
   },
   {
     n: "02",
