@@ -177,6 +177,16 @@ for (const a of insightEntries) {
   });
 }
 
+// Comparisons — each entry is a real page; /compare itself redirects and is not prerendered.
+const compareEntries = extractSlugsAndNames("compare.ts");
+for (const c of compareEntries) {
+  routes.set(`/compare/${c.slug}`, {
+    title: `elan1 vs ${c.name} | elan1`,
+    description: `How elan1 compares to ${c.name} — including where they lead, and when to pick them instead.`,
+    breadcrumbs: [{ name: "Proof", href: "/resources/proof" }],
+  });
+}
+
 // Use cases
 const usecaseEntries = extractSlugsAndNames("usecases.ts");
 for (const u of usecaseEntries) {
