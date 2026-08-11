@@ -613,7 +613,7 @@ export const solutions: Solution[] = [
       "A disbursed benefit runs on a verification done once, years ago, and nobody owns the question of whether it still holds.",
       "Attributes a welfare office lawfully decides on — caste category, income band, disability status — get copied into a general-purpose ledger or analytics store, where they stop being an eligibility basis and become a disparate-impact input for people whose work has nothing to do with the scheme.",
     ],
-    composedOfNote: "gov1 composes five built apps unchanged and forks none of them: service1 (the citizen case queue — a grievance opens a real service1 case through service1's own governed writer, and gov1 owns no resolution engine, no CSAT, no first-response time), finance1 (the disbursement leg posts as an AP invoice), sales1 (a scheme inquiry opens a CRM lead), project1 (an escalated grievance opens an investigation) and insight1 (a published scheme metric lands as a grounded insight). What gov1 adds on top is the public entitlement record none of them owns — citizen, scheme, application, benefit, appropriation, RTI request, re-verification, plus the five attestations behind them — and the write-path refusals that make an official's signature the only way an entitlement moves.",
+    composedOfNote: "gov1 composes service1, finance1, sales1, project1, insight1; adds entitlement record: citizen, scheme, application, benefit, appropriation, RTI request, re-verification, attestations.",
     ownRecords: [
       "Citizen",
       "Scheme",
