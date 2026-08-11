@@ -68,14 +68,14 @@ export const LAYERS: Record<
  * consumed by BOTH the Platform mega-menu and the /platform hub page, so the two can never diverge.
  */
 export const APPROACH_LINKS: NavLink[] = [
-  { label: "What is agentic transformation?", href: "/what-is-agentic-transformation" },
-  { label: "Why elan1 vs builders", href: "/platform/why-elan1" },
-  { label: "The \u201C1\u201D philosophy", href: "/platform/the-1-philosophy" },
-  { label: "The flywheel", href: "/platform/flywheel" },
-  { label: "Governance \u2014 three layers", href: "/platform/governance" },
-  { label: "Trust, safety & governance", href: "/trust" },
-  { label: "Built on Claude", href: "/platform/built-on-claude" },
-  { label: "Security & compliance", href: "/trust" },
+  { label: "What is agentic transformation?", href: "/what-is-agentic-transformation", desc: "The category, the shift, the maturity curve, why now" },
+  { label: "Why elan1 vs builders", href: "/platform/why-elan1", desc: "Run your business on agents — not just build one" },
+  { label: "The \u201C1\u201D philosophy", href: "/platform/the-1-philosophy", desc: "Number one \u00B7 one-to-one \u00B7 all-as-one" },
+  { label: "The flywheel", href: "/platform/flywheel", desc: "How value compounds across the layers" },
+  { label: "Governance \u2014 three layers", href: "/platform/governance", desc: "Defense-in-depth, provable & exportable" },
+  { label: "Trust, safety & governance", href: "/trust", desc: "How every agent is built, approved and audited" },
+  { label: "Built on Claude", href: "/platform/built-on-claude", desc: "Why Claude-native depth wins" },
+  { label: "Security & compliance", href: "/trust", desc: "Data handling, residency, certifications" },
 ];
 export interface NavLink {
   label: string;
@@ -109,7 +109,8 @@ const productCategoryColumns: NavColumn[] = categories.map((c) => ({
     // apps beneath it — an identical dot flattened that hierarchy.
     {
       label: `${c.name} overview`,
-      href: `/products/category/${c.slug}`app" : "apps"} · gate: ${c.gate.kind.toLowerCase()}`,
+      href: `/products/category/${c.slug}`,
+      desc: `${c.apps.length} ${c.apps.length === 1 ? "app" : "apps"} · gate: ${c.gate.kind.toLowerCase()}`,
     },
     ...appsOf(c).map((p) => ({
       label: p.name,
@@ -141,7 +142,7 @@ function pillarLink(slug: string, desc?: string): NavLink {
       `site.ts: no platform pillar "${slug}" in services.ts — the Platform mega would ship a dead link.`,
     );
   }
-  return { label: s.name, href: servicePath(s), accent: s.accent };
+  return { label: s.name, href: servicePath(s), desc: desc ?? s.tagline, accent: s.accent };
 }
 
 /**
@@ -173,9 +174,9 @@ export const NAV: NavItem[] = [
         // `desc` rather than as a link to nowhere: a nav entry is a promise that a page exists.
         heading: "The control plane",
         links: [
-          { label: "enterprise1", href: "/platform/enterprise1", accent: "#b9603f" },
-          { label: "assistant1", href: "/platform/assistant1", accent: "#5ad1c0" },
-          pillarLink("agent1"),
+          { label: "enterprise1", href: "/platform/enterprise1", desc: "Governance, identity, audit and wave rollout for every app", accent: "#b9603f" },
+          { label: "assistant1", href: "/platform/assistant1", desc: "The governed central assistant — it proposes, the app decides", accent: "#5ad1c0" },
+          pillarLink("agent1", "The studio where a governed agent is built, evaluated and compiled"),
         ],
       },
       {
@@ -185,35 +186,35 @@ export const NAV: NavItem[] = [
         // second place in someone else's word is worth nothing.
         heading: "Enterprise Ontology",
         links: [
-          { label: "The record model", href: "/platform/enterprise-ontology", accent: "#2f6df0" },
-          { label: "Connectors — MCP-native", href: "/platform/connectors" },
-          { label: "Verticals are config, not forks", href: "/platform/verticals-are-config" },
+          { label: "The record model", href: "/platform/enterprise-ontology", desc: "Typed objects across the systems of record — what a write is validated against", accent: "#2f6df0" },
+          { label: "Connectors — MCP-native", href: "/platform/connectors", desc: "Typed, least-privilege seams; credential-gated, never pre-connected" },
+          { label: "Verticals are config, not forks", href: "/platform/verticals-are-config", desc: "Ten industries, zero forked application code" },
         ],
       },
       {
         heading: "Trust & governance",
         links: [
-          pillarLink("assure1"),
-          { label: "Governance — three layers", href: "/platform/governance" },
-          { label: "Governed patterns", href: "/resources/proof" },
-          { label: "Trust Center", href: "/trust" },
+          pillarLink("assure1", "Evals, evidence packs and the Trust Mark"),
+          { label: "Governance — three layers", href: "/platform/governance", desc: "The policy engine, the approval gate, and the hash-chained audit" },
+          { label: "Governed patterns", href: "/resources/proof", desc: "Before / after, and the guarantee each one carries" },
+          { label: "Trust Center", href: "/trust", desc: "Principles, governance signatures, security and certification posture" },
         ],
       },
       {
         heading: "Operate",
         links: [
-          pillarLink("run1"),
-          { label: "Engineering & readiness", href: "/platform/engineering" },
-          { label: "Platform overview", href: "/platform" },
+          pillarLink("run1", "Operations, token metering and FinOps, eval-gated model migration"),
+          { label: "Engineering & readiness", href: "/platform/engineering", desc: "Identity, isolation, audit, retention, DR — and the limits, stated" },
+          { label: "Platform overview", href: "/platform", desc: "How the control plane and the pillars fit" },
         ],
       },
       {
         heading: "Build & prove",
         links: [
-          pillarLink("strategy1"),
-          { label: "Agentic use cases", href: "/agentic" },
-          { label: "Built on Claude", href: "/platform/built-on-claude" },
-          { label: "Why elan1 vs builders", href: "/platform/why-elan1" },
+          pillarLink("strategy1", "The fixed-scope engagement that plans and lands the work"),
+          { label: "Agentic use cases", href: "/agentic", desc: "Vertical × use case — what a governed agent does, concretely" },
+          { label: "Built on Claude", href: "/platform/built-on-claude", desc: "Why Claude-native depth wins" },
+          { label: "Why elan1 vs builders", href: "/platform/why-elan1", desc: "Run your business on agents — not just build one" },
         ],
       },
       {
@@ -245,9 +246,9 @@ export const NAV: NavItem[] = [
       {
         heading: "The suite, end to end",
         links: [
-          { label: "The 1 Suite overview", href: "/products" },
-          { label: "Agentic apps vs. copilots", href: "/what-is-agentic-transformation" },
-          { label: "The record model", href: "/platform/enterprise-ontology" },
+          { label: "The 1 Suite overview", href: "/products", desc: "Five categories, one platform" },
+          { label: "Agentic apps vs. copilots", href: "/what-is-agentic-transformation", desc: "Why apps that act beat tools that wait" },
+          { label: "The record model", href: "/platform/enterprise-ontology", desc: "The typed structure every app writes through" },
         ],
       },
     ],
@@ -271,22 +272,24 @@ export const NAV: NavItem[] = [
           ...primarySolutions.map((s) => ({
             label: s.name,
             href: `/solutions/${s.slug}`,
+            desc: s.industry,
             accent: s.accent,
           })),
           {
             label: "More industries",
             href: "/solutions",
+            desc: `${secondarySolutions.map((s) => s.name).join(", ")}`,
           },
         ],
       },
       {
         heading: "By initiative",
         links: [
-          { label: "Agentic transformation", href: "/solutions/initiatives/agentic-transformation", accent: "#df8c64" },
-          { label: "Customer experience", href: "/solutions/initiatives/customer-experience", accent: "#2f6df0" },
-          { label: "Cost & FinOps", href: "/solutions/initiatives/cost-finops", accent: "#3fae6b" },
-          { label: "Compliance & governance", href: "/solutions/initiatives/compliance", accent: "#e0656d" },
-          { label: "Legacy modernization", href: "/solutions/initiatives/legacy-modernization", accent: "#7c6cf0" },
+          { label: "Agentic transformation", href: "/solutions/initiatives/agentic-transformation", desc: "From AI to an agentic org", accent: "#df8c64" },
+          { label: "Customer experience", href: "/solutions/initiatives/customer-experience", desc: "Resolve, personalize, grow", accent: "#2f6df0" },
+          { label: "Cost & FinOps", href: "/solutions/initiatives/cost-finops", desc: "More, for less", accent: "#3fae6b" },
+          { label: "Compliance & governance", href: "/solutions/initiatives/compliance", desc: "Deploy with evidence", accent: "#e0656d" },
+          { label: "Legacy modernization", href: "/solutions/initiatives/legacy-modernization", desc: "Wrap, don't rip", accent: "#7c6cf0" },
         ],
       },
     ],
@@ -304,31 +307,31 @@ export const NAV: NavItem[] = [
       {
         heading: "Help Center",
         links: [
-          { label: "Blog", href: "/resources/insights" },
-          { label: "Guides", href: "/resources/guides" },
-          { label: "Templates", href: "/resources/templates" },
-          { label: "Playbooks", href: "/resources/playbooks" },
-          { label: "Whitepapers", href: "/resources/whitepapers" },
-          { label: "Reports", href: "/resources/reports" },
+          { label: "Blog", href: "/resources/insights", desc: "Agentic transformation insights" },
+          { label: "Guides", href: "/resources/guides", desc: "Step-by-step howtos and best practices" },
+          { label: "Templates", href: "/resources/templates", desc: "Pre-built agent templates" },
+          { label: "Playbooks", href: "/resources/playbooks", desc: "Implementation guides from discovery to scale" },
+          { label: "Whitepapers", href: "/resources/whitepapers", desc: "Technical insights and research" },
+          { label: "Reports", href: "/resources/reports", desc: "Market analysis and case studies" },
         ],
       },
       {
         heading: "Learn & Connect",
         links: [
-          { label: "Case Studies", href: "/resources/case-studies" },
-          { label: "Training", href: "/resources/academy" },
-          { label: "Certification", href: "/resources/academy" },
-          { label: "Webinars", href: "/resources/webinars" },
-          { label: "Events", href: "/resources/events" },
-          { label: "Glossary", href: "/resources/glossary" },
+          { label: "Case Studies", href: "/resources/case-studies", desc: "Real customer success stories" },
+          { label: "Training", href: "/resources/academy", desc: "Self-paced modules and certification" },
+          { label: "Certification", href: "/resources/academy", desc: "Professional agent builder certification" },
+          { label: "Webinars", href: "/resources/webinars", desc: "Live learning sessions" },
+          { label: "Events", href: "/resources/events", desc: "Conferences and networking events" },
+          { label: "Glossary", href: "/resources/glossary", desc: "The agentic vocabulary" },
         ],
       },
       {
         heading: "Developers",
         links: [
-          { label: "API Documentation", href: "/platform/engineering" },
-          { label: "SDKs", href: "/platform/engineering" },
-          { label: "Connectors", href: "/platform/connectors" },
+          { label: "API Documentation", href: "/platform/engineering", desc: "Complete API reference with examples" },
+          { label: "SDKs", href: "/platform/engineering", desc: "Python, JavaScript, Go, Java" },
+          { label: "Connectors", href: "/platform/connectors", desc: "50+ MCP connectors" },
         ],
       },
 
@@ -347,20 +350,20 @@ export const NAV: NavItem[] = [
       {
         heading: "elan1",
         links: [
-          { label: "About", href: "/company/about" },
-          { label: "Careers", href: "/company/careers" },
-          { label: "Newsroom", href: "/company/newsroom" },
+          { label: "About", href: "/company/about", desc: "Why the gate belongs on the write path" },
+          { label: "Careers", href: "/company/careers", desc: "What the work is, and how we build" },
+          { label: "Newsroom", href: "/company/newsroom", desc: "Boilerplate, brand assets, attributable facts" },
         ],
       },
       {
         heading: "Connect",
         links: [
-          { label: "Partners", href: "/company/partners" },
-          { label: "Contact", href: "/contact" },
+          { label: "Partners", href: "/company/partners", desc: "Build on the core, certify before you list" },
+          { label: "Contact", href: "/contact", desc: "Talk to an expert" },
           // Trust belongs one click from every page in a trust sale. It is ALSO in the Platform and
           // Proof menus and in the footer -- deliberate duplication: a buyer hunting for it does not
           // know which of the three menus we happened to file it under.
-          { label: "Trust Center", href: "/trust" },
+          { label: "Trust Center", href: "/trust", desc: "How every agent is built, approved and audited" },
         ],
       },
     ],
