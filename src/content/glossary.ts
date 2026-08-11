@@ -438,7 +438,7 @@ export const GLOSSARY: Term[] = [
     term: "Cite-or-refuse",
     category: "Grounding",
     usage: "elan1",
-    def: "Answer only from retrieved knowledge, cite all claims, decline if ungrounded. service1 agent can retrieve, cannot act. assistant1 declines ungro unded answers.",
+    def: "Answer only from retrieved knowledge, cite all claims, decline if ungrounded. service1 agent can retrieve, cannot act. assistant1 declines ungrounded answers.",
     see: ["Grounded", "assistant1"],
   },
   {
