@@ -13,7 +13,8 @@
     "check:seo": "node scripts/check-seo.mjs",
     "lhci": "lhci autorun",
     "gen:redirects": "node scripts/gen-redirects.mjs",
-    "check:redirects": "node scripts/check-redirects.mjs"
+    "check:redirects": "node scripts/check-redirects.mjs",
+    "check:nav": "node scripts/check-nav.mjs"
   },
   "dependencies": {
     "framer-motion": "^11.3.0",
