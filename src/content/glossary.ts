@@ -202,7 +202,7 @@ export const GLOSSARY: Term[] = [
     term: "Advisory",
     category: "The idea",
     usage: "elan1",
-    def: "A declaration that a thing recommends and never acts. In agent1 it is enforced when the agent is built rather than by convention: a blueprint marked advisory may hold none of the platform's control-system connectors, and the compiler raises instead of building it. Its instruction is stamped with the advisory-only line, and stamped the same way every time so republishing does not churn the content hash and silently revoke its Trust Mark.",
+    def: "A declaration that a thing recommends and never acts, enforced at build time in agent1 rather than by convention: an advisory blueprint may hold none of the platform's control-system connectors, and the compiler raises instead of building it. Its instruction is stamped with the advisory-only line the same way every time, so republishing does not churn the content hash and silently revoke its Trust Mark.",
     why: "In an industrial or clinical setting the question is not what the model says. It is whether it can reach anything that moves.",
     see: ["Blueprint", "Content hash"],
   },
