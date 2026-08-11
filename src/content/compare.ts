@@ -513,7 +513,7 @@ export const COMPARISONS: Comparison[] = [
         them:
           "A person, through the suite's approval workflow — configured per document type and per threshold, and generally recorded alongside the action it authorised.",
         us:
-          "A person, at one gate, and the approval is what executes rather than what is filed. It is single-use, bound to the exact action, and matched against a content hash of the payload the reviewer saw, so an approval given for one operation cannot be spent on another. Segregation of duties lives in the same writer, and the administrator role does not lift it.",
+          "A person, at one gate, and the approval is what executes rather than what is filed. It is single-use, bound to the exact action, and matched against a content hash of the payload the reviewer saw, so an approval given for one operation cannot be spent on another. Where a writer flags a write maker-checker — the payment release and the commerce refund today — segregation of duties lives in that same gate, and the administrator role does not lift it.",
       },
       {
         dim: "What happens on rollback or incident",
