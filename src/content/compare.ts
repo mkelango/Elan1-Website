@@ -232,9 +232,9 @@ export const COMPARISONS: Comparison[] = [
     subhead:
       "Two jobs: drafting/summarizing (M365) and landing writes (systems of record). Only writes need approval gates.",
     theirModel:
-      "Microsoft 365 Copilot grounds on the Microsoft Graph — your mail, files, chats, meetings and the permissions already attached to them — and answers inside the applications people have open all day. Copilot Studio is the builder alongside it: agents assembled from topics, knowledge sources and actions over the Power Platform connector catalog, with Dataverse as their store. Governance is the enterprise governance Microsoft already sells you: Entra for identity and conditional access, environments and data-loss-prevention policies to constrain which connectors an agent may combine, Purview for classification, retention, eDiscovery and audit. For a business record that lives in Dynamics 365, in SAP or in a line-of-business database, the agent reaches it through a connector, and the write lands under that system's own permission model.",
+      "M365 Copilot grounds on Graph (mail, files, chats, meetings, permissions). Copilot Studio: agents from topics/knowledge/actions over Power Platform connectors, Dataverse store. Entra, DLP, Purview govern. Records in Dynamics/SAP/LOB via connector under system's permission model.",
     ourModel:
-      `elan1 owns the business record rather than reaching it. ${factValue("systemsOfRecord")} systems of record, each behind a governed writer where identity, policy, the human approval gate and the audit append happen in that order — so the control does not have to be re-argued at each connector boundary. The approval is a single-use token bound to the exact action and to a content hash of the payload the reviewer saw. And the audit is not a log of what the agent asked for: it is the record before the change, the policy that fired, the approver, and a per-tenant hash chain that recomputes.`,
+      `elan1 owns business record. ${factValue("systemsOfRecord")} systems each behind governed writer: identity, policy, approval gate, audit in order. Token single-use, bound to action and content-hash of reviewed payload. Audit: prior record, policy fired, approver, per-tenant hash chain.`,
     dimensions: [
       {
         dim: "Where the record lives",
