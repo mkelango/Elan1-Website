@@ -70,7 +70,7 @@ export const solutions: Solution[] = [
       "\"Nothing matched\" and \"we could not look\" arrive as the same green tick: a lab result with no recorded reference range is not abnormal, and reads as normal.",
       "Clinical detail drifts sideways into billing, delivery and analytics as hand-offs widen, and nothing recomputes the boundary to notice.",
     ],
-    composedOfNote: "health1 composes finance1, project1 and insight1 — a paid claim posts an AR invoice, an activated care plan opens a care-delivery project, a published quality measure lands a grounded insight — and forks no app code. On top it adds its own 25-type clinical record, its own FHIR / ABDM / X12 connectors, and its own care_advisor agent.",
+    composedOfNote: "health1 composes finance1, project1, insight1; adds its own 25-type clinical record, FHIR/ABDM/X12 connectors, and care_advisor agent.",
     ownRecords: [
       "Patient",
       "Practitioner",
