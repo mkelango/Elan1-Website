@@ -188,22 +188,22 @@ export const ANSWERS_WITHOUT_US: { label: string; href: string; body: string }[]
   {
     label: "Run a governed agent",
     href: "/demo",
-    body: "The real sequence in your browser — research, grounded draft, human approval, audit, mark. Illustrative, on no real data.",
+    body: "Live sequence: research → draft → approval → audit → mark. Illustrative.",
   },
   {
     label: "Engineering & readiness",
     href: "/platform/engineering",
-    body: "The mechanisms with the limits printed beside them, including the ones that are an operator step rather than our code.",
+    body: "Mechanisms with limits named. Includes unwired features.",
   },
   {
     label: "Trust & certification posture",
     href: "/trust",
-    body: "How data is handled, what residency actually means here, and which certifications are not held.",
+    body: "Data handling, residency, and missing certifications.",
   },
   {
     label: "Pricing",
     href: "/pricing",
-    body: "How the sprint, the Launchpad and the subscription are charged, and what is metered.",
+    body: "Sprint, Launchpad, subscription. What's metered.",
   },
 ];
 
