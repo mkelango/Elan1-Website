@@ -284,7 +284,7 @@ export const EDITORIAL_RULES: EditorialRule[] = [
   },
   {
     title: "A seam says whether it is live, modelled or declared",
-    body: "Connectors ship as deterministic modelled adapters — real interface, real governance, not real data — until credentials and a human grant are wired. That is a scope conversation to have before a contract rather than a discovery to make during a demo, so every seam on this site carries its state.",
+    body: "Connectors ship as deterministic modelled adapters — real interface, real governance, not real data — until credentials and a human grant are wired. That is a scope conversation before a contract rather than a discovery during a demo, so every seam on this site carries its state.",
     href: "/platform/connectors",
     linkLabel: "How the connector fabric is stated",
   },
