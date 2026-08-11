@@ -305,15 +305,6 @@ export const NAV: NavItem[] = [
     href: "/resources",
     mega: [
       {
-        heading: "Browse by type",
-        links: [
-          { label: "Guides", href: "/resources/guides", desc: "Deep-dive howtos and best practices" },
-          { label: "Whitepapers", href: "/resources/whitepapers", desc: "Technical insights and research" },
-          { label: "Reports", href: "/resources/reports", desc: "Market analysis and case studies" },
-          { label: "eBooks", href: "/resources/ebooks", desc: "Comprehensive industry guides" },
-        ],
-      },
-      {
         heading: "Help Center",
         links: [
           { label: "Guides", href: "/resources/guides", desc: "Step-by-step howtos and best practices" },
@@ -331,7 +322,6 @@ export const NAV: NavItem[] = [
           { label: "Events", href: "/resources/events", desc: "Conferences and networking events" },
           { label: "Webinars", href: "/resources/webinars", desc: "Live learning sessions" },
           { label: "Case Studies", href: "/resources/case-studies", desc: "Real customer success stories" },
-          { label: "Slack Community", href: "/resources/community", desc: "Connect with 2000+ builders" },
         ],
       },
       {
