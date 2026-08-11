@@ -175,11 +175,11 @@ export const solutions: Solution[] = [
       "Fixed Launchpad fee, then per-seat product pricing plus an assure1 model-risk retainer. Illustrative; not financial, investment, or compliance advice.",
     wedge: "Money leaves only on human signature. Standing instructions create draft payments hardcoded by the write path. Refusals: sanctioned beneficiary, amount exceeding ledger balance, unverified customer.",
     problem: [
-      "A standing instruction is the quiet way an authorization rule gets bypassed. Automate the paperwork and the signature tends to go with it — the NACH mandate that fires on the 5th stops being a proposal and becomes a payment.",
-      "Days-past-due and NPA status are correct at the moment they are written and wrong the next morning. Stored, they leave a non-performing loan reporting itself as current, with no write to trigger a recompute.",
-      "A KYC status the bank cannot date gets read as compliant. Meanwhile the mandates and open loans on that identity keep moving money the bank can no longer vouch for.",
-      "A balance that is stored rather than derived drifts from the ledger beneath it, and the payment approved against it was approved against a number nobody recomputed.",
-      "Customer identifiers travel with a hand-off. A PAN or an Aadhaar ends up in a CRM lead or a ledger posting that nobody ever classified as a banking record.",
+      "Standing instructions that fire automatically bypass the authorization signature.",
+      "Stored NPA status drifts from the ledger the next day with no recompute trigger.",
+      "Expired KYC status reads as compliant while mandates continue moving money.",
+      "Stored balance drifts from the ledger and payments approve against stale numbers.",
+      "Customer identifiers leak into CRM and ledger records via hand-offs.",
     ],
     composedOfNote: "bank1 composes sales1, finance1, service1, project1, insight1; adds banking record: customer, KYC, account, transaction ledger, payment, loan, credit assessment, EMI schedule, term deposit, standing instruction, attestations.",
     ownRecords: [
