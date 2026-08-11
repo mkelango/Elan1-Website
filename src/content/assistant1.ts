@@ -76,7 +76,7 @@ export const ASSISTANT_CAPABILITIES: AssistantCapability[] = [
   {
     title: "Built for the channels, live in the console",
     description:
-      "It runs in the in-product console today. Slack, Teams and WhatsApp are built against the same governed spine, and their outbound send is currently a modelled connector — recorded rather than dispatched — until the channel credentials are configured. Voice and meetings are a deterministic sandbox on the same basis. The gates live in the platform rather than in the chat window, so a channel going live changes the transport and not the governance.",
+      "Console live now; Slack, Teams, WhatsApp built on same governed spine. Gates in platform, not chat window.",
   },
   {
     title: "A Trust Mark it can fail",
