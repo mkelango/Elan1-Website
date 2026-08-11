@@ -285,11 +285,11 @@ export const solutions: Solution[] = [
       "Fixed Launchpad fee, then per-claim/seat pricing plus a run1 retainer. Illustrative; not insurance, financial, or compliance advice.",
     wedge: "Coverage-grounded adjudication enforced at approval. Claim approval requires active policy AND remaining coverage > 0, both computed live. Payout capped to min(asked, remaining).",
     problem: [
-      "Coverage lives in a policy document and the payment lives in a ledger, with nothing in between that can refuse a payout the policy no longer covers.",
-      "A fraud signal and a denial are different decisions, and any engine able to set a claim to 'denied' can quietly collapse them into one.",
-      "Settlement and loss ratios get typed into a review deck before anyone can point at the claims they were counted from.",
-      "A prohibited rating factor gets caught at quote, then re-enters through a mid-term endorsement or a renewal that nobody re-checked.",
-      "A diagnosis, an ICD code or a prescription travels along with the claim into the invoice, the investigation project and the dashboard, because nothing at the boundary is looking at field names.",
+      "Coverage in policy documents and payments in ledgers have no refusal between them.",
+      "Fraud signals and denials can collapse into a single automated decision.",
+      "Settlement ratios typed into reviews cannot be traced to source claims.",
+      "Prohibited rating factors slip through mid-term endorsements and renewals.",
+      "Diagnosis and prescription data leak into invoices, projects, and dashboards.",
     ],
     composedOfNote: "insure1 composes service1, finance1, sales1, insight1, project1; adds payer record: policyholder, product, quote, policy, claim, underwriting, premium, endorsement, renewal, attestations.",
     ownRecords: [
