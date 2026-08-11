@@ -748,14 +748,14 @@ export const products: Product[] = [
     hero: {
       headline: "A marketing workforce that cannot publish on its own.",
       subhead:
-        "Sixteen agents over market1's own marketing system of record — campaigns, content, journeys, segments, pages, events, attribution and budgets. Publish, schedule-social and send-newsletter are declared consequential, so the runtime routes them to a person even when the agent never asked.",
+        "16 agents over marketing system: campaigns, content, journeys, segments, pages, events, attribution, budgets. Publish, schedule-social, send-newsletter routed to person.",
       primaryCta: "Book a demo",
     },
     problem: [
-      "Drafting got fast. Review did not — it is a spreadsheet and someone's memory.",
-      "Brand voice lives in a PDF, so tone drifts across teams, markets and languages.",
-      "Tracing a campaign to won revenue means exporting four systems and trusting the joins.",
-      "An opt-out is recorded in one system and honoured in another — if the send path checks.",
+      "Drafting fast. Review slow — spreadsheet and memory.",
+      "Brand voice in PDF — tone drifts across teams, markets, languages.",
+      "Tracing campaign to revenue: export four systems, trust joins.",
+      "Opt-out recorded one place, honoured another.",
     ],
     capabilities: [
       {
