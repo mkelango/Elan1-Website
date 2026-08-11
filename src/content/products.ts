@@ -191,32 +191,32 @@ export const products: Product[] = [
       {
         title: "answer — grounded, cited answers",
         description:
-          "Answers only from retrieved knowledge and cites every claim; where the knowledge base does not support an answer it says so. Its entire tool grant is the knowledge seam — it cannot act on a record. One of the four functions enabled in the launch wave.",
+          "Answers from knowledge only, cites every claim. Says so if unsupported.",
       },
       {
         title: "resolution — the case owner",
         description:
-          "Owns the conversation across the helpdesk, CRM and knowledge seams, in the case's own language. Its draft lands marked as needing a send; a person sends it. Consequential agents are off by default until an operator enables them.",
+          "Owns helpdesk, CRM, knowledge seams. Draft marked for send; person sends.",
       },
       {
         title: "triage_routing and escalation — the SLA spine",
         description:
-          "Triage classifies intent, urgency and sentiment, routes to a team under capacity and starts the SLA clock — read and route only. Escalation fires on a breach and opens a human ticket.",
+          "Classifies intent, urgency, sentiment. Routes to available team, starts SLA clock.",
       },
       {
         title: "Deflection and governed resolution",
         description:
-          "Self-service answers only above a confidence floor. Below it the endpoint routes to a human with the reason \"no confident KB match\".",
+          "Self-service above confidence floor. Below: routes to human.",
       },
       {
         title: "quality and insight_voc — scorecards and upstream fixes",
         description:
-          "Both read-only: one scores resolutions, the other clusters cases into upstream fixes. Scorecards join a survey to the assignee at read, never stored.",
+          "Scores resolutions, clusters into upstream fixes. Scorecards join survey to assignee at read.",
       },
       {
         title: "knowledge_author — the corpus, kept honest",
         description:
-          "Sweeps weekly for gaps and drafts articles from resolved cases. Publishing is a separate human decision — the corpus is what the answer agent cites.",
+          "Weekly sweep for gaps, drafts articles from resolved cases.",
       },
     ],
     outcomes: [
