@@ -483,51 +483,51 @@ export const COMPARISONS: Comparison[] = [
       {
         dim: "Where the record lives",
         them:
-          "In the suite. This is the comparison where that is true of both sides, and it is the reason these are the closest comparators on this page.",
+          "Suite. This comparison: both sides true; closest comparators.",
         us:
-          `In elan1 — ${factValue("systemsOfRecord")} systems of record, ${factValue("objectTypes")} typed object types, and ${factValue("crossAppSagas")} governed cross-application workflows in which each step evaluates the receiving application's own gate rather than inheriting the caller's.`,
+          `${factValue("systemsOfRecord")} systems, ${factValue("objectTypes")} types, ${factValue("crossAppSagas")} workflows. Each step evaluates receiving gate.`,
       },
       {
         dim: "What the audit proves",
         them:
-          "Change documents, field-level history and workflow approval records — mature, familiar to every auditor who has worked the suite, and queryable with tooling that has existed for decades.",
+          "Change docs, field history, workflow approvals; mature, familiar, decades-old tooling.",
         us:
-          "The prior record state, the policy that fired, the approver, and a chain in which each event hashes the one before it per tenant. Append-only is a database property rather than a convention: a trigger raises on UPDATE and DELETE, including for the table owner, and a uniqueness constraint over the tenant and the predecessor hash means the chain cannot fork. When a defect once minted events pointing at the wrong predecessor, the rows could not be corrected — so the damage was declared instead, as a signed marker naming the tenant, the first affected event and a frozen digest over the observed break set.",
+          "Prior state, policy fired, approver, per-tenant hash chain. Trigger on UPDATE/DELETE (owner); chain cannot fork.",
       },
       {
         dim: "Whether a refusal is demonstrable",
         them:
-          "Validation rules, configuration and workflow states, shown in the system by a consultant who knows where they live.",
+          "Validation rules, config, workflow states shown by consultant.",
         us:
-          "A string, raised live, in business language, on the path an agent and a person both take: \"supplier '{name}' is not on the approved-vendor list (approved={approved}, status={status}) — PO refused\" · \"receiving {qty} would bring total received to {total}, exceeding the PO's ordered qty ({ordered})\". Ask any vendor, including this one, to show you the refusal rather than the policy.",
+          "String live: \"supplier not approved-vendor (PO refused)\" · \"received qty exceeds ordered\". Show refusal, not policy.",
       },
       {
         dim: "How a vertical is delivered",
         them:
-          "Industry solutions and country localisation packs, frequently delivered through a partner as an implementation on top of the standard product — with a very large body of prior art behind each one.",
+          "Localization packs via partner on standard product.",
         us:
-          `${factValue("verticalPacks")} packs of configuration over the same built applications. A pack adds the records no horizontal application owns, its own refusals and a governance signature, and forks nothing — so a fix in a shared application reaches every industry that composes it. What a pack refuses to rebuild matters as much: case resolution, receivables ageing and satisfaction scoring already exist in the applications it composes.`,
+          `${factValue("verticalPacks")} config packs over apps. Add records no app owns, own refusals, signature. Fix reaches all composing.`,
       },
       {
         dim: "Who approves a consequential write",
         them:
-          "A person, through the suite's approval workflow — configured per document type and per threshold, and generally recorded alongside the action it authorised.",
+          "Person via approval workflow, per type/threshold.",
         us:
-          "A person, at one gate, and the approval is what executes rather than what is filed. It is single-use, bound to the exact action, and matched against a content hash of the payload the reviewer saw, so an approval given for one operation cannot be spent on another. Where a writer flags a write maker-checker — the payment release and the commerce refund today — segregation of duties lives in that same gate, and the administrator role does not lift it.",
+          "Person at one gate; approval executes not files. Single-use, bound to action, payload-hash match. Maker-checker segregates.",
       },
       {
         dim: "What happens on rollback or incident",
         them:
-          "Transport and release management, sandbox and quality landscapes, reversal documents and a very deep operational playbook — plus, for the open-source suites, the ability to read and patch the code yourself.",
+          "Release management, sandboxes, reversal docs, playbook. Open-source: read/patch yourself.",
         us:
-          "Cross-application workflows are compensating rather than optimistic: if invoicing fails after a shipment exists, the shipment is voided and the order reverts to confirmed rather than leaving a half-landed saga. One admin action suspends an application's agent fleet immediately, preserving the enabled set. Stated limit: that stop covers the agent fleet, not the application's direct writes to its own store.",
+          "Compensating workflows: invoicing fails after shipment—void and revert. One suspend immediate, preserves enabled set. Stops agents.",
       },
       {
         dim: "How an agent reaches production",
         them:
-          "Through the suite's own release process — the assistant ships with the product, and the customer governs it with the platform's roles and authorisation objects.",
+          "Suite release; customer governs with roles/auth objects.",
         us:
-          `Through an eval gate, then a wave. \"eval '{id}' did not pass — no Trust Mark\" · \"eval '{id}' scored ZERO cases — an empty battery is not evidence, no Trust Mark\". ${factValue("agentsRegistered")} agents are registered and ${factValue("agentsEnabled")} are enabled in the current wave, per tenant and per function.`,
+          `Eval gate then wave. \"did not pass—no Mark\" · \"scored ZERO—not evidence, no Mark\". ${factValue("agentsRegistered")} registered, ${factValue("agentsEnabled")} enabled.`,
       },
     ],
     whereTheyLead: [
