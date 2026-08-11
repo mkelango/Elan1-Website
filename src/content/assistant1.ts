@@ -66,7 +66,7 @@ export const ASSISTANT_CAPABILITIES: AssistantCapability[] = [
   {
     title: "It watches itself",
     description:
-      "Two agents, not one: a router that answers, and an advisor that reviews the answering — flagging a possible fabrication, an ungated action path, an insecure channel, or drifting satisfaction, for a human to look at.",
+      "Two agents: router answers, advisor reviews for fabrication or drift.",
   },
   {
     title: "One thread across the suite",
