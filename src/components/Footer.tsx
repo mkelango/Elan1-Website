@@ -128,7 +128,7 @@ export function Footer() {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:grid-cols-5">
+          <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:grid-cols-6">
             {cols.map((c) => (
               <div key={c.heading}>
                 <p className="font-mono text-[10px] uppercase tracking-kicker text-muted">{c.heading}</p>
