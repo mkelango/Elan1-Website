@@ -158,7 +158,7 @@ export interface Consequence {
 export const WHAT_FOLLOWS: Consequence[] = [
   {
     title: "An approval is spent, not displayed",
-    body: "A human approval is not a tick beside the action. The token is bound to the action and to a content hash of the exact payload, and it is consumed on use — so an approval granted for one operation cannot be spent on another, and a re-post of the same request with the same idempotency key returns the stored result rather than executing twice. On a request flagged for segregation of duties the requester cannot resolve their own request, and the administrator role does not bypass that, because it is a control rather than a permission.",
+    body: "The token is bound to the action and to a content hash of the exact payload, and it is consumed on use — so an approval granted for one operation cannot be spent on another, and a re-post with the same idempotency key returns the stored result rather than executing twice. Where segregation of duties applies, the requester cannot resolve their own request, and the administrator role does not bypass it: it is a control, not a permission.",
   },
   {
     title: "Consequence is derived from what an agent holds",
