@@ -108,22 +108,11 @@ export default function Concept() {
         }}
       />
 
-      {/* The shift */}
-      <Section tone="paper">
-        <SectionHead kicker={SHIFT.kicker} title={SHIFT.headline} lede={SHIFT.body} />
-        <div className="mt-10 grid gap-4 md:grid-cols-3">
-          {SHIFT.points.map((p, i) => (
-            <Reveal key={p.title} delay={i * 0.05}>
-              <div className="h-full rounded-card border border-line bg-surface p-6">
-                <h3 className="font-display text-lg font-bold text-ink">{p.title}</h3>
-                <p className="mt-2 text-sm text-slate">{p.body}</p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </Section>
-
-      {/* Define it: copilot vs agent */}
+      {/* Define it: copilot vs agent.
+          The former "The shift" band opened here and restated the hero subtitle almost verbatim
+          (SHIFT.headline "Software answered questions. Agents do the work." under a hero that already
+          says "Software waited for instructions for forty years. Agents do the work."), and its third
+          card was a "Why now" the dedicated Why-now band below owns. SHIFT still renders on Home. */}
       <Section tone="mist">
         <SectionHead
           kicker="The definition"
