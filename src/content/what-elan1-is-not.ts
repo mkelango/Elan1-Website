@@ -100,7 +100,7 @@ export const NOT_CLAIMS: NotClaim[] = [
       "systemsOfRecord",
     )} systems of record and ${factValue(
       "objectTypes",
-    )} typed object types sit behind governed writers, and a consequential change takes the same path regardless of who asked for it: policy is evaluated, the change is routed to a human, the audit entry is written, and the approval, the write and the record land in one transaction on one spine rather than in three systems joined by a trace id. The assistant is a surface onto that spine, not a layer on top of it — when it acts, it acts through the owning app's own gate.`,
+    )} typed object types sit behind governed writers, and on the governed write path a consequential change takes the same route regardless of who asked for it: policy is evaluated, the change is routed to a human, the audit entry is written, and the approval, the write and the record land in one transaction on one spine rather than in three systems joined by a trace id. How much of the platform that path covers is a limit of its own, stated below rather than assumed here. The assistant is a surface onto that spine, not a layer on top of it — when it acts, it acts through the owning app's own gate.`,
     why:
       "The honest cost is the size of the commitment. A record you own is a record you migrate onto, with the integration work, the data mapping and the change management that implies — measured in an engagement, not an afternoon. A chat panel is genuinely faster to adopt. It is also, structurally, unable to refuse a write, because it does not hold the write.",
     accent: ACCENT.teal,
