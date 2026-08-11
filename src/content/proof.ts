@@ -276,12 +276,9 @@ export const PROOF: CaseStudy[] = [
     industry: "Banking",
     domain: "Money",
     app: "bank1 · finance1 + service1",
-    before:
-      "Automating the paperwork quietly automates the authorization. A mandate that runs on a schedule becomes the route around the signature, and because it was approved once as a policy it is never approved again as a payment. The available balance the debit is checked against is a stored field that something else is responsible for keeping true.",
-    after:
-      "Running a mandate creates a payment fixed to draft through bank1's own governed writer, and the audit row records that nothing executed. The payments desk then shows those machine-drafted rows rather than filtering them out — hiding them from the human's queue would rebuild the same bypass on the read side. The gates run at execute, not at draft, and the balance they check is recomputed from the transaction ledger rather than read from a field.",
-    guarantee:
-      "Three refusals stand in front of the money, verbatim: \"sanctions / AML: a human never moves money to a sanctioned / blocked beneficiary (refused: {marker})\" · \"a payment may not exceed the account's grounded available balance\" · \"a payment can't execute from an account whose customer is not KYC-verified\". A related refusal guards the input rather than the output: a loan disbursement with a zero tenor is refused because it would generate an empty repayment schedule, leaving its outstanding, days-past-due and classification all at a structural zero. Stated limit: what is enforced here is the authorization, on bank1's own banking record. This is not a connection to a settlement network.",
+    before: "Mandate auto-approved once; balance checked against stale stored field.",
+    after: "Mandate drafts only, never executes. Balance recomputed from ledger.",
+    guarantee: "\"sanctions/AML: human never moves to blocked beneficiary\" · \"payment may not exceed grounded balance\" · \"KYC-verified required\".",
     trustMark: "bank1.kyc_aml_triage",
     accent: ACCENT.clay,
   },
