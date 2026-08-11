@@ -263,43 +263,44 @@ export const NAV: NavItem[] = [
     },
   },
   {
-    label: "Platform",
-    href: "/platform",
+    /**
+     * PROOF — the Customers menu every comparator runs, replaced by the one elan1 can honestly
+     * fill. There are no nameable customers, and an empty "Customer stories" row advertises the
+     * absence louder than no row at all. Do NOT add one until a named, consented design partner
+     * exists; when one does, it is a single row here and nothing else about this menu changes.
+     *
+     * "See it refuse" leads because it is the most differentiated thing on the site. A comparator
+     * that sits on top of someone else's record has nothing to refuse with — the refusal demo is
+     * a capability, not a claim, and content/proof.ts already holds the scripts.
+     */
+    label: "Proof",
+    href: "/resources/proof",
     mega: [
       {
-        // DERIVED — enterprise1 (the control plane) plus every platform pillar from services.ts, in
-        // LIFECYCLE order: plan it (strategy1) → build it (agent1) → prove it (assure1) →
-        // operate it (run1). Everything under Platform is something you run, so every pillar here
-        // carries the "1"; Resources is content and learning, and uses plain English.
-        heading: "The platform — what it runs on",
+        heading: "See it refuse",
         links: [
-          { label: "enterprise1", href: "/platform/enterprise1", desc: "The control plane: governance, identity, audit, rollout", accent: "#b9603f" },
-          { label: "assistant1", href: "/platform/assistant1", desc: "The governed central assistant — it proposes, the app decides", accent: "#5ad1c0" },
-          ...platformPillars.map((s) => ({
-            label: s.name,
-            href: servicePath(s),
-            desc: s.tagline,
-            accent: s.accent,
-          })),
-          { label: "Platform overview", href: "/platform", desc: "How the control plane and the pillars fit" },
+          { label: "Governed patterns", href: "/resources/proof", desc: "The agent stopped, the policy that fired, and the refusal it raised — verbatim", accent: "#3fae6b" },
+          { label: "Trust Center", href: "/trust", desc: "Principles, governance signatures, security and certification posture", accent: "#e0656d" },
+          { label: "What elan1 is NOT", href: "/what-elan1-is-not", desc: "The limits, published — including the ones that cost us", accent: "#8a8f98" },
+          { label: "Diagram register", href: "/resources/diagrams", desc: "Every blueprint, what ships behind it, and what we withhold" },
         ],
       },
       {
-        heading: "How it holds up",
+        heading: "Compare",
         links: [
-          { label: "Engineering & readiness", href: "/platform/engineering", desc: "Identity, isolation, audit, retention, DR — and the limits, stated" },
-          { label: "Connectors", href: "/platform/connectors", desc: "Typed, least-privilege seams — credential-gated, never pre-connected" },
-          { label: "Verticals are config", href: "/platform/verticals-are-config", desc: "Ten industries, zero forked application code" },
-          { label: "Governance — three layers", href: "/platform/governance", desc: "Defense-in-depth, provable & exportable" },
+          { label: "vs Salesforce Agentforce", href: "/compare/agentforce", desc: "They govern the call inside Salesforce's record; elan1 owns the record" },
+          { label: "vs Microsoft Copilot", href: "/compare/copilot", desc: "A copilot suggests; elan1 acts under a gate" },
+          { label: "vs Glean", href: "/compare/glean", desc: "Enterprise search and context, vs enterprise ontology and a governed write" },
+          { label: "vs SAP · Odoo · Frappe", href: "/compare/erp-suites", desc: "AI-native by construction, vs AI bolted onto a 1990s data model" },
+          { label: "vs building it yourself", href: "/compare/build-it-yourself", desc: "What a builder platform makes you re-implement" },
         ],
       },
-      { heading: "The approach", links: APPROACH_LINKS.slice(0, 4) },
     ],
     featured: {
-      title: "Plan it. Build it. Prove it. Operate it.",
-      body: "Products are the five categories you run your business on. The platform is what they run on — one control plane, the engagement that plans the work, and the pillars that build, prove and operate it.",
-      href: "/platform",
-      cta: "Explore the platform",
+      title: "An agent tried to move money it wasn't allowed to move.",
+      body: "Here is the policy that stopped it, the person who was asked, and the receipt. Every comparison on this site concedes where the other side leads — a comparison with no concessions is marketing.",
+      href: "/resources/proof",
+      cta: "See it refuse",
     },
   },
   {
@@ -311,7 +312,7 @@ export const NAV: NavItem[] = [
         links: [
           { label: "Insights", href: "/resources/insights", desc: "Agentic transformation, per layer & vertical" },
           { label: "Diagram library", href: "/resources/diagrams", desc: "See the systems we build" },
-          { label: "Playbooks", href: "/resources/playbooks", desc: "Gated guides & roadmaps" },
+          { label: "Playbooks", href: "/resources/playbooks", desc: "Published in full, no form in the way" },
         ],
       },
       {
@@ -320,6 +321,18 @@ export const NAV: NavItem[] = [
           { label: "Governed patterns", href: "/resources/proof", desc: "Before / after, and the guarantee each one carries" },
           { label: "ROI calculator", href: "/for/scaleup", desc: "Size the value, lite" },
           { label: "Glossary", href: "/resources/glossary", desc: "The agentic vocabulary" },
+        ],
+      },
+      {
+        // elan1 is MCP-native and the site never said so — a differentiator left on the floor while
+        // every comparator ships a Developers surface. Only routes that exist are linked; anything
+        // that ships with the developer preview is stated as text on the page, never as a link,
+        // because a developer who hits a 404 does not come back.
+        heading: "Build",
+        links: [
+          { label: "Developers", href: "/developers", desc: "The SDK contract, the MCP connector fabric, and the core surfaces" },
+          { label: "Connectors", href: "/platform/connectors", desc: "Typed, least-privilege seams — credential-gated, never pre-connected" },
+          { label: "Engineering & readiness", href: "/platform/engineering", desc: "Identity, isolation, audit, retention, DR — and the limits, stated" },
         ],
       },
       {
