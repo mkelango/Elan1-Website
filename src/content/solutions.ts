@@ -502,7 +502,7 @@ export const solutions: Solution[] = [
       "Subscriber identity and behaviour — IMSI, IMEI, ICCID, call-detail records, a location trace, intercept content — travel sideways the moment a telecom record is handed to a finance or analytics system.",
       "Activation runs ahead of verification: a circuit goes live for an enterprise account whose CAF status nobody checked, and a number or IP block gets allocated twice.",
     ],
-    composedOfNote: "telco1 composes five suite apps unchanged — service1 for the enterprise care queue, finance1 for the ledger, sales1 for the pipeline, project1 for investigations, insight1 for analytics — and forks none of them; on top it adds the carrier reference layer none of them holds (account, product, circuit, service order, SLA, incident, OSS resource, usage, service credit and their attestations) plus the write-path guards that gate every act on it.",
+    composedOfNote: "telco1 composes service1, finance1, sales1, project1, insight1; adds carrier record: account, product, circuit, service order, SLA, incident, OSS resource, usage, service credit, attestations.",
     ownRecords: [
       "Account",
       "Product",
