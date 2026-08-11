@@ -321,19 +321,19 @@ export const COMPARISONS: Comparison[] = [
       {
         title: "Consent is checked at the send, against the recipient being written to",
         body:
-          "Not when the list was built — the one moment a consent check is guaranteed to be stale by the time the message goes. The gate lives in the core's channel layer, so it applies to the channels rather than to one application's send button: \"blocked — {target_type} '{target_id}' has opted out of email; the send was not dispatched\". A human confirm still sits on top; the gate narrows what reaches the confirm, it does not replace it.",
+          "Not at list build. Gate in core's channel layer: \"blocked—{target} opted out; send not dispatched\". Confirm still on top; gate narrows what reaches it.",
         patternId: "consent-send",
       },
       {
         title: "A refusal by shape, not by a flag on the request",
         body:
-          "A pulse survey response carrying an employee identifier is refused at the data layer, and the refusal names the identifiers it found: \"a pulse response must be ANONYMOUS — it cannot carry an employee identifier ({identifiers}); data-minimisation refusal (grounded)\". The check reads what the record actually carries rather than a setting that says the record is anonymous — so the form, a bulk import and an agent all meet the same rule.",
+          "Pulse response carrying employee ID refused at data layer: \"must be ANONYMOUS—cannot carry ID; data-minimisation refusal\". Reads actual record, not setting.",
         patternId: "pulse-anonymity",
       },
       {
         title: "Staged enablement is the control, and the count is published both ways",
         body:
-          `${factValue("agentsRegistered")} agents registered, ${factValue("agentsEnabled")} enabled in the current wave. The remainder are deliberately off, not missing. The gate runs before an agent acts and refuses by name — \"{app}.{function} not enabled for tenant {tenant}\" — so an operator reads a configuration gap rather than a silent nothing, and a rollout is reversible one function at a time.`,
+          `${factValue("agentsRegistered")} registered, ${factValue("agentsEnabled")} enabled this wave; remainder deliberately off. Refused by name: \"{app}.{function} not enabled\". Rollout reversible per function.`,
         patternId: "agent-enablement",
       },
     ],
