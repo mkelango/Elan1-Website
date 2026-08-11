@@ -81,7 +81,7 @@ export const ASSISTANT_CAPABILITIES: AssistantCapability[] = [
   {
     title: "A Trust Mark it can fail",
     description:
-      "assistant1 carries its own eval-gated Trust Mark across seven sets, with an adversarial floor: the mark is refused unless the live classifier blocks every one of seven injection attacks with no false positives. The spine endpoint recomputes two invariants over live state — how many action paths are ungated, and how many answer paths are unscreened — and fires a canonical jailbreak at the classifier on each read.",
+      "Eval-gated mark across 7 sets; fires a canonical jailbreak on each read.",
   },
 ];
 
