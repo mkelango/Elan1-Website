@@ -276,10 +276,10 @@ const SOURCES: PlaybookSource[] = [
       },
       {
         title: "Set the autonomy ceiling before you loosen anything",
-        body: "The default for an unconfigured action is a human approval on every consequential run. A tenant may opt in per action class to a graduated tier: automatic within a value tolerance and a budget, escalating to a human above it, and a hard ceiling above which the action is refused outright rather than queued. Every path is audited, the automatic one included. Set the tolerance from what a reviewer could genuinely re-examine after the fact, not from what felt safe in a workshop.",
+        body: "Default: human approval on every consequential run. Graduated tiers: automatic within tolerance, escalate above it, refuse at hard ceiling. Set tolerance from what a reviewer could genuinely re-examine, not from workshop feeling.",
         decision:
-          "The value tolerance and the hard ceiling for each action class you loosen — both numbers, or neither.",
-        trap: "Loosening because the queue is long. A long queue is information about the tolerance and about staffing; automation chosen by fatigue is not a control decision.",
+          "The value tolerance and hard ceiling for each action class you loosen — both or neither.",
+        trap: "Loosening because the queue is long. Automation by fatigue is not a control decision.",
       },
       {
         title: "Test the audit chain on an ordinary Tuesday",
