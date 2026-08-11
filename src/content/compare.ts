@@ -361,51 +361,51 @@ export const COMPARISONS: Comparison[] = [
       {
         dim: "Where the record lives",
         them:
-          "In the source applications. Glean builds an index and a knowledge graph over them, with each source's access-control lists mirrored so retrieval cannot become an exfiltration path.",
+          "Source apps. Index and graph mirror ACLs; retrieval cannot exfiltrate.",
         us:
-          `In elan1 — ${factValue("systemsOfRecord")} systems of record with ${factValue("objectTypes")} typed object types. Reading is a different path from writing here: a read is not on the approval-and-audit path at all, which is a statement about approval and audit rather than about access.`,
+          `${factValue("systemsOfRecord")} systems with ${factValue("objectTypes")} types. Read path separate from write; statement about approval/audit.`,
       },
       {
         dim: "What the audit proves",
         them:
-          "Which agent ran, what it retrieved, what it was permitted to see, and what action it dispatched — a strong trail over retrieval and over the call.",
+          "Agent ran, retrieved, permitted to see, action dispatched—trail over retrieval and call.",
         us:
-          "The record before the change, the policy that fired, the human who approved it, and a per-tenant hash chain that recomputes offline. The append-only property is enforced at the database rather than in application code: a trigger raises on UPDATE and DELETE, including for the table owner.",
+          "Prior record, policy fired, approver, per-tenant offline-computable hash chain. Database trigger on UPDATE/DELETE (owner included).",
       },
       {
         dim: "Whether a refusal is demonstrable",
         them:
-          "Access is the enforcement point, and it is enforced faithfully: what a person cannot open, an agent acting for them cannot retrieve.",
+          "Access enforced: what person cannot open, agent cannot retrieve.",
         us:
-          "A refusal is a string on the write path, raised live, in the language of the business: \"cannot complete this batch: no material issued for {materials}. A produced unit without lot genealogy cannot be recalled — traceability is this vertical's promise, and it is kept here or nowhere.\" It appends a refused event and persists nothing.",
+          "String on write path live: \"cannot complete batch: no material issued. Unit without lot genealogy cannot recall—traceability promised here.\"",
       },
       {
         dim: "How a vertical is delivered",
         them:
-          "Vertical value comes from what is indexed — the corpus is the customer's own, so the product improves with the estate rather than with a sector module.",
+          "Value from what is indexed—corpus is customer's; improves with estate.",
         us:
-          `${factValue("verticalPacks")} packs of configuration, each adding the records the horizontal applications do not own, its own write-path refusals, and a governance signature that becomes policy. A pack that rebuilt case resolution or receivables ageing would be a fork wearing a pack's name, so it does not.`,
+          `${factValue("verticalPacks")} packs config, adds records no app owns, own refusals, signature becomes policy.`,
       },
       {
         dim: "Who approves a consequential write",
         them:
-          "The destination application. The agent's action is dispatched over a connector and the receiving system applies its own approval and permission model.",
+          "Destination app via connector; lands under app's approval/permission.",
         us:
-          "elan1, in the writer, for everything it owns — one gate that a screen, an API client and an agent all reach. The approval is single-use, bound to the exact action, and fingerprinted to the payload the reviewer actually saw.",
+          "elan1 writer gate for all owned; screen/API/agent same gate. Single-use, bound to action, payload-hash fingerprint.",
       },
       {
         dim: "What happens on rollback or incident",
         them:
-          "Disable the agent or narrow its permissions, and the underlying index keeps honouring the source systems' access rules.",
+          "Disable agent or narrow permissions; index honours source access rules.",
         us:
-          "Suspend an application's agent fleet in one action — immediate, not queued, preserving the enabled set, and it survives a restart. Stated limit: the stop reaches the agent fleet and not that application's direct writes to its own store, and we say so in the present tense rather than describing a fix that has not shipped.",
+          "Single suspend immediate, fleet stops, enabled set preserved, survives restart. Stops agents, not direct writes.",
       },
       {
         dim: "How an agent reaches production",
         them:
-          "Built in the agent builder and governed through Glean's own agent governance, over a permission-faithful index.",
+          "Built in builder, governed by Glean's agent governance, over permission-faithful index.",
         us:
-          "Through an eval gate that can fail. A Trust Mark is refused over a run that did not pass, over another tenant's run, and over a battery that scored nothing at all — because a check that scored nothing is not-measurable and never a pass. Re-running the battery revokes a mark that has drifted.",
+          "Eval gate that fails. Mark refused if run failed, other tenant, or scored nothing (not-measurable never pass). Re-run revokes drifted.",
       },
     ],
     whereTheyLead: [
