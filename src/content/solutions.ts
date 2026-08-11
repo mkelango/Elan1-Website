@@ -1036,7 +1036,7 @@ export const solutions: Solution[] = [
       "The energy1 Launchpad: a predictive asset-maintenance agent live at one site in 4–6 weeks, then operated on run1.",
     pricingNote:
       "Fixed Launchpad fee, then per-asset/site pricing plus an assure1 retainer and run1 operations. Illustrative; not engineering, safety, or financial advice.",
-    wedge: "A green attribute cannot be larger than its meter reading, and cannot be minted twice. On every rec write the MWh is DERIVED as metered generation kWh / 1000 and overwrites whatever the caller sent; a rec can only move to issued when the grounding check says the generation is backed by a real reading with kWh > 0 AND carries no rec_id yet, refused at; and on the human's K5 issuance the source generation is stamped with rec_id so the same generation can never ground a second certificate.",
+    wedge: "Green attribute derived from meter, never supplied. REC can only issue against grounded, uncertified generation; on issuance, source is stamped to prevent double-count.",
     problem: [
       "The question a grid operator asks about AI is not whether it can decide. It is what stops it from acting. An instruction that reads as advice and an instruction that trips a breaker are the same string until something refuses one of them — and refuses it on the write that only changes which asset the instruction points at.",
       "A green attribute is only as honest as the meter behind it. When the certified quantity is a number in a payload, a certificate can be issued against generation that was never metered, or against generation that has already been certified once.",
