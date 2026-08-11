@@ -616,32 +616,32 @@ export const products: Product[] = [
       {
         title: "screening — structured, job-relevant scoring",
         description:
-          "Scores a candidate against a structured rubric and returns a fit band with what matched and what is missing. It never auto-rejects, and protected attributes are not inputs.",
+          "Scores against rubric, returns fit band. Never auto-rejects. Protected attributes not inputs.",
       },
       {
         title: "payroll_runner — India statutory, computed",
         description:
-          "Assembles a run with the statutory breakdown — provident fund, state insurance, professional tax, new-regime withholding — computed from each salary structure. Running and paying are separate human gates.",
+          "Assembles run with statutory breakdown from salary structure. Running and paying separate gates.",
       },
       {
         title: "comp_planner — raises with a written basis",
         description:
-          "Drafts merit and bonus recommendations inside a cycle's budget, each with a written justification. Approval is refused if it would push committed spend, summed live, over budget.",
+          "Drafts merit and bonus recommendations with written justification. Refused if over budget.",
       },
       {
         title: "policy_qa — cited handbook answers",
         description:
-          "Answers handbook questions with citations, and routes to HR where the handbook does not cover it. Scoped never to profile the person asking.",
+          "Answers handbook questions with citations. Routes to HR if uncovered.",
       },
       {
         title: "fairness_bias_audit — fairness measured, not assumed",
         description:
-          "A weekly, read-only adverse-impact check on screen and advance rates, aggregate and privacy-safe. Fairness is measured, not assumed.",
+          "Weekly adverse-impact check on screen and advance rates. Aggregate, privacy-safe.",
       },
       {
         title: "Leave, attendance and timesheets — one record",
         description:
-          "Leave balances are computed at write time from approved requests, never trusted from the caller, and an approved timesheet's billable lines hand to project1's own gate.",
+          "Balances computed at write from approved requests. Billable lines hand to project1.",
       },
     ],
     outcomes: [
