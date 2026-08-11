@@ -212,16 +212,12 @@ export const ONTOLOGY_LAYERS: OntologyLayer[] = [
   {
     id: "pack-contract",
     name: "The pack contract",
-    what: `An industry is a manifest here, and the manifest is typed. Each of the ${factValue(
-      "verticalPacks",
-    )} packs declares which suite apps it composes, its governance signature — the policies and the eval sets that score it — its skills, its scoped connectors, and its flagship workflows, each workflow naming the agent it binds. That declaration is the contract: it is what the pack validator reads, and what the trust gate resolves when the pack is certified.`,
+    what: `${factValue("verticalPacks")} typed packs declare composed apps, policies, evals, skills, connectors, and agent-bound workflows.`,
     howItShips:
-      "A pack earns its Trust Mark only when every component it composes is itself certified, and the lockfile pins each component's content hash at that moment. Re-resolving the lock later is how drift revokes the mark: a component that changed, or lost its own certification, invalidates the composition rather than sitting inside it unnoticed. The hash covers what the pack composes, its policies, its eval sets, its skills, its connectors and the agents its workflows bind — editing any one of them produces a different hash.",
-    verified: `Read from the ${factValue(
-      "verticalPacks",
-    )} manifests themselves and from the lifecycle module that hashes them. The neighbouring page on this site renders the same manifests, including a real one in full.`,
+      "Trust Mark earned when all components certified. Lockfile pins content hash. Hash change revokes mark.",
+    verified: `Read from ${factValue("verticalPacks")} manifests and lifecycle module; one real manifest published here.`,
     limit:
-      "A declaration is only ever checked against what it itself declares — which is how one pack's manifest was once able to validate happily while describing a different vertical from the one that shipped: two composed apps where three were composed, and connectors that were not that vertical's at all. The manifests were truthed up against the implementation, and the episode is the limit worth stating: the validator proves internal consistency, not correspondence with reality. Correspondence is a review, done by a person.",
+      "Validator proves internal consistency, not reality-correspondence. Correspondence requires human review.",
     seeAlso: { label: "Verticals are config, not forks", href: "/platform/verticals-are-config" },
     accent: ACCENT.indigo,
   },
