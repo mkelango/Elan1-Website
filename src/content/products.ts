@@ -1035,32 +1035,32 @@ export const products: Product[] = [
       {
         title: "planner — the plan of record",
         description:
-          "Breaks a brief into tasks, milestones, estimates and a computed critical path, and freezes a baseline. A human accepts the plan; locking the baseline is a separate approval.",
+          "Breaks brief into tasks, milestones, estimates, critical path. Freezes baseline.",
       },
       {
         title: "scheduler — resourcing against real capacity",
         description:
-          "Allocates people within capacity, with utilisation computed from live allocations, never supplied. An allocation past full capacity goes to a human rather than silently written.",
+          "Allocates people within capacity. Over-capacity goes to human.",
       },
       {
         title: "timesheet_clerk — time that belongs to something",
         description:
-          "Captures time against a real project and task. The store refuses an entry that names no project, names a project outside this tenant, or books zero, negative or more than 24 hours in a day — and the same check runs in the store and in the governed writer. Time lands unapproved; a human approves before it can be billed.",
+          "Captures time to real project and task. Refuses no project, other tenant, zero/negative or >24h daily.",
       },
       {
         title: "biller — the client bill",
         description:
-          "Turns approved billable time into a client bill for finance1 — the amount derives from approved hours and the project's rate, never from a typed figure. It refuses unapproved time, refuses a project that is not on a billable mode, and refuses to bill at all without an explicit approval.",
+          "Approved billable time to client bill. Amount from hours and rate. Requires explicit approval.",
       },
       {
         title: "controller — the engagement money view",
         description:
-          "Rate cards, change orders, non-labour costing and the per-project P&L, plus Earned Value where schedule variance is omitted rather than invented without a baseline.",
+          "Rate cards, change orders, non-labour cost, per-project P&L, Earned Value.",
       },
       {
         title: "risk_watch and portfolio — RAID and the grounded metric",
         description:
-          "Risks, issues, decisions and actions as records with named owners, severity recomputed from probability × impact on every write rather than accepted as a label.",
+          "RAID as records with owners. Severity recomputed from probability × impact.",
       },
     ],
     outcomes: [
