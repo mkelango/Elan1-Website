@@ -535,9 +535,9 @@ const SOURCES: PlaybookSource[] = [
       },
       {
         title: "Keep the not-attested list with the receipt",
-        body: "A conformity receipt names what was attested. The honest packs also name what was not — a claim scored over an empty sample is reported as not attested rather than quietly counted as clean. An evidence pack with no not-attested section is incomplete, because it cannot tell a reader the difference between a clean result and an unexamined one, and that difference is usually the question being asked.",
+        body: "A receipt names what was attested and what was not. An evidence pack with no not-attested section is incomplete.",
         decision:
-          "Whether an unattested claim blocks go-live or is accepted with a compensating control — decided per claim, in writing.",
+          "Whether an unattested claim blocks go-live or is accepted with a compensating control.",
         trap: "Publishing coverage as a percentage without saying where the denominator came from.",
       },
     ],
