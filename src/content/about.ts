@@ -243,7 +243,7 @@ export const REFUSALS_TITLE = `The argument, in ${numberWord(
 // same defect the heading did — a numeral in prose over a list that computes its own length. The
 // sentence now describes the rule rather than counting the output.
 export const REFUSALS_NOTE =
-  "A refusal proves a guard exists in a way no adjective does. These are quoted from the platform's own code, one from each grouping of the suite, and the braces are its placeholders rather than ours. They are also the shortest description of what this company believes: the most interesting sentence an agentic system can produce is the one where it declines.";
+  "A refusal proves a guard exists in a way no adjective does. These are quoted from the platform's own code, one from each grouping of the suite, and the braces are its placeholders rather than ours. The most interesting sentence an agentic system can produce is the one where it declines.";
 
 /* ————————————————————————————————————————————————————————————————————————————————————————————
  * THE SHAPE OF THE COMPANY — derived from site.ts, so the About page and the navigation agree.
