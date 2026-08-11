@@ -367,10 +367,10 @@ const SOURCES: PlaybookSource[] = [
       },
       {
         title: "Look for the case that could have failed",
-        body: "A battery whose cases all pass over an empty sample is measuring nothing at all. The packs that handle this honestly score a claim not-measurable when the sample is empty rather than passing it, and the receipt names the claims that were not attested. When you are handed a Trust Mark receipt, read the not-attested section before the headline.",
+        body: "An empty sample measures nothing. Honest packs score a claim not-measurable when the sample is empty. Read the not-attested section first.",
         decision:
-          "Whether a not-attested claim blocks your go-live, or is accepted with a compensating control you name.",
-        trap: "Counting a mark as coverage. A mark is coverage of what was scored, and the receipt says what that was.",
+          "Whether a not-attested claim blocks your go-live, or is accepted with a compensating control.",
+        trap: "Counting a mark as coverage. A mark covers what was scored.",
       },
       {
         title: "Read the pack's boundary paragraph before its capability list",
