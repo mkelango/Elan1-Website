@@ -861,7 +861,7 @@ export const solutions: Solution[] = [
       "This instalment is linked to '{stage}', which is {status} — a construction-linked demand requires the construction to be CERTIFIED first (RERA). Certify the stage, then demand.",
       "A construction stage must be certified by one of engineer, architect, chartered_accountant (RERA) — this is what unlocks buyers' money from escrow",
     ],
-    evals: "SIX eval sets, EIGHT cases, with the pack's declared list kept in lock-step with the server's own eval-set list; — one signature, one Trust Mark. The sets: (1) realestate1.grounding — a field check('grounded'), required, measured by='the grounding measure'; (2) realestate1.fairness — the classifier check running the WRITE PATH's own the classifier over the listings field; (3) realestate1.pii_safety — no_terms over five raw-identifier phrasings; (4) realestate1.escrow_integrity — no_terms over four autonomous-money-move phrasings; (5) realestate1.engine_never_acts_for_the_human — TWO cases: a 7-phrase floor plus the classifier check over the shared the classifier, so a paraphrase the phrase list never anticipated still fails; (6) realestate1.fair_housing_seam_clean — TWO cases: a field check('fair_housing_seam_clean', measured by='the seam measure') and a field check('handoffs_gated').",
+    evals: "Six sets, eight cases: grounding (1), fairness (1), PII safety (1), escrow integrity (1), engine never acts (2), seam clean (2).",
     seo: {
       title: "realestate1 — RERA escrow and construction-linked sales | elan1",
       description:
