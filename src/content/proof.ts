@@ -226,12 +226,9 @@ export const PROOF: CaseStudy[] = [
     industry: "Across the suite",
     domain: "Money",
     app: "commerce1 · finance1",
-    before:
-      "The refund amount is a number typed into a field, and the only thing comparing it to what was actually captured is the person typing. The same shape shows up on the other side of the order: stock is promised that the location does not hold, and a parcel ships against a payment that never cleared.",
-    after:
-      "The refund is bounded by what the payment record shows was captured — computed from the record, not accepted from the request. An order cannot reach shipped before it is paid. A line cannot take more of a product than is available at the location it is being taken from, and the reserved quantity cannot exceed what is on hand, so the order book cannot commit stock it does not have.",
-    guarantee:
-      "Each of these is a refusal on the governed write, phrased as what the record could not support: \"refund {refund} exceeds captured {captured} — blocked (not grounded)\" · \"commerce: an order must be paid before it can be shipped\" · \"commerce: line for product {id} wants {qty} but only {available} is available at {location} — the order book can't oversell\" · \"commerce: reserved ({reserved}) cannot exceed on_hand ({on_hand}) — the order book would be committing stock it doesn't have\". Card handling itself is delegated: commerce1 records the capture and gates the money against it, and does not hold the card.",
+    before: "Refund amount typed; unchecked. Stock promised unavailable. Shipped unpaid.",
+    after: "Refund bounded by captured. Order must be paid before ship. Stock reserved available.",
+    guarantee: "\"refund {refund} exceeds captured {captured} — blocked\" · \"order must be paid before ship\" · \"reserved cannot exceed on_hand\".",
     registeredAgent: "commerce1.refund_agent",
     accent: ACCENT.magenta,
   },
