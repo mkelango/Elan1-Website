@@ -554,9 +554,7 @@ const SOURCES: PlaybookSource[] = [
   {
     slug: "connector-readiness-playbook",
     title: "Modelled or Live: the connector decision",
-    desc: `A seam-by-seam decision made before anyone asks for a credential — which of the ${factValue(
-      "connectors",
-    )} registered connectors must be live for your first workflow, which can stay modelled on purpose, and what a grant actually commits you to.`,
+    desc: `Which of the ${factValue("connectors")} connectors must be live for your first workflow, which can stay modelled on purpose.`,
     audience: "Integration owners, enterprise architects",
     delivery: "outline-on-this-page",
     outcome:
