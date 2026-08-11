@@ -484,10 +484,10 @@ const SOURCES: PlaybookSource[] = [
       },
       {
         title: "Know what the battery graded, as well as who it covered",
-        body: "Coverage is one question and fidelity is another. Unless the live model client is configured, the battery grades a deterministic reference response rather than a model's actual output — and the code labels it that way rather than letting a modelled run read as a live one. So there are two facts to record beside any battery result: which agents have a battery at all, and whether the run that produced this verdict spoke to a model. Neither is the whole eval surface, and it would be a mistake to read this section as if it were: each industry pack and each suite app carries its own eval battery scored at certification, and that is where most eval coverage sits. What is scarce is specifically the probe of what an agent says.",
+        body: "Coverage and fidelity are different. Unless the live model client is configured, the battery grades a deterministic reference response. Record whether the run spoke to a model.",
         decision:
-          "Whether your evidence pack records the model client the run used, not only the verdict it returned.",
-        trap: "Filing a modelled run as behavioural evidence. It is evidence about the harness, which is worth having and is not the same thing.",
+          "Whether your evidence pack records the model client the run used, not only the verdict.",
+        trap: "Filing a modelled run as behavioural evidence.",
       },
       {
         title: "Build a battery that can fail in both directions",
