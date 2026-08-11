@@ -509,7 +509,7 @@ const SOURCES: PlaybookSource[] = [
       },
       {
         title: "Expect certification to be refused for three specific reasons",
-        body: "Certification is refused unless the eval passed, unless it ran for this agent rather than a neighbouring one, and unless it belongs to this tenant — and the refusal names which of the three applied. The rule underneath is short enough to put on a wall: no eval, no Trust Mark. The second refusal exists because certifying against a run from an agent with a similar name is a thing that happens.",
+        body: "Refused unless: eval passed, ran for this agent, belongs to this tenant. No eval, no Trust Mark.",
         decision: "Who is allowed to run the certifying eval, and in which environment.",
         trap: "Assuming a passing run somewhere in the tenant is a passing run for this agent.",
       },
