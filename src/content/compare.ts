@@ -639,30 +639,30 @@ export const COMPARISONS: Comparison[] = [
       {
         dim: "Who approves a consequential write",
         them:
-          "A human-in-the-loop interrupt in the graph, which the frameworks make easy and correct. The subtle part is what the resume checks.",
+          "Human-in-loop interrupt in graph; frameworks make easy. Subtle part: resume checks.",
         us:
-          "Three conditions checked together, then the token is consumed: it is approved, it belongs to the same action, and a content hash over the resumed payload matches the hash over the payload that was approved. The identifier comes from the caller — that is the intended resume — which is precisely why the identifier cannot be the check. An earlier version of one gate asked only whether the token was approved, a question the caller's own input can answer. Both gates now run the identical three checks, and the sameness is the fix.",
+          "Three checked together then consumed: approved, same action, payload-hash match. Identifier from caller; cannot be check. Both gates identical three checks.",
       },
       {
         dim: "What happens on rollback or incident",
         them:
-          "A feature flag, a deploy, or a kill switch you wire yourself. Fast to build; the questions are whether it survives a restart and whether it restores the prior state rather than an empty one.",
+          "Feature flag, deploy, kill-switch. Fast; survives restart? Restores prior state?",
         us:
-          "Enablement is per tenant and per function, evaluated before an agent acts, with the refusal naming the application, the function and the tenant. Suspension overrides the whole enabled set immediately, identifies itself as an incident kill-switch in its own refusal text so a deliberate stop is not read as a configuration gap, preserves the enabled set so resuming restores the exact prior wave, and survives a restart — a guard over volatile state is only actually tested by a restart.",
+          "Per-tenant/function, evaluated before act, refusal names app/function/tenant. Suspend immediate, names itself incident kill-switch, preserves enabled set, survives restart.",
       },
       {
         dim: "How an agent reaches production",
         them:
-          "Your eval harness and your judgement about when it is good enough — with the risk that the harness reports a pass over a set it never populated.",
+          "Your eval harness, your call when good. Risk: passes over unpopulated set.",
         us:
-          "A promotion gate that refuses three ways: a run that did not pass, a run belonging to another tenant, and a battery that scored nothing — \"eval '{id}' scored ZERO cases — an empty battery is not evidence, no Trust Mark\". That third refusal exists because an empty battery once minted a mark here: everything held over an empty set was true, and the mark was worthless. A check that scored nothing is not-measurable, never a pass.",
+          "Promotion gate refuses: did not pass, other tenant, scored nothing (\"not evidence, no Mark\"). Empty battery once minted mark; now nothing is not-measurable.",
       },
       {
         dim: "Segregation of duties",
         them:
-          "A rule in your code, usually on the request handler, and usually correct until someone adds a second path to the same action.",
+          "Rule in code, usually request handler, breaks when second path added.",
         us:
-          "In the approval gate, where every path converges — and armed per write rather than globally, which is the part worth copying: the writer flags the write maker-checker, and the gate then refuses a same-principal sign-off. \"segregation of duties — {principal} requested approval '{id}' and cannot also approve it; a different approver is required\". The administrator role does not bypass it, because segregation of duties is a control and not a permission — a role that can override it has removed it. Stated limit: two writes carry the flag today, the payment release and the commerce refund; an unflagged approval is unaffected.",
+          "In approval gate where paths converge, per-write not global. Writer flags; gate refuses same-principal sign-off. Admin does not bypass. Two writes carry flag today.",
       },
     ],
     whereTheyLead: [
