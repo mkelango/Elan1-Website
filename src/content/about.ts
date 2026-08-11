@@ -179,7 +179,7 @@ export const WHAT_FOLLOWS: Consequence[] = [
   },
   {
     title: "No eval, no mark",
-    body: "A Trust Mark is minted by one function, and that function refuses four ways: an eval run it cannot find, a run that scored zero cases, a run that did not pass, and a run belonging to another tenant. The scope is worth having in the same paragraph as the claim: the default certification for an agent is a structural declaration check — it reads what an agent declares, not how it behaves — and the behaviour battery sits over a specific, named set of six agents rather than over the whole roster.",
+    body: "A Trust Mark is minted by one function, and that function refuses four ways: an eval run it cannot find, one that scored zero cases, one that did not pass, and one belonging to another tenant. The scope belongs in the same paragraph as the claim: the default certification for an agent is a structural declaration check — it reads what an agent declares, not how it behaves — and the behaviour battery covers a named set of six agents rather than the whole roster.",
   },
   {
     title: "A mark is evidence about the model it was earned on",
