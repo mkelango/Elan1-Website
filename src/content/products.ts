@@ -362,22 +362,22 @@ export const products: Product[] = [
       },
     ],
     outcomes: [
-      "A close you can defend: the period cannot lock while a gating task is open",
-      "The duplicate vendor invoice is refused at the write, not found on the bank statement",
-      "Statements that cannot disagree with the ledger, because they are computed from it",
-      "Automation you enable one function at a time, and disable the same way",
+      "Close defensible; period won't lock while gating task open",
+      "Duplicate vendor invoice refused at write",
+      "Statements cannot disagree with ledger",
+      "Enable, disable automation one function at a time",
     ],
     integrations: [
-      "The ERP seam — the shared accounting connector. finance1 declares none of its own.",
-      "India statutory gateways — one port, two adapters, each provider's mode surfaced.",
-      "Bank feed — a line already ingested is skipped, so re-pulling is safe.",
-      "supply1 purchase orders — read for the three-way match before a bill is approved.",
-      "A governed tool surface — audit-prep runs through the same gates as the console.",
+      "ERP seam — shared accounting connector",
+      "India statutory gateways — one port, two adapters",
+      "Bank feed — idempotent, skips already-ingested lines",
+      "supply1 purchase orders — read for three-way match",
+      "Governed tool surface — audit-prep through same gates",
     ],
     suiteFit:
-      "finance1 is where the suite settles. service1, project1, people1, sales1 and commerce1 each post their own legs, tagged with their source and landing through finance1's governed writer, never a forked ledger. All ten industry packs settle into the same ledger, and a guard test fails structurally if a pack posts a finance leg without declaring the dependency.",
+      "finance1 where suite settles. service1, project1, people1, sales1, commerce1 each post legs through finance1's governed writer. All ten industry packs settle here.",
     trust:
-      "Money does not move on an agent's say-so, and the refusals are in code rather than in a policy document. Beyond those listed here, the write path also blocks a duplicate vendor invoice number, a bill approved without a three-way match, an invoice that would breach a customer's credit limit, and a period lock while reconciliations are open. Human-gated: releasing a payment, any credit or debit note, a ledger posting, a reconciliation close, a close task, a GST filing, a receivable write-off, an expense approval, an asset disposal, any delete. Drafting is immediate and audited. Every tool-using agent carries the not-financial-advice disclosure skill, and the safety eval scores advice by shape rather than by a phrase list — an output carrying no prose is reported as not measurable rather than as passed.",
+      "Money doesn't move on agent say-so. Refusals in code. Human-gated: payment release, credit/debit notes, ledger posting, reconciliation close, GST filing, write-off, expense approval, asset disposal. Drafting immediate and audited.",
     workforce: {
       registered: 15,
       launchWave: 6,
