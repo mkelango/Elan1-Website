@@ -313,7 +313,6 @@ export const NAV: NavItem[] = [
           { label: "Playbooks", href: "/resources/playbooks", desc: "Implementation guides from discovery to scale" },
           { label: "Whitepapers", href: "/resources/whitepapers", desc: "Technical insights and research" },
           { label: "Reports", href: "/resources/reports", desc: "Market analysis and case studies" },
-          { label: "Glossary", href: "/resources/glossary", desc: "The agentic vocabulary" },
         ],
       },
       {
@@ -324,6 +323,7 @@ export const NAV: NavItem[] = [
           { label: "Case Studies", href: "/resources/case-studies", desc: "Real customer success stories" },
           { label: "Training", href: "/resources/academy", desc: "Self-paced modules and certification" },
           { label: "Certification", href: "/resources/academy", desc: "Professional agent builder certification" },
+          { label: "Glossary", href: "/resources/glossary", desc: "The agentic vocabulary" },
         ],
       },
       {
