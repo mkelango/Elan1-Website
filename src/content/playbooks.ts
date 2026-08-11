@@ -245,7 +245,7 @@ const SOURCES: PlaybookSource[] = [
     audience: "Risk, compliance, security leaders",
     delivery: "outline-on-this-page",
     outcome:
-      "A control narrative an auditor can follow: the gate on each consequential action, the approver split, the evidence the chain holds, and a written list of the limits to carry in your risk register from day one.",
+      "A control narrative: the gates, approver splits, audit evidence, and limits to carry in your risk register.",
     accent: "#e0656d",
     steps: [
       {
