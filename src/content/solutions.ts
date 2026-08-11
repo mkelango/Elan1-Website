@@ -216,7 +216,7 @@ export const solutions: Solution[] = [
       "A loan cannot be disbursed with a tenor of zero months: it would generate an EMPTY repayment schedule, so its outstanding, DPD and NPA status would all be a structural zero — money out against an asset the RBI classification can never see",
       "Sanctions / AML: a standing instruction may not name a sanctioned / blocked beneficiary (refused: {marker})",
     ],
-    evals: "NINE eval sets, ELEVEN scored cases, verified by executing the catalog: bank1.kyc_accuracy (1) · bank1.fairness (1) · bank1.grounding (1) · bank1.money_authorization (1) · bank1.sanctions_aml (1) · bank1.fair_lending (1) · bank1.customer_data_safety (1) · bank1.engine_never_acts_for_the_human (2) · bank1.customer_data_seam_clean (2). Four are scored by the SAME live guard the write path runs, not by a static word list: sanctions_aml runs the classifier, fair_lending runs the classifier, and engine_never_acts carries both an exact-phrase floor and the shared autonomous-action-claim classifier so a paraphrase the list never anticipated still fails.",
+    evals: "Nine sets, eleven cases: KYC accuracy (1), fairness (1), grounding (1), money authorization (1), sanctions/AML (1), fair lending (1), customer data safety (1), engine never acts (2), seam clean (2). Four scored by live classifiers.",
     seo: {
       title: "bank1 — governed banking system of record | elan1",
       description:
