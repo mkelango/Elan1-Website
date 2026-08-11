@@ -28,7 +28,7 @@ export const ASSISTANT_SPINE: { step: string; name: string; body: string }[] = [
   {
     step: "01",
     name: "Screen",
-    body: "Free text is the platform's most exposed surface, so it is screened first. Every message is checked for prompt injection by the same classifier the rest of the platform uses, and a detected override attempt is refused in real time rather than logged for later. The screen sits in the platform, so it applies the same way whichever channel the message arrived on.",
+    body: "Every message screened for prompt injection; detected overrides refused in real time.",
   },
   {
     step: "02",
